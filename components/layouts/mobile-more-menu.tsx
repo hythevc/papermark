@@ -13,6 +13,7 @@ import {
   XIcon,
 } from "lucide-react";
 
+import { BRAND } from "@/lib/brand";
 import { useIsAdmin } from "@/lib/hooks/use-is-admin";
 import { useSelfMembership } from "@/lib/hooks/use-self-membership";
 import { usePlan } from "@/lib/swr/use-billing";
@@ -268,7 +269,7 @@ export function MobileMoreMenu({ open, onClose }: MobileMoreMenuProps) {
               onClick={onClose}
               className="flex w-full items-center justify-center rounded-lg bg-foreground px-4 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
             >
-              Upgrade Papermark
+              Upgrade {BRAND.name}
             </Link>
           </div>
         )}

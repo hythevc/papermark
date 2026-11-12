@@ -19,18 +19,46 @@ function isAnalyticsPath(path: string) {
   return pattern.test(path);
 }
 
+function hostname(value: string | undefined): string | undefined {
+  if (!value) return undefined;
+  try {
+    return new URL(value.includes("://") ? value : `https://${value}`).hostname
+      .toLowerCase()
+      .replace(/\.$/, "");
+  } catch {
+    return undefined;
+  }
+}
+
 function isCustomDomain(host: string) {
-  return (
-    (process.env.NODE_ENV === "development" &&
-      (host?.includes(".local") || host?.includes("papermark.dev"))) ||
-    (process.env.NODE_ENV !== "development" &&
-      !(
-        host?.includes("localhost") ||
-        host?.includes("papermark.io") ||
-        host?.includes("papermark.com") ||
-        host?.endsWith(".vercel.app")
-      ))
-  );
+  const requestedHost = hostname(host);
+  if (!requestedHost) return false;
+
+  // Match configured application hosts exactly. Other customer hosts still use
+  // the existing shared-link resolver; an independent deployment is not one.
+  const applicationHosts = [
+    process.env.NEXTAUTH_URL,
+    process.env.NEXT_PUBLIC_BASE_URL,
+    process.env.NEXT_PUBLIC_APP_BASE_HOST,
+    process.env.NEXT_PUBLIC_MARKETING_URL,
+    process.env.NEXT_PUBLIC_API_BASE_HOST,
+    process.env.NEXT_PUBLIC_MCP_BASE_HOST,
+    process.env.VERCEL_URL,
+  ]
+    .map(hostname)
+    .filter(Boolean);
+
+  if (applicationHosts.includes(requestedHost)) return false;
+  if (["localhost", "127.0.0.1", "[::1]"].includes(requestedHost)) return false;
+  if (requestedHost.endsWith(".vercel.app")) return false;
+
+  if (process.env.NODE_ENV === "development") {
+    return (
+      requestedHost.endsWith(".local") ||
+      requestedHost.endsWith(".papermark.dev")
+    );
+  }
+  return true;
 }
 
 export const config = {
@@ -67,7 +95,16 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
       return NextResponse.next();
     }
     if (path === "/") {
-      return NextResponse.redirect("https://www.papermark.com/docs/api", 302);
+      return NextResponse.redirect(
+        new URL(
+          "/docs/api",
+          process.env.NEXT_PUBLIC_MARKETING_URL ||
+            process.env.NEXT_PUBLIC_BASE_URL ||
+            process.env.NEXTAUTH_URL ||
+            req.url,
+        ),
+        302,
+      );
     }
     return new NextResponse(null, { status: 404 });
   }
@@ -84,6 +121,12 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   // For custom domains, we need to handle them differently
   if (isCustomDomain(host || "")) {
     return DomainMiddleware(req);
+  }
+
+  // The marketing homepage is public only on application hosts.
+  // Custom-domain and API isolation above remains in effect.
+  if (path === "/") {
+    return NextResponse.next();
   }
 
   // Handle standard papermark.com paths

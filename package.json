@@ -1,5 +1,5 @@
 {
-  "name": "papermark",
+  "name": "roomline",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -18,7 +18,8 @@
     "stripe:webhook": "pkgx stripe listen --forward-to localhost:3000/api/stripe/webhook",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mdx}\"",
     "dev:prisma": "npx prisma generate && npx prisma migrate deploy",
-    "generate:openapi": "tsx scripts/generate-openapi.ts"
+    "generate:openapi": "tsx scripts/generate-openapi.ts",
+    "test:roomline": "node --import tsx --test lib/emails/config.test.ts components/emails/verification-link.test.tsx components/emails/welcome.test.tsx"
   },
   "dependencies": {
     "@ai-sdk/google-vertex": "^4.0.137",

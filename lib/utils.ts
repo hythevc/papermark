@@ -2,7 +2,6 @@ import { NextRouter } from "next/router";
 
 import slugify from "@sindresorhus/slugify";
 import { upload } from "@vercel/blob/client";
-import { transliterate } from "transliteration";
 import bcrypt from "bcryptjs";
 import * as chrono from "chrono-node";
 import { type ClassValue, clsx } from "clsx";
@@ -13,6 +12,9 @@ import { rgb } from "pdf-lib";
 import { ParsedUrlQuery } from "querystring";
 import { toast } from "sonner";
 import { twMerge } from "tailwind-merge";
+import { transliterate } from "transliteration";
+
+import { BRAND } from "@/lib/brand";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -437,10 +439,10 @@ export const calculateDaysLeft = (accountCreationDate: Date): number => {
 };
 
 export function constructMetadata({
-  title = "Papermark | The Open Source DocSend Alternative",
-  description = "Papermark is an open-source document sharing alternative to DocSend with built-in engagement analytics and 100% white-labeling.",
-  image = "https://www.papermark.com/_static/meta-image.png",
-  favicon = "/favicon.ico",
+  title = `${BRAND.name} | ${BRAND.tagline}`,
+  description = BRAND.description,
+  image,
+  favicon = BRAND.favicon,
   noIndex = false,
 }: {
   title?: string;
@@ -455,20 +457,16 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
-      images: [
-        {
-          url: image,
-        },
-      ],
+      ...(image ? { images: [{ url: image }] } : {}),
     },
     twitter: {
-      card: "summary_large_image",
+      card: image ? "summary_large_image" : "summary",
       title,
       description,
-      images: [image],
-      creator: "@papermarkio",
+      ...(image ? { images: [image] } : {}),
     },
-    favicon,
+    metadataBase: new URL(BRAND.appUrl),
+    icons: { icon: favicon },
     ...(noIndex && {
       robots: {
         index: false,

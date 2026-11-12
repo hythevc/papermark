@@ -1,4 +1,3 @@
-import { isSamlEnforcedForEmailDomain } from "@/lib/api/teams/is-saml-enforced-for-email-domain";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import PasskeyProvider from "@teamhanko/passkeys-next-auth-provider";
 import { type NextAuthOptions } from "next-auth";
@@ -8,6 +7,8 @@ import GoogleProvider from "next-auth/providers/google";
 import LinkedInProvider from "next-auth/providers/linkedin";
 
 import { identifyUser, trackAnalytics } from "@/lib/analytics";
+import { isSamlEnforcedForEmailDomain } from "@/lib/api/teams/is-saml-enforced-for-email-domain";
+import { BRAND } from "@/lib/brand";
 import { qstash } from "@/lib/cron";
 import { sendVerificationRequestEmail } from "@/lib/emails/send-verification-request";
 import hanko from "@/lib/hanko";
@@ -15,16 +16,18 @@ import { jackson } from "@/lib/jackson";
 import prisma from "@/lib/prisma";
 import { CustomUser } from "@/lib/types";
 
-const VERCEL_DEPLOYMENT = !!process.env.VERCEL_URL;
+// Sharing cookies across subdomains is opt-in. A fork must never send cookies
+// to the upstream product's domain.
+const COOKIE_DOMAIN = process.env.NEXTAUTH_COOKIE_DOMAIN?.trim() || undefined;
 
 function getMainDomainUrl(): string {
-  if (process.env.NODE_ENV === "development") {
-    return process.env.NEXTAUTH_URL || "http://localhost:3000";
-  }
-  return process.env.NEXTAUTH_URL || "https://app.papermark.com";
+  return process.env.NEXTAUTH_URL || BRAND.appUrl;
 }
 
+const SECURE_COOKIES = new URL(getMainDomainUrl()).protocol === "https:";
+
 export const authOptions: NextAuthOptions = {
+  useSecureCookies: SECURE_COOKIES,
   pages: {
     error: "/login",
   },
@@ -84,14 +87,20 @@ export const authOptions: NextAuthOptions = {
         }
       },
     }),
-    PasskeyProvider({
-      tenant: hanko,
-      async authorize({ userId }) {
-        const user = await prisma.user.findUnique({ where: { id: userId } });
-        if (!user) return null;
-        return user;
-      },
-    }),
+    ...(hanko
+      ? [
+          PasskeyProvider({
+            tenant: hanko,
+            async authorize({ userId }) {
+              const user = await prisma.user.findUnique({
+                where: { id: userId },
+              });
+              if (!user) return null;
+              return user;
+            },
+          }),
+        ]
+      : []),
     {
       id: "saml",
       name: "BoxyHQ SAML",
@@ -113,8 +122,7 @@ export const authOptions: NextAuthOptions = {
       userinfo: `${getMainDomainUrl()}/api/auth/saml/userinfo`,
       profile: async (profile) => {
         const name =
-          `${profile.firstName || ""} ${profile.lastName || ""}`.trim() ||
-          null;
+          `${profile.firstName || ""} ${profile.lastName || ""}`.trim() || null;
 
         return {
           id: profile.id || profile.email,
@@ -182,13 +190,13 @@ export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   cookies: {
     sessionToken: {
-      name: `${VERCEL_DEPLOYMENT ? "__Secure-" : ""}next-auth.session-token`,
+      name: `${SECURE_COOKIES ? "__Secure-" : ""}next-auth.session-token`,
       options: {
         httpOnly: true,
         sameSite: "lax",
         path: "/",
-        domain: VERCEL_DEPLOYMENT ? ".papermark.com" : undefined,
-        secure: VERCEL_DEPLOYMENT,
+        ...(COOKIE_DOMAIN ? { domain: COOKIE_DOMAIN } : {}),
+        secure: SECURE_COOKIES,
       },
     },
   },

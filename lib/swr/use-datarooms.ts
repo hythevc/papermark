@@ -12,6 +12,8 @@ export type DataroomWithCount = Pick<Dataroom, "id" | "name" | "createdAt"> & {
     views: number;
   };
   activeLinkCount: number;
+  isFrozen?: boolean;
+  internalName?: string | null;
   lastViewedAt: Date | null;
   tags?: {
     tag: {
@@ -37,11 +39,15 @@ export default function useDatarooms() {
   const statusQuery = queryParams["status"];
   const tagsQuery = queryParams["tags"];
 
-  const queryParts = [];
-  if (searchQuery) queryParts.push(`search=${searchQuery}`);
-  if (statusQuery) queryParts.push(`status=${statusQuery}`);
-  if (tagsQuery) queryParts.push(`tags=${tagsQuery}`);
-  const queryString = queryParts.length > 0 ? `?${queryParts.join("&")}` : "";
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries({
+    search: searchQuery,
+    status: statusQuery,
+    tags: tagsQuery,
+  })) {
+    if (typeof value === "string" && value) params.set(key, value);
+  }
+  const queryString = params.size > 0 ? `?${params.toString()}` : "";
 
   const { data, error, mutate } = useSWR<DataroomsResponse>(
     teamInfo?.currentTeam?.id &&

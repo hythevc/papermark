@@ -108,10 +108,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <DataroomMemberRouteGuard />
       {/* Single flex child of SidebarProvider so fixed mobile chrome is not laid out as extra row siblings (WebKit / in-app browsers). */}
       <div className="relative flex min-h-0 min-w-0 flex-1 flex-col">
-        <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-x-1 overflow-x-hidden bg-gray-50 dark:bg-black md:flex-row">
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-x-1 overflow-x-hidden bg-background md:flex-row">
           <Sidebar
-            className="bg-gray-50 dark:bg-black"
-            sidebarClassName="bg-gray-50 dark:bg-black"
+            className="bg-background"
+            sidebarClassName="bg-background"
             side="left"
             variant="inset"
             collapsible="icon"
@@ -128,7 +128,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             </header>
             <TrialBanner />
             <BlockingModal />
-            <main className="min-w-0 flex-1 overflow-x-hidden pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] md:pt-0 md:pb-0">
+            <main className="min-w-0 flex-1 overflow-x-hidden pb-[calc(4rem+env(safe-area-inset-bottom,0px))] pt-[calc(3.5rem+env(safe-area-inset-top,0px))] md:pb-0 md:pt-0">
               {children}
             </main>
           </SidebarInset>

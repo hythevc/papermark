@@ -1,6 +1,8 @@
 import { waitUntil } from "@vercel/functions";
 import { customAlphabet } from "nanoid";
 
+import { BRAND } from "@/lib/brand";
+import { resolveEmailIdentity } from "@/lib/emails/config";
 import { redis } from "@/lib/redis";
 import { sendEmail } from "@/lib/resend";
 
@@ -31,6 +33,12 @@ export const sendVerificationRequestEmail = async (params: {
 }) => {
   const { url, email } = params;
 
+  // Report missing delivery configuration before accepting a login request.
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error("Email delivery is not configured. Set RESEND_API_KEY.");
+  }
+  resolveEmailIdentity({ verify: true }, process.env, BRAND.supportEmail);
+
   // Generate verification code
   const code = generateVerificationCode();
 
@@ -60,7 +68,7 @@ export const sendVerificationRequestEmail = async (params: {
     sendEmail({
       to: email as string,
       verify: true,
-      subject: "Login for Papermark",
+      subject: `Your ${BRAND.name} login code`,
       react: emailTemplate,
       test: process.env.NODE_ENV === "development",
     }).catch((e) => {

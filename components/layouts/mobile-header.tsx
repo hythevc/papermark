@@ -1,19 +1,19 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { isReferralsEnabled } from "@/ee/features/partners/lib/referrals";
 import {
   ChevronLeftIcon,
   CircleUserRound,
-  GiftIcon,
   LogOut,
   MailIcon,
 } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "sonner";
 
+import { BRAND } from "@/lib/brand";
 import { useDataroom } from "@/lib/swr/use-dataroom";
 
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -56,7 +56,7 @@ export function MobileHeader() {
             href="/dashboard"
             className="text-xl font-bold tracking-tighter text-foreground"
           >
-            Papermark
+            <BrandLogo />
           </Link>
         )}
 
@@ -124,23 +124,17 @@ export function MobileHeader() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem
-                onClick={() => {
-                  navigator.clipboard.writeText("support@papermark.com");
-                  toast.success("support@papermark.com copied to clipboard");
-                }}
-              >
-                <MailIcon className="mr-2 h-4 w-4" />
-                Contact Support
-              </DropdownMenuItem>
-              {isReferralsEnabled() ? (
-                <Link href="/partners">
-                  <DropdownMenuItem>
-                    <GiftIcon className="mr-2 h-4 w-4" />
-                    Earn and Refer
-                  </DropdownMenuItem>
-                </Link>
-              ) : null}
+              {BRAND.supportEmail && (
+                <DropdownMenuItem
+                  onClick={() => {
+                    navigator.clipboard.writeText(BRAND.supportEmail!);
+                    toast.success(`${BRAND.supportEmail} copied to clipboard`);
+                  }}
+                >
+                  <MailIcon className="mr-2 h-4 w-4" />
+                  Contact Support
+                </DropdownMenuItem>
+              )}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem
