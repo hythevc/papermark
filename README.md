@@ -2,9 +2,9 @@
 
 A focused workspace for the work behind the deal: organize documents, review sharing, and understand viewer engagement.
 
-Roomline is an independent development fork of [Papermark](https://github.com/mfts/papermark). The initial brand and UX release adds an editorial marketing homepage, a sample interactive product preview, consistent auth and app identity, clearer room summaries, recoverable room creation, and practical next steps in the room overview.
+Roomline is an independent development fork of [Papermark](https://github.com/mfts/papermark). The brand and UX revamp adds a complete public content journey, readable interactive product preview, consistent account entry, source improvements to room summaries and creation recovery, and shared component/mobile foundations. The assessment covers 94 route templates in source and distinguishes rendered public paths from blocked authenticated work.
 
-![Roomline homepage](artifacts/roomline-home-desktop.png)
+![Roomline homepage](artifacts/revamp/after/home-1440.png)
 
 ## Run locally
 
@@ -18,9 +18,32 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open [localhost:3000](http://localhost:3000). The homepage preview uses labeled sample data; it does not create or expose live rooms. `/login` and `/register` render the account entry screens.
+Open [localhost:3000](http://localhost:3000). Product details live at `/product`, `/security`, `/solutions/fundraising`, `/solutions/due-diligence`, and `/guides`. `/design-system` is a sample component reference, not a live workspace. The homepage preview uses labeled sample data; it does not create or expose live rooms. `/login` and `/register` render the account entry screens.
 
 **This checkout is not production-ready.** The original repository references missing source modules and has existing type errors. See [launch requirements](docs/roomline/LAUNCH.md) for the concrete blockers, configuration, and verification limits.
+
+## Assessment and verification
+
+Read the [consolidated assessment](.better-design/app-review.md), [interactive evidence report](artifacts/revamp/assessment.html), [94-screen matrix](docs/roomline/revamp/SCREEN_CHECK_MATRIX.md), and [prioritized plan](docs/roomline/revamp/100X_PLAN.md).
+
+```sh
+npm run test:roomline
+npm run design:test
+npm run design:runtime
+npm run design:check
+# With the development server running and Chromium available:
+npm run design:browser
+npm run design:auth
+npm run design:states
+# This stricter check intentionally fails while launch blockers remain:
+npm run design:check:release
+```
+
+The screenshot runners use `BROWSER_EXECUTABLE_PATH` or system Chromium when available; otherwise install the Playwright browser with `npx playwright install chromium`. UI auth tests mock APIs and send no emails. The evidence check validates records and source freshness; it does not grade design quality.
+
+[AGENTS.md](AGENTS.md), [DESIGN.md](DESIGN.md), and the [34-entry reference registry](docs/roomline/revamp/REFERENCE_REGISTRY.md) define the applicable-skill workflow. They govern this repository, not every other project or editor. Reference-only frameworks were not forced into the runtime.
+
+The [21st.dev setup](docs/roomline/revamp/21ST_SETUP.md) uses `API_KEY_21ST` from the environment. The CLI is installed and `.mcp.json` is secret-free; authenticated discovery remains pending a rotated key or browser login. No exposed key is stored in this project.
 
 ## Customize the business
 

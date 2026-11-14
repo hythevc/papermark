@@ -24,7 +24,7 @@ const DialogPortal = ({
   <DialogPrimitive.Portal {...props}>
     <div
       className={cn(
-        "fixed inset-0 z-50 flex items-end justify-center sm:items-center",
+        "fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6",
         isPreviewDialog && "items-center",
       )}
     >
@@ -41,7 +41,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-100 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in",
+      "fixed inset-0 z-50 bg-[hsl(var(--overlay)/0.56)] duration-150 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 motion-reduce:animate-none",
       className,
     )}
     {...props}
@@ -76,24 +76,25 @@ const DialogContent = React.forwardRef<
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          "fixed z-50 grid w-full gap-4 rounded-t-lg border border-gray-800 bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-xl sm:rounded-lg sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 md:w-1/2",
+          "relative z-50 grid max-h-[calc(100dvh-max(1rem,env(safe-area-inset-top,0px)))] w-full gap-4 overflow-y-auto overscroll-contain rounded-t-xl border border-border bg-background p-6 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))] text-foreground shadow-xl duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-bottom-4 data-[state=open]:slide-in-from-bottom-4 motion-reduce:animate-none sm:max-h-[calc(100dvh-3rem)] sm:max-w-xl sm:rounded-xl data-[state=open]:sm:slide-in-from-bottom-0 md:w-1/2",
           mobileFullScreen &&
-            "max-sm:!inset-0 max-sm:!h-[100dvh] max-sm:!w-[100vw] max-sm:!max-w-none max-sm:!overflow-y-auto max-sm:!rounded-none max-sm:!border-none max-sm:!p-0",
+            "max-sm:!inset-0 max-sm:!h-[100dvh] max-sm:!max-h-[100dvh] max-sm:!w-[100vw] max-sm:!max-w-none max-sm:!overflow-y-auto max-sm:!rounded-none max-sm:!border-none max-sm:!p-0",
           className,
         )}
-        onCloseAutoFocus={(event) => {
-          event.preventDefault();
-          document.body.style.pointerEvents = "";
-        }}
         {...props}
+        data-slot="dialog-content"
+        data-mobile-full-screen={mobileFullScreen || undefined}
       >
         {children}
         {hideCloseButton ? null : (
           <DialogPrimitive.Close
             className={cn(
-              "absolute z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground",
-              isDocumentDialog ? "right-8 top-20" : "right-4 top-4",
+              "absolute z-10 inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground ring-offset-background transition-colors duration-150 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none motion-reduce:transition-none",
+              isDocumentDialog
+                ? "right-8 top-20"
+                : "right-[max(0.75rem,env(safe-area-inset-right,0px))] top-3",
             )}
+            data-slot="dialog-close"
           >
             <X className="h-5 w-5 sm:h-4 sm:w-4" />
             <span className="sr-only">Close</span>
@@ -110,10 +111,7 @@ const DialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      "flex flex-col space-y-1.5 text-center sm:text-left",
-      className,
-    )}
+    className={cn("flex flex-col space-y-1.5 pr-10 text-left", className)}
     {...props}
   />
 );
@@ -125,7 +123,7 @@ const DialogFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+      "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
       className,
     )}
     {...props}
@@ -154,7 +152,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm leading-relaxed text-muted-foreground", className)}
     {...props}
   />
 ));

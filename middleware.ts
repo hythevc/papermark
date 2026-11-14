@@ -1,5 +1,6 @@
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
+import { isMarketingPathname } from "@/lib/marketing-routes";
 import AppMiddleware from "@/lib/middleware/app";
 import DomainMiddleware from "@/lib/middleware/domain";
 
@@ -123,9 +124,9 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
     return DomainMiddleware(req);
   }
 
-  // The marketing homepage is public only on application hosts.
+  // Marketing content is public only after application-host isolation.
   // Custom-domain and API isolation above remains in effect.
-  if (path === "/") {
+  if (isMarketingPathname(path)) {
     return NextResponse.next();
   }
 

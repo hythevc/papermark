@@ -8,23 +8,23 @@ import { cn } from "@/lib/utils";
 import LoadingSpinner from "./loading-spinner";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 gap-2 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
+  "inline-flex min-w-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium leading-5 ring-offset-background transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:opacity-50 motion-reduce:transition-none [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 transition-colors",
+          "border border-transparent bg-primary text-primary-foreground hover:bg-primary/90",
         special: "text-white",
         orange:
-          "bg-[#fb7a00] text-white hover:bg-[#fb7a00]/90 transition-colors",
+          "border border-transparent bg-[hsl(var(--promotional))] text-[hsl(var(--promotional-foreground))] hover:bg-[hsl(var(--promotional-hover))]",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors",
+          "border border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors",
-        ghost: "hover:bg-accent hover:text-accent-foreground transition-colors",
-        link: "text-primary underline-offset-4 hover:underline transition-colors",
+          "border border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -41,7 +41,8 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   loading?: boolean;
@@ -49,23 +50,67 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, size, disabled, loading, asChild = false, ...props },
+    {
+      className,
+      variant,
+      size,
+      disabled,
+      loading,
+      asChild = false,
+      children,
+      ...props
+    },
     ref,
   ) => {
     const Comp = asChild ? Slot : "button";
+    const isDisabled = !!(disabled || loading);
+    const stopActivation = (event: React.SyntheticEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+    };
+    const disabledSlotProps = {
+      "aria-disabled": true as const,
+      tabIndex: -1,
+      onClickCapture: stopActivation,
+      onAuxClickCapture: stopActivation,
+      onKeyDownCapture: (event: React.KeyboardEvent) => {
+        if (event.key === "Enter" || event.key === " ") stopActivation(event);
+      },
+    };
+    let content = children;
+    if (asChild && React.isValidElement<Record<string, unknown>>(children)) {
+      // Slot runs child handlers first. Guard the child itself so a disabled
+      // link cannot navigate or invoke its callback before a parent guard.
+      content = React.cloneElement(children, {
+        ...(isDisabled ? disabledSlotProps : {}),
+        ...(isDisabled && children.type === "button" ? { disabled: true } : {}),
+        ...(loading ? { "aria-busy": true } : {}),
+      });
+    }
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        disabled={disabled || loading}
         {...props}
+        {...(asChild && isDisabled ? disabledSlotProps : {})}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          loading && "disabled:opacity-100 aria-disabled:opacity-100",
+        )}
+        ref={ref}
+        disabled={asChild ? undefined : isDisabled}
+        aria-busy={loading || props["aria-busy"]}
+        data-slot="button"
+        data-loading={loading || undefined}
       >
         {asChild ? (
-          props.children
+          content
         ) : (
           <>
-            {loading ? <LoadingSpinner className="mr-1 h-5 w-5" /> : null}
-            {props.children}
+            {loading ? (
+              <span aria-hidden="true">
+                <LoadingSpinner className="h-5 w-5" />
+              </span>
+            ) : null}
+            {children}
           </>
         )}
       </Comp>

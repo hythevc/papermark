@@ -19,7 +19,16 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mdx}\"",
     "dev:prisma": "npx prisma generate && npx prisma migrate deploy",
     "generate:openapi": "tsx scripts/generate-openapi.ts",
-    "test:roomline": "node --import tsx --test lib/emails/config.test.ts components/emails/verification-link.test.tsx components/emails/welcome.test.tsx"
+    "test:roomline": "node --import tsx --test lib/emails/config.test.ts components/emails/verification-link.test.tsx components/emails/welcome.test.tsx lib/marketing-routes.test.ts lib/navigation/mobile-navigation.test.ts",
+    "design:check": "node scripts/design/check.mjs",
+    "design:check:release": "node scripts/design/check.mjs --require-complete",
+    "design:test": "node --test scripts/design/check.test.mjs scripts/design/21st-mcp.test.mjs",
+    "design:browser": "node scripts/design/browser-checks.cjs",
+    "design:21st:verify": "node --use-env-proxy scripts/design/21st-mcp.mjs",
+    "design:auth": "node scripts/design/auth-checks.cjs",
+    "design:report": "node scripts/design/build-report.mjs",
+    "design:runtime": "node scripts/design/runtime-checks.cjs",
+    "design:states": "node scripts/design/capture-component-states.cjs"
   },
   "dependencies": {
     "@ai-sdk/google-vertex": "^4.0.137",
@@ -181,6 +190,8 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1",
     "@react-email/ui": "^6.3.2",
     "@tailwindcss/forms": "^0.5.11",
     "@trigger.dev/build": "4.5.10",

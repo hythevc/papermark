@@ -60,6 +60,7 @@ scripts/*
 !scripts/check-mcp-schema-dialect.ts
 !scripts/extend-trial.ts
 !scripts/local/
+!scripts/design/
 scripts/local/.tinybird-page-views.json
 !.github/scripts/
 

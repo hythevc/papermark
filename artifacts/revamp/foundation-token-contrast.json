@@ -1,0 +1,386 @@
+[
+  {
+    "mode": "light",
+    "foreground": "foreground",
+    "background": "background",
+    "ratio": 14.56,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "muted-foreground",
+    "background": "background",
+    "ratio": 5.539,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "muted-foreground",
+    "background": "muted",
+    "ratio": 4.983,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "popover-foreground",
+    "background": "popover",
+    "ratio": 15.13,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "card-foreground",
+    "background": "card",
+    "ratio": 15.13,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "primary-foreground",
+    "background": "primary",
+    "ratio": 9.697,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "secondary-foreground",
+    "background": "secondary",
+    "ratio": 10.347,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "accent-foreground",
+    "background": "accent",
+    "ratio": 8.616,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "destructive-foreground",
+    "background": "destructive",
+    "ratio": 7.084,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "destructive",
+    "background": "background",
+    "ratio": 6.693,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "warning-foreground",
+    "background": "warning",
+    "ratio": 5.613,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "warning",
+    "background": "background",
+    "ratio": 5.499,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "promotional-foreground",
+    "background": "promotional",
+    "ratio": 6.057,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "promotional-foreground",
+    "background": "promotional-hover",
+    "ratio": 7.612,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "status-success-fg",
+    "background": "status-success-bg",
+    "ratio": 6.595,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "status-warning-fg",
+    "background": "status-warning-bg",
+    "ratio": 6.976,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "status-info-fg",
+    "background": "status-info-bg",
+    "ratio": 7.048,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "ring",
+    "background": "background",
+    "ratio": 5.506,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "ring",
+    "background": "card",
+    "ratio": 5.722,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "input",
+    "background": "background",
+    "ratio": 3.515,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "input",
+    "background": "card",
+    "ratio": 3.652,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "sidebar-foreground",
+    "background": "sidebar-background",
+    "ratio": 8.907,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "sidebar-primary-foreground",
+    "background": "sidebar-primary",
+    "ratio": 9.697,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "light",
+    "foreground": "sidebar-accent-foreground",
+    "background": "sidebar-accent",
+    "ratio": 8.286,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "foreground",
+    "background": "background",
+    "ratio": 16.025,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "muted-foreground",
+    "background": "background",
+    "ratio": 8.379,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "muted-foreground",
+    "background": "muted",
+    "ratio": 6.499,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "popover-foreground",
+    "background": "popover",
+    "ratio": 14.288,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "card-foreground",
+    "background": "card",
+    "ratio": 14.288,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "primary-foreground",
+    "background": "primary",
+    "ratio": 9.896,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "secondary-foreground",
+    "background": "secondary",
+    "ratio": 11.047,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "accent-foreground",
+    "background": "accent",
+    "ratio": 7.882,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "destructive-foreground",
+    "background": "destructive",
+    "ratio": 6.529,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "destructive",
+    "background": "background",
+    "ratio": 6.544,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "warning-foreground",
+    "background": "warning",
+    "ratio": 11.451,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "warning",
+    "background": "background",
+    "ratio": 11.477,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "promotional-foreground",
+    "background": "promotional",
+    "ratio": 10.619,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "promotional-foreground",
+    "background": "promotional-hover",
+    "ratio": 12.266,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "status-success-fg",
+    "background": "status-success-bg",
+    "ratio": 8.171,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "status-warning-fg",
+    "background": "status-warning-bg",
+    "ratio": 9.495,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "status-info-fg",
+    "background": "status-info-bg",
+    "ratio": 8.307,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "ring",
+    "background": "background",
+    "ratio": 11.474,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "ring",
+    "background": "card",
+    "ratio": 10.23,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "input",
+    "background": "background",
+    "ratio": 4.556,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "input",
+    "background": "card",
+    "ratio": 4.063,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "sidebar-foreground",
+    "background": "sidebar-background",
+    "ratio": 13.022,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "sidebar-primary-foreground",
+    "background": "sidebar-primary",
+    "ratio": 9.896,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "dark",
+    "foreground": "sidebar-accent-foreground",
+    "background": "sidebar-accent",
+    "ratio": 7.882,
+    "minimum": 4.5,
+    "pass": true
+  }
+]

@@ -98,7 +98,7 @@ export default function EmailVerificationClient() {
 
   if (isExpired) {
     return (
-      <div className="flex h-screen w-full flex-wrap">
+      <div className="flex min-h-screen w-full flex-wrap">
         <div className="flex w-full justify-center bg-white md:w-[55%] lg:w-[55%]">
           <div className="z-10 mx-5 mt-0 h-fit w-full max-w-md overflow-hidden sm:mx-0 sm:mt-[calc(0.5vh)] md:mt-[calc(1vh)]">
             <div className="items-left flex flex-col space-y-3 px-4 py-6 pt-5 sm:px-12 sm:pt-6">
@@ -108,19 +108,17 @@ export default function EmailVerificationClient() {
               >
                 <BrandLogo />
               </Link>
-              <span className="text-balance text-3xl font-semibold text-gray-900">
-                Code Expired
-              </span>
+              <h1 className="text-balance text-3xl font-semibold text-gray-900">
+                Request a new code
+              </h1>
               <h3 className="text-balance text-sm text-gray-800">
                 This login code has expired or has already been used.
               </h3>
             </div>
             <div className="flex flex-col gap-4 px-4 pt-4 sm:px-12">
-              <Link href="/login">
-                <Button className="focus:shadow-outline w-full transform rounded-[4px] bg-[#146354] px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-[#104d42] focus:outline-none">
-                  Request a new code
-                </Button>
-              </Link>
+              <Button asChild className="w-full">
+                <Link href="/login">Request a new code</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -130,7 +128,7 @@ export default function EmailVerificationClient() {
   }
 
   return (
-    <div className="flex h-screen w-full flex-wrap">
+    <div className="flex min-h-screen w-full flex-wrap">
       {/* Left part */}
       <div className="flex w-full justify-center bg-white md:w-[55%] lg:w-[55%]">
         <div className="z-10 mx-5 mt-0 h-fit w-full max-w-md overflow-hidden sm:mx-0 sm:mt-[calc(0.5vh)] md:mt-[calc(1vh)]">
@@ -141,11 +139,9 @@ export default function EmailVerificationClient() {
             >
               <BrandLogo />
             </Link>
-            <Link href="/">
-              <span className="text-balance text-3xl font-semibold text-gray-900">
-                Check your email
-              </span>
-            </Link>
+            <h1 className="text-balance text-3xl font-semibold text-gray-900">
+              Check your email
+            </h1>
             <h3 className="text-balance text-sm text-gray-800">
               {emailLocked ? (
                 <>
@@ -169,6 +165,7 @@ export default function EmailVerificationClient() {
                   id="email"
                   placeholder="name@example.com"
                   type="email"
+                  required
                   autoCapitalize="none"
                   autoComplete="email"
                   autoCorrect="off"
@@ -192,6 +189,8 @@ export default function EmailVerificationClient() {
                 disabled={isLoading}
                 value={code}
                 onChange={(e) => setCode(e.target.value.toUpperCase())}
+                required
+                minLength={10}
                 maxLength={10}
                 className="flex h-10 w-full rounded-[4px] border-0 bg-background bg-white px-3 py-2 font-mono text-lg tracking-widest text-gray-900 ring-1 ring-gray-200 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:font-sans placeholder:text-sm placeholder:tracking-normal placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
               />

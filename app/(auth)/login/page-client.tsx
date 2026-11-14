@@ -54,7 +54,7 @@ export default function Login() {
   const emailValidation = emailSchema.safeParse(email);
 
   return (
-    <div className="flex h-screen w-full flex-wrap">
+    <div className="flex min-h-screen w-full flex-wrap">
       {/* Left part */}
       <div className="flex w-full justify-center bg-white md:w-[55%] lg:w-[55%]">
         <div className="z-10 mx-5 mt-0 h-fit w-full max-w-md overflow-hidden sm:mx-0 sm:mt-[calc(0.5vh)] md:mt-[calc(1vh)]">
@@ -65,11 +65,9 @@ export default function Login() {
             >
               <BrandLogo />
             </Link>
-            <Link href="/">
-              <span className="text-balance text-3xl font-semibold text-gray-900">
-                Welcome to {BRAND.name}
-              </span>
-            </Link>
+            <h1 className="text-balance text-3xl font-semibold text-gray-900">
+              Sign in to {BRAND.name}
+            </h1>
             <h3 className="text-balance text-sm text-gray-800">
               Your documents, people, and next steps. Together.
             </h3>
@@ -102,30 +100,36 @@ export default function Login() {
                 email: emailValidation.data,
                 redirect: false,
                 ...(next && next.length > 0 ? { callbackUrl: next } : {}),
-              }).then((res) => {
-                if (res?.ok && !res?.error) {
-                  setLastUsed("credentials");
-                  // Store email in sessionStorage for the verification page
-                  try {
-                    sessionStorage.setItem(
-                      "pendingVerificationEmail",
-                      emailValidation.data,
-                    );
-                  } catch {
-                    // sessionStorage not available, verification page will show email input
+              })
+                .then((res) => {
+                  if (res?.ok && !res?.error) {
+                    setLastUsed("credentials");
+                    // Store email in sessionStorage for the verification page
+                    try {
+                      sessionStorage.setItem(
+                        "pendingVerificationEmail",
+                        emailValidation.data,
+                      );
+                    } catch {
+                      // sessionStorage not available, verification page will show email input
+                    }
+                    router.push("/auth/email");
+                  } else {
+                    setEmailButtonText("Error sending email - try again?");
+                    toast.error("Error sending email - try again?");
+                    setClickedMethod(undefined);
                   }
-                  router.push("/auth/email");
-                } else {
-                  setEmailButtonText("Error sending email - try again?");
-                  toast.error("Error sending email - try again?");
+                })
+                .catch(() => {
+                  setEmailButtonText("Continue with Email");
                   setClickedMethod(undefined);
-                }
-              });
+                  toast.error(
+                    "Unable to connect. Check your connection and try again.",
+                  );
+                });
             }}
           >
-            <Label className="sr-only" htmlFor="email">
-              Email
-            </Label>
+            <Label htmlFor="email">Email</Label>
             <Input
               id="email"
               placeholder="name@example.com"

@@ -11,6 +11,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/pages";
 import { BRAND } from "@/lib/brand";
 import { EXCLUDED_PATHS } from "@/lib/constants";
 import { useTrackLastVisited } from "@/lib/hooks/use-last-visited";
+import { isMarketingRouteTemplate } from "@/lib/marketing-routes";
 
 import { PostHogGroupSync } from "@/components/providers/posthog-group-sync";
 import { PostHogCustomProvider } from "@/components/providers/posthog-provider";
@@ -61,7 +62,7 @@ export default function App({
   );
 
   // Public marketing does not initialize authenticated workspace providers.
-  if (router.pathname === "/") {
+  if (isMarketingRouteTemplate(router.pathname)) {
     return (
       <>
         {metadata}
@@ -77,7 +78,7 @@ export default function App({
         <PostHogCustomProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             <NuqsAdapter>
-              <main className={inter.className}>
+              <div className={inter.className}>
                 <Toaster closeButton />
                 <TooltipProvider delayDuration={100}>
                   {EXCLUDED_PATHS.includes(router.pathname) ? (
@@ -92,7 +93,7 @@ export default function App({
                     </TeamProvider>
                   )}
                 </TooltipProvider>
-              </main>
+              </div>
             </NuqsAdapter>
           </ThemeProvider>
         </PostHogCustomProvider>

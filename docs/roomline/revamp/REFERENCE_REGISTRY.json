@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-14T00:00:00Z",
+  "policy": "Every UI task records an applied/not_applicable/unavailable decision for each entry. Source review is distinct from installing or executing a tool.",
+  "entries": [
+    {
+      "id": "taste",
+      "name": "Taste Skill",
+      "source": "https://github.com/Leonxlnx/taste-skill",
+      "resolvedSource": "https://github.com/Leonxlnx/taste-skill",
+      "version": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "status": "source_reviewed",
+      "notes": "Mandatory design-direction review for every UI task. Source reviewed, scripts not executed. Reject static-export conversion and compulsory marketing choreography for this server-backed SaaS.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "web-guidelines",
+      "name": "Web Design Guidelines",
+      "source": "https://github.com/vercel-labs/agent-skills",
+      "resolvedSource": "https://github.com/vercel-labs/agent-skills",
+      "version": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "status": "source_reviewed",
+      "notes": "Mandatory UI correctness/accessibility review. Wrapper points to current web-interface-guidelines/command.md; refresh that actual source for each new audit. Local wrapper .agents/skills/web-design-guidelines/SKILL.md is installed.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "image-to-code",
+      "name": "Image-to-code",
+      "source": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/image-to-code",
+      "resolvedSource": "https://github.com/Leonxlnx/imagegen-skills/tree/main/skills/image-to-code",
+      "version": "beb16b0d0f4dae9a6f5cb04ea41e97b93a54ab8e",
+      "status": "moved_source_reviewed",
+      "notes": "Moved out of taste-skill. Apply visual extraction and comparison when the task has a visual source; otherwise record not_applicable. Never claim the converter ran merely because instructions were read.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md"
+      ]
+    },
+    {
+      "id": "awesome-design-md",
+      "name": "Awesome DESIGN.md",
+      "source": "https://github.com/VoltAgent/awesome-design-md",
+      "resolvedSource": "https://github.com/VoltAgent/awesome-design-md",
+      "version": "fcc70284932276d085f01ef9f83edde90b1258cb",
+      "status": "source_reviewed",
+      "notes": "Mandatory visual-system documentation reference. Catalog reviewed; separate static Linear study informed structure only. Cloud skill read via canonical package URI; selected Linear static study applied alongside primary source review. No claim of reviewing every catalog entry.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright CLI / browser testing",
+      "source": "https://github.com/microsoft/playwright-cli",
+      "resolvedSource": "https://github.com/microsoft/playwright-cli",
+      "version": "b21724888b8100b05ef8dee3a92f2bb03bf4dcde",
+      "status": "source_reviewed",
+      "notes": "Mandatory rendered-browser verification where runtime works. CLI source reviewed, not installed/run; installed Playwright library + system Chromium used for actual captures. Source-only or blocked checks remain explicit.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "refero",
+      "name": "Refero",
+      "source": "https://refero.design/",
+      "resolvedSource": "https://refero.design/",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "connected_reference_used",
+      "notes": "Attio style d2774b0c-b85e-43b6-95e2-1da6c69bb504 inspected by lead agent. Competitor search was mixed; catalog references are not live authenticated-app evidence. Do not install refero-design without required approval.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_LOCK.md",
+        "docs/roomline/revamp/COMPETITIVE_ASSESSMENT.md"
+      ]
+    },
+    {
+      "id": "mobbin",
+      "name": "Mobbin",
+      "source": "https://mobbin.com/",
+      "resolvedSource": "https://mobbin.com/",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "connected_reference_used",
+      "notes": "Dropbox iOS sharing/access sheets inspected from downloaded full-resolution images; PandaDoc document list adjacent reference. No collections or comments written. Preserve canonical citations and any required usage notice.",
+      "evidencePaths": [
+        "docs/roomline/revamp/COMPETITIVE_ASSESSMENT.md"
+      ]
+    },
+    {
+      "id": "better-design",
+      "name": "Better Design",
+      "source": "Connected Better Design MCP (service URL not independently established)",
+      "resolvedSource": "Connected Better Design MCP (service URL not independently established)",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "connected_reference_used",
+      "notes": "Rules and feature map consulted; local feature map is .better-design/feature-map.json. No global team rule is written without a concrete approved draft. Service version not exposed.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_LOCK.md",
+        ".better-design/feature-map.json"
+      ]
+    },
+    {
+      "id": "uxpilot",
+      "name": "UXPilot",
+      "source": "https://uxpilot.ai/",
+      "resolvedSource": "https://uxpilot.ai/",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "connected_reference_used",
+      "notes": "Read-only user-flow evidence inspected by lead agent (27 nodes). No claim of regenerated production UI, global defaults, or writes. Record the exact artifact in each future task.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_LOCK.md"
+      ]
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn/ui",
+      "source": "https://github.com/shadcn-ui/ui",
+      "resolvedSource": "https://github.com/shadcn-ui/ui",
+      "version": "e62c9435fff729a175f38983dee73b2cb4f6a069",
+      "status": "source_reviewed",
+      "notes": "Mandatory local-component/API review. Roomline owns customized Radix components on Next14/React18/Tailwind3, not current React19/Tailwind4/Base UI examples. No bulk registry overwrite.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "21st",
+      "name": "21st CLI / component registry / MCP",
+      "source": "https://21st.dev/api/mcp",
+      "resolvedSource": "https://21st.dev/api/mcp",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "configured_unverified",
+      "notes": "MCP config is environment-only (${API_KEY_21ST}); CLI installed by tooling agent. Authenticated search remains unavailable until a fresh rotated key is configured. Use scripts/design/21st-mcp.mjs to initialize/list/schema-check before component search; review source/dependencies before adoption. Never run returned code automatically.",
+      "evidencePaths": [
+        "scripts/design/21st-mcp.mjs",
+        "scripts/design/21st-mcp.test.mjs"
+      ]
+    },
+    {
+      "id": "uxcritique",
+      "name": "UXCritique",
+      "source": "User-named UXCritique (no verified endpoint supplied)",
+      "resolvedSource": "User-named UXCritique (no verified endpoint supplied)",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "unavailable",
+      "notes": "No callable UXCritique tool identified. Use a documented project-specific UX review and record unavailable; do not relabel it as execution of this tool.",
+      "evidencePaths": [
+        "docs/roomline/revamp/COMPETITIVE_ASSESSMENT.md"
+      ]
+    },
+    {
+      "id": "intuitive-software-design",
+      "name": "Intuitive Software Design",
+      "source": "User-named Intuitive Software Design (no verified endpoint supplied)",
+      "resolvedSource": "User-named Intuitive Software Design (no verified endpoint supplied)",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "unavailable",
+      "notes": "No callable tool identified. Record an explicit unavailable decision until an authoritative source or integration is connected.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_LOCK.md"
+      ]
+    },
+    {
+      "id": "design-system",
+      "name": "Design System",
+      "source": "DESIGN.md",
+      "resolvedSource": "DESIGN.md",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "local_policy",
+      "notes": "Generic Design System request is fulfilled by Roomline DESIGN.md, semantic tokens, local component recipes and evidence. It is not a claim that an external plugin named Design System was invoked.",
+      "evidencePaths": [
+        "DESIGN.md",
+        "styles/globals.css",
+        "tailwind.config.js"
+      ]
+    },
+    {
+      "id": "imperial-cv",
+      "name": "imperial_masters_cv",
+      "source": "User-provided name imperial_masters_cv (document not available locally)",
+      "resolvedSource": "User-provided name imperial_masters_cv (document not available locally)",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "unavailable",
+      "notes": "No local file was supplied. Exact-name connected Drive lookup required reauthentication; no personal context inferred and no invented CV contents used.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_LOCK.md"
+      ]
+    },
+    {
+      "id": "hallmark",
+      "name": "Hallmark",
+      "source": "https://github.com/Nutlope/hallmark",
+      "resolvedSource": "https://github.com/Nutlope/hallmark",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "README/skill/redesign/portable design system reviewed. Preserve product contracts and scoped design tokens; no remote engine executed.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "astryx",
+      "name": "Astryx",
+      "source": "https://github.com/meta/astryx",
+      "resolvedSource": "https://github.com/meta/astryx",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Reviewed 0.7.17 source. React>=19 and StyleX architecture is incompatible with installing unchanged in React18; adopt semantic token/state principles only.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "rune",
+      "name": "Rune",
+      "source": "https://github.com/anomalyco/rune",
+      "resolvedSource": "https://github.com/anomalyco/rune",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Rust native GPU UI framework on pre-release dev branch, not a drop-in React library. Interaction semantics can inform web UI. Native implementation requires actual native project source.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "unslop",
+      "name": "Unslop",
+      "source": "https://github.com/heydamir/unslop",
+      "resolvedSource": "https://github.com/heydamir/unslop",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Craft-pass guidance source reviewed, not installed. CC BY 4.0 by Damir Sokolovsky; retain attribution on adaptations. Product-specific hierarchy beats blanket aesthetic bans.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "logiaweb",
+      "name": "Logiaweb Design Inspo Stack",
+      "source": "https://www.logiaweb.net/hub/library/guides/design-inspo-stack",
+      "resolvedSource": "https://www.logiaweb.net/hub/library/guides/design-inspo-stack",
+      "version": "2026-10-04 guide; fetched 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Editorial guide dated 2026-10-04; sections/flow/reasoned-reference method adopted. Reachability does not license external assets, paid catalogs, or unrelated Mac tools.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md"
+      ]
+    },
+    {
+      "id": "jaimedhenriques-ui",
+      "name": "Requested jaimedhenriques/ui",
+      "source": "https://github.com/jaimedhenriques/ui",
+      "resolvedSource": "https://github.com/hythevc/ui",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "redirected_source_reviewed",
+      "notes": "API/URL redirect resolves to hythevc/ui. Reviewed shadcn source fork; latest React19/Next16/Tailwind4 examples require adaptation, not overwrite. Metadata reachability/visibility can vary with authentication.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "screenshot-to-code",
+      "name": "Screenshot to Code",
+      "source": "https://github.com/abi/screenshot-to-code",
+      "resolvedSource": "https://github.com/abi/screenshot-to-code",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Separate Python/FastAPI + React/Vite conversion app. Source reviewed; no provider calls/keys or conversion server run. Use capture/compare discipline when visual source is relevant.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "website-cloner",
+      "name": "AI Website Cloner Template",
+      "source": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "resolvedSource": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Inspection/geometry verification guidance reviewed. Next16/React19/Tailwind4 template is not an upgrade recipe or permission to copy competitor identity.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "anti-slop",
+      "name": "Anti-slop",
+      "source": "https://github.com/miqdadbadjuber/anti-slop",
+      "resolvedSource": "https://github.com/miqdadbadjuber/anti-slop",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Core/UI/mobile/accessibility/copy/comment guidance reviewed. Apply meaningful content, complete states and behavior; preserve MIT/Addy Osmani notices where material is copied.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "skillui",
+      "name": "SkillUI",
+      "source": "https://github.com/amaancoderx/npxskillui",
+      "resolvedSource": "https://github.com/amaancoderx/npxskillui",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Source reviewed at package1.3.4. Static extraction/inferred design docs are inputs, not approved requirements. CLI not executed; README/package declare MIT but no standalone license established.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "elaya",
+      "name": "Elaya AI Design Skills",
+      "source": "https://github.com/elayadesign/ai-design-skills",
+      "resolvedSource": "https://github.com/elayadesign/ai-design-skills",
+      "version": "456d9e0d3e2d84c748bb143c6ca3d90c45e16213",
+      "status": "source_reviewed",
+      "notes": "Landing/Figma foundations/tokens reviewed. Do not impose gradient headlines, font bans, 500ms transitions, or scroll reveals on Roomline operations.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "emil-apple",
+      "name": "Emil Kowalski Skills / Apple Design",
+      "source": "https://github.com/emilkowalski/skills",
+      "resolvedSource": "https://github.com/emilkowalski/skills",
+      "version": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+      "status": "source_reviewed",
+      "notes": "Apple-design explicitly applies principles to web. Use instant feedback, restrained frequency-aware motion, Pointer Events and mobile-web clarity. No SwiftUI rewrite or Apple asset license implied.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "ux-ui-agent-skills",
+      "name": "UX/UI Agent Skills / XIAS",
+      "source": "https://github.com/plugin87/ux-ui-agent-skills",
+      "resolvedSource": "https://github.com/plugin87/ux-ui-agent-skills",
+      "version": "f823acedc3ef4e9b2ba944a28fd86fe2abdde427",
+      "status": "source_reviewed",
+      "notes": "Tokens/state/evidence guidance reviewed. Next15/React19 adapter incompatible wholesale. Kit self-test accuracy_report is not a Roomline quality score.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "impeccable",
+      "name": "Impeccable",
+      "source": "https://github.com/pbakaus/impeccable",
+      "resolvedSource": "https://github.com/pbakaus/impeccable",
+      "version": "1995764b4936f2bfbf4eb719cb37b384a45ceacb",
+      "status": "source_reviewed",
+      "notes": "Persuade/Operate/Read modes and hardening reviewed. No detector, installer, bypassed live-copy hook, or self-downloading engine executed.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "name": "UI/UX Pro Max",
+      "source": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "resolvedSource": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "version": "d643997c82e94742dd3bee43210b0198e8bbba3d",
+      "status": "source_reviewed",
+      "notes": "Source/design-system/styling reviewed. Accessibility and interaction precede style. No toolkit database search or generated score claimed; avoid Tailwind4/new-app migration recipes.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+        "artifacts/revamp/reference-source-versions.json"
+      ]
+    },
+    {
+      "id": "tasteskill-site",
+      "name": "Taste Skill website",
+      "source": "https://tasteskill.dev/",
+      "resolvedSource": "https://tasteskill.dev/",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Website is overview/examples and may differ from current repository script generation. Use pinned repository workflow notes; do not treat marketing claims as Roomline measurements.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_REVIEW_B.md"
+      ]
+    },
+    {
+      "id": "12ui",
+      "name": "12ui Design",
+      "source": "https://www.npmjs.com/package/@12ui/design",
+      "resolvedSource": "https://www.npmjs.com/package/@12ui/design",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "unavailable",
+      "notes": "Cloud skill was read in the initial task. No CLI/design run is established by this review. Use its applicable design workflow when available; document unavailable status rather than silently claiming generation.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_LOCK.md"
+      ]
+    },
+    {
+      "id": "product-design",
+      "name": "Product Design",
+      "source": "Product Design connected skill package",
+      "resolvedSource": "Product Design connected skill package",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "source_reviewed",
+      "notes": "Router/audit instructions were read in the initial task. Existing code and current captures ground this work; source research is not a completed authenticated-product audit.",
+      "evidencePaths": [
+        "docs/roomline/revamp/REFERENCE_LOCK.md",
+        "docs/roomline/revamp/COMPETITIVE_ASSESSMENT.md"
+      ]
+    },
+    {
+      "id": "frontend-design",
+      "name": "Installed frontend-design skill",
+      "source": ".agents/skills/frontend-design/SKILL.md",
+      "resolvedSource": ".agents/skills/frontend-design/SKILL.md",
+      "version": "No pinned version established; reviewed 2026-11-14",
+      "status": "installed",
+      "notes": "Local skill available for frontend implementation. Read its actual instructions when invoked and reconcile them with Roomline design/compatibility constraints.",
+      "evidencePaths": [
+        ".agents/skills/frontend-design/SKILL.md"
+      ]
+    }
+  ]
+}
