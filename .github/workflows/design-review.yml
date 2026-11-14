@@ -1,0 +1,55 @@
+name: Design review evidence
+
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'pages/**'
+      - 'components/**'
+      - 'styles/**'
+      - 'public/**'
+      - 'ee/**/*.tsx'
+      - 'lib/**/*.tsx'
+      - 'context/**/*.tsx'
+      - 'middleware.ts'
+      - 'lib/brand.ts'
+      - 'lib/marketing-*.ts'
+      - 'lib/navigation/**'
+      - 'tailwind.config.js'
+      - 'components.json'
+      - 'AGENTS.md'
+      - 'DESIGN.md'
+      - 'docs/roomline/revamp/**'
+      - 'artifacts/revamp/**'
+      - 'scripts/design/**'
+      - '.github/workflows/design-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-review:
+    name: Validate review records (not release approval)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test deterministic evidence checks
+        run: node --test scripts/design/check.test.mjs scripts/design/21st-mcp.test.mjs
+      - name: Validate review and changed UI scope
+        env:
+          DESIGN_BASE_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ -n "$DESIGN_BASE_REF" ]; then
+            node scripts/design/check.mjs --base-ref "$DESIGN_BASE_REF"
+          else
+            node scripts/design/check.mjs
+          fi
+      - name: Explain gate boundary
+        run: echo 'A valid review record can contain documented blocked/source-only states. Run --require-complete for the stricter release check. This workflow does not certify design quality, infrastructure, or launch readiness.'

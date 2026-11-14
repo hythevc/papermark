@@ -1,19 +1,20 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { isReferralsEnabled } from "@/ee/features/partners/lib/referrals";
 import {
   ChevronLeftIcon,
   CircleUserRound,
-  GiftIcon,
   LogOut,
   MailIcon,
 } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "sonner";
 
+import { BRAND } from "@/lib/brand";
+import { useSelfMembership } from "@/lib/hooks/use-self-membership";
 import { useDataroom } from "@/lib/swr/use-dataroom";
 
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -30,6 +31,7 @@ import { ModeToggle } from "../theme-toggle";
 export function MobileHeader() {
   const { data: session } = useSession();
   const router = useRouter();
+  const { isDataroomMember, loading: membershipLoading } = useSelfMembership();
 
   const inDataroom =
     router.pathname.startsWith("/datarooms/[id]") && !!router.query.id;
@@ -37,13 +39,13 @@ export function MobileHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex flex-col border-b border-border bg-background pt-[env(safe-area-inset-top,0px)] md:hidden">
-      <div className="flex h-14 shrink-0 touch-manipulation items-center justify-between gap-2 px-4">
+      <div className="flex h-[var(--app-mobile-header-height,3.5rem)] shrink-0 touch-manipulation items-center justify-between gap-2 px-4">
         {inDataroom && dataroom?.name ? (
           <div className="flex min-w-0 flex-1 items-center gap-1">
             <Link
               href="/datarooms"
-              className="-ml-1 flex shrink-0 items-center justify-center rounded-md p-1 text-muted-foreground active:bg-muted"
-              aria-label="Back to datarooms"
+              className="-ml-1 flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md p-2 text-muted-foreground active:bg-muted"
+              aria-label="Back to data rooms"
             >
               <ChevronLeftIcon className="h-5 w-5" />
             </Link>
@@ -53,10 +55,15 @@ export function MobileHeader() {
           </div>
         ) : (
           <Link
-            href="/dashboard"
-            className="text-xl font-bold tracking-tighter text-foreground"
+            href={
+              membershipLoading || isDataroomMember
+                ? "/datarooms"
+                : "/dashboard"
+            }
+            aria-label={`${BRAND.name} workspace home`}
+            className="inline-flex min-h-11 items-center text-xl font-bold tracking-tighter text-foreground"
           >
-            Papermark
+            <BrandLogo />
           </Link>
         )}
 
@@ -64,7 +71,8 @@ export function MobileHeader() {
           <DropdownMenuTrigger asChild>
             <button
               type="button"
-              className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-label="Open account menu"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Avatar className="h-8 w-8">
                 <AvatarImage
@@ -85,7 +93,7 @@ export function MobileHeader() {
               left: 12,
               right: 12,
             }}
-            className="w-56 rounded-lg"
+            className="w-56 rounded-lg [&_[role=menuitem]]:min-h-11 [&_button]:min-h-11"
             side="bottom"
             align="end"
             sideOffset={8}
@@ -114,33 +122,39 @@ export function MobileHeader() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <ModeToggle />
-            <DropdownMenuGroup>
-              <Link href="/account/general">
-                <DropdownMenuItem>
-                  <CircleUserRound className="mr-2 h-4 w-4" />
-                  User Settings
+            {!membershipLoading && !isDataroomMember && (
+              <DropdownMenuGroup>
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/account/general"
+                    aria-current={
+                      router.pathname.startsWith("/account/")
+                        ? "page"
+                        : undefined
+                    }
+                  >
+                    <CircleUserRound
+                      className="mr-2 h-4 w-4"
+                      aria-hidden="true"
+                    />
+                    Account settings
+                  </Link>
                 </DropdownMenuItem>
-              </Link>
-            </DropdownMenuGroup>
+              </DropdownMenuGroup>
+            )}
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem
-                onClick={() => {
-                  navigator.clipboard.writeText("support@papermark.com");
-                  toast.success("support@papermark.com copied to clipboard");
-                }}
-              >
-                <MailIcon className="mr-2 h-4 w-4" />
-                Contact Support
-              </DropdownMenuItem>
-              {isReferralsEnabled() ? (
-                <Link href="/partners">
-                  <DropdownMenuItem>
-                    <GiftIcon className="mr-2 h-4 w-4" />
-                    Earn and Refer
-                  </DropdownMenuItem>
-                </Link>
-              ) : null}
+              {BRAND.supportEmail && (
+                <DropdownMenuItem
+                  onClick={() => {
+                    navigator.clipboard.writeText(BRAND.supportEmail!);
+                    toast.success(`${BRAND.supportEmail} copied to clipboard`);
+                  }}
+                >
+                  <MailIcon className="mr-2 h-4 w-4" />
+                  Contact Support
+                </DropdownMenuItem>
+              )}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem

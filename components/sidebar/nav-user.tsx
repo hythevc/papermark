@@ -4,18 +4,18 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-import { isReferralsEnabled } from "@/ee/features/partners/lib/referrals";
 import {
   ChevronsUpDown,
   CircleUserRound,
   FileTextIcon,
-  GiftIcon,
   LifeBuoyIcon,
   LogOut,
   MailIcon,
 } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "sonner";
+
+import { BRAND } from "@/lib/brand";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -165,23 +165,19 @@ export function NavUser() {
                   <LifeBuoyIcon />
                   Help Center
                 </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => {
-                    navigator.clipboard.writeText("support@papermark.com");
-                    toast.success("support@papermark.com copied to clipboard");
-                  }}
-                >
-                  <MailIcon />
-                  Contact Support
-                </DropdownMenuItem>
-                {isReferralsEnabled() ? (
-                  <Link href="/partners">
-                    <DropdownMenuItem>
-                      <GiftIcon />
-                      Earn and Refer
-                    </DropdownMenuItem>
-                  </Link>
-                ) : null}
+                {BRAND.supportEmail && (
+                  <DropdownMenuItem
+                    onClick={() => {
+                      navigator.clipboard.writeText(BRAND.supportEmail!);
+                      toast.success(
+                        `${BRAND.supportEmail} copied to clipboard`,
+                      );
+                    }}
+                  >
+                    <MailIcon />
+                    Contact Support
+                  </DropdownMenuItem>
+                )}
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem

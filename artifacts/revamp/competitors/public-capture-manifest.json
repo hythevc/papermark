@@ -1,0 +1,2796 @@
+[
+  {
+    "name": "papermark-home",
+    "url": "https://www.papermark.com/",
+    "viewportCaptures": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "file": "papermark-home-1440.png"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 422,
+        "file": "papermark-home-390.png"
+      }
+    ],
+    "capturedAt": "2026-11-14T18:41:31.148Z",
+    "status": 200,
+    "finalUrl": "https://www.papermark.com/",
+    "title": "Papermark | Secure data rooms for modern dealmakers",
+    "headings": [
+      "Close Deals Faster.",
+      "Series B Data Room",
+      "Fund II Data Room",
+      "80,000+ dealmakers worldwide trust Papermark",
+      "Real impact for real teams",
+      "Enterprise-grade security and controls",
+      "See exactly which document pages closed the deal, and which lost the room.",
+      "Run your next deal on Papermark.",
+      "Footer",
+      "Product",
+      "About",
+      "Use cases",
+      "Alternatives",
+      "Resources"
+    ],
+    "links": [
+      {
+        "text": "Data Room",
+        "href": "https://www.papermark.com/data-room"
+      },
+      {
+        "text": "P",
+        "href": "https://www.papermark.com/"
+      },
+      {
+        "text": "9.4K",
+        "href": "https://git.new/papermark"
+      },
+      {
+        "text": "All Systems Operational",
+        "href": "https://papermark.openstatus.dev/"
+      },
+      {
+        "text": "Papermark",
+        "href": "https://www.papermark.com/"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.papermark.com/pricing"
+      },
+      {
+        "text": "Data Room",
+        "href": "https://www.papermark.com/data-room"
+      },
+      {
+        "text": "API",
+        "href": "https://www.papermark.com/dev"
+      },
+      {
+        "text": "MCP",
+        "href": "https://www.papermark.com/agents"
+      },
+      {
+        "text": "Enterprise",
+        "href": "https://www.papermark.com/enterprise"
+      },
+      {
+        "text": "Security",
+        "href": "https://www.papermark.com/security"
+      },
+      {
+        "text": "GitHub",
+        "href": "https://github.com/papermark"
+      },
+      {
+        "text": "Page by Page  Analytics",
+        "href": "https://www.papermark.com/document-analytics"
+      },
+      {
+        "text": "AI Redaction",
+        "href": "https://www.papermark.com/ai-redaction"
+      },
+      {
+        "text": "Data room request list",
+        "href": "https://www.papermark.com/data-room-request-list"
+      },
+      {
+        "text": "Dynamic Watermarking",
+        "href": "https://www.papermark.com/dynamic-watermarking"
+      },
+      {
+        "text": "Screenshot Protection",
+        "href": "https://www.papermark.com/screenshot-protection"
+      },
+      {
+        "text": "Password Protection",
+        "href": "https://www.papermark.com/password-protection"
+      },
+      {
+        "text": "One-Click NDA",
+        "href": "https://www.papermark.com/one-click-nda"
+      },
+      {
+        "text": "AI Data Room Copilot",
+        "href": "https://www.papermark.com/ai"
+      },
+      {
+        "text": "Notion Sharing",
+        "href": "https://www.papermark.com/share-notion-page"
+      },
+      {
+        "text": "Secure File Sharing",
+        "href": "https://www.papermark.com/secure-file-sharing"
+      },
+      {
+        "text": "Workflows",
+        "href": "https://www.papermark.com/workflows"
+      },
+      {
+        "text": "Link Permissions",
+        "href": "https://www.papermark.com/granular-permissions"
+      },
+      {
+        "text": "Custom Domain",
+        "href": "https://www.papermark.com/help/article/how-to-add-custom-domain-to-link"
+      },
+      {
+        "text": "Document Versions",
+        "href": "https://www.papermark.com/help/article/document-versions"
+      },
+      {
+        "text": "Data Room Questions and Answers",
+        "href": "https://www.papermark.com/data-room-questions-and-answers"
+      },
+      {
+        "text": "AI Agents for Data Rooms",
+        "href": "https://www.papermark.com/ai-agents"
+      },
+      {
+        "text": "AI Data Rooms",
+        "href": "https://www.papermark.com/blog/ai-data-rooms"
+      },
+      {
+        "text": "Company",
+        "href": "https://www.papermark.com/about"
+      },
+      {
+        "text": "Platform",
+        "href": "https://www.papermark.com/platform"
+      },
+      {
+        "text": "Changelog",
+        "href": "https://www.papermark.com/changelog"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "https://www.papermark.com/privacy"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "https://www.papermark.com/terms"
+      },
+      {
+        "text": "Subprocessors",
+        "href": "https://www.papermark.com/subprocessors"
+      },
+      {
+        "text": "Customers",
+        "href": "https://www.papermark.com/customers"
+      },
+      {
+        "text": "Become a partner",
+        "href": "https://www.papermark.com/partners"
+      },
+      {
+        "text": "Data Room Use Cases",
+        "href": "https://www.papermark.com/virtual-data-room-use-cases"
+      },
+      {
+        "text": "M&A Data Room",
+        "href": "https://www.papermark.com/ma-data-room"
+      },
+      {
+        "text": "Real Estate Data Room",
+        "href": "https://www.papermark.com/real-estate-data-room"
+      },
+      {
+        "text": "Due Diligence",
+        "href": "https://www.papermark.com/data-room-due-diligence"
+      },
+      {
+        "text": "Investment Banking",
+        "href": "https://www.papermark.com/vdr-investment-banking"
+      },
+      {
+        "text": "Startups Fundraising",
+        "href": "https://www.papermark.com/startups"
+      },
+      {
+        "text": "Pitch Deck Sharing",
+        "href": "https://www.papermark.com/pitch-deck-sharing-software"
+      },
+      {
+        "text": "Investor Update Software",
+        "href": "https://www.papermark.com/solutions/investor-update-software"
+      },
+      {
+        "text": "Data Room for Startups",
+        "href": "https://www.papermark.com/data-room-for-startups"
+      },
+      {
+        "text": "Biotech Pharma Data Room",
+        "href": "https://www.papermark.com/biotech-pharma-data-room"
+      },
+      {
+        "text": "Virtual Sales Data Room",
+        "href": "https://www.papermark.com/vdr-sales"
+      },
+      {
+        "text": "Fundraising Data Room",
+        "href": "https://www.papermark.com/fundraising-data-room"
+      },
+      {
+        "text": "DocSend",
+        "href": "https://www.papermark.com/alternatives/docsend"
+      },
+      {
+        "text": "Ideals VDR",
+        "href": "https://www.papermark.com/alternatives/ideals"
+      },
+      {
+        "text": "Intralinks",
+        "href": "https://www.papermark.com/alternatives/intralinks"
+      },
+      {
+        "text": "Datasite",
+        "href": "https://www.papermark.com/alternatives/datasite"
+      },
+      {
+        "text": "Firmex",
+        "href": "https://www.papermark.com/blog/firmex-alternatives"
+      },
+      {
+        "text": "Ansarada",
+        "href": "https://www.papermark.com/alternatives/ansarada"
+      },
+      {
+        "text": "All Alternatives",
+        "href": "https://www.papermark.com/alternatives"
+      },
+      {
+        "text": "DocSend Alternatives",
+        "href": "https://www.papermark.com/docsend-alternatives"
+      },
+      {
+        "text": "Ideals VDR Alternatives",
+        "href": "https://www.papermark.com/ideals-vdr-alternatives"
+      },
+      {
+        "text": "Intralinks Alternatives",
+        "href": "https://www.papermark.com/blog/intralinks-alternatives"
+      },
+      {
+        "text": "Datasite Alternatives",
+        "href": "https://www.papermark.com/blog/datasite-alternatives"
+      },
+      {
+        "text": "Digify",
+        "href": "https://www.papermark.com/alternatives/digify"
+      },
+      {
+        "text": "Digify Alternatives",
+        "href": "https://www.papermark.com/digify-alternatives"
+      },
+      {
+        "text": "Sharepoint",
+        "href": "https://www.papermark.com/alternatives/sharepoint"
+      },
+      {
+        "text": "Sharepoint Alternatives",
+        "href": "https://www.papermark.com/blog/sharepoint-alternatives-for-data-rooms"
+      },
+      {
+        "text": "Blog",
+        "href": "https://www.papermark.com/blog"
+      },
+      {
+        "text": "Help Center",
+        "href": "https://www.papermark.com/help"
+      },
+      {
+        "text": "Fundraising Report 2026",
+        "href": "https://www.papermark.com/fundraising-report"
+      },
+      {
+        "text": "Pitch Deck Competition",
+        "href": "https://www.papermark.com/pitch-deck-competition"
+      },
+      {
+        "text": "What is a Virtual Data Room",
+        "href": "https://www.papermark.com/blog/what-is-virtual-data-room"
+      },
+      {
+        "text": "Best Virtual Data Rooms",
+        "href": "https://www.papermark.com/blog/best-virtual-data-rooms"
+      },
+      {
+        "text": "Data Room Price Comparison",
+        "href": "https://www.papermark.com/data-room-price"
+      },
+      {
+        "text": "Data Room Examples",
+        "href": "https://www.papermark.com/data-room-examples"
+      },
+      {
+        "text": "M&A Data Room Guide",
+        "href": "https://www.papermark.com/blog/virtual-data-room-for-mergers-and-acquisitions"
+      },
+      {
+        "text": "Best CRE Data Rooms",
+        "href": "https://www.papermark.com/blog/best-data-rooms-for-commercial-real-estate"
+      },
+      {
+        "text": "M&A Process Guide",
+        "href": "https://www.papermark.com/blog/ma-process"
+      },
+      {
+        "text": "Top Startup Data Rooms",
+        "href": "https://www.papermark.com/blog/data-room-for-startups"
+      },
+      {
+        "text": "Investor Database (7k+)",
+        "href": "https://www.papermark.com/investors"
+      },
+      {
+        "text": "M&A Advisors Database",
+        "href": "https://www.papermark.com/ma-advisors"
+      },
+      {
+        "text": "Startup Due Diligence",
+        "href": "https://www.papermark.com/blog/startup-due-diligence"
+      },
+      {
+        "text": "Due Diligence Data Room Guide",
+        "href": "https://www.papermark.com/blog/best-virtual-data-rooms-for-due-diligence"
+      },
+      {
+        "text": "Virtual Data Room Cost",
+        "href": "https://www.papermark.com/blog/virtual-data-room-cost"
+      },
+      {
+        "text": "Document Tracking Tool",
+        "href": "https://www.papermark.com/blog/document-tracking-software"
+      },
+      {
+        "text": "Open Source Data Room",
+        "href": "https://www.papermark.com/blog/open-source-free-data-room-software"
+      }
+    ],
+    "visibleTextSnippet": "Papermark is now a verified connector in Claude\nCreate a data room with MCP\nWhy Papermark?\nData Room\nPricing\nSecurity\nDevelopers\nBlog\nCustomers\nNews\nLog in\nStart now\nISO 27001 certified · SOC 2 Type II\nClose Deals Faster.\n\nThe world's most ambitious dealmakers, founders and finance teams trust Papermark to host their data rooms and share confidential documents.\n\nStart for free\nNo credit card required\nTRUSTED BY 80,000+ GLOBAL COMPANIES\n4.9 / 5.0\nOur Customers\n\nPapermark is the secure data room built for modern dealmakers. Share confidential documents on a platform that gives you control, visibility, and trust.\n\nPapermark\nWORKSPACE\nDocuments\nData Rooms\nVisitors\nAnalytics\nDATA ROOMS\nSeries B 2026\nFund II Data Room\nProject Northline\nAcquisition Kestrel\nHarbor Point Offices\nTender Meridian Health\nSeries B Data Room\nLast updated 2 hours ago\nShare\nData Room\nPermissions\nAnalytics\nAudit Log\nBranding\nName\tView duration\tView completion\tLast viewed\n\nS\nSarah Chen\nsarah@sequoia.com\n\t4:32\t\n0\n\t2m ago\n\nM\nMichael Torres\nm.torres@a16z.com\n\t12:15\t\n0\n\t18m ago\n\nE\nElena Kovacs\nelena@indexventures.com\n\t7:48\t\n0\n\t1h ago\n\nJ\nJames Wright\njwright@accel.com\n\t2:05\t\n0\n\t3h ago\n\nP\nPriya Sharma\npriya@lightspeed.com\n\t9:22\t\n0\n\t5h ago\n\nD\nDavid Kim\ndavid@greylock.com\n\t6:41\t\n0\n\t8h ago\nFund II Data Room\nDocument analytics · Last 30 days\nShare\nData Room\nPermissions\nAnalytics\nAudit Log\nBranding\nNumber of visits\n128\nAverage view duration\n6:42\nAverage completion\n81%\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\nVersion 2\nVersion 1\nTime spent per page\nTotal deal value running through Papermark.\n$\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n,\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n,\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n,\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n80,000+ DEALMA"
+  },
+  {
+    "name": "papermark-pricing",
+    "url": "https://www.papermark.com/pricing",
+    "viewportCaptures": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "file": "papermark-pricing-1440.png"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "file": "papermark-pricing-390.png"
+      }
+    ],
+    "capturedAt": "2026-11-14T18:41:31.172Z",
+    "status": 200,
+    "finalUrl": "https://www.papermark.com/pricing",
+    "title": "Pricing | Papermark",
+    "headings": [
+      "Find the plan that works for you",
+      "Free",
+      "Pro",
+      "Business",
+      "Data Rooms",
+      "Papermark pricing calculator. Calculate right price for your team and understand how pricing is formed.",
+      "Free",
+      "Pro",
+      "Business",
+      "Data Rooms",
+      "Team MembersSelected: 3 members",
+      "Contract Term",
+      "Data Rooms",
+      "Your total",
+      "Looking for enterprise plan or self-hosted version?",
+      "Compare features",
+      "Document Analytics and Tracking",
+      "Link Settings",
+      "Data Rooms and Documents",
+      "File Types",
+      "Custom Branding",
+      "Other Features",
+      "Support",
+      "Footer",
+      "Product",
+      "About",
+      "Use cases",
+      "Alternatives",
+      "Resources"
+    ],
+    "links": [
+      {
+        "text": "Data Room",
+        "href": "https://www.papermark.com/data-room"
+      },
+      {
+        "text": "P",
+        "href": "https://www.papermark.com/"
+      },
+      {
+        "text": "9.4K",
+        "href": "https://git.new/papermark"
+      },
+      {
+        "text": "All Systems Operational",
+        "href": "https://papermark.openstatus.dev/"
+      },
+      {
+        "text": "Papermark",
+        "href": "https://www.papermark.com/"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.papermark.com/pricing"
+      },
+      {
+        "text": "Data Room",
+        "href": "https://www.papermark.com/data-room"
+      },
+      {
+        "text": "API",
+        "href": "https://www.papermark.com/dev"
+      },
+      {
+        "text": "MCP",
+        "href": "https://www.papermark.com/agents"
+      },
+      {
+        "text": "Enterprise",
+        "href": "https://www.papermark.com/enterprise"
+      },
+      {
+        "text": "Security",
+        "href": "https://www.papermark.com/security"
+      },
+      {
+        "text": "GitHub",
+        "href": "https://github.com/papermark"
+      },
+      {
+        "text": "Page by Page  Analytics",
+        "href": "https://www.papermark.com/document-analytics"
+      },
+      {
+        "text": "AI Redaction",
+        "href": "https://www.papermark.com/ai-redaction"
+      },
+      {
+        "text": "Data room request list",
+        "href": "https://www.papermark.com/data-room-request-list"
+      },
+      {
+        "text": "Dynamic Watermarking",
+        "href": "https://www.papermark.com/dynamic-watermarking"
+      },
+      {
+        "text": "Screenshot Protection",
+        "href": "https://www.papermark.com/screenshot-protection"
+      },
+      {
+        "text": "Password Protection",
+        "href": "https://www.papermark.com/password-protection"
+      },
+      {
+        "text": "One-Click NDA",
+        "href": "https://www.papermark.com/one-click-nda"
+      },
+      {
+        "text": "AI Data Room Copilot",
+        "href": "https://www.papermark.com/ai"
+      },
+      {
+        "text": "Notion Sharing",
+        "href": "https://www.papermark.com/share-notion-page"
+      },
+      {
+        "text": "Secure File Sharing",
+        "href": "https://www.papermark.com/secure-file-sharing"
+      },
+      {
+        "text": "Workflows",
+        "href": "https://www.papermark.com/workflows"
+      },
+      {
+        "text": "Link Permissions",
+        "href": "https://www.papermark.com/granular-permissions"
+      },
+      {
+        "text": "Custom Domain",
+        "href": "https://www.papermark.com/help/article/how-to-add-custom-domain-to-link"
+      },
+      {
+        "text": "Document Versions",
+        "href": "https://www.papermark.com/help/article/document-versions"
+      },
+      {
+        "text": "Data Room Questions and Answers",
+        "href": "https://www.papermark.com/data-room-questions-and-answers"
+      },
+      {
+        "text": "AI Agents for Data Rooms",
+        "href": "https://www.papermark.com/ai-agents"
+      },
+      {
+        "text": "AI Data Rooms",
+        "href": "https://www.papermark.com/blog/ai-data-rooms"
+      },
+      {
+        "text": "Company",
+        "href": "https://www.papermark.com/about"
+      },
+      {
+        "text": "Platform",
+        "href": "https://www.papermark.com/platform"
+      },
+      {
+        "text": "Changelog",
+        "href": "https://www.papermark.com/changelog"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "https://www.papermark.com/privacy"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "https://www.papermark.com/terms"
+      },
+      {
+        "text": "Subprocessors",
+        "href": "https://www.papermark.com/subprocessors"
+      },
+      {
+        "text": "Customers",
+        "href": "https://www.papermark.com/customers"
+      },
+      {
+        "text": "Become a partner",
+        "href": "https://www.papermark.com/partners"
+      },
+      {
+        "text": "Data Room Use Cases",
+        "href": "https://www.papermark.com/virtual-data-room-use-cases"
+      },
+      {
+        "text": "M&A Data Room",
+        "href": "https://www.papermark.com/ma-data-room"
+      },
+      {
+        "text": "Real Estate Data Room",
+        "href": "https://www.papermark.com/real-estate-data-room"
+      },
+      {
+        "text": "Due Diligence",
+        "href": "https://www.papermark.com/data-room-due-diligence"
+      },
+      {
+        "text": "Investment Banking",
+        "href": "https://www.papermark.com/vdr-investment-banking"
+      },
+      {
+        "text": "Startups Fundraising",
+        "href": "https://www.papermark.com/startups"
+      },
+      {
+        "text": "Pitch Deck Sharing",
+        "href": "https://www.papermark.com/pitch-deck-sharing-software"
+      },
+      {
+        "text": "Investor Update Software",
+        "href": "https://www.papermark.com/solutions/investor-update-software"
+      },
+      {
+        "text": "Data Room for Startups",
+        "href": "https://www.papermark.com/data-room-for-startups"
+      },
+      {
+        "text": "Biotech Pharma Data Room",
+        "href": "https://www.papermark.com/biotech-pharma-data-room"
+      },
+      {
+        "text": "Virtual Sales Data Room",
+        "href": "https://www.papermark.com/vdr-sales"
+      },
+      {
+        "text": "Fundraising Data Room",
+        "href": "https://www.papermark.com/fundraising-data-room"
+      },
+      {
+        "text": "DocSend",
+        "href": "https://www.papermark.com/alternatives/docsend"
+      },
+      {
+        "text": "Ideals VDR",
+        "href": "https://www.papermark.com/alternatives/ideals"
+      },
+      {
+        "text": "Intralinks",
+        "href": "https://www.papermark.com/alternatives/intralinks"
+      },
+      {
+        "text": "Datasite",
+        "href": "https://www.papermark.com/alternatives/datasite"
+      },
+      {
+        "text": "Firmex",
+        "href": "https://www.papermark.com/blog/firmex-alternatives"
+      },
+      {
+        "text": "Ansarada",
+        "href": "https://www.papermark.com/alternatives/ansarada"
+      },
+      {
+        "text": "All Alternatives",
+        "href": "https://www.papermark.com/alternatives"
+      },
+      {
+        "text": "DocSend Alternatives",
+        "href": "https://www.papermark.com/docsend-alternatives"
+      },
+      {
+        "text": "Ideals VDR Alternatives",
+        "href": "https://www.papermark.com/ideals-vdr-alternatives"
+      },
+      {
+        "text": "Intralinks Alternatives",
+        "href": "https://www.papermark.com/blog/intralinks-alternatives"
+      },
+      {
+        "text": "Datasite Alternatives",
+        "href": "https://www.papermark.com/blog/datasite-alternatives"
+      },
+      {
+        "text": "Digify",
+        "href": "https://www.papermark.com/alternatives/digify"
+      },
+      {
+        "text": "Digify Alternatives",
+        "href": "https://www.papermark.com/digify-alternatives"
+      },
+      {
+        "text": "Sharepoint",
+        "href": "https://www.papermark.com/alternatives/sharepoint"
+      },
+      {
+        "text": "Sharepoint Alternatives",
+        "href": "https://www.papermark.com/blog/sharepoint-alternatives-for-data-rooms"
+      },
+      {
+        "text": "Blog",
+        "href": "https://www.papermark.com/blog"
+      },
+      {
+        "text": "Help Center",
+        "href": "https://www.papermark.com/help"
+      },
+      {
+        "text": "Fundraising Report 2026",
+        "href": "https://www.papermark.com/fundraising-report"
+      },
+      {
+        "text": "Pitch Deck Competition",
+        "href": "https://www.papermark.com/pitch-deck-competition"
+      },
+      {
+        "text": "What is a Virtual Data Room",
+        "href": "https://www.papermark.com/blog/what-is-virtual-data-room"
+      },
+      {
+        "text": "Best Virtual Data Rooms",
+        "href": "https://www.papermark.com/blog/best-virtual-data-rooms"
+      },
+      {
+        "text": "Data Room Price Comparison",
+        "href": "https://www.papermark.com/data-room-price"
+      },
+      {
+        "text": "Data Room Examples",
+        "href": "https://www.papermark.com/data-room-examples"
+      },
+      {
+        "text": "M&A Data Room Guide",
+        "href": "https://www.papermark.com/blog/virtual-data-room-for-mergers-and-acquisitions"
+      },
+      {
+        "text": "Best CRE Data Rooms",
+        "href": "https://www.papermark.com/blog/best-data-rooms-for-commercial-real-estate"
+      },
+      {
+        "text": "M&A Process Guide",
+        "href": "https://www.papermark.com/blog/ma-process"
+      },
+      {
+        "text": "Top Startup Data Rooms",
+        "href": "https://www.papermark.com/blog/data-room-for-startups"
+      },
+      {
+        "text": "Investor Database (7k+)",
+        "href": "https://www.papermark.com/investors"
+      },
+      {
+        "text": "M&A Advisors Database",
+        "href": "https://www.papermark.com/ma-advisors"
+      },
+      {
+        "text": "Startup Due Diligence",
+        "href": "https://www.papermark.com/blog/startup-due-diligence"
+      },
+      {
+        "text": "Due Diligence Data Room Guide",
+        "href": "https://www.papermark.com/blog/best-virtual-data-rooms-for-due-diligence"
+      },
+      {
+        "text": "Virtual Data Room Cost",
+        "href": "https://www.papermark.com/blog/virtual-data-room-cost"
+      },
+      {
+        "text": "Document Tracking Tool",
+        "href": "https://www.papermark.com/blog/document-tracking-software"
+      },
+      {
+        "text": "Open Source Data Room",
+        "href": "https://www.papermark.com/blog/open-source-free-data-room-software"
+      }
+    ],
+    "visibleTextSnippet": "Why Papermark?\nData Room\nPricing\nSecurity\nDevelopers\nBlog\nCustomers\nNews\nLog in\nStart now\ntrusted by 80,000+ companies to secure their deal flow\nFind the plan that works for you\n\nEvery plan includes unlimited visitors, page by page analytics, and unlimited data rooms.\nCancel or pause any time.\n\nDocument Sharing\nData Rooms\nSave up to 35%\nMonthly\nAnnually\nUSD\nEUR\nFree\nNo credit card required\n\n€0\n/month\n\nWhat's included:\n1 team member included\n50 links\n50 documents\nUnlimited visitors\nPage-by-page analytics\nDocument sharing controls\nStart for free\nPro\n\n€24\n/month\n\nEverything in Free, plus:\n1 team member included\nUnlimited links\n100 documents\nLarge file uploads\nCustom branding\nPapermark branding removed\nVideos and more file types\nCreating folders\nChoose Pro\nBusiness\nMost popular\n\n€59\n/month\n\n€20/m per additional team member\n\nEverything in Pro, plus:\n3 team members included\n1000 documents\nCustom domain for documents\nMulti-file sharing\nUnlimited folder levels\nRequire email verification\nAllow/Block list\nScreenshot protection\nWebhooks\nMCP, API, CLI\nChoose Business\nData Rooms\nBase\nPlus\n\n€99\n/month\n\n€33/m per additional team member\n\nEverything in Business, plus:\n3 team members included\nUnlimited data room visitors\nUnlimited data rooms\nUnlimited encrypted storage\nNo file size limit\nMCP, API, CLI\nCustom domain for data rooms\nData Room branding\nData Room analytics\nNDA agreements\nDynamic watermark\nGranular file level permissions\nData Room groups\n24/7 Email support\nStart 7-day free trial\nPapermark pricing calculator. Calculate right price for your team and understand how pricing is formed.\nFree\n\n€0\n\nPro\n\n€24\n\nBusiness\n\n€59\n\nData Rooms\n\n€99\n\nTeam Members\nSelected: 3 members\n3\n15\n25\n40\n50\nUnlimited\nContract Term\n1 month\n6 months\n1 year\nData Rooms\nNo Data Rooms\nMulti file sharing\nUnlimite"
+  },
+  {
+    "name": "docsend-home",
+    "url": "https://www.docsend.com/",
+    "viewportCaptures": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "file": "docsend-home-1440.png"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "file": "docsend-home-390.png"
+      }
+    ],
+    "capturedAt": "2026-11-14T18:41:31.174Z",
+    "status": 200,
+    "finalUrl": "https://www.docsend.com/",
+    "title": "Virtual Data Rooms for Deals, Fundraising, and Compliance - DocSend | DocSend",
+    "headings": [
+      "The secure way to share, track, and close critical business",
+      "The secure document sharing platform trusted by over 47,000 companies worldwide",
+      "Signals that move every deal",
+      "For deal-making",
+      "Advance M&A",
+      "Your edge:",
+      "For fundraising",
+      "Fundraise smarter",
+      "Your edge:",
+      "For high-stakes sharing",
+      "Win more business",
+      "Your edge:",
+      "For deal-making",
+      "Advance M&A",
+      "Your edge:",
+      "For fundraising",
+      "Fundraise smarter",
+      "Your edge:",
+      "For high-stakes sharing",
+      "Win more business",
+      "Your edge:",
+      "For deal-making",
+      "Advance M&A",
+      "Your edge:",
+      "For fundraising",
+      "Fundraise smarter",
+      "Your edge:",
+      "For high-stakes sharing",
+      "Win more business",
+      "Your edge:",
+      "For deal-making",
+      "Advance M&A",
+      "Your edge:",
+      "For fundraising",
+      "Fundraise smarter",
+      "Your edge:",
+      "For high-stakes sharing",
+      "Win more business",
+      "Your edge:",
+      "Seriously simple - from setup to close",
+      "Stay a step ahead with document tracking & analytics",
+      "Designed to bring pitching and dealmaking to the next level.",
+      "Conduct due diligence with confidence and control",
+      "Trusted by 47,000+ Companies",
+      "Docsend",
+      "Use Cases",
+      "Industries",
+      "Features",
+      "About us",
+      "Docsend",
+      "Use Cases",
+      "Industries",
+      "Features",
+      "About us"
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "https://www.docsend.com/#main-app-container"
+      },
+      {
+        "text": "Virtual Data Rooms",
+        "href": "https://www.docsend.com/features/virtual-data-room"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.docsend.com/pricing"
+      },
+      {
+        "text": "Customers",
+        "href": "https://www.docsend.com/customers"
+      },
+      {
+        "text": "Sign In",
+        "href": "https://docsend.com/login"
+      },
+      {
+        "text": "Request a demo",
+        "href": "https://www.docsend.com/letschat"
+      },
+      {
+        "text": "Get started",
+        "href": "https://docsend.com/signup/"
+      },
+      {
+        "text": "Dropbox",
+        "href": "https://www.dropbox.com/"
+      },
+      {
+        "text": "How it works",
+        "href": "https://www.docsend.com/how-it-works/"
+      },
+      {
+        "text": "Integrations",
+        "href": "https://www.docsend.com/integrations/"
+      },
+      {
+        "text": "Help Center",
+        "href": "https://help.docsend.com/hc/en-us"
+      },
+      {
+        "text": "Partnerships",
+        "href": "https://www.docsend.com/partnerships/"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.docsend.com/pricing/"
+      },
+      {
+        "text": "Resources",
+        "href": "https://www.docsend.com/resources/"
+      },
+      {
+        "text": "M&A",
+        "href": "https://www.docsend.com/features/m-and-a/"
+      },
+      {
+        "text": "Fundraising",
+        "href": "https://www.docsend.com/solutions/startup-fundraising/"
+      },
+      {
+        "text": "Venture Capital",
+        "href": "https://www.docsend.com/solutions/venture-capitalist/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.docsend.com/solutions/investment-management/"
+      },
+      {
+        "text": "Board Communications",
+        "href": "https://www.docsend.com/solutions/board-management/"
+      },
+      {
+        "text": "Investor Relations",
+        "href": "https://www.docsend.com/solutions/investor-relations-software/"
+      },
+      {
+        "text": "Financial Services",
+        "href": "https://www.docsend.com/solutions/financial-services/"
+      },
+      {
+        "text": "Startups",
+        "href": "https://www.docsend.com/solutions/startups/"
+      },
+      {
+        "text": "Legal and Advisory",
+        "href": "https://www.docsend.com/solutions/professional-services/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.docsend.com/solutions/real-estate/"
+      },
+      {
+        "text": "Sales and Marketing",
+        "href": "https://www.docsend.com/solutions/tech-sales/"
+      },
+      {
+        "text": "Other Industries",
+        "href": "https://www.docsend.com/solutions/other-industries/"
+      },
+      {
+        "text": "Secure Sharing",
+        "href": "https://www.docsend.com/features/sharing/"
+      },
+      {
+        "text": "Document Analytics",
+        "href": "https://www.docsend.com/features/analytics/"
+      },
+      {
+        "text": "Video Analytics",
+        "href": "https://www.docsend.com/features/analytics-video/"
+      },
+      {
+        "text": "Dynamic Watermarking",
+        "href": "https://www.docsend.com/features/dynamic-watermarking/"
+      },
+      {
+        "text": "Data Rooms",
+        "href": "https://www.docsend.com/features/virtual-data-room/"
+      },
+      {
+        "text": "eSignature",
+        "href": "https://www.docsend.com/features/esignature/"
+      },
+      {
+        "text": "Non Disclosure Agreement",
+        "href": "https://www.docsend.com/features/one-click-nda/"
+      },
+      {
+        "text": "Impressum",
+        "href": "https://www.dropbox.com/lp/about/impressum"
+      },
+      {
+        "text": "Careers",
+        "href": "https://jobs.dropbox.com/"
+      },
+      {
+        "text": "Security",
+        "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "https://www.docsend.com/privacy-policy/"
+      },
+      {
+        "text": "Copyright and IP Policy",
+        "href": "https://www.docsend.com/copyright-and-ip-policy/"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "https://www.docsend.com/terms-of-service/"
+      },
+      {
+        "text": "Cookies & CCPA preferences",
+        "href": "https://www.docsend.com/#manage-cookies"
+      },
+      {
+        "text": "Trust Center",
+        "href": "https://www.docsend.com/trust-center/"
+      },
+      {
+        "text": "How it works",
+        "href": "https://www.docsend.com/how-it-works/"
+      },
+      {
+        "text": "Integrations",
+        "href": "https://www.docsend.com/integrations/"
+      },
+      {
+        "text": "Help Center",
+        "href": "https://help.docsend.com/hc/en-us"
+      },
+      {
+        "text": "Partnerships",
+        "href": "https://www.docsend.com/partnerships/"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.docsend.com/pricing/"
+      },
+      {
+        "text": "Resources",
+        "href": "https://www.docsend.com/resources/"
+      },
+      {
+        "text": "M&A",
+        "href": "https://www.docsend.com/features/m-and-a/"
+      },
+      {
+        "text": "Fundraising",
+        "href": "https://www.docsend.com/solutions/startup-fundraising/"
+      },
+      {
+        "text": "Venture Capital",
+        "href": "https://www.docsend.com/solutions/venture-capitalist/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.docsend.com/solutions/investment-management/"
+      },
+      {
+        "text": "Board Communications",
+        "href": "https://www.docsend.com/solutions/board-management/"
+      },
+      {
+        "text": "Investor Relations",
+        "href": "https://www.docsend.com/solutions/investor-relations-software/"
+      },
+      {
+        "text": "Financial Services",
+        "href": "https://www.docsend.com/solutions/financial-services/"
+      },
+      {
+        "text": "Startups",
+        "href": "https://www.docsend.com/solutions/startups/"
+      },
+      {
+        "text": "Legal and Advisory",
+        "href": "https://www.docsend.com/solutions/professional-services/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.docsend.com/solutions/real-estate/"
+      },
+      {
+        "text": "Sales and Marketing",
+        "href": "https://www.docsend.com/solutions/tech-sales/"
+      },
+      {
+        "text": "Other Industries",
+        "href": "https://www.docsend.com/solutions/other-industries/"
+      },
+      {
+        "text": "Secure Sharing",
+        "href": "https://www.docsend.com/features/sharing/"
+      },
+      {
+        "text": "Document Analytics",
+        "href": "https://www.docsend.com/features/analytics/"
+      },
+      {
+        "text": "Video Analytics",
+        "href": "https://www.docsend.com/features/analytics-video/"
+      },
+      {
+        "text": "Dynamic Watermarking",
+        "href": "https://www.docsend.com/features/dynamic-watermarking/"
+      },
+      {
+        "text": "Data Rooms",
+        "href": "https://www.docsend.com/features/virtual-data-room/"
+      },
+      {
+        "text": "eSignature",
+        "href": "https://www.docsend.com/features/esignature/"
+      },
+      {
+        "text": "Non Disclosure Agreement",
+        "href": "https://www.docsend.com/features/one-click-nda/"
+      },
+      {
+        "text": "Impressum",
+        "href": "https://www.dropbox.com/lp/about/impressum"
+      },
+      {
+        "text": "Careers",
+        "href": "https://jobs.dropbox.com/"
+      },
+      {
+        "text": "Security",
+        "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "https://www.docsend.com/privacy-policy/"
+      },
+      {
+        "text": "Copyright and IP Policy",
+        "href": "https://www.docsend.com/copyright-and-ip-policy/"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "https://www.docsend.com/terms-of-service/"
+      },
+      {
+        "text": "Cookies & CCPA preferences",
+        "href": "https://www.docsend.com/#manage-cookies"
+      },
+      {
+        "text": "Dropbox",
+        "href": "https://www.dropbox.com/"
+      },
+      {
+        "text": "Trust Center",
+        "href": "https://www.docsend.com/trust-center/"
+      }
+    ],
+    "visibleTextSnippet": "New: Bring DocSend into your AI workflow with our MCP connector.    Learn more →\n\nVirtual Data Rooms\nProduct\nSolutions\nPricing\nCustomers\nResources\nSign In\nRequest a demo\nGet started\nThe secure way to share, track, and close critical business\nReady in minutes, with real-time intelligence and enterprise-grade security\nGet started for free\nNo credit card required\nUpload documents\nCreate a Data Room\nManage permissions\nTrack visitor analytics\nThe secure document sharing platform trusted by over 47,000 companies worldwide\n4.6\nSignals that move every deal\nFor deal-making\nAdvance M&A\n\nIdentify serious buyers within the first few days\n\nYour edge:\n\nBuyer engagement scoring\n\nPage-by-page analytics\n\nDue diligence tracking\n\nLearn more\n\nFor fundraising\nFundraise smarter\n\nUnderstand investor interest and prioritize your outreach.\n\nYour edge:\n\nReal-time VC alerts\n\nNDA gating and watermarking\n\nInvestor stage insights\n\nLearn more\n\nFor high-stakes sharing\nWin more business\n\nFocus your follow-up on what matters most.\n\nYour edge:\n\nCustom-branded client portal\n\nActivity tracking\n\nDocument security and access control\n\nLearn more\n\nStart for free\nSeriously simple - from setup to close\n\nGet into DocSend and move opportunities forward in four easy steps.\n\nStep 1\nOnboard in minutes\nSimply drag and drop your document, pitch deck, or proposal. Be up and running fast—no training required.\nStep 2\nShare with control\nSend protected links and set access permissions. Keep your documents in the right hands.\nStep 3\nTrack in real time\nGet instant alerts when stakeholders view your materials and see exactly how they interact.\nStep 4\nAct at the right moment\nFollow up when analytics show peak interest. Close when buyers are most engaged.\nStart for free\n“An efficient way to share content with confidence & contro"
+  },
+  {
+    "name": "docsend-pricing",
+    "url": "https://www.docsend.com/pricing/",
+    "viewportCaptures": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "file": "docsend-pricing-1440.png"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "file": "docsend-pricing-390.png"
+      }
+    ],
+    "capturedAt": "2026-11-14T18:41:31.192Z",
+    "status": 200,
+    "finalUrl": "https://www.docsend.com/pricing/",
+    "title": "DocSend Plans and Pricing | DocSend",
+    "headings": [
+      "Find the best DocSend plan for your business needs",
+      "Personal",
+      "Standard",
+      "Advanced",
+      "Advanced Data Rooms",
+      "Looking for more?",
+      "Compare Plans",
+      "Select a plan",
+      "Frequently Asked Questions",
+      "Is there a trial?",
+      "What is the difference between a user and a visitor?",
+      "What types of content can I send with DocSend?",
+      "Can I use DocSend as a Virtual Data Room (VDR)?",
+      "What's a Space?",
+      "My files are stored in the cloud. How do I get them into DocSend?",
+      "Do I have to pay for each Data Room?",
+      "What makes DocSend Advanced Data Rooms secure for handling sensitive deals?",
+      "Docsend",
+      "Use Cases",
+      "Industries",
+      "Features",
+      "About us",
+      "Docsend",
+      "Use Cases",
+      "Industries",
+      "Features",
+      "About us"
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "https://www.docsend.com/pricing/#main-app-container"
+      },
+      {
+        "text": "Virtual Data Rooms",
+        "href": "https://www.docsend.com/features/virtual-data-room"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.docsend.com/pricing"
+      },
+      {
+        "text": "Customers",
+        "href": "https://www.docsend.com/customers"
+      },
+      {
+        "text": "Sign In",
+        "href": "https://docsend.com/login"
+      },
+      {
+        "text": "Request a demo",
+        "href": "https://www.docsend.com/letschat"
+      },
+      {
+        "text": "Get started",
+        "href": "https://docsend.com/signup/"
+      },
+      {
+        "text": "Dropbox",
+        "href": "https://www.dropbox.com/"
+      },
+      {
+        "text": "How it works",
+        "href": "https://www.docsend.com/how-it-works/"
+      },
+      {
+        "text": "Integrations",
+        "href": "https://www.docsend.com/integrations/"
+      },
+      {
+        "text": "Help Center",
+        "href": "https://help.docsend.com/hc/en-us"
+      },
+      {
+        "text": "Partnerships",
+        "href": "https://www.docsend.com/partnerships/"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.docsend.com/pricing/"
+      },
+      {
+        "text": "Resources",
+        "href": "https://www.docsend.com/resources/"
+      },
+      {
+        "text": "M&A",
+        "href": "https://www.docsend.com/features/m-and-a/"
+      },
+      {
+        "text": "Fundraising",
+        "href": "https://www.docsend.com/solutions/startup-fundraising/"
+      },
+      {
+        "text": "Venture Capital",
+        "href": "https://www.docsend.com/solutions/venture-capitalist/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.docsend.com/solutions/investment-management/"
+      },
+      {
+        "text": "Board Communications",
+        "href": "https://www.docsend.com/solutions/board-management/"
+      },
+      {
+        "text": "Investor Relations",
+        "href": "https://www.docsend.com/solutions/investor-relations-software/"
+      },
+      {
+        "text": "Financial Services",
+        "href": "https://www.docsend.com/solutions/financial-services/"
+      },
+      {
+        "text": "Startups",
+        "href": "https://www.docsend.com/solutions/startups/"
+      },
+      {
+        "text": "Legal and Advisory",
+        "href": "https://www.docsend.com/solutions/professional-services/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.docsend.com/solutions/real-estate/"
+      },
+      {
+        "text": "Sales and Marketing",
+        "href": "https://www.docsend.com/solutions/tech-sales/"
+      },
+      {
+        "text": "Other Industries",
+        "href": "https://www.docsend.com/solutions/other-industries/"
+      },
+      {
+        "text": "Secure Sharing",
+        "href": "https://www.docsend.com/features/sharing/"
+      },
+      {
+        "text": "Document Analytics",
+        "href": "https://www.docsend.com/features/analytics/"
+      },
+      {
+        "text": "Video Analytics",
+        "href": "https://www.docsend.com/features/analytics-video/"
+      },
+      {
+        "text": "Dynamic Watermarking",
+        "href": "https://www.docsend.com/features/dynamic-watermarking/"
+      },
+      {
+        "text": "Data Rooms",
+        "href": "https://www.docsend.com/features/virtual-data-room/"
+      },
+      {
+        "text": "eSignature",
+        "href": "https://www.docsend.com/features/esignature/"
+      },
+      {
+        "text": "Non Disclosure Agreement",
+        "href": "https://www.docsend.com/features/one-click-nda/"
+      },
+      {
+        "text": "Impressum",
+        "href": "https://www.dropbox.com/lp/about/impressum"
+      },
+      {
+        "text": "Careers",
+        "href": "https://jobs.dropbox.com/"
+      },
+      {
+        "text": "Security",
+        "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "https://www.docsend.com/privacy-policy/"
+      },
+      {
+        "text": "Copyright and IP Policy",
+        "href": "https://www.docsend.com/copyright-and-ip-policy/"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "https://www.docsend.com/terms-of-service/"
+      },
+      {
+        "text": "Cookies & CCPA preferences",
+        "href": "https://www.docsend.com/pricing/#manage-cookies"
+      },
+      {
+        "text": "Trust Center",
+        "href": "https://www.docsend.com/trust-center/"
+      },
+      {
+        "text": "How it works",
+        "href": "https://www.docsend.com/how-it-works/"
+      },
+      {
+        "text": "Integrations",
+        "href": "https://www.docsend.com/integrations/"
+      },
+      {
+        "text": "Help Center",
+        "href": "https://help.docsend.com/hc/en-us"
+      },
+      {
+        "text": "Partnerships",
+        "href": "https://www.docsend.com/partnerships/"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.docsend.com/pricing/"
+      },
+      {
+        "text": "Resources",
+        "href": "https://www.docsend.com/resources/"
+      },
+      {
+        "text": "M&A",
+        "href": "https://www.docsend.com/features/m-and-a/"
+      },
+      {
+        "text": "Fundraising",
+        "href": "https://www.docsend.com/solutions/startup-fundraising/"
+      },
+      {
+        "text": "Venture Capital",
+        "href": "https://www.docsend.com/solutions/venture-capitalist/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.docsend.com/solutions/investment-management/"
+      },
+      {
+        "text": "Board Communications",
+        "href": "https://www.docsend.com/solutions/board-management/"
+      },
+      {
+        "text": "Investor Relations",
+        "href": "https://www.docsend.com/solutions/investor-relations-software/"
+      },
+      {
+        "text": "Financial Services",
+        "href": "https://www.docsend.com/solutions/financial-services/"
+      },
+      {
+        "text": "Startups",
+        "href": "https://www.docsend.com/solutions/startups/"
+      },
+      {
+        "text": "Legal and Advisory",
+        "href": "https://www.docsend.com/solutions/professional-services/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.docsend.com/solutions/real-estate/"
+      },
+      {
+        "text": "Sales and Marketing",
+        "href": "https://www.docsend.com/solutions/tech-sales/"
+      },
+      {
+        "text": "Other Industries",
+        "href": "https://www.docsend.com/solutions/other-industries/"
+      },
+      {
+        "text": "Secure Sharing",
+        "href": "https://www.docsend.com/features/sharing/"
+      },
+      {
+        "text": "Document Analytics",
+        "href": "https://www.docsend.com/features/analytics/"
+      },
+      {
+        "text": "Video Analytics",
+        "href": "https://www.docsend.com/features/analytics-video/"
+      },
+      {
+        "text": "Dynamic Watermarking",
+        "href": "https://www.docsend.com/features/dynamic-watermarking/"
+      },
+      {
+        "text": "Data Rooms",
+        "href": "https://www.docsend.com/features/virtual-data-room/"
+      },
+      {
+        "text": "eSignature",
+        "href": "https://www.docsend.com/features/esignature/"
+      },
+      {
+        "text": "Non Disclosure Agreement",
+        "href": "https://www.docsend.com/features/one-click-nda/"
+      },
+      {
+        "text": "Impressum",
+        "href": "https://www.dropbox.com/lp/about/impressum"
+      },
+      {
+        "text": "Careers",
+        "href": "https://jobs.dropbox.com/"
+      },
+      {
+        "text": "Security",
+        "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "https://www.docsend.com/privacy-policy/"
+      },
+      {
+        "text": "Copyright and IP Policy",
+        "href": "https://www.docsend.com/copyright-and-ip-policy/"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "https://www.docsend.com/terms-of-service/"
+      },
+      {
+        "text": "Cookies & CCPA preferences",
+        "href": "https://www.docsend.com/pricing/#manage-cookies"
+      },
+      {
+        "text": "Dropbox",
+        "href": "https://www.dropbox.com/"
+      },
+      {
+        "text": "Trust Center",
+        "href": "https://www.docsend.com/trust-center/"
+      }
+    ],
+    "visibleTextSnippet": "Virtual Data Rooms\nProduct\nSolutions\nPricing\nCustomers\nResources\nSign In\nRequest a demo\nGet started\nFind the best DocSend plan for your business needs\n\nSecure, end-to-end deal solutions for businesses of all sizes. Close deals confidently with DocSend.\n\nBilled monthly\nBilled yearly (Save up to 40%)\nFor secure sharing\nPersonal\n$10/user/month\nGet Started Free\nKey Features:\n1 user included\nBasic sharing controls\nDocument level analytics\n4 eSignatures per month\nUnlimited visitors\nView all features\nMost Popular\nFor multi-file secure sharing\nStandard\n$45/user/month\nGet Started Free\nAll Personal features, plus:\n1 user included\nMulti-file sharing\nVideo and rich media analytics\nFile requests\nCustomizable branding\nUnlimited eSignature\nView all features\nFor advanced security\nAdvanced\n$150/month\nGet Started Free\nAll Standard features, plus:\n3 users included\nLightweight data rooms (Spaces)\nEmail authentication for visitors\nAllow/block visitors lists\nFolder and file level security\nDynamic watermarking\nNDAs and gating agreements\nScreenshot protection\nNew\nView all features\nFor complete deal control\nAdvanced Data Rooms\n$180/month\nGet Started Free\nAll Advanced features, plus:\n3 users included\nEnhanced data rooms (Spaces)\nGroup visitor permissions\nDue diligence tracking\nNew\nData room audit log\nAutomatic file indexing\nData room analytics\nPriority email support\n2X capacity per data room\nView all features\nLooking for more?\nContact us for customizable solutions built to your specific needs\nContact Sales\nCompare Plans\nBilled monthly\nBilled yearly (Save up to 40%)\n \nPersonal\nFor secure sharing\n$10/user/month\nGet Started Free\nMost Popular\nStandard\nFor multi-file secure sharing\n$45/user/month\nGet Started Free\nAdvanced\nFor advanced security\n$150/month\nGet Started Free\nAdvanced Data Rooms\nFor compl"
+  },
+  {
+    "name": "firmex-vdr",
+    "url": "https://www.firmex.com/virtual-data-room/",
+    "viewportCaptures": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "file": "firmex-vdr-1440.png"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "file": "firmex-vdr-390.png"
+      }
+    ],
+    "capturedAt": "2026-11-14T18:41:31.183Z",
+    "status": 200,
+    "finalUrl": "https://www.firmex.com/virtual-data-room/",
+    "title": "Virtual Data Room Solution | Firmex Virtual Data Room",
+    "headings": [
+      "Simplified data rooms, proven results",
+      "Boost diligence with your virtual data room",
+      "\n\t\t\t\t\t\t\t\tComplete access control\t\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\tComplete access control\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\t\tEasy uploads\t\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\tEasy uploads\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\t\tAdvanced security\t\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\tAdvanced security\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\t\tDetailed reports & analytics\t\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\tDetailed reports & analytics\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\t\tRobust features\t\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\tRobust features\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\t\tInstant setup\t\t\t\t\t\t\t",
+      "\n\t\t\t\t\t\t\tInstant setup\t\t\t\t\t\t",
+      "Data rooms designed for diligence",
+      "Unlimited projects with no constraints",
+      "Certified security with\nlayered protection",
+      "Expert product support",
+      "New to data rooms?",
+      "\n\t\t\t\n\t\t\t\tVirtual Data Room Guide: Everything You Need to Know\t\t\t\n\t\t",
+      "\n\t\t\t\n\t\t\t\tHow Do Virtual Data Room Providers Compare?\t\t\t\n\t\t",
+      "\n\t\t\t\n\t\t\t\tVirtual Data Rooms 101: What You Need to Know to Conduct Effective Due Diligence\t\t\t\n\t\t",
+      "Your questions\nanswered"
+    ],
+    "links": [
+      {
+        "text": "<img width=\"501\" height=\"102\" src=\"https://www.firmex.com/wp-content/uploads/2024/08/Logo_FA.svg\" class=\"attachment-full size-full wp-image-20\" alt=\"Firmex Logo\" />",
+        "href": "https://www.firmex.com/"
+      },
+      {
+        "text": "GET SUPPORT",
+        "href": "https://support.firmex.com/hc/en-us?_gl=1*1nflikj*_gcl_au*OTM1ODM5MDE5LjE3NDI1OTM1NTY.&_ga=2.188149096.1340590663.1742828821-126724635.1742593556"
+      },
+      {
+        "text": "login",
+        "href": "https://login.firmex.com/"
+      },
+      {
+        "text": "BOOK A DEMO",
+        "href": "https://www.firmex.com/book-a-demo/"
+      },
+      {
+        "text": "Virtual Data Room",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "VDR Overview",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "Security",
+        "href": "https://www.firmex.com/virtual-data-room/security/"
+      },
+      {
+        "text": "Clients & Testimonials",
+        "href": "https://www.firmex.com/clients-and-testimonials/"
+      },
+      {
+        "text": "Support",
+        "href": "https://www.firmex.com/support/"
+      },
+      {
+        "text": "FAQ",
+        "href": "https://www.firmex.com/virtual-data-room/#faq-section-vdr"
+      },
+      {
+        "text": "Firmex For",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Sell-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/sell-side-m-and-a/"
+      },
+      {
+        "text": "Buy-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/buy-side-ma/"
+      },
+      {
+        "text": "Licensing & Joint Venture",
+        "href": "https://www.firmex.com/virtual-data-room/licensing-joint-venture/"
+      },
+      {
+        "text": "Financing",
+        "href": "https://www.firmex.com/virtual-data-room/financing/"
+      },
+      {
+        "text": "Restructuring",
+        "href": "https://www.firmex.com/virtual-data-room/restructuring/"
+      },
+      {
+        "text": "Client Extranets",
+        "href": "https://www.firmex.com/virtual-data-room/client-extranets/"
+      },
+      {
+        "text": "Private Equity Fundraising",
+        "href": "https://www.firmex.com/virtual-data-room/private-equityfundraising/"
+      },
+      {
+        "text": "Board Portal",
+        "href": "https://www.firmex.com/virtual-data-room/board-portal/"
+      },
+      {
+        "text": "Investor Reporting",
+        "href": "https://www.firmex.com/virtual-data-room/investor-reporting/"
+      },
+      {
+        "text": "Procurement & Bid Management",
+        "href": "https://www.firmex.com/virtual-data-room/procurement-and-bid-management/"
+      },
+      {
+        "text": "Audits",
+        "href": "https://www.firmex.com/virtual-data-room/audits/"
+      },
+      {
+        "text": "Industries",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Investment Banking",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-investment-banking/"
+      },
+      {
+        "text": "Corporate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-corporations/"
+      },
+      {
+        "text": "Biotech & Pharma",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-biotech-pharma/"
+      },
+      {
+        "text": "Government & Infrastructure",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-government-and-infrastructure/"
+      },
+      {
+        "text": "Mining",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-mining/"
+      },
+      {
+        "text": "Renewable Energy",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-renewable-energy/"
+      },
+      {
+        "text": "Legal",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-legal/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-funds-private-equity/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-real-estate/"
+      },
+      {
+        "text": "Oil & Gas",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-oil-and-gas/"
+      },
+      {
+        "text": "Resources",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Blog",
+        "href": "https://www.firmex.com/resources/"
+      },
+      {
+        "text": "M&A Fee Guides",
+        "href": "https://www.firmex.com/resources/ma-fee-guide-2025/"
+      },
+      {
+        "text": "Tools & Downloads",
+        "href": "https://www.firmex.com/resources/tools-downloads/"
+      },
+      {
+        "text": "Product Updates",
+        "href": "https://www.firmex.com/news/#product-updates"
+      },
+      {
+        "text": "Knowledge Base",
+        "href": "https://support.firmex.com/hc/en-us?_gl=1*5p4of5*_gcl_au*MjAxNjA2NjI4My4xNzQzNzUwMTEx&_ga=2.252628161.99027412.1744612193-261938825.1742390736"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.firmex.com/pricing/"
+      },
+      {
+        "text": "About Firmex",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Who We Are",
+        "href": "https://www.firmex.com/company/"
+      },
+      {
+        "text": "Careers",
+        "href": "https://www.firmex.com/company/careers/"
+      },
+      {
+        "text": "Legal Policies",
+        "href": "https://www.firmex.com/legal-policies/"
+      },
+      {
+        "text": "Contact Us",
+        "href": "https://www.firmex.com/company/contact/"
+      },
+      {
+        "text": "GET SUPPORT",
+        "href": "https://support.firmex.com/hc/en-us?_gl=1*1nflikj*_gcl_au*OTM1ODM5MDE5LjE3NDI1OTM1NTY.&_ga=2.188149096.1340590663.1742828821-126724635.1742593556"
+      },
+      {
+        "text": "LOGIN",
+        "href": "https://login.firmex.com/"
+      },
+      {
+        "text": "BOOK A DEMO",
+        "href": "https://www.firmex.com/book-a-demo/"
+      },
+      {
+        "text": "Virtual Data Room",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "VDR Overview",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "Security",
+        "href": "https://www.firmex.com/virtual-data-room/security/"
+      },
+      {
+        "text": "Clients & Testimonials",
+        "href": "https://www.firmex.com/clients-and-testimonials/"
+      },
+      {
+        "text": "Support",
+        "href": "https://www.firmex.com/support/"
+      },
+      {
+        "text": "FAQ",
+        "href": "https://www.firmex.com/virtual-data-room/#faq-section-vdr"
+      },
+      {
+        "text": "Firmex For",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Sell-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/sell-side-m-and-a/"
+      },
+      {
+        "text": "Buy-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/buy-side-ma/"
+      },
+      {
+        "text": "Licensing & Joint Venture",
+        "href": "https://www.firmex.com/virtual-data-room/licensing-joint-venture/"
+      },
+      {
+        "text": "Financing",
+        "href": "https://www.firmex.com/virtual-data-room/financing/"
+      },
+      {
+        "text": "Restructuring",
+        "href": "https://www.firmex.com/virtual-data-room/restructuring/"
+      },
+      {
+        "text": "Client Extranets",
+        "href": "https://www.firmex.com/virtual-data-room/client-extranets/"
+      },
+      {
+        "text": "Private Equity Fundraising",
+        "href": "https://www.firmex.com/virtual-data-room/private-equityfundraising/"
+      },
+      {
+        "text": "Board Portal",
+        "href": "https://www.firmex.com/virtual-data-room/board-portal/"
+      },
+      {
+        "text": "Investor Reporting",
+        "href": "https://www.firmex.com/virtual-data-room/investor-reporting/"
+      },
+      {
+        "text": "Procurement & Bid Management",
+        "href": "https://www.firmex.com/virtual-data-room/procurement-and-bid-management/"
+      },
+      {
+        "text": "Audits",
+        "href": "https://www.firmex.com/virtual-data-room/audits/"
+      },
+      {
+        "text": "Industries",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Investment Banking",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-investment-banking/"
+      },
+      {
+        "text": "Corporate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-corporations/"
+      },
+      {
+        "text": "Biotech & Pharma",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-biotech-pharma/"
+      },
+      {
+        "text": "Government & Infrastructure",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-government-and-infrastructure/"
+      },
+      {
+        "text": "Mining",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-mining/"
+      },
+      {
+        "text": "Renewable Energy",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-renewable-energy/"
+      },
+      {
+        "text": "Legal",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-legal/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-funds-private-equity/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-real-estate/"
+      },
+      {
+        "text": "Oil & Gas",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-oil-and-gas/"
+      },
+      {
+        "text": "Resources",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Blog",
+        "href": "https://www.firmex.com/resources/"
+      },
+      {
+        "text": "M&A Fee Guides",
+        "href": "https://www.firmex.com/resources/ma-fee-guide-2025/"
+      },
+      {
+        "text": "Tools & Downloads",
+        "href": "https://www.firmex.com/resources/tools-downloads/"
+      },
+      {
+        "text": "Product Updates",
+        "href": "https://www.firmex.com/news/#product-updates"
+      },
+      {
+        "text": "Knowledge Base",
+        "href": "https://support.firmex.com/hc/en-us?_gl=1*5p4of5*_gcl_au*MjAxNjA2NjI4My4xNzQzNzUwMTEx&_ga=2.252628161.99027412.1744612193-261938825.1742390736"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.firmex.com/pricing/"
+      },
+      {
+        "text": "About Firmex",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Who We Are",
+        "href": "https://www.firmex.com/company/"
+      },
+      {
+        "text": "Careers",
+        "href": "https://www.firmex.com/company/careers/"
+      },
+      {
+        "text": "Legal Policies",
+        "href": "https://www.firmex.com/legal-policies/"
+      },
+      {
+        "text": "Contact Us",
+        "href": "https://www.firmex.com/company/contact/"
+      },
+      {
+        "text": "GET SUPPORT",
+        "href": "https://support.firmex.com/hc/en-us?_gl=1*1nflikj*_gcl_au*OTM1ODM5MDE5LjE3NDI1OTM1NTY.&_ga=2.188149096.1340590663.1742828821-126724635.1742593556"
+      },
+      {
+        "text": "LOGIN",
+        "href": "https://login.firmex.com/"
+      },
+      {
+        "text": "BOOK A DEMO",
+        "href": "https://www.firmex.com/book-a-demo/"
+      },
+      {
+        "text": "Virtual Data Room",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "The Most Used Virtual Data Room",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "Find out more",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "VDR Overview",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "Security",
+        "href": "https://www.firmex.com/virtual-data-room/security/"
+      },
+      {
+        "text": "Clients & Testimonials",
+        "href": "https://www.firmex.com/clients-and-testimonials/"
+      },
+      {
+        "text": "Support",
+        "href": "https://www.firmex.com/support/"
+      },
+      {
+        "text": "FAQ",
+        "href": "https://www.firmex.com/virtual-data-room/#faq-section-vdr"
+      },
+      {
+        "text": "Firmex For",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Sell-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/sell-side-m-and-a/"
+      },
+      {
+        "text": "Buy-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/buy-side-ma/"
+      },
+      {
+        "text": "Licensing & Joint Venture",
+        "href": "https://www.firmex.com/virtual-data-room/licensing-joint-venture/"
+      },
+      {
+        "text": "Restructuring",
+        "href": "https://www.firmex.com/virtual-data-room/restructuring/"
+      },
+      {
+        "text": "Financing",
+        "href": "https://www.firmex.com/virtual-data-room/financing/"
+      },
+      {
+        "text": "Client Extranets",
+        "href": "https://www.firmex.com/virtual-data-room/client-extranets/"
+      },
+      {
+        "text": "Private Equity Fundraising",
+        "href": "https://www.firmex.com/virtual-data-room/private-equityfundraising/"
+      },
+      {
+        "text": "Board Portal",
+        "href": "https://www.firmex.com/virtual-data-room/board-portal/"
+      },
+      {
+        "text": "Investor Reporting",
+        "href": "https://www.firmex.com/virtual-data-room/investor-reporting/"
+      },
+      {
+        "text": "Procurement & Bid Management",
+        "href": "https://www.firmex.com/virtual-data-room/procurement-and-bid-management/"
+      },
+      {
+        "text": "Audits",
+        "href": "https://www.firmex.com/virtual-data-room/audits/"
+      },
+      {
+        "text": "Industries",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Investment Banking",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-investment-banking/"
+      },
+      {
+        "text": "Corporate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-corporations/"
+      },
+      {
+        "text": "Biotech & Pharma",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-biotech-pharma/"
+      },
+      {
+        "text": "Government & Infrastructure",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-government-and-infrastructure/"
+      },
+      {
+        "text": "Mining",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-mining/"
+      },
+      {
+        "text": "Renewable Energy",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-renewable-energy/"
+      },
+      {
+        "text": "Legal",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-legal/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-funds-private-equity/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-real-estate/"
+      },
+      {
+        "text": "Oil & Gas",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-oil-and-gas/"
+      },
+      {
+        "text": "Blog",
+        "href": "https://www.firmex.com/resources/"
+      },
+      {
+        "text": "M&A Fee Guides",
+        "href": "https://www.firmex.com/resources/ma-fee-guide-2025/"
+      },
+      {
+        "text": "Tools & Downloads",
+        "href": "https://www.firmex.com/resources/tools-downloads/"
+      },
+      {
+        "text": "Product Updates",
+        "href": "https://www.firmex.com/news/#product-updates"
+      },
+      {
+        "text": "Knowledge Base",
+        "href": "https://support.firmex.com/hc/en-us?_gl=1*44yagz*_gcl_au*OTM1ODM5MDE5LjE3NDI1OTM1NTY.&_ga=2.216910294.1340590663.1742828821-126724635.1742593556"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.firmex.com/pricing/"
+      },
+      {
+        "text": "About Firmex",
+        "href": "https://www.firmex.com/virtual-data-room/#"
+      },
+      {
+        "text": "Who We Are",
+        "href": "https://www.firmex.com/company/"
+      },
+      {
+        "text": "Careers",
+        "href": "https://www.firmex.com/company/careers/"
+      },
+      {
+        "text": "Legal",
+        "href": "https://www.firmex.com/legal-policies/"
+      },
+      {
+        "text": "Contact Us",
+        "href": "https://www.firmex.com/company/contact/"
+      },
+      {
+        "text": "<img width=\"501\" height=\"102\" src=\"https://www.firmex.com/wp-content/uploads/2024/08/Logo_FA.svg\" class=\"attachment-full size-full wp-image-20\" alt=\"Firmex Logo\" />",
+        "href": "https://www.firmex.com/"
+      },
+      {
+        "text": "BOOK A DEMO",
+        "href": "https://www.firmex.com/book-a-demo/"
+      },
+      {
+        "text": "GET SUPPORT",
+        "href": "https://support.firmex.com/hc/en-us?_gl=1*172kvup*_gcl_au*MTQxMDM1Njk1Ni4xNzQzNzM2NDc5&_ga=2.208916434.1961214751.1744598071-1649500038.1743736479"
+      },
+      {
+        "text": "Virtual Data Room",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "Security",
+        "href": "https://www.firmex.com/virtual-data-room/security/"
+      },
+      {
+        "text": "Clients & Testimonials",
+        "href": "https://www.firmex.com/clients-and-testimonials/"
+      },
+      {
+        "text": "Support",
+        "href": "https://www.firmex.com/support/"
+      },
+      {
+        "text": "FAQ",
+        "href": "https://www.firmex.com/virtual-data-room/#faq-section-vdr"
+      },
+      {
+        "text": "Virtual Data Room",
+        "href": "https://www.firmex.com/virtual-data-room/"
+      },
+      {
+        "text": "Security",
+        "href": "https://www.firmex.com/virtual-data-room/security/"
+      },
+      {
+        "text": "Clients & Testimonials",
+        "href": "https://www.firmex.com/clients-and-testimonials/"
+      },
+      {
+        "text": "Support",
+        "href": "https://www.firmex.com/support/"
+      },
+      {
+        "text": "FAQ",
+        "href": "https://www.firmex.com/virtual-data-room/#faq-section-vdr"
+      },
+      {
+        "text": "Sell-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/sell-side-m-and-a/"
+      },
+      {
+        "text": "Buy-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/buy-side-ma/"
+      },
+      {
+        "text": "Licensing & Joint Venture",
+        "href": "https://www.firmex.com/virtual-data-room/licensing-joint-venture/"
+      },
+      {
+        "text": "Restructuring",
+        "href": "https://www.firmex.com/virtual-data-room/restructuring/"
+      },
+      {
+        "text": "Financing",
+        "href": "https://www.firmex.com/virtual-data-room/financing/"
+      },
+      {
+        "text": "Client Extranets",
+        "href": "https://www.firmex.com/virtual-data-room/client-extranets/"
+      },
+      {
+        "text": "Private Equity Fundraising",
+        "href": "https://www.firmex.com/virtual-data-room/private-equityfundraising/"
+      },
+      {
+        "text": "Board Portal",
+        "href": "https://www.firmex.com/virtual-data-room/board-portal/"
+      },
+      {
+        "text": "Investor Reporting",
+        "href": "https://www.firmex.com/virtual-data-room/investor-reporting/"
+      },
+      {
+        "text": "Procurement & Bid Management",
+        "href": "https://www.firmex.com/virtual-data-room/procurement-and-bid-management/"
+      },
+      {
+        "text": "Audits",
+        "href": "https://www.firmex.com/virtual-data-room/audits/"
+      },
+      {
+        "text": "Sell-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/sell-side-m-and-a/"
+      },
+      {
+        "text": "Buy-Side M&A",
+        "href": "https://www.firmex.com/virtual-data-room/buy-side-ma/"
+      },
+      {
+        "text": "Licensing & Joint Venture",
+        "href": "https://www.firmex.com/virtual-data-room/licensing-joint-venture/"
+      },
+      {
+        "text": "Restructuring",
+        "href": "https://www.firmex.com/virtual-data-room/restructuring/"
+      },
+      {
+        "text": "Financing",
+        "href": "https://www.firmex.com/virtual-data-room/financing/"
+      },
+      {
+        "text": "Client Extranets",
+        "href": "https://www.firmex.com/virtual-data-room/client-extranets/"
+      },
+      {
+        "text": "Private Equity Fundraising",
+        "href": "https://www.firmex.com/virtual-data-room/private-equityfundraising/"
+      },
+      {
+        "text": "Board Portal",
+        "href": "https://www.firmex.com/virtual-data-room/board-portal/"
+      },
+      {
+        "text": "Investor Reporting",
+        "href": "https://www.firmex.com/virtual-data-room/investor-reporting/"
+      },
+      {
+        "text": "Procurement & Bid Management",
+        "href": "https://www.firmex.com/virtual-data-room/procurement-and-bid-management/"
+      },
+      {
+        "text": "Audits",
+        "href": "https://www.firmex.com/virtual-data-room/audits/"
+      },
+      {
+        "text": "Investment Banking",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-investment-banking/"
+      },
+      {
+        "text": "Corporate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-corporations/"
+      },
+      {
+        "text": "Biotech & Pharma",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-biotech-pharma/"
+      },
+      {
+        "text": "Government & Infrastructure",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-government-and-infrastructure/"
+      },
+      {
+        "text": "Mining",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-mining/"
+      },
+      {
+        "text": "Renewable Energy",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-renewable-energy/"
+      },
+      {
+        "text": "Legal",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-legal/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-funds-private-equity/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-real-estate/"
+      },
+      {
+        "text": "Investment Banking",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-investment-banking/"
+      },
+      {
+        "text": "Corporate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-corporations/"
+      },
+      {
+        "text": "Biotech & Pharma",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-biotech-pharma/"
+      },
+      {
+        "text": "Government & Infrastructure",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-government-and-infrastructure/"
+      },
+      {
+        "text": "Mining",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-mining/"
+      },
+      {
+        "text": "Renewable Energy",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-renewable-energy/"
+      },
+      {
+        "text": "Legal",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-legal/"
+      },
+      {
+        "text": "Private Equity",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-funds-private-equity/"
+      },
+      {
+        "text": "Real Estate",
+        "href": "https://www.firmex.com/virtual-data-room/industries/firmex-for-real-estate/"
+      },
+      {
+        "text": "Blog",
+        "href": "https://www.firmex.com/resources/"
+      },
+      {
+        "text": "M&A Fee Guides",
+        "href": "https://www.firmex.com/resources/ma-fee-guide-2025/"
+      },
+      {
+        "text": "Tools & Downloads",
+        "href": "https://www.firmex.com/resources/tools-downloads/"
+      },
+      {
+        "text": "Product Updates",
+        "href": "https://www.firmex.com/news/#product-updates"
+      },
+      {
+        "text": "Knowledge Base",
+        "href": "https://support.firmex.com/hc/en-us?_ga=2.142442738.1986892884.1744001469-1649500038.1743736479"
+      },
+      {
+        "text": "Blog",
+        "href": "https://www.firmex.com/resources/"
+      },
+      {
+        "text": "M&A Fee Guides",
+        "href": "https://www.firmex.com/resources/ma-fee-guide-2025/"
+      },
+      {
+        "text": "Tools & Downloads",
+        "href": "https://www.firmex.com/resources/tools-downloads/"
+      },
+      {
+        "text": "Product Updates",
+        "href": "https://www.firmex.com/news/#product-updates"
+      },
+      {
+        "text": "Knowledge Base",
+        "href": "https://support.firmex.com/hc/en-us?_ga=2.142442738.1986892884.1744001469-1649500038.1743736479"
+      },
+      {
+        "text": "Who We Are",
+        "href": "https://www.firmex.com/company/"
+      },
+      {
+        "text": "Careers",
+        "href": "https://www.firmex.com/company/careers/"
+      },
+      {
+        "text": "Legal Policies",
+        "href": "https://www.firmex.com/legal-policies/"
+      },
+      {
+        "text": "Contact Us",
+        "href": "https://www.firmex.com/company/contact/"
+      },
+      {
+        "text": "Who We Are",
+        "href": "https://www.firmex.com/company/"
+      },
+      {
+        "text": "Careers",
+        "href": "https://www.firmex.com/company/careers/"
+      },
+      {
+        "text": "Legal Policies",
+        "href": "https://www.firmex.com/legal-policies/"
+      },
+      {
+        "text": "Contact Us",
+        "href": "https://www.firmex.com/company/contact/"
+      },
+      {
+        "text": "PRIVACY NOTICE",
+        "href": "https://www.firmex.com/legal-policies/#cdpt"
+      },
+      {
+        "text": "TERMS OF USE",
+        "href": "https://www.firmex.com/legal-policies#terms-use"
+      },
+      {
+        "text": "COOKIE POLICY",
+        "href": "https://www.firmex.com/company/cookie-policy/"
+      },
+      {
+        "text": "ACCESSIBILITY",
+        "href": "https://www.firmex.com/company/accessibility-plan/"
+      },
+      {
+        "text": "ANTI-SLAVERY & HUMAN TRAFFICKING POLICY",
+        "href": "https://www.firmex.com/company/anti-slavery-human-trafficking-policy/"
+      }
+    ],
+    "visibleTextSnippet": "This website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. To learn more, view the following link: Privacy Policy\nMANAGE PREFERENCES\nSkip to content\nGET SUPPORT\nLOGIN\nBOOK A DEMO\nVirtual Data Room\nOPEN VIRTUAL DATA ROOM\nFirmex For\nOPEN FIRMEX FOR\nIndustries\nOPEN INDUSTRIES\nResources\nOPEN RESOURCES\nPricing\nAbout Firmex\nOPEN ABOUT FIRMEX\nSimplified data rooms, proven results\n\nYour partner in deals, diligence, and document control.\n\n223,000+\n\nCOMPANIES TRUST FIRMEX\n\n1.4 million+\n\nUSERS SUPPORTED\n\n180+\n\nCOUNTRIES SERVED\n\n189,000\n\nPROJECTS COMPLETED\n\nBoost diligence with your virtual data room\nComplete access control\nComplete access control\nEasily add users and groups and customize their permissions with granular precision.\nEasy uploads\nEasy uploads\nSimply drag and drop up to 50 GB files or add them via Email In. Stay organized with automatic indexing.\nAdvanced security\nAdvanced security\nShare data with sophisticated controls like watermarks and lock documents, and restrict access to viewing, saving, and printing.\nDetailed reports & analytics\nDetailed reports & analytics\nInform your strategy with real-time, customizable insights on who is active and what they are viewing.\nRobust features\nRobust features\nWork efficiently with built-for-purpose features like Q&A, View As, and Redaction.\nInstant setup\nInstant setup\nQuickly upload entire folder structures or replicate previous projects immediately.\nDeals completed\nwith Firmex\nCorporate Advisor Rovensa Acquires Family-owned Biostimulants\nLisage International Acquired by NSM Insurance Group\nCisco Systems Inc. acquired Threatology, Inc.\nBell Canada acquired Ziply Fiber\nAccelerated Innovations acquired by VertexOne\nQuinbrook Infrastr"
+  },
+  {
+    "name": "ideals-home",
+    "url": "https://www.idealsvdr.com/",
+    "viewportCaptures": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "file": "ideals-home-1440.png"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "file": "ideals-home-390.png"
+      }
+    ],
+    "capturedAt": "2026-11-14T18:41:31.194Z",
+    "status": 200,
+    "finalUrl": "https://www.idealsvdr.com/",
+    "title": "Virtual Data Room Software for Secure Dealmaking | Ideals",
+    "headings": [
+      "\n                                                            \n                                                                AI in M&A 2026                                                            \n                                                        ",
+      "\n                                                            \n                                                                Sell-side report best practices & examples                                                            \n                                                        ",
+      "Ideals virtual data room — secure software for confidential dealmaking",
+      "\n                                See clearly. Deal confidently.                            ",
+      "Accelerate critical business decisions with Ideals VDR",
+      "\n                                                        Seamlessly launch your data room                                                     ",
+      "\n                                                        Manage every aspect of your project swiftly                                                    ",
+      "\n                                                        Maintain comprehensive oversight                                                     ",
+      "\n                        More than a data room – a powerful partner to your success                    ",
+      "\n                           Discover your new strategic advantage                        ",
+      "\n                        Fortress-like protection. Anywhere in the world.                    ",
+      "\n                                    Global coverage                                ",
+      "\n                                    Navigate regulations                                 ",
+      "\n                                    Advanced data protection                                ",
+      "\n                                    Stay in control                                ",
+      "\n                                    Peace of mind                                ",
+      "\n                                    Innovative security tools                                ",
+      "Unrivaled satisfaction",
+      "\n                            Fortified. Certified.                        ",
+      "We catalyze the world’s most important business decisions ",
+      "Boost efficiency with Ideals",
+      "Power real estate investment with Ideals",
+      "Accelerate global expansion with Ideals",
+      "Streamline compliance audits with Ideals",
+      "\n                                A trusted data room provider for high-stakes transactions                            ",
+      "\n                                    Transparent pricing                                ",
+      "\n                                    Faster closing                                ",
+      "\n                                    Unrivaled 24/7 support                                ",
+      "\n                                    Global customers                                ",
+      "Virtual data room questions: setup, security, pricing, and how Ideals compares",
+      "\n                                \n                                    How Ideals VDR works and when to use it\n                                    \n                                \n                            ",
+      "\n                                                    \n                                                        What is a virtual data room?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        How can I use Ideals?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What are the types of virtual data rooms?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What are the main benefits of a data room?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What data room features does Ideals offer?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What types of use cases benefit most from a data room?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What file types can I store in an Ideals data room?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        Do I need training to set up and use an Ideals data room?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        How can I prepare a data room for due diligence or an M&A deal?\n                                                        \n                                                    \n                                                ",
+      "\n                                \n                                    How we protect your data\n                                    \n                                \n                            ",
+      "\n                                                    \n                                                        How secure is the Ideals data room compared to traditional file-sharing platforms?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        Does Ideals provide detailed audit trails for compliance and legal purposes?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What types of encryption does Ideals use to protect confidential documents?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What measures are in place to prevent unauthorized data leaks during due diligence?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What happens to our data if we terminate the contract? Do we control deletion and archiving?\n                                                        \n                                                    \n                                                ",
+      "\n                                \n                                    How to compare your options\n                                    \n                                \n                            ",
+      "\n                                                    \n                                                        How should I choose data room software?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        How does Ideals VDR compare to other data room providers?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        When to use alternatives to virtual data rooms?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        When are free data rooms an option?\n                                                        \n                                                    \n                                                ",
+      "\n                                \n                                    How pricing models and plans work\n                                    \n                                \n                            ",
+      "\n                                                    \n                                                        What is the Ideals VDR pricing structure?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What pricing plans does Ideals offer?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        What are some other data room pricing models?\n                                                        \n                                                    \n                                                ",
+      "\n                                                    \n                                                        Where can I find a pricing calculator for an Ideals VDR?\n                                                        \n                                                    \n                                                ",
+      "Ready to accelerate your deal success?"
+    ],
+    "links": [
+      {
+        "text": "Platform",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "Staging Hub\n                                                    Get deal-ready before due diligence",
+        "href": "https://www.idealsvdr.com/ideals-staging-hub/"
+      },
+      {
+        "text": "Project settings\n                                                    Set your branding and security standards",
+        "href": "https://www.idealsvdr.com/project-settings/"
+      },
+      {
+        "text": "Document management\n                                                    Organize and find any file instantly",
+        "href": "https://www.idealsvdr.com/document-management/"
+      },
+      {
+        "text": "Users and permissions\n                                                    Grant access across 8 permission levels",
+        "href": "https://www.idealsvdr.com/users-and-permissions-management/"
+      },
+      {
+        "text": "Due diligence checklist\n                                                    Run due diligence from a shared checklist",
+        "href": "https://www.idealsvdr.com/dd-checklist/"
+      },
+      {
+        "text": "Questions & answers\n                                                    Keep due diligence Q&A moving fast",
+        "href": "https://www.idealsvdr.com/streamlined-qa/"
+      },
+      {
+        "text": "Electronic signature\n                                                    Sign and close deals within the data room",
+        "href": "https://www.idealsvdr.com/e-signature/"
+      },
+      {
+        "text": "External file sharing\n                                                    Share files beyond the room with control",
+        "href": "https://www.idealsvdr.com/external-links/"
+      },
+      {
+        "text": "Reports and insights\n                                                    Gain real-time insights on your project",
+        "href": "https://www.idealsvdr.com/reports-and-analytics/"
+      },
+      {
+        "text": "Multi-project management\n                                                    Control every project from one hub",
+        "href": "https://www.idealsvdr.com/multi-project-management/"
+      },
+      {
+        "text": "Project archiving\n                                                    Build a secure, compliant archive",
+        "href": "https://www.idealsvdr.com/project-archiving/"
+      },
+      {
+        "text": "Industry-leading security\n                                                    Ensure market-leading security standards",
+        "href": "https://www.idealsvdr.com/virtual-data-room-security/"
+      },
+      {
+        "text": "Artificial intelligence (AI)\n                                                    Automate routine deal work with AI",
+        "href": "https://www.idealsvdr.com/artificial-intelligence-at-ideals/"
+      },
+      {
+        "text": "MCP\n                                                    Connect with Claude, ChatGPT or Copilot",
+        "href": "https://www.idealsvdr.com/mcp/"
+      },
+      {
+        "text": "Integrations\n                                                    Bring in tools your team already uses",
+        "href": "https://www.idealsvdr.com/integrations/"
+      },
+      {
+        "text": "API\n                                                    Automate workflows with our secure API",
+        "href": "https://www.idealsvdr.com/api-integrations/"
+      },
+      {
+        "text": "Solutions",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "Financial services\n                                                    Secure every high-stakes transaction",
+        "href": "https://www.idealsvdr.com/financial-services/"
+      },
+      {
+        "text": "Life sciences\n                                                    Drive innovation with leading security",
+        "href": "https://www.idealsvdr.com/virtual-data-room-life-sciences/"
+      },
+      {
+        "text": "Real estate\n                                                    Close every property deal confidently",
+        "href": "https://www.idealsvdr.com/virtual-data-room-real-estate/"
+      },
+      {
+        "text": "M&A sell-side\n                                                    Master due diligence on the sell-side",
+        "href": "https://www.idealsvdr.com/sell-side-ma/"
+      },
+      {
+        "text": "M&A buy-side\n                                                    Assess every deal with precision",
+        "href": "https://www.idealsvdr.com/buy-side-ma/"
+      },
+      {
+        "text": "M&A advisor\n                                                    Oversee every project from one platform",
+        "href": "https://www.idealsvdr.com/ma-advisors/"
+      },
+      {
+        "text": "Fundraising\n                                                    Earn investor trust and raise faster",
+        "href": "https://www.idealsvdr.com/fundraising/"
+      },
+      {
+        "text": "Clinical trials\n                                                    Advance innovation, ensure compliance",
+        "href": "https://www.idealsvdr.com/clinical-trials/"
+      },
+      {
+        "text": "Clinical archiving\n                                                    Preserve records in compliant archives",
+        "href": "https://www.idealsvdr.com/clinical-archiving/"
+      },
+      {
+        "text": "Customers",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "Customer stories",
+        "href": "https://www.idealsvdr.com/clients/"
+      },
+      {
+        "text": "Testimonials",
+        "href": "https://www.idealsvdr.com/testimonials/"
+      },
+      {
+        "text": "Pricing",
+        "href": "https://www.idealsvdr.com/virtual-data-room-pricing/"
+      },
+      {
+        "text": "Resources",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "AI in M&A 2026",
+        "href": "https://www.idealsvdr.com/learnings/ai-in-dealmaking-2026-wp/"
+      },
+      {
+        "text": "Sell-side report best practices & examples",
+        "href": "https://www.idealsvdr.com/blog/ma/sell-side-report/"
+      },
+      {
+        "text": "Resources\n                                                            Stay updated, aware and ahead",
+        "href": "https://www.idealsvdr.com/resources/"
+      },
+      {
+        "text": "Blog\n                                                            Latest industry news and Ideals updates",
+        "href": "https://www.idealsvdr.com/blog/"
+      },
+      {
+        "text": "Whitepapers\n                                                            Learn from in-depth research and reports",
+        "href": "https://www.idealsvdr.com/learnings/"
+      },
+      {
+        "text": "Events\n                                                            Expand your network in M&A",
+        "href": "https://www.idealsvdr.com/vdr-event-listing/"
+      },
+      {
+        "text": "Webinars\n                                                            Watch live or on-demand",
+        "href": "https://www.idealsvdr.com/webinars/"
+      },
+      {
+        "text": "All resources\n                                                            Explore our full resource library",
+        "href": "https://www.idealsvdr.com/resources/"
+      },
+      {
+        "text": "Professional services\n                                                            Focus on the deal. Delegate the rest",
+        "href": "https://www.idealsvdr.com/professional-services/"
+      },
+      {
+        "text": "Support hub\n                                                            Access 24/7 expert support and guidance",
+        "href": "https://www.idealsvdr.com/support/"
+      },
+      {
+        "text": "Security hub\n                                                            Learn about our industry-leading security",
+        "href": "https://www.idealsvdr.com/virtual-data-room-security/"
+      },
+      {
+        "text": "Help center\n                                                            Find help articles and quick answers",
+        "href": "https://helpcenter.idealsvdr.com/"
+      },
+      {
+        "text": "FAQs\n                                                            Get answers to common questions",
+        "href": "https://www.idealsvdr.com/frequently-asked-questions/"
+      },
+      {
+        "text": "About us\n                                                            Know our mission and our team",
+        "href": "https://www.idealsvdr.com/about-us/"
+      },
+      {
+        "text": "Contact",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "Contact sales",
+        "href": "https://www.idealsvdr.com/contacts/"
+      },
+      {
+        "text": "Contact support",
+        "href": "https://www.idealsvdr.com/contact-support/"
+      },
+      {
+        "text": "EN",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "English",
+        "href": "https://www.idealsvdr.com/"
+      },
+      {
+        "text": "Deutsch",
+        "href": "https://de.idealsvdr.com/"
+      },
+      {
+        "text": "Español",
+        "href": "https://es.idealsvdr.com/"
+      },
+      {
+        "text": "Português",
+        "href": "https://pt.idealsvdr.com/"
+      },
+      {
+        "text": "Français",
+        "href": "https://fr.idealsvdr.com/"
+      },
+      {
+        "text": "Italiano",
+        "href": "https://it.idealsvdr.com/"
+      },
+      {
+        "text": "中文 (中国)",
+        "href": "https://www.idealsvdr.cn/"
+      },
+      {
+        "text": "Get price",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "Get free PDF",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "Log in",
+        "href": "https://auth.idealsvdr.com/login"
+      },
+      {
+        "text": "Get price",
+        "href": "https://www.idealsvdr.com/#"
+      },
+      {
+        "text": "Product overview",
+        "href": "https://www.idealsvdr.com/product-overview/"
+      },
+      {
+        "text": "Security hub",
+        "href": "https://www.idealsvdr.com/virtual-data-room-security/"
+      },
+      {
+        "text": "Support hub",
+        "href": "https://www.idealsvdr.com/support/"
+      },
+      {
+        "text": "Help Center",
+        "href": "https://helpcenter.idealsvdr.com/en/"
+      },
+      {
+        "text": "VDR Guide",
+        "href": "https://www.idealsvdr.com/vdr-providers-guide/"
+      },
+      {
+        "text": "Status",
+        "href": "https://status.idealsvdr.com/"
+      },
+      {
+        "text": "About us",
+        "href": "https://www.idealsvdr.com/about-us/"
+      },
+      {
+        "text": "Financial services",
+        "href": "https://www.idealsvdr.com/financial-services/"
+      },
+      {
+        "text": "M&A sell-side",
+        "href": "https://www.idealsvdr.com/sell-side-ma/"
+      },
+      {
+        "text": "M&A buy-side",
+        "href": "https://www.idealsvdr.com/buy-side-ma/"
+      },
+      {
+        "text": "M&A advisor",
+        "href": "https://www.idealsvdr.com/ma-advisors/"
+      },
+      {
+        "text": "Fundraising",
+        "href": "https://www.idealsvdr.com/fundraising/"
+      },
+      {
+        "text": "See other locations",
+        "href": "https://www.idealsvdr.com/contact-support/"
+      },
+      {
+        "text": "Join the team",
+        "href": "https://ideals.jobs/"
+      },
+      {
+        "text": "Terms & Conditions",
+        "href": "https://www.idealsvdr.com/terms-and-conditions/"
+      },
+      {
+        "text": "Privacy policy",
+        "href": "https://www.idealsvdr.com/privacy/"
+      },
+      {
+        "text": "Terms of use",
+        "href": "https://www.idealsvdr.com/terms-of-use/"
+      },
+      {
+        "text": "Cookie policy",
+        "href": "https://www.idealsvdr.com/cookie/"
+      },
+      {
+        "text": "GDPR",
+        "href": "https://www.idealsvdr.com/gdpr-notice/"
+      },
+      {
+        "text": "Cookie preferences",
+        "href": "https://www.idealsvdr.com/#"
+      }
+    ],
+    "visibleTextSnippet": "We use cookies to ensure you get the best experience on our site. By continuing to use our site you are consenting to our use of cookies in accordance with our cookies policy.\n\nSettings\nReject\nAgree\nNEW\n\nMeet Ideals MCP. Connect Claude, Copilot, ChatGPT to your data room. Learn more\n\nPlatform\nSolutions\nCustomers\nPricing\nResources\nContact\nEN\nLog in\n\nWhere vision meets precision\n\nIdeals virtual data room — secure software for confidential dealmaking\nGet price\nG2\n4.7\nBased on 800+ reviews\nCapterra\n4.8\nBased on 300+ reviews\n\nTrusted by 2M+ leading professionals globally\n\nSee clearly. \nDeal confidently.\n\nGet clear upfront pricing with no hidden fees. No games.\n\nSee pricing in action\nAccelerate critical business decisions with Ideals VDR\n\nIn a world where precision drives progress, our data room empowers leaders to run their projects with confidence\n\n…\n…\nSeamlessly launch your \ndata room\n\nDrive an effortless setup with our award-winning interface\n\nManage every aspect of your project swiftly\n\n8 permission levels and in-depth data governance\n\nMaintain comprehensive oversight\n\nRobust reporting features to give you total visibility\n\nMore than a data room – a powerful partner to your success\nDiscover your new strategic advantage\nYour vision. Our expertise.\n\nAnticipate challenges and seize opportunities with our industry experts\n\nProactive support. Tailored solutions.\n\nKeep on track with 24/7 support, expert advice, and timely solutions\n\nTransparent pricing. Predictable costs.\n\nBudget accurately with no hidden fees – pay for data used, not page counts\n\nFortress-like protection. Anywhere in the world.\n\nUncompromising data security for your peace of mind – secure, resilient, and globally compliant\n\nGlobal coverage\n\nOur global network of 12 data centers keep your data secure and compl"
+  }
+]

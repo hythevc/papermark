@@ -8,8 +8,10 @@ import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { NuqsAdapter } from "nuqs/adapters/next/pages";
 
+import { BRAND } from "@/lib/brand";
 import { EXCLUDED_PATHS } from "@/lib/constants";
 import { useTrackLastVisited } from "@/lib/hooks/use-last-visited";
+import { isMarketingRouteTemplate } from "@/lib/marketing-routes";
 
 import { PostHogGroupSync } from "@/components/providers/posthog-group-sync";
 import { PostHogCustomProvider } from "@/components/providers/posthog-provider";
@@ -31,58 +33,52 @@ export default function App({
   pageProps: { session, ...pageProps },
   router,
 }: AppProps<{ session: Session }>) {
+  const metadata = (
+    <Head>
+      <title>{`${BRAND.name} | ${BRAND.tagline}`}</title>
+      <meta name="theme-color" content="#174b3f" key="theme-color" />
+      <meta name="description" content={BRAND.description} key="description" />
+      <meta
+        property="og:title"
+        content={`${BRAND.name} | ${BRAND.tagline}`}
+        key="og-title"
+      />
+      <meta
+        property="og:description"
+        content={BRAND.description}
+        key="og-description"
+      />
+      <meta property="og:url" content={BRAND.marketingUrl} key="og-url" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={BRAND.name} key="tw-title" />
+      <meta
+        name="twitter:description"
+        content={BRAND.description}
+        key="tw-description"
+      />
+      <link rel="icon" href={BRAND.favicon} key="favicon" />
+    </Head>
+  );
+
+  // Public marketing does not initialize authenticated workspace providers.
+  if (isMarketingRouteTemplate(router.pathname)) {
+    return (
+      <>
+        {metadata}
+        <Component {...pageProps} />
+      </>
+    );
+  }
+
   return (
     <>
-      <Head>
-        <title>Papermark | The Open Source DocSend Alternative</title>
-        <meta name="theme-color" content="#000000" key="theme-color" />
-        <meta
-          name="description"
-          content="Papermark is an open-source document sharing alternative to DocSend with built-in analytics."
-          key="description"
-        />
-        <meta
-          property="og:title"
-          content="Papermark | The Open Source DocSend Alternative"
-          key="og-title"
-        />
-        <meta
-          property="og:description"
-          content="Papermark is an open-source document sharing alternative to DocSend with built-in analytics."
-          key="og-description"
-        />
-        <meta
-          property="og:image"
-          content="https://www.papermark.com/_static/meta-image.png"
-          key="og-image"
-        />
-        <meta
-          property="og:url"
-          content="https://www.papermark.com"
-          key="og-url"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@papermarkio" />
-        <meta name="twitter:creator" content="@papermarkio" />
-        <meta name="twitter:title" content="Papermark" key="tw-title" />
-        <meta
-          name="twitter:description"
-          content="Papermark is an open-source document sharing alternative to DocSend with built-in analytics."
-          key="tw-description"
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.papermark.com/_static/meta-image.png"
-          key="tw-image"
-        />
-        <link rel="icon" href="/favicon.ico" key="favicon" />
-      </Head>
+      {metadata}
       <SessionProvider session={session}>
         <PostHogCustomProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             <NuqsAdapter>
-              <main className={inter.className}>
+              <div className={inter.className}>
                 <Toaster closeButton />
                 <TooltipProvider delayDuration={100}>
                   {EXCLUDED_PATHS.includes(router.pathname) ? (
@@ -97,7 +93,7 @@ export default function App({
                     </TeamProvider>
                   )}
                 </TooltipProvider>
-              </main>
+              </div>
             </NuqsAdapter>
           </ThemeProvider>
         </PostHogCustomProvider>

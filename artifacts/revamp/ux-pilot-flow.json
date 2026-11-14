@@ -1,0 +1,261 @@
+{
+  "source": "UX Pilot read-only flowchart preview",
+  "status": "draft reference, not runtime evidence",
+  "reviewNote": "The raw draft places access enforcement after activity review; actual guest enforcement must happen before content access. Do not treat generated edge order as authorization design.",
+  "draft": {
+    "status": "ok",
+    "direction": "LR",
+    "nodes": [
+      {
+        "id": "landing",
+        "label": "Public Landing Page"
+      },
+      {
+        "id": "signup",
+        "label": "Create Account"
+      },
+      {
+        "id": "send_code",
+        "label": "Send Email Code"
+      },
+      {
+        "id": "verify",
+        "label": "Code Valid?"
+      },
+      {
+        "id": "retry_email",
+        "label": "Retry / Resend Code"
+      },
+      {
+        "id": "room_select",
+        "label": "Choose Room Type"
+      },
+      {
+        "id": "blank",
+        "label": "Blank Room"
+      },
+      {
+        "id": "template",
+        "label": "Template Room"
+      },
+      {
+        "id": "upload",
+        "label": "Upload Documents"
+      },
+      {
+        "id": "progress",
+        "label": "Upload Progress"
+      },
+      {
+        "id": "upload_check",
+        "label": "Upload Success?"
+      },
+      {
+        "id": "upload_retry",
+        "label": "Retry Upload"
+      },
+      {
+        "id": "settings",
+        "label": "Room Settings"
+      },
+      {
+        "id": "audience",
+        "label": "Define Audience"
+      },
+      {
+        "id": "email_verify",
+        "label": "Email Verification Policy"
+      },
+      {
+        "id": "download_policy",
+        "label": "Set Download Policy"
+      },
+      {
+        "id": "expiration",
+        "label": "Set Expiration Date"
+      },
+      {
+        "id": "preview",
+        "label": "Preview Guest View"
+      },
+      {
+        "id": "share",
+        "label": "Generate Share Link"
+      },
+      {
+        "id": "visit_check",
+        "label": "Visitor Activity?"
+      },
+      {
+        "id": "wait",
+        "label": "Wait for Traffic"
+      },
+      {
+        "id": "activity",
+        "label": "Review Visitor Activity"
+      },
+      {
+        "id": "enforcement",
+        "label": "Server Access Check"
+      },
+      {
+        "id": "access_granted",
+        "label": "Allow File Access"
+      },
+      {
+        "id": "access_denied",
+        "label": "Deny File Access"
+      },
+      {
+        "id": "revoke_check",
+        "label": "Revoke Access?"
+      },
+      {
+        "id": "revoke",
+        "label": "Revoke Access"
+      }
+    ],
+    "edges": [
+      {
+        "from": "landing",
+        "to": "signup"
+      },
+      {
+        "from": "signup",
+        "to": "send_code"
+      },
+      {
+        "from": "send_code",
+        "to": "verify"
+      },
+      {
+        "from": "verify",
+        "to": "retry_email",
+        "label": "No"
+      },
+      {
+        "from": "retry_email",
+        "to": "send_code"
+      },
+      {
+        "from": "verify",
+        "to": "room_select",
+        "label": "Yes"
+      },
+      {
+        "from": "room_select",
+        "to": "blank"
+      },
+      {
+        "from": "room_select",
+        "to": "template"
+      },
+      {
+        "from": "blank",
+        "to": "upload"
+      },
+      {
+        "from": "template",
+        "to": "upload"
+      },
+      {
+        "from": "upload",
+        "to": "progress"
+      },
+      {
+        "from": "progress",
+        "to": "upload_check"
+      },
+      {
+        "from": "upload_check",
+        "to": "upload_retry",
+        "label": "Error"
+      },
+      {
+        "from": "upload_retry",
+        "to": "upload"
+      },
+      {
+        "from": "upload_check",
+        "to": "settings",
+        "label": "Success"
+      },
+      {
+        "from": "settings",
+        "to": "audience"
+      },
+      {
+        "from": "audience",
+        "to": "email_verify"
+      },
+      {
+        "from": "email_verify",
+        "to": "download_policy"
+      },
+      {
+        "from": "download_policy",
+        "to": "expiration"
+      },
+      {
+        "from": "expiration",
+        "to": "preview"
+      },
+      {
+        "from": "preview",
+        "to": "share"
+      },
+      {
+        "from": "share",
+        "to": "visit_check"
+      },
+      {
+        "from": "visit_check",
+        "to": "wait",
+        "label": "No"
+      },
+      {
+        "from": "visit_check",
+        "to": "activity",
+        "label": "Yes"
+      },
+      {
+        "from": "activity",
+        "to": "enforcement"
+      },
+      {
+        "from": "enforcement",
+        "to": "access_granted",
+        "label": "Valid"
+      },
+      {
+        "from": "enforcement",
+        "to": "access_denied",
+        "label": "Invalid"
+      },
+      {
+        "from": "access_granted",
+        "to": "revoke_check"
+      },
+      {
+        "from": "revoke_check",
+        "to": "activity",
+        "label": "No"
+      },
+      {
+        "from": "revoke_check",
+        "to": "revoke",
+        "label": "Yes"
+      },
+      {
+        "from": "revoke",
+        "to": "enforcement"
+      },
+      {
+        "from": "wait",
+        "to": "activity"
+      }
+    ],
+    "nodeCount": 27,
+    "edgeCount": 32
+  }
+}

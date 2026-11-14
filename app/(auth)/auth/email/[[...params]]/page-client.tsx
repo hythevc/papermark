@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
-import { LogoCloud } from "@/components/shared/logo-cloud";
+import { BRAND } from "@/lib/brand";
+
+import { AuthSidePanel } from "@/components/shared/auth-side-panel";
+import { BrandLegalLinks } from "@/components/shared/brand-legal-links";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -82,7 +86,9 @@ export default function EmailVerificationClient() {
       } else {
         // No callback URL in response - stop loading and show error
         setIsLoading(false);
-        setError("Unable to complete sign-in: missing callback URL. Please try again.");
+        setError(
+          "Unable to complete sign-in: missing callback URL. Please try again.",
+        );
       }
     } catch (err) {
       setError("An error occurred. Please try again.");
@@ -92,56 +98,50 @@ export default function EmailVerificationClient() {
 
   if (isExpired) {
     return (
-      <div className="flex h-screen w-full flex-wrap">
+      <div className="flex min-h-screen w-full flex-wrap">
         <div className="flex w-full justify-center bg-white md:w-[55%] lg:w-[55%]">
           <div className="z-10 mx-5 mt-0 h-fit w-full max-w-md overflow-hidden sm:mx-0 sm:mt-[calc(0.5vh)] md:mt-[calc(1vh)]">
             <div className="items-left flex flex-col space-y-3 px-4 py-6 pt-5 sm:px-12 sm:pt-6">
-              <Link href="https://www.papermark.com" target="_blank">
-                <img
-                  src="/_static/papermark-logo.svg"
-                  alt="Papermark Logo"
-                  className="mb-24 h-7 w-auto self-start sm:mb-20"
-                />
+              <Link
+                href={BRAND.marketingUrl}
+                className="mb-16 self-start text-[#173c34] sm:mb-20"
+              >
+                <BrandLogo />
               </Link>
-              <span className="text-balance text-3xl font-semibold text-gray-900">
-                Code Expired
-              </span>
+              <h1 className="text-balance text-3xl font-semibold text-gray-900">
+                Request a new code
+              </h1>
               <h3 className="text-balance text-sm text-gray-800">
                 This login code has expired or has already been used.
               </h3>
             </div>
             <div className="flex flex-col gap-4 px-4 pt-4 sm:px-12">
-              <Link href="/login">
-                <Button className="focus:shadow-outline w-full transform rounded-[4px] bg-black px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:outline-none">
-                  Request a new code
-                </Button>
-              </Link>
+              <Button asChild className="w-full">
+                <Link href="/login">Request a new code</Link>
+              </Button>
             </div>
           </div>
         </div>
-        <TestimonialSection />
+        <AuthSidePanel />
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen w-full flex-wrap">
+    <div className="flex min-h-screen w-full flex-wrap">
       {/* Left part */}
       <div className="flex w-full justify-center bg-white md:w-[55%] lg:w-[55%]">
         <div className="z-10 mx-5 mt-0 h-fit w-full max-w-md overflow-hidden sm:mx-0 sm:mt-[calc(0.5vh)] md:mt-[calc(1vh)]">
           <div className="items-left flex flex-col space-y-3 px-4 py-6 pt-5 sm:px-12 sm:pt-6">
-            <Link href="https://www.papermark.com" target="_blank">
-              <img
-                src="/_static/papermark-logo.svg"
-                alt="Papermark Logo"
-                className="mb-24 h-7 w-auto self-start sm:mb-20"
-              />
+            <Link
+              href={BRAND.marketingUrl}
+              className="mb-16 self-start text-[#173c34] sm:mb-20"
+            >
+              <BrandLogo />
             </Link>
-            <Link href="/">
-              <span className="text-balance text-3xl font-semibold text-gray-900">
-                Check your email
-              </span>
-            </Link>
+            <h1 className="text-balance text-3xl font-semibold text-gray-900">
+              Check your email
+            </h1>
             <h3 className="text-balance text-sm text-gray-800">
               {emailLocked ? (
                 <>
@@ -165,6 +165,7 @@ export default function EmailVerificationClient() {
                   id="email"
                   placeholder="name@example.com"
                   type="email"
+                  required
                   autoCapitalize="none"
                   autoComplete="email"
                   autoCorrect="off"
@@ -188,8 +189,10 @@ export default function EmailVerificationClient() {
                 disabled={isLoading}
                 value={code}
                 onChange={(e) => setCode(e.target.value.toUpperCase())}
+                required
+                minLength={10}
                 maxLength={10}
-                className="flex h-10 w-full rounded-[4px] border-0 bg-background bg-white px-3 py-2 font-mono text-lg tracking-widest text-gray-900 ring-1 ring-gray-200 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground placeholder:font-sans placeholder:text-sm placeholder:tracking-normal focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
+                className="flex h-10 w-full rounded-[4px] border-0 bg-background bg-white px-3 py-2 font-mono text-lg tracking-widest text-gray-900 ring-1 ring-gray-200 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:font-sans placeholder:text-sm placeholder:tracking-normal placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
               />
             </div>
 
@@ -203,7 +206,7 @@ export default function EmailVerificationClient() {
               type="submit"
               loading={isLoading}
               disabled={isLoading || !email || code.length < 10}
-              className="focus:shadow-outline w-full transform rounded-[4px] bg-black px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:outline-none disabled:opacity-100"
+              className="focus:shadow-outline w-full transform rounded-[4px] bg-[#146354] px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-[#104d42] focus:outline-none disabled:opacity-100"
             >
               Verify
             </Button>
@@ -216,75 +219,10 @@ export default function EmailVerificationClient() {
             </Link>
           </p>
 
-          <p className="mt-10 w-full max-w-md px-4 text-xs text-muted-foreground sm:px-12">
-            By continuing, you agree to Papermark&apos;s{" "}
-            <a
-              href="https://www.papermark.com/terms"
-              target="_blank"
-              className="underline"
-            >
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://www.papermark.com/privacy"
-              target="_blank"
-              className="underline"
-            >
-              Privacy Policy
-            </a>
-            .
-          </p>
+          <BrandLegalLinks className="mt-10 w-full max-w-md px-4 sm:px-12" />
         </div>
       </div>
-      <TestimonialSection />
-    </div>
-  );
-}
-
-function TestimonialSection() {
-  return (
-    <div
-      className="relative hidden w-full justify-center overflow-hidden md:flex md:w-[45%] lg:w-[45%]"
-      style={{ backgroundColor: "#f9fafb" }}
-    >
-      <div className="flex h-full w-full flex-col items-center justify-center px-4 py-10">
-        <div className="flex w-full max-w-xl flex-col items-center">
-          <div className="mb-6 w-full max-w-md">
-            <img
-              className="h-auto w-full rounded-[4px] object-cover "
-              src="/_static/testimonials/backtrace.jpeg"
-              alt="Backtrace Capital"
-            />
-          </div>
-          <div className="w-full max-w-3xl text-center">
-            <blockquote
-              className="leading-8 text-gray-900 sm:text-xl sm:leading-9"
-              style={{
-                fontFamily:
-                  "system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-              }}
-            >
-              <p>
-                &quot;We raised €50M Fund with Papermark Data Rooms.
-                <br />
-                Secure, branded, and incredibly easy to use.&quot;
-              </p>
-            </blockquote>
-            <figcaption className="mt-4">
-              <div className="text-balance font-medium text-gray-900">
-                Michael Münnix
-              </div>
-              <div className="text-balance font-light text-gray-500">
-                Partner, Backtrace Capital
-              </div>
-            </figcaption>
-          </div>
-        </div>
-        <div className="mt-20 flex w-full max-w-md flex-col items-center">
-          <LogoCloud />
-        </div>
-      </div>
+      <AuthSidePanel />
     </div>
   );
 }

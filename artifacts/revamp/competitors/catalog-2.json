@@ -1,0 +1,30 @@
+{
+  "query": "DocSend data room",
+  "screens": [
+    {
+      "id": "a20da092-9150-4d42-b746-7a75fb1ce290",
+      "image_url": "https://mobbin.com/api/mcp/short/FgzXSQDs",
+      "mobbin_url": "https://mobbin.com/screens/a20da092-9150-4d42-b746-7a75fb1ce290?utm_source=chatgpt&utm_medium=ai-assistant&utm_source_platform=mcp",
+      "app_name": "Skiff",
+      "platform": "web"
+    },
+    {
+      "id": "75bad66f-7b71-45c8-a2f7-bf314a5c06ed",
+      "image_url": "https://mobbin.com/api/mcp/short/QzDxKUMr",
+      "mobbin_url": "https://mobbin.com/screens/75bad66f-7b71-45c8-a2f7-bf314a5c06ed?utm_source=chatgpt&utm_medium=ai-assistant&utm_source_platform=mcp",
+      "app_name": "Remote",
+      "platform": "web"
+    },
+    {
+      "id": "fe19281f-c27e-4481-b36a-a8a4bd48162c",
+      "image_url": "https://mobbin.com/api/mcp/short/NKY3BUlV",
+      "mobbin_url": "https://mobbin.com/screens/fe19281f-c27e-4481-b36a-a8a4bd48162c?utm_source=chatgpt&utm_medium=ai-assistant&utm_source_platform=mcp",
+      "app_name": "PandaDoc",
+      "platform": "web"
+    }
+  ],
+  "ai_usage_notice": {
+    "text": "---\n\n**Your Mobbin AI usage is high this month**\n\nUsage is unlimited during beta. If your usage stays at this level, you may need to purchase more credits once limits take effect. [View usage and plan options](https://mobbin.com/settings/billing-and-usage?utm_source=chatgpt&utm_medium=ai-assistant&utm_source_platform=mcp)",
+    "credits_used": 375
+  }
+}

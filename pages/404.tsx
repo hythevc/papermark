@@ -26,20 +26,20 @@ export default function NotFound({
         <main className="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8">
           <div className="py-16">
             <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
                 {eyebrow}
               </p>
-              <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-950 dark:text-gray-100 sm:text-5xl">
+              <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
                 {title}
               </h1>
-              <p className="mt-2 text-base text-gray-600">
+              <p className="mt-2 text-base text-muted-foreground">
                 {message ||
                   "Sorry, we couldn’t find the page you’re looking for."}
               </p>
               <div className="mt-6">
                 <Link
                   href="/"
-                  className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+                  className="inline-flex min-h-11 items-center rounded-md px-3 text-base font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   {homeLabel} <span aria-hidden="true"> &rarr;</span>
                 </Link>

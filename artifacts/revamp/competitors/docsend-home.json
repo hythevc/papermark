@@ -1,0 +1,381 @@
+{
+  "name": "docsend-home",
+  "url": "https://www.docsend.com/",
+  "viewportCaptures": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "documentWidth": 1440,
+      "file": "docsend-home-1440.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390,
+      "file": "docsend-home-390.png"
+    }
+  ],
+  "capturedAt": "2026-11-14T18:41:31.174Z",
+  "status": 200,
+  "finalUrl": "https://www.docsend.com/",
+  "title": "Virtual Data Rooms for Deals, Fundraising, and Compliance - DocSend | DocSend",
+  "headings": [
+    "The secure way to share, track, and close critical business",
+    "The secure document sharing platform trusted by over 47,000 companies worldwide",
+    "Signals that move every deal",
+    "For deal-making",
+    "Advance M&A",
+    "Your edge:",
+    "For fundraising",
+    "Fundraise smarter",
+    "Your edge:",
+    "For high-stakes sharing",
+    "Win more business",
+    "Your edge:",
+    "For deal-making",
+    "Advance M&A",
+    "Your edge:",
+    "For fundraising",
+    "Fundraise smarter",
+    "Your edge:",
+    "For high-stakes sharing",
+    "Win more business",
+    "Your edge:",
+    "For deal-making",
+    "Advance M&A",
+    "Your edge:",
+    "For fundraising",
+    "Fundraise smarter",
+    "Your edge:",
+    "For high-stakes sharing",
+    "Win more business",
+    "Your edge:",
+    "For deal-making",
+    "Advance M&A",
+    "Your edge:",
+    "For fundraising",
+    "Fundraise smarter",
+    "Your edge:",
+    "For high-stakes sharing",
+    "Win more business",
+    "Your edge:",
+    "Seriously simple - from setup to close",
+    "Stay a step ahead with document tracking & analytics",
+    "Designed to bring pitching and dealmaking to the next level.",
+    "Conduct due diligence with confidence and control",
+    "Trusted by 47,000+ Companies",
+    "Docsend",
+    "Use Cases",
+    "Industries",
+    "Features",
+    "About us",
+    "Docsend",
+    "Use Cases",
+    "Industries",
+    "Features",
+    "About us"
+  ],
+  "links": [
+    {
+      "text": "Skip to main content",
+      "href": "https://www.docsend.com/#main-app-container"
+    },
+    {
+      "text": "Virtual Data Rooms",
+      "href": "https://www.docsend.com/features/virtual-data-room"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.docsend.com/pricing"
+    },
+    {
+      "text": "Customers",
+      "href": "https://www.docsend.com/customers"
+    },
+    {
+      "text": "Sign In",
+      "href": "https://docsend.com/login"
+    },
+    {
+      "text": "Request a demo",
+      "href": "https://www.docsend.com/letschat"
+    },
+    {
+      "text": "Get started",
+      "href": "https://docsend.com/signup/"
+    },
+    {
+      "text": "Dropbox",
+      "href": "https://www.dropbox.com/"
+    },
+    {
+      "text": "How it works",
+      "href": "https://www.docsend.com/how-it-works/"
+    },
+    {
+      "text": "Integrations",
+      "href": "https://www.docsend.com/integrations/"
+    },
+    {
+      "text": "Help Center",
+      "href": "https://help.docsend.com/hc/en-us"
+    },
+    {
+      "text": "Partnerships",
+      "href": "https://www.docsend.com/partnerships/"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.docsend.com/pricing/"
+    },
+    {
+      "text": "Resources",
+      "href": "https://www.docsend.com/resources/"
+    },
+    {
+      "text": "M&A",
+      "href": "https://www.docsend.com/features/m-and-a/"
+    },
+    {
+      "text": "Fundraising",
+      "href": "https://www.docsend.com/solutions/startup-fundraising/"
+    },
+    {
+      "text": "Venture Capital",
+      "href": "https://www.docsend.com/solutions/venture-capitalist/"
+    },
+    {
+      "text": "Private Equity",
+      "href": "https://www.docsend.com/solutions/investment-management/"
+    },
+    {
+      "text": "Board Communications",
+      "href": "https://www.docsend.com/solutions/board-management/"
+    },
+    {
+      "text": "Investor Relations",
+      "href": "https://www.docsend.com/solutions/investor-relations-software/"
+    },
+    {
+      "text": "Financial Services",
+      "href": "https://www.docsend.com/solutions/financial-services/"
+    },
+    {
+      "text": "Startups",
+      "href": "https://www.docsend.com/solutions/startups/"
+    },
+    {
+      "text": "Legal and Advisory",
+      "href": "https://www.docsend.com/solutions/professional-services/"
+    },
+    {
+      "text": "Real Estate",
+      "href": "https://www.docsend.com/solutions/real-estate/"
+    },
+    {
+      "text": "Sales and Marketing",
+      "href": "https://www.docsend.com/solutions/tech-sales/"
+    },
+    {
+      "text": "Other Industries",
+      "href": "https://www.docsend.com/solutions/other-industries/"
+    },
+    {
+      "text": "Secure Sharing",
+      "href": "https://www.docsend.com/features/sharing/"
+    },
+    {
+      "text": "Document Analytics",
+      "href": "https://www.docsend.com/features/analytics/"
+    },
+    {
+      "text": "Video Analytics",
+      "href": "https://www.docsend.com/features/analytics-video/"
+    },
+    {
+      "text": "Dynamic Watermarking",
+      "href": "https://www.docsend.com/features/dynamic-watermarking/"
+    },
+    {
+      "text": "Data Rooms",
+      "href": "https://www.docsend.com/features/virtual-data-room/"
+    },
+    {
+      "text": "eSignature",
+      "href": "https://www.docsend.com/features/esignature/"
+    },
+    {
+      "text": "Non Disclosure Agreement",
+      "href": "https://www.docsend.com/features/one-click-nda/"
+    },
+    {
+      "text": "Impressum",
+      "href": "https://www.dropbox.com/lp/about/impressum"
+    },
+    {
+      "text": "Careers",
+      "href": "https://jobs.dropbox.com/"
+    },
+    {
+      "text": "Security",
+      "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.docsend.com/privacy-policy/"
+    },
+    {
+      "text": "Copyright and IP Policy",
+      "href": "https://www.docsend.com/copyright-and-ip-policy/"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.docsend.com/terms-of-service/"
+    },
+    {
+      "text": "Cookies & CCPA preferences",
+      "href": "https://www.docsend.com/#manage-cookies"
+    },
+    {
+      "text": "Trust Center",
+      "href": "https://www.docsend.com/trust-center/"
+    },
+    {
+      "text": "How it works",
+      "href": "https://www.docsend.com/how-it-works/"
+    },
+    {
+      "text": "Integrations",
+      "href": "https://www.docsend.com/integrations/"
+    },
+    {
+      "text": "Help Center",
+      "href": "https://help.docsend.com/hc/en-us"
+    },
+    {
+      "text": "Partnerships",
+      "href": "https://www.docsend.com/partnerships/"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.docsend.com/pricing/"
+    },
+    {
+      "text": "Resources",
+      "href": "https://www.docsend.com/resources/"
+    },
+    {
+      "text": "M&A",
+      "href": "https://www.docsend.com/features/m-and-a/"
+    },
+    {
+      "text": "Fundraising",
+      "href": "https://www.docsend.com/solutions/startup-fundraising/"
+    },
+    {
+      "text": "Venture Capital",
+      "href": "https://www.docsend.com/solutions/venture-capitalist/"
+    },
+    {
+      "text": "Private Equity",
+      "href": "https://www.docsend.com/solutions/investment-management/"
+    },
+    {
+      "text": "Board Communications",
+      "href": "https://www.docsend.com/solutions/board-management/"
+    },
+    {
+      "text": "Investor Relations",
+      "href": "https://www.docsend.com/solutions/investor-relations-software/"
+    },
+    {
+      "text": "Financial Services",
+      "href": "https://www.docsend.com/solutions/financial-services/"
+    },
+    {
+      "text": "Startups",
+      "href": "https://www.docsend.com/solutions/startups/"
+    },
+    {
+      "text": "Legal and Advisory",
+      "href": "https://www.docsend.com/solutions/professional-services/"
+    },
+    {
+      "text": "Real Estate",
+      "href": "https://www.docsend.com/solutions/real-estate/"
+    },
+    {
+      "text": "Sales and Marketing",
+      "href": "https://www.docsend.com/solutions/tech-sales/"
+    },
+    {
+      "text": "Other Industries",
+      "href": "https://www.docsend.com/solutions/other-industries/"
+    },
+    {
+      "text": "Secure Sharing",
+      "href": "https://www.docsend.com/features/sharing/"
+    },
+    {
+      "text": "Document Analytics",
+      "href": "https://www.docsend.com/features/analytics/"
+    },
+    {
+      "text": "Video Analytics",
+      "href": "https://www.docsend.com/features/analytics-video/"
+    },
+    {
+      "text": "Dynamic Watermarking",
+      "href": "https://www.docsend.com/features/dynamic-watermarking/"
+    },
+    {
+      "text": "Data Rooms",
+      "href": "https://www.docsend.com/features/virtual-data-room/"
+    },
+    {
+      "text": "eSignature",
+      "href": "https://www.docsend.com/features/esignature/"
+    },
+    {
+      "text": "Non Disclosure Agreement",
+      "href": "https://www.docsend.com/features/one-click-nda/"
+    },
+    {
+      "text": "Impressum",
+      "href": "https://www.dropbox.com/lp/about/impressum"
+    },
+    {
+      "text": "Careers",
+      "href": "https://jobs.dropbox.com/"
+    },
+    {
+      "text": "Security",
+      "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.docsend.com/privacy-policy/"
+    },
+    {
+      "text": "Copyright and IP Policy",
+      "href": "https://www.docsend.com/copyright-and-ip-policy/"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.docsend.com/terms-of-service/"
+    },
+    {
+      "text": "Cookies & CCPA preferences",
+      "href": "https://www.docsend.com/#manage-cookies"
+    },
+    {
+      "text": "Dropbox",
+      "href": "https://www.dropbox.com/"
+    },
+    {
+      "text": "Trust Center",
+      "href": "https://www.docsend.com/trust-center/"
+    }
+  ],
+  "visibleTextSnippet": "New: Bring DocSend into your AI workflow with our MCP connector.    Learn more →\n\nVirtual Data Rooms\nProduct\nSolutions\nPricing\nCustomers\nResources\nSign In\nRequest a demo\nGet started\nThe secure way to share, track, and close critical business\nReady in minutes, with real-time intelligence and enterprise-grade security\nGet started for free\nNo credit card required\nUpload documents\nCreate a Data Room\nManage permissions\nTrack visitor analytics\nThe secure document sharing platform trusted by over 47,000 companies worldwide\n4.6\nSignals that move every deal\nFor deal-making\nAdvance M&A\n\nIdentify serious buyers within the first few days\n\nYour edge:\n\nBuyer engagement scoring\n\nPage-by-page analytics\n\nDue diligence tracking\n\nLearn more\n\nFor fundraising\nFundraise smarter\n\nUnderstand investor interest and prioritize your outreach.\n\nYour edge:\n\nReal-time VC alerts\n\nNDA gating and watermarking\n\nInvestor stage insights\n\nLearn more\n\nFor high-stakes sharing\nWin more business\n\nFocus your follow-up on what matters most.\n\nYour edge:\n\nCustom-branded client portal\n\nActivity tracking\n\nDocument security and access control\n\nLearn more\n\nStart for free\nSeriously simple - from setup to close\n\nGet into DocSend and move opportunities forward in four easy steps.\n\nStep 1\nOnboard in minutes\nSimply drag and drop your document, pitch deck, or proposal. Be up and running fast—no training required.\nStep 2\nShare with control\nSend protected links and set access permissions. Keep your documents in the right hands.\nStep 3\nTrack in real time\nGet instant alerts when stakeholders view your materials and see exactly how they interact.\nStep 4\nAct at the right moment\nFollow up when analytics show peak interest. Close when buyers are most engaged.\nStart for free\n“An efficient way to share content with confidence & contro"
+}

@@ -1,0 +1,489 @@
+{
+  "reviewedAt": "2026-11-14",
+  "reviewA": {
+    "reviewed_date": "2026-11-14",
+    "remote_code_executed": false,
+    "files": [
+      {
+        "path": "JCodesMore__ai-website-cloner-template/.agents/skills/clone-website/SKILL.md",
+        "bytes": 6763,
+        "sha256": "a889e91ea4add6d8dfbd514ef591468744a44509db964df4d9ee13f052bee73c"
+      },
+      {
+        "path": "JCodesMore__ai-website-cloner-template/.agents/skills/clone-website/references/inspection-guide.md",
+        "bytes": 3015,
+        "sha256": "7f50abd4db9772f1e615f7224f0000ece24d6f274434e800b78219d8e50e6673"
+      },
+      {
+        "path": "JCodesMore__ai-website-cloner-template/AGENTS.md",
+        "bytes": 3165,
+        "sha256": "1012caac6679334b4cafef508072761927ea42e8722a0f1ff7ba6b8e9eb1eb9b"
+      },
+      {
+        "path": "JCodesMore__ai-website-cloner-template/LICENSE",
+        "bytes": 1068,
+        "sha256": "8dcb3e8a1eb0408454edf1967b0419eec4d5289a4c6a75d92f763b0947746257"
+      },
+      {
+        "path": "JCodesMore__ai-website-cloner-template/README.md",
+        "bytes": 8301,
+        "sha256": "bd8772521de9c62dfc54cf25ee14114d99c371a0338f3042daff7f458b8fe885"
+      },
+      {
+        "path": "JCodesMore__ai-website-cloner-template/metadata.json",
+        "bytes": 7011,
+        "sha256": "8d3bde1e18573a09827a6e514f20b6bd851aec7dcee645c0ccd51c557ebea93c"
+      },
+      {
+        "path": "JCodesMore__ai-website-cloner-template/package.json",
+        "bytes": 1493,
+        "sha256": "005603bafeb7821eaf01b9ac9d0ba8e86d92990cbe04c03b04eb57887f49fb98"
+      },
+      {
+        "path": "Nutlope__hallmark/LICENSE",
+        "bytes": 1079,
+        "sha256": "b6ea71cbc54042d2051909a118d1e269f8d65530e55bb1ac934aeca140a1cf30"
+      },
+      {
+        "path": "Nutlope__hallmark/README.md",
+        "bytes": 8743,
+        "sha256": "327bcc97ed6c6e12ddacc661af049236ff97fe100dadda383f675d0054ce0888"
+      },
+      {
+        "path": "Nutlope__hallmark/metadata.json",
+        "bytes": 5731,
+        "sha256": "ed15ba14c0dc1ef081dfde8d7ae9e4d813cab8095c0b42c47a2d80713f69a813"
+      },
+      {
+        "path": "Nutlope__hallmark/package.json",
+        "bytes": 764,
+        "sha256": "8f547025462f03b2611ea486cc3b9e32c83820113749a5cba716eb1ce6b23df9"
+      },
+      {
+        "path": "Nutlope__hallmark/skills/hallmark/SKILL.md",
+        "bytes": 18240,
+        "sha256": "28e2c71e9c4ab895239527c055183d9ba538d804e7fdba3dadf92050a222a81f"
+      },
+      {
+        "path": "Nutlope__hallmark/skills/hallmark/references/design-md.md",
+        "bytes": 3062,
+        "sha256": "d4bdd1aaed23ff54016184891678045601085cef25ac18d973778ba02aa50186"
+      },
+      {
+        "path": "Nutlope__hallmark/skills/hallmark/references/redesign.md",
+        "bytes": 12232,
+        "sha256": "478bee4b9611e043230a5f7dfc2eb10dcd3cf3e3ce459a56e28b873b934c819a"
+      },
+      {
+        "path": "Nutlope__hallmark/skills/hallmark/references/themes/blueprint.md",
+        "bytes": 7562,
+        "sha256": "13c54ccfc6cd243fcfd4f49c11f50064f05675a3ef557a63206604ac5af8b02f"
+      },
+      {
+        "path": "Nutlope__hallmark/skills/hallmark/references/themes/vellum.md",
+        "bytes": 7607,
+        "sha256": "dd212db1212a3a9f9233a4ff08eccd6414af36c948469a64db0166fac1924f2b"
+      },
+      {
+        "path": "abi__screenshot-to-code/AGENTS.md",
+        "bytes": 3384,
+        "sha256": "ac11aecbdca2abca555009a35ca30c19bb8fbb475f470e15d624185194ab6dd6"
+      },
+      {
+        "path": "abi__screenshot-to-code/LICENSE",
+        "bytes": 1066,
+        "sha256": "caa7bbce01d1fb94c4ae87e1c2b017c3363ae4867bd72daf206d743749babc0d"
+      },
+      {
+        "path": "abi__screenshot-to-code/README.md",
+        "bytes": 7374,
+        "sha256": "8dd3d32b3d019e005725c13ee21b21b637c1141036c25054c72bb0a4d0c602be"
+      },
+      {
+        "path": "abi__screenshot-to-code/backend/pyproject.toml",
+        "bytes": 780,
+        "sha256": "46d075a2213f2ed56e1255cc50afc8d9f1e4b9941efd5268d9be161b2cc1334d"
+      },
+      {
+        "path": "abi__screenshot-to-code/design-docs/general.md",
+        "bytes": 267,
+        "sha256": "942e3f0e168396d584da2da5695c740e68f59e1b334184d1760bc73bf39e666d"
+      },
+      {
+        "path": "abi__screenshot-to-code/frontend/package.json",
+        "bytes": 2877,
+        "sha256": "05ef6db5925d5075d95588b9ca8bbfc59a8d48f03bce4d3aaee88cb57a4552eb"
+      },
+      {
+        "path": "abi__screenshot-to-code/metadata.json",
+        "bytes": 5957,
+        "sha256": "ac05eda9fb671485b9a7adc452a46d57e71b306ecc055769f80c6a026133d2cf"
+      },
+      {
+        "path": "amaancoderx__npxskillui/README.md",
+        "bytes": 8224,
+        "sha256": "1e7eb2ffe7711913b9eb7048d6fc4f794726b20d521149c5fd442667f1a53a2f"
+      },
+      {
+        "path": "amaancoderx__npxskillui/metadata.json",
+        "bytes": 5821,
+        "sha256": "22ee34775accb7b48c67edb52f912b670599bb4554997f374f2141951742eb29"
+      },
+      {
+        "path": "amaancoderx__npxskillui/package.json",
+        "bytes": 2133,
+        "sha256": "8357ea5cb59ca8e098a4cf47f9eee2d09fa6a7b76eca1a9bfdfd97b7edf43c39"
+      },
+      {
+        "path": "amaancoderx__npxskillui/src/writers/design-md.ts",
+        "bytes": 32545,
+        "sha256": "2b930a776fd2a331a6f1c14bff20ffaf5bf8232f50dff70dea8f590c822c3b0f"
+      },
+      {
+        "path": "anomalyco__rune/Cargo.toml",
+        "bytes": 5829,
+        "sha256": "bedb2ce3f37d4aac1d6005d9990b59fe40d87c51f214ab72bdc8c3a7df954377"
+      },
+      {
+        "path": "anomalyco__rune/LICENSE",
+        "bytes": 1065,
+        "sha256": "2bf640dae888479984ef2b55f85e1dcb6a589d30fe247e6ee76749ddcdb78b1d"
+      },
+      {
+        "path": "anomalyco__rune/README.md",
+        "bytes": 3420,
+        "sha256": "1a42bb59a292f56ed45d05bd6fb9a618e43446f3250fc7a2ee4c49d8b4801113"
+      },
+      {
+        "path": "anomalyco__rune/crates/rune/README.md",
+        "bytes": 211756,
+        "sha256": "d79c67039997e914456fa24834d49695f5e59fa305bb8bf3335c28bf99ed771f"
+      },
+      {
+        "path": "anomalyco__rune/crates/rune-kit/README.md",
+        "bytes": 29839,
+        "sha256": "542b6b250f11184fbd286d346337ddd6c7597d184bf288e723ae370a331c4398"
+      },
+      {
+        "path": "anomalyco__rune/crates/rune-motion/README.md",
+        "bytes": 15164,
+        "sha256": "60ba61b41786756e17ed35947a9701ab57fee0239a96bcc5dc74bd16498e6557"
+      },
+      {
+        "path": "anomalyco__rune/metadata.json",
+        "bytes": 6759,
+        "sha256": "c632392471c558ee4a65d620bb2c5775e8720738eed835996a3c52ea2786c9b0"
+      },
+      {
+        "path": "heydamir__unslop/LICENSE",
+        "bytes": 18658,
+        "sha256": "b0795076b6787cb92063ffd73df82a6930705dca321b249e10a9ad5175428fff"
+      },
+      {
+        "path": "heydamir__unslop/README.md",
+        "bytes": 3897,
+        "sha256": "a72940c043faeb7cdce43530cf6c670b657dfe80b7b5a56f742fb8bc03a1f926"
+      },
+      {
+        "path": "heydamir__unslop/metadata.json",
+        "bytes": 5733,
+        "sha256": "51c1ccfb8169e8d084a7e1237a1c4f6fa69e9da46fd83ce09b0028f35bb25457"
+      },
+      {
+        "path": "heydamir__unslop/skills/unslop/SKILL.md",
+        "bytes": 31659,
+        "sha256": "2882203d8041519cc6d3d233c2848e97b2c9a4eba2a5b8ec8b65e0bf9d8fd81f"
+      },
+      {
+        "path": "heydamir__unslop/skills/unslop/references/effects.md",
+        "bytes": 4865,
+        "sha256": "c57f59bc73143cc7e0ee51df496b1c62bbd11b5797175460ef48c685768f7690"
+      },
+      {
+        "path": "heydamir__unslop/skills/unslop/references/signs.md",
+        "bytes": 7039,
+        "sha256": "c9f0d7242f14de55060f22890992748be312c3f8ec0e0ec8592e88d045d9f600"
+      },
+      {
+        "path": "heydamir__unslop/skills/unslop/references/tokens.md",
+        "bytes": 6495,
+        "sha256": "883a2747bfff400066e8702fa8b94b520a92f5cc6e095f3082a37a0f802e5ece"
+      },
+      {
+        "path": "jaimedhenriques__ui/LICENSE.md",
+        "bytes": 1064,
+        "sha256": "cbe191a94b1484349d68d02b943bdeae08f3a9a34cc19cbaa7746bee50dd69ac"
+      },
+      {
+        "path": "jaimedhenriques__ui/README.md",
+        "bytes": 468,
+        "sha256": "a38533bb960634d8fce0a6a91eaf4cc9ff00c85d926a7b22ec759a294d7ee24b"
+      },
+      {
+        "path": "jaimedhenriques__ui/apps/v4/package.json",
+        "bytes": 5940,
+        "sha256": "8bd66684ee95a49af7596092750bcc51b4d7ec9a2c7d59538843fa5c4c106d04"
+      },
+      {
+        "path": "jaimedhenriques__ui/apps/v4/registry/bases/README.md",
+        "bytes": 709,
+        "sha256": "d91296a56e306c13e78813a850a8e4a7c6f6807a6b5ac81b3ce2b1802f787c08"
+      },
+      {
+        "path": "jaimedhenriques__ui/apps/v4/styles/README.md",
+        "bytes": 469,
+        "sha256": "7bfb3928b4315aeb678156df6efebf23013f89eba5c9703fad6df1c6adc68fa2"
+      },
+      {
+        "path": "jaimedhenriques__ui/metadata.json",
+        "bytes": 213,
+        "sha256": "98af770303a5c9e7f1c99d0609dc8dceda93439b31a2f0bb39d8719b79b13a6a"
+      },
+      {
+        "path": "jaimedhenriques__ui/package.json",
+        "bytes": 3628,
+        "sha256": "d048f503379dc08bad06a21a70da16a9256c10f22c6c2d4e436b5bca1cae13bb"
+      },
+      {
+        "path": "jaimedhenriques__ui/packages/react/package.json",
+        "bytes": 1730,
+        "sha256": "206926c6baf77372d815daef2123edc71e2f027282914b74aa1e043bd5b648d4"
+      },
+      {
+        "path": "jaimedhenriques__ui/redirect-metadata.json",
+        "bytes": 5366,
+        "sha256": "0d190f63fabf7b877661dbce3b822b3e4c1d638e83f192e2ec77f3359cd889e4"
+      },
+      {
+        "path": "logiaweb__design-inspo-stack/links.txt",
+        "bytes": 507,
+        "sha256": "a488ade9f3986b343142f71963c3cae55c46a748916f1e60e0e8f3dae5138749"
+      },
+      {
+        "path": "logiaweb__design-inspo-stack/readable.txt",
+        "bytes": 6534,
+        "sha256": "7295d9d2b7e43053ed9315808b6685138bfe7eaba7bf0fa272c3e11bebdb5606"
+      },
+      {
+        "path": "logiaweb__design-inspo-stack/source.html",
+        "bytes": 158653,
+        "sha256": "ec71718e41d301ca4d743b7f3b4419d01aab41b9b383b978a9351cc1b5b794bd"
+      },
+      {
+        "path": "meta__astryx/LICENSE",
+        "bytes": 1078,
+        "sha256": "749771d6e24c29846c008f286c133eed694ef01c0ed456fff8977d68adfbcdde"
+      },
+      {
+        "path": "meta__astryx/README.md",
+        "bytes": 9106,
+        "sha256": "16c7288cf67f8efbcf218c953c1b38d32756d22a096bb881842cf6e8dbb510e3"
+      },
+      {
+        "path": "meta__astryx/apps/example-nextjs-tailwind/README.md",
+        "bytes": 4727,
+        "sha256": "14db9ec8ca21c65af17becb06f0e64b2aebe1dfb43deb762d6f05ab430e81a82"
+      },
+      {
+        "path": "meta__astryx/docs/architecture/theme-tokens.md",
+        "bytes": 31381,
+        "sha256": "786a5d995e7c182361e2441d68a5e623c18f341407ccbdc93284228c4bb125bd"
+      },
+      {
+        "path": "meta__astryx/docs/design/README.md",
+        "bytes": 4781,
+        "sha256": "a21dc8fc050d28831dbe3c7c34e69a1590d65f1eeb105033c52f889a0c280a05"
+      },
+      {
+        "path": "meta__astryx/docs/design/control-rhythm.md",
+        "bytes": 3992,
+        "sha256": "71d0c2be3d9f1e40f51e621a6677ef1b478f2835fc055629da03394aa642dfc6"
+      },
+      {
+        "path": "meta__astryx/docs/design/reduced-motion.md",
+        "bytes": 12665,
+        "sha256": "c6d21ce988a3d49cc3f4b467322effd577763ca03ff772e2ac9d25701ea766bc"
+      },
+      {
+        "path": "meta__astryx/docs/design/system-states.md",
+        "bytes": 6913,
+        "sha256": "718a9410af5273512b5de3aabb59f45b03eac243ea44ae8a8bdd268120031cef"
+      },
+      {
+        "path": "meta__astryx/docs/design/user-states.md",
+        "bytes": 9165,
+        "sha256": "f202c97466d85a3903b93f380d4444c9ff9fe9caadad772a25be85691dccb131"
+      },
+      {
+        "path": "meta__astryx/metadata.json",
+        "bytes": 6564,
+        "sha256": "cb08a6db5ec7fcc44007fe894302682e15a0d3df9c791e9ab826503a77ab9963"
+      },
+      {
+        "path": "meta__astryx/package.json",
+        "bytes": 11017,
+        "sha256": "e3550c342f022e6c5a8fc0271e36cb49505d34c515c5b0872bfb752f957c6448"
+      },
+      {
+        "path": "meta__astryx/packages/cli/README.md",
+        "bytes": 433215,
+        "sha256": "748ee3bfcc8d0cca87902114fc6134cfac582af080335099fe24d1439c28f2b7"
+      },
+      {
+        "path": "meta__astryx/packages/core/README.md",
+        "bytes": 14174,
+        "sha256": "24a1970ab3c94fd9fbade6b6f8cc4bfec78a887a7d1d0f110e64e65b15203add"
+      },
+      {
+        "path": "meta__astryx/packages/core/package.json",
+        "bytes": 33611,
+        "sha256": "b58a97ff3fb95b68e3048cfb6686d17f7ddb2ded2d9225d4ada23f0b2cc26c4b"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/GUIDE.md",
+        "bytes": 48489,
+        "sha256": "2e5e8646c81a84d917503a97fcf469cfe5b6d059b419e05502b7d6852908ec9f"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/LICENSE",
+        "bytes": 1084,
+        "sha256": "34e896596d05ea55c798b9fce7d680db990a5935de115be5a8ac8d0863bb0fa8"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/README.md",
+        "bytes": 13808,
+        "sha256": "1c02365b3e22c0beada9f7049ebc118b8bddd80f035aad62373f652a87af5ed4"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/metadata.json",
+        "bytes": 6365,
+        "sha256": "0f3404d6fecacc061d33a1e6648ee7a2809b3072df02166a4071b2df3356757e"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop/SKILL.md",
+        "bytes": 53763,
+        "sha256": "ce06c3e0c49054152c679c7bfee0f3ffc756a9e6f7d2951d975f791fe058efd4"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop-code/SKILL.md",
+        "bytes": 8949,
+        "sha256": "75fcc004468f5f5d4062e2e716b52c18b849d8ad52b4cd7ed094d4a67467c791"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop-copywriting/SKILL.md",
+        "bytes": 27975,
+        "sha256": "dc9e292abd8304a891f0c664bf72bfe7bd1d4c42ecea760d48b6e77652441b28"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop-human/LICENSE-web-quality-skills",
+        "bytes": 1069,
+        "sha256": "6818fb76777d9d3aec60c63394cfbdad18022b1b0987448c323bf679282a4194"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop-human/SKILL.md",
+        "bytes": 15922,
+        "sha256": "eb79efb4e1fb79dafc0de9f4f758d13b372d40b80c0a329726c7b9be50e58367"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop-layoutmobile/SKILL.md",
+        "bytes": 16383,
+        "sha256": "a81999dab622c84ff25ae5d3f997603fbcd7ff33d6bd163f3b9336183bbdc591"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop-ui/LICENSE-web-quality-skills",
+        "bytes": 1069,
+        "sha256": "6818fb76777d9d3aec60c63394cfbdad18022b1b0987448c323bf679282a4194"
+      },
+      {
+        "path": "miqdadbadjuber__anti-slop/skills/antislop-ui/SKILL.md",
+        "bytes": 30487,
+        "sha256": "6b7a61eabed924e882864afabe1cb1fc1637ab949d30c8dd89d428dd5aabd78b"
+      }
+    ]
+  },
+  "reviewB": [
+    {
+      "repo": "pbakaus/impeccable",
+      "commit": "1995764b4936f2bfbf4eb719cb37b384a45ceacb",
+      "date": "2026-11-14T10:17:21Z",
+      "tree": "0d5049b98ed1023d54f9f8c58275cbf7552105a3",
+      "resolved_revision_matches_first_fetch": true
+    },
+    {
+      "repo": "elayadesign/ai-design-skills",
+      "commit": "456d9e0d3e2d84c748bb143c6ca3d90c45e16213",
+      "date": "2026-11-01T23:24:09Z",
+      "tree": "19409610c38d36cce5b84a912db5660391cb1bd5",
+      "resolved_revision_matches_first_fetch": true
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "d643997c82e94742dd3bee43210b0198e8bbba3d",
+      "date": "2026-11-14T16:04:42Z",
+      "tree": "18cea52d404658bce55e811060a6e95317cd47eb",
+      "resolved_revision_matches_first_fetch": true
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+      "date": "2026-11-13T17:46:26Z",
+      "tree": "95239ace58aad39b981e8b6219a585ed768ecce6",
+      "resolved_revision_matches_first_fetch": true
+    },
+    {
+      "repo": "Leonxlnx/imagegen-skills",
+      "commit": "beb16b0d0f4dae9a6f5cb04ea41e97b93a54ab8e",
+      "date": "2026-10-19T05:44:06Z",
+      "tree": "2d45ae208519e63a43b20ed06e3f8794766db420",
+      "resolved_revision_matches_first_fetch": true
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "date": "2026-11-07T12:33:21Z",
+      "tree": "8684feda2c345302dab976ae4c42ae62e04e1263",
+      "resolved_revision_matches_first_fetch": true
+    },
+    {
+      "repo": "plugin87/ux-ui-agent-skills",
+      "commit": "f823acedc3ef4e9b2ba944a28fd86fe2abdde427",
+      "date": "2026-11-10T07:20:18Z",
+      "tree": "0a2a42d0eb8dd65c270d7a7ed8bafb6f1d5ef624",
+      "resolved_revision_matches_first_fetch": true
+    }
+  ],
+  "additionalVersions": [
+    {
+      "source": "VoltAgent__awesome-design-md",
+      "version": {
+        "sha": "fcc70284932276d085f01ef9f83edde90b1258cb",
+        "url": "https://github.com/VoltAgent/awesome-design-md/commit/fcc70284932276d085f01ef9f83edde90b1258cb",
+        "commit_date": "2026-10-28T15:45:37Z"
+      }
+    },
+    {
+      "source": "vercel-labs__agent-skills",
+      "version": {
+        "sha": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+        "url": "https://github.com/vercel-labs/agent-skills/commit/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+        "commit_date": "2026-10-27T21:40:02Z"
+      }
+    },
+    {
+      "source": "microsoft__playwright-cli",
+      "version": {
+        "sha": "b21724888b8100b05ef8dee3a92f2bb03bf4dcde",
+        "url": "https://github.com/microsoft/playwright-cli/commit/b21724888b8100b05ef8dee3a92f2bb03bf4dcde",
+        "commit_date": "2026-11-11T17:10:41Z"
+      }
+    },
+    {
+      "source": "shadcn-ui__ui",
+      "version": {
+        "sha": "e62c9435fff729a175f38983dee73b2cb4f6a069",
+        "url": "https://github.com/shadcn-ui/ui/commit/e62c9435fff729a175f38983dee73b2cb4f6a069",
+        "commit_date": "2026-11-13T10:57:41Z"
+      }
+    }
+  ]
+}

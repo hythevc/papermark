@@ -1,137 +1,63 @@
-<div align="center">
-  <h1 align="center">Papermark</h1>
-  <h3>The open-source DocSend alternative.</h3>
+# Roomline
 
-<a target="_blank" href="https://www.producthunt.com/posts/papermark-3?utm_source=badge-top-post-badge&amp;utm_medium=badge&amp;utm_souce=badge-papermark"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=411605&amp;theme=light&amp;period=daily" alt="Papermark - The open-source DocSend alternative | Product Hunt" style="width:250px;height:40px"></a>
+A focused workspace for the work behind the deal: organize documents, review sharing, and understand viewer engagement.
 
-</div>
+Roomline is an independent development fork of [Papermark](https://github.com/mfts/papermark). The brand and UX revamp adds a complete public content journey, readable interactive product preview, consistent account entry, source improvements to room summaries and creation recovery, and shared component/mobile foundations. The assessment covers 94 route templates in source and distinguishes rendered public paths from blocked authenticated work.
 
-<div align="center">
-  <a href="https://www.papermark.com">papermark.com</a>
-</div>
+![Roomline homepage](artifacts/revamp/after/home-1440.png)
 
-<br/>
+## Run locally
 
-<div align="center">
-  <a href="https://github.com/mfts/papermark/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mfts/papermark"></a>
-  <a href="https://twitter.com/papermarkio"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/papermarkio"></a>
-  <a href="https://github.com/mfts/papermark/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-AGPLv3-purple"></a>
-</div>
+Requires Node.js **24 or newer**. The marketing homepage and auth UI can render without a connected database. Real registration, login email delivery, uploads, rooms, billing, analytics, and background processing require their configured services.
 
-<br/>
-
-Papermark is the open-source document-sharing alternative to DocSend, featuring built-in analytics and custom domains.
-
-## Features
-
-- **Shareable Links:** Share your documents securely by sending a custom link.
-- **Custom Branding:** Add a custom domain and your own branding.
-- **Analytics:** Gain insights through document tracking and soon page-by-page analytics.
-- **Self-hosted, Open-source:** Host it yourself and customize it as needed.
-
-## Demo
-
-![Papermark Welcome GIF](.github/images/papermark-welcome.gif)
-
-## Tech Stack
-
-- [Next.js](https://nextjs.org/) – Framework
-- [TypeScript](https://www.typescriptlang.org/) – Language
-- [Tailwind](https://tailwindcss.com/) – CSS
-- [shadcn/ui](https://ui.shadcn.com) - UI Components
-- [Prisma](https://prisma.io) - ORM [![Made with Prisma](https://made-with.prisma.io/dark.svg)](https://prisma.io)
-- [PostgreSQL](https://www.postgresql.org/) - Database
-- [NextAuth.js](https://next-auth.js.org/) – Authentication
-- [Tinybird](https://tinybird.co) – Analytics
-- [Resend](https://resend.com) – Email
-- [Stripe](https://stripe.com) – Payments
-- [Vercel](https://vercel.com/) – Hosting
-
-## Getting Started
-
-### Prerequisites
-
-Here's what you need to run Papermark:
-
-- Node.js (version >= 18.17.0)
-- PostgreSQL Database
-- Blob storage (currently [AWS S3](https://aws.amazon.com/s3/) or [Vercel Blob](https://vercel.com/storage/blob))
-- [Resend](https://resend.com) (for sending emails)
-
-### 1. Clone the repository
-
-```shell
-git clone https://github.com/mfts/papermark.git
-cd papermark
-```
-
-### 2. Install npm dependencies
-
-```shell
-npm install
-```
-
-### 3. Copy the environment variables to `.env` and change the values
-
-```shell
-cp .env.example .env
-```
-
-### 4. Initialize the database
-
-```shell
-npm run dev:prisma
-```
-
-### 5. Run the dev server
-
-```shell
+```sh
+npm ci
+cp .env.example .env.local
+# Set a unique NEXTAUTH_SECRET and your own public URLs.
+# Configure service credentials through your deployment's secret settings.
 npm run dev
 ```
 
-### 6. Open the app in your browser
+Open [localhost:3000](http://localhost:3000). Product details live at `/product`, `/security`, `/solutions/fundraising`, `/solutions/due-diligence`, and `/guides`. `/design-system` is a sample component reference, not a live workspace. The homepage preview uses labeled sample data; it does not create or expose live rooms. `/login` and `/register` render the account entry screens.
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+**This checkout is not production-ready.** The original repository references missing source modules and has existing type errors. See [launch requirements](docs/roomline/LAUNCH.md) for the concrete blockers, configuration, and verification limits.
 
-## Tinybird Instructions
+## Assessment and verification
 
-To prepare the Tinybird database, follow these steps:
-
-0. We use `pipenv` to manage our Python dependencies. If you don't have it installed, you can install it using the following command:
-   ```sh
-   pkgx pipenv
-   ```
-1. Download the Tinybird CLI from [here](https://www.tinybird.co/docs/cli.html) and install it on your system.
-2. After authenticating with the Tinybird CLI, navigate to the `lib/tinybird` directory:
-   ```sh
-   cd lib/tinybird
-   ```
-3. Push the necessary data sources using the following command:
-   ```sh
-   tb push datasources/*
-   tb push endpoints/get_*
-   ```
-4. Don't forget to set the `TINYBIRD_TOKEN` with the appropriate rights in your `.env` file.
-
-#### Updating Tinybird
+Read the [consolidated assessment](.better-design/app-review.md), [interactive evidence report](artifacts/revamp/assessment.html), [94-screen matrix](docs/roomline/revamp/SCREEN_CHECK_MATRIX.md), and [prioritized plan](docs/roomline/revamp/100X_PLAN.md).
 
 ```sh
-pipenv shell
-## start: pkgx-specific
-cd ..
-cd papermark
-## end: pkgx-specific
-pipenv update tinybird-cli
+npm run test:roomline
+npm run design:test
+npm run design:runtime
+npm run design:check
+# With the development server running and Chromium available:
+npm run design:browser
+npm run design:auth
+npm run design:states
+# This stricter check intentionally fails while launch blockers remain:
+npm run design:check:release
 ```
 
-## Contributing
+The screenshot runners use `BROWSER_EXECUTABLE_PATH` or system Chromium when available; otherwise install the Playwright browser with `npx playwright install chromium`. UI auth tests mock APIs and send no emails. The evidence check validates records and source freshness; it does not grade design quality.
 
-Papermark is an open-source project, and we welcome contributions from the community.
+[AGENTS.md](AGENTS.md), [DESIGN.md](DESIGN.md), and the [34-entry reference registry](docs/roomline/revamp/REFERENCE_REGISTRY.md) define the applicable-skill workflow. They govern this repository, not every other project or editor. Reference-only frameworks were not forced into the runtime.
 
-If you'd like to contribute, please fork the repository and make any changes you'd like. Pull requests are warmly welcome.
+The [21st.dev setup](docs/roomline/revamp/21ST_SETUP.md) uses `API_KEY_21ST` from the environment. The CLI is installed and `.mcp.json` is secret-free; authenticated discovery remains pending a rotated key or browser login. No exposed key is stored in this project.
 
-### Our Contributors ✨
+## Customize the business
 
-<a href="https://github.com/mfts/papermark/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=mfts/papermark" />
-</a>
+- Identity and public URLs: [lib/brand.ts](lib/brand.ts).
+- Optional support and legal links: `NEXT_PUBLIC_SUPPORT_EMAIL`, `NEXT_PUBLIC_TERMS_URL`, `NEXT_PUBLIC_PRIVACY_URL`.
+- Owned email sender: `EMAIL_FROM`, with optional category overrides; never use an upstream sender identity.
+- Marketing design: [components/marketing](components/marketing).
+- Business positioning and follow-on scope: [product direction](docs/roomline/PRODUCT.md).
+- Screenshots and automated accessibility output: [artifacts](artifacts).
+
+Roomline is a working name. Domain and trademark availability have not been verified.
+
+## License and attribution
+
+The upstream [AGPLv3 license](LICENSE), [enterprise commercial license](ee/LICENSE.md), and original notices remain in place. Enterprise modules, including covered data room features, have separate production licensing requirements. The redesign does not grant rights to those modules or remove AGPL obligations. Resolve the applicable entitlement or independently replace the covered functionality before production use.
+
+The [upstream README](docs/roomline/UPSTREAM_README.md) is retained for attribution and original setup context. It contains historical Papermark links and identities, not Roomline's business contacts or endorsements.
