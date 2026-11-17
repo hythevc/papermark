@@ -1,0 +1,39 @@
+{
+  "reviewedAt": "2026-11-17T02:43:07.490686+00:00",
+  "artifact": {
+    "builtAt": "2026-11-17T02:37:33.115Z",
+    "sourceDigest": "c3f451b1b1aa26d6b1ec7702b9048a0da9baf1b492950ad95813e00794e7b187",
+    "applicationOrigin": "https://roomline-staging-3157af3e.up.railway.app",
+    "marketingOrigin": "https://roomline-marketing-hythevc.vercel.app",
+    "exportedFiles": 47
+  },
+  "result": "selected fresh renders inspected; initial contrast finding fixed and retested",
+  "screenshots": [
+    "mobile-390-first-viewport.png",
+    "mobile-1440-first-viewport.png",
+    "home-1440-first-viewport.png",
+    "home-390-menu-open.png",
+    "home-1440-preview-empty.png",
+    "home-1440-faq-open.png"
+  ],
+  "observations": [
+    "Installation CTAs now have visible light text on the forest surface at both widths.",
+    "Desktop header, hero and preview retain alignment, readable type, sample-data label and clear primary actions.",
+    "Mobile menu fits the viewport; its keyboard focus ring and all menu items remain visible.",
+    "Search retains the typed query and visible focus; empty-state/recovery behavior is verified by the DOM interaction check.",
+    "The open FAQ answer remains readable with a visible keyboard focus indicator.",
+    "Earlier full-page inspection also covered product, security, fundraising solution, guides index, fundraising checklist and404; no geometry changes were introduced by the one-selector contrast fix."
+  ],
+  "automatedResult": {
+    "captures": 20,
+    "captureFailures": 0,
+    "interactions": 3,
+    "interactionFailures": 0,
+    "foreignRequests": 0,
+    "privateRequests": 0
+  },
+  "limits": [
+    "Selected images were manually inspected; the20route/viewport results are automated plus captured evidence, not a claim of exhaustive human or WCAG review.",
+    "No hosted app navigation, provider deployment, authentication, billing, native-device or competitor-superiority claim is established by static screenshots."
+  ]
+}

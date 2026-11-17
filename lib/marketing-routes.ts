@@ -4,6 +4,7 @@ const PUBLIC_MARKETING_PATHS = new Set([
   "/security",
   "/guides",
   "/design-system",
+  "/mobile",
   "/404",
 ]);
 

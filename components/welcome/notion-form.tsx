@@ -15,6 +15,7 @@ import {
   copyToClipboard,
   uploadImage,
 } from "@/lib/utils";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 
 import {
   DEFAULT_LINK_PROPS,
@@ -139,6 +140,11 @@ export default function NotionForm() {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
+    if (!currentLinkId) {
+      toast.error("Create a sharing link before continuing.");
+      return;
+    }
+
     setIsLoading(true);
 
     // Upload the image if it's a data URL
@@ -177,7 +183,7 @@ export default function NotionForm() {
     }
 
     copyToClipboard(
-      `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`,
+      constructLinkUrl({ id: currentLinkId }),
       "Link copied to clipboard. Redirecting to document page...",
     );
 
@@ -312,7 +318,7 @@ export default function NotionForm() {
                     <div className="flex py-8">
                       <div className="flex w-full max-w-xs focus-within:z-10 sm:max-w-lg">
                         <p className="block w-full overflow-y-scroll rounded-md border-0 bg-secondary px-4 py-1.5 text-left leading-6 text-secondary-foreground md:min-w-[500px]">
-                          {`${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`}
+                          {constructLinkUrl({ id: currentLinkId })}
                         </p>
                       </div>
                     </div>

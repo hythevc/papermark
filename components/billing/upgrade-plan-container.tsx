@@ -22,6 +22,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { UpgradeButton } from "@/components/ui/upgrade-button";
 
+import { BillingUnavailableNotice } from "./billing-unavailable";
+
 export default function UpgradePlanContainer() {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
@@ -41,11 +43,17 @@ export default function UpgradePlanContainer() {
     endsAt,
     pauseStartsAt,
     discount,
+    billingActionsAvailable,
+    billingActionsReason,
   } = usePlan({ withDiscount: true });
   const analytics = useAnalytics();
 
-  const goToUpgrade = () => router.push("/settings/billing/upgrade");
-  const goToInvoices = () => router.push("/settings/billing/invoices");
+  const goToUpgrade = () => {
+    if (billingActionsAvailable) router.push("/settings/billing/upgrade");
+  };
+  const goToInvoices = () => {
+    if (billingActionsAvailable) router.push("/settings/billing/invoices");
+  };
 
   const manageSubscription = async ({
     type,
@@ -57,7 +65,7 @@ export default function UpgradePlanContainer() {
       | "payment_method_update"
       | "cancellation";
   }) => {
-    if (!currentTeamId) return;
+    if (!currentTeamId || !billingActionsAvailable) return;
 
     setLoading(true);
     const toastId = toast.loading("Redirecting to Stripe...");
@@ -90,7 +98,7 @@ export default function UpgradePlanContainer() {
   };
 
   const handleUnpauseSubscription = async () => {
-    if (!currentTeamId) return;
+    if (!currentTeamId || !billingActionsAvailable) return;
 
     setUnpauseLoading(true);
 
@@ -126,7 +134,7 @@ export default function UpgradePlanContainer() {
   };
 
   const handleReactivateSubscription = async () => {
-    if (!currentTeamId) return;
+    if (!currentTeamId || !billingActionsAvailable) return;
     setUnpauseLoading(true);
 
     try {
@@ -220,7 +228,10 @@ export default function UpgradePlanContainer() {
     if (isCancelled) {
       return (
         <>
-          <Button onClick={handleReactivateSubscription} loading={unpauseLoading}>
+          <Button
+            onClick={handleReactivateSubscription}
+            loading={unpauseLoading}
+          >
             Reactivate subscription
           </Button>
           <Button variant="outline" onClick={goToInvoices}>
@@ -297,6 +308,9 @@ export default function UpgradePlanContainer() {
     );
   };
 
+  if (!billingActionsAvailable)
+    return <BillingUnavailableNotice reason={billingActionsReason} />;
+
   return (
     <>
       <div className="rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
@@ -357,9 +371,7 @@ export default function UpgradePlanContainer() {
               </div>
             )}
           </div>
-          <div className="flex shrink-0 items-center gap-2">
-            {ButtonList()}
-          </div>
+          <div className="flex shrink-0 items-center gap-2">{ButtonList()}</div>
         </div>
       </div>
 

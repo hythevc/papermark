@@ -5,14 +5,16 @@ import {
   Body,
   Container,
   Head,
-  Hr,
   Html,
   Img,
-  Link,
   Section,
   Tailwind,
   Text,
 } from "react-email";
+
+import { BRAND } from "@/lib/brand";
+
+import { Footer } from "./shared/footer";
 
 export default function OtpEmailVerification({
   email = "test@example.co",
@@ -38,7 +40,7 @@ export default function OtpEmailVerification({
         return (
           <Section className="mt-8">
             <Text className="text-2xl font-bold tracking-tighter">
-              Papermark
+              {BRAND.name}
             </Text>
           </Section>
         );
@@ -63,7 +65,7 @@ export default function OtpEmailVerification({
             </Text>
             <Text className="text-sm leading-6 text-neutral-600">
               A verification code was requested to view the {resourceLabel}{" "}
-              shared with you on Papermark. Use this code to continue:
+              shared with you. Use this code to continue:
             </Text>
             <Section className="my-6">
               <Text
@@ -85,16 +87,7 @@ export default function OtpEmailVerification({
               <span className="text-black">{email}</span>. If you were not
               expecting this email, you can safely ignore it.
             </Text>
-            <Hr className="my-6" />
-            <Section className="text-gray-400">
-              <Text className="text-xs text-neutral-500">
-                Papermark, Inc.
-                <br />
-                1111B S Governors Ave #28117
-                <br />
-                Dover, DE 19904
-              </Text>
-            </Section>
+            <Footer />
           </Container>
         </Body>
       </Tailwind>

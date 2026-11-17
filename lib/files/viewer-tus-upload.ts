@@ -60,7 +60,8 @@ export function viewerUpload({
       ].join(":");
 
       const upload = new tus.Upload(file, {
-        endpoint: `${process.env.NEXT_PUBLIC_BASE_URL}/api/file/tus-viewer`,
+        // Keep the sharing session cookie on its current customer/app host.
+        endpoint: new URL("/api/file/tus-viewer", window.location.origin).href,
         retryDelays: [0, 3000, 5000, 10000],
         uploadDataDuringCreation: true,
         removeFingerprintOnSuccess: true,

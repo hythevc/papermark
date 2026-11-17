@@ -1,0 +1,1606 @@
+{
+  "generatedAt": "2026-11-17T02:38:54.647Z",
+  "staticOrigin": "http://127.0.0.1:3002",
+  "artifact": {
+    "builtAt": "2026-11-17T02:37:33.115Z",
+    "sourceDigest": "c3f451b1b1aa26d6b1ec7702b9048a0da9baf1b492950ad95813e00794e7b187",
+    "applicationOrigin": "https://roomline-staging-3157af3e.up.railway.app",
+    "marketingOrigin": "https://roomline-marketing-hythevc.vercel.app",
+    "exportedFiles": 47
+  },
+  "environment": {
+    "browser": "isolated headless Chromium",
+    "browserPlugin": "Required Browser js/setupBrowserRuntime tool unavailable; explicit local Playwright validation authorized",
+    "contexts": 1,
+    "themes": [
+      "marketing-light"
+    ],
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "reducedMotion": "reduce",
+    "version": "156.0.8078.79"
+  },
+  "captures": [
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/",
+      "title": "Roomline — Data rooms for your next deal",
+      "h1": 1,
+      "main": 1,
+      "heading": "Every document.\nEvery decision.\nOne clear room.",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create account",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create your workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/home-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 4575
+        }
+      },
+      "firstViewport": {
+        "path": "artifacts/runtime/marketing/home-1440-first-viewport.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/product",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/product/",
+      "title": "A clearer way to share documents | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "The documents are only the beginning.",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/product-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 3791
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/security",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/security/",
+      "title": "Sharing controls, explained | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Confidence starts with clear access.",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/security-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 2514
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/fundraising",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/solutions/fundraising/",
+      "title": "Data rooms for fundraising | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "A clear room for your next round",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/solutions-fundraising-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 2639
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/due-diligence",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/solutions/due-diligence/",
+      "title": "Data rooms for due diligence | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Give every review a clear starting point",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/solutions-due-diligence-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 2718
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/guides",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/guides/",
+      "title": "Practical guides for a clearer review | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Prepare well. Share deliberately.",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/guides-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 1578
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/guides/fundraising-checklist",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/guides/fundraising-checklist/",
+      "title": "Prepare a fundraising room people can navigate | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Prepare a fundraising room people can navigate",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/guides-fundraising-checklist-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 3661
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/guides/sharing-checklist",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/guides/sharing-checklist/",
+      "title": "Check a document link before you share it | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Check a document link before you share it",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/guides-sharing-checklist-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 3661
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/mobile",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/mobile/",
+      "title": "Roomline on your home screen | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Your workspace, one tap away.",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Open workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/datarooms",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/datarooms"
+        }
+      ],
+      "installGuideHref": "https://roomline-staging-3157af3e.up.railway.app/mobile",
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/mobile-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 1648
+        }
+      },
+      "firstViewport": {
+        "path": "artifacts/runtime/marketing/mobile-1440-first-viewport.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/404",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "path": "/404"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/404",
+          "status": 404,
+          "resourceType": "document"
+        }
+      ],
+      "status": 404,
+      "finalPath": "/404",
+      "title": "Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Page not found.",
+      "layout": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440
+      },
+      "accountLinks": [],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 1
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/404-1440.png",
+        "dimensions": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/",
+      "title": "Roomline — Data rooms for your next deal",
+      "h1": 1,
+      "main": 1,
+      "heading": "Every document.\nEvery decision.\nOne clear room.",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create account",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create your workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/home-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 5529
+        }
+      },
+      "firstViewport": {
+        "path": "artifacts/runtime/marketing/home-390-first-viewport.png",
+        "dimensions": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/product",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/product/",
+      "title": "A clearer way to share documents | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "The documents are only the beginning.",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/product-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 4467
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/security",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/security/",
+      "title": "Sharing controls, explained | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Confidence starts with clear access.",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/security-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 3262
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/fundraising",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/solutions/fundraising/",
+      "title": "Data rooms for fundraising | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "A clear room for your next round",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/solutions-fundraising-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 3213
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/due-diligence",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/solutions/due-diligence/",
+      "title": "Data rooms for due diligence | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Give every review a clear starting point",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/solutions-due-diligence-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 3240
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/guides",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/guides/",
+      "title": "Practical guides for a clearer review | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Prepare well. Share deliberately.",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/guides-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 1948
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/guides/fundraising-checklist",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/guides/fundraising-checklist/",
+      "title": "Prepare a fundraising room people can navigate | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Prepare a fundraising room people can navigate",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/guides-fundraising-checklist-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 5021
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/guides/sharing-checklist",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/guides/sharing-checklist/",
+      "title": "Check a document link before you share it | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Check a document link before you share it",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        }
+      ],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/guides-sharing-checklist-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 5108
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [],
+      "httpErrors": [],
+      "status": 200,
+      "finalPath": "/mobile/",
+      "title": "Roomline on your home screen | Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Your workspace, one tap away.",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Sign in",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/login",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/login"
+        },
+        {
+          "text": "Create workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/register",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/register"
+        },
+        {
+          "text": "Open workspace",
+          "raw": "https://roomline-staging-3157af3e.up.railway.app/datarooms",
+          "href": "https://roomline-staging-3157af3e.up.railway.app/datarooms"
+        }
+      ],
+      "installGuideHref": "https://roomline-staging-3157af3e.up.railway.app/mobile",
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 0
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/mobile-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 2159
+        }
+      },
+      "firstViewport": {
+        "path": "artifacts/runtime/marketing/mobile-390-first-viewport.png",
+        "dimensions": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    },
+    {
+      "route": "/404",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "marketing-light",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "path": "/404"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/404",
+          "status": 404,
+          "resourceType": "document"
+        }
+      ],
+      "status": 404,
+      "finalPath": "/404",
+      "title": "Roomline",
+      "h1": 1,
+      "main": 1,
+      "heading": "Page not found.",
+      "layout": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390
+      },
+      "accountLinks": [],
+      "pwa": {
+        "manifests": 0,
+        "workerAttempts": 0,
+        "registrations": 0
+      },
+      "accessibility": {
+        "tags": [
+          "wcag2a",
+          "wcag2aa",
+          "wcag21aa"
+        ],
+        "violations": [],
+        "incompleteRules": 1
+      },
+      "screenshot": {
+        "path": "artifacts/runtime/marketing/404-390.png",
+        "dimensions": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "unexpectedConsole": [],
+      "result": "passed"
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Homepage preview search, empty recovery, navigation and keyboard FAQ",
+      "screenshots": [
+        {
+          "path": "artifacts/runtime/marketing/home-1440-preview-filtered.png",
+          "dimensions": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        {
+          "path": "artifacts/runtime/marketing/home-1440-preview-empty.png",
+          "dimensions": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        {
+          "path": "artifacts/runtime/marketing/home-1440-preview-activity.png",
+          "dimensions": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        {
+          "path": "artifacts/runtime/marketing/home-1440-faq-open.png",
+          "dimensions": {
+            "width": 1440,
+            "height": 1000
+          }
+        }
+      ],
+      "observed": "Filtering changed visible sample files; empty state recovered; links/activity tabs changed; Enter opened and closed FAQ.",
+      "result": "passed"
+    },
+    {
+      "name": "Mobile menu opens by keyboard, closes with Escape/focus restoration and navigation",
+      "screenshots": [
+        {
+          "path": "artifacts/runtime/marketing/home-390-menu-open.png",
+          "dimensions": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ],
+      "observed": "Keyboard menu opened; Escape closed/restored focus; Product navigation stayed local and closed the menu.",
+      "result": "passed"
+    },
+    {
+      "name": "Unknown static path uses custom404 and all interactions remain client-only",
+      "observed": "Custom404 rendered; no API/auth/backend request or foreign-origin navigation occurred.",
+      "result": "passed"
+    }
+  ],
+  "foreignRequestsBlocked": [],
+  "privateRequests": [],
+  "limitations": [
+    "Local static-export evidence does not prove hosted Vercel routing or deployment.",
+    "Railway account actions were inspected, not followed; no authentication, API, email, storage or billing flow is verified by this run.",
+    "Axe covers automated WCAG2A/AA and2.1AA checks; it does not establish complete accessibility conformance.",
+    "Headless viewport checks are not physical-device or native-app verification."
+  ],
+  "interactionDiagnostics": {
+    "pageErrors": [],
+    "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "path": "/roomline-static-missing-page"
+      }
+    ],
+    "httpErrors": [
+      {
+        "path": "/roomline-static-missing-page",
+        "status": 404,
+        "resourceType": "document"
+      }
+    ]
+  },
+  "finalCookies": [],
+  "summary": {
+    "captures": 20,
+    "captureFailures": 0,
+    "interactions": 3,
+    "interactionFailures": 0,
+    "foreignRequests": 0,
+    "privateRequests": 0
+  },
+  "result": "passed"
+}

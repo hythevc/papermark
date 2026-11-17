@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { RequestListAccessError } from "@/ee/features/request-lists/lib/access-policy";
+import { resolveUploadFolder } from "@/ee/features/request-lists/lib/upload-folder";
+import { resolveViewerUploadAccess } from "@/ee/features/request-lists/lib/viewer-upload-access";
+import { DocumentStorageType, Prisma } from "@prisma/client";
 import { runs } from "@trigger.dev/sdk";
 import { waitUntil } from "@vercel/functions";
+import { z } from "zod";
 
 import { processDocument } from "@/lib/api/documents/process-document";
 import { verifyDataroomSession } from "@/lib/auth/dataroom-auth";
-import { DocumentData } from "@/lib/documents/create-document";
 import prisma from "@/lib/prisma";
 import { sendDataroomChangeNotificationTask } from "@/lib/trigger/dataroom-change-notification";
 import { sendDataroomUploadNotificationTask } from "@/lib/trigger/dataroom-upload-notification";
@@ -116,87 +120,47 @@ export async function POST(
 ) {
   try {
     const linkId = params.id;
-    const body = await request.json();
-    const { documentData, dataroomId, folderId } = body as {
-      documentData: DocumentData;
-      dataroomId: string;
-      folderId?: string;
-    };
-
-    if (!linkId || !documentData || !dataroomId) {
-      return NextResponse.json(
-        { message: "Missing required parameters" },
-        { status: 400 },
-      );
-    }
-
-    // 0. Verify the dataroom session
+    const { documentData, dataroomId, folderId, taskId } = z
+      .object({
+        dataroomId: z.string().min(1),
+        folderId: z.string().min(1).optional(),
+        taskId: z.string().min(1).optional(),
+        documentData: z.object({
+          name: z.string().min(1).max(255),
+          key: z.string().min(1),
+          storageType: z.literal(DocumentStorageType.S3_PATH),
+          contentType: z.string().nullable(),
+          supportedFileType: z.string().min(1),
+          fileSize: z
+            .number()
+            .int()
+            .min(0)
+            .max(2 * 1024 * 1024 * 1024)
+            .optional(),
+          numPages: z.number().int().nonnegative().optional(),
+        }),
+      })
+      .parse(await request.json());
     const dataroomSession = await verifyDataroomSession(
       request,
       linkId,
       dataroomId,
     );
-
-    if (!dataroomSession || !dataroomSession.viewerId) {
-      return NextResponse.json(
-        { message: "You need to be logged in to upload a document." },
-        { status: 401 },
+    const { link, task, viewerId, viewId, teamId } =
+      await resolveViewerUploadAccess(
+        dataroomSession,
+        linkId,
+        dataroomId,
+        taskId,
       );
-    }
-
-    // Check if the link exists and has visitor upload enabled
-    const link = await prisma.link.findUnique({
-      where: { id: linkId, dataroomId },
-      select: {
-        id: true,
-        name: true,
-        enableUpload: true,
-        enableNotification: true,
-        uploadFolderIds: true,
-        dataroomId: true,
-        teamId: true,
-        team: {
-          select: {
-            plan: true,
-            enableExcelAdvancedMode: true,
-          },
-        },
-        dataroom: {
-          select: {
-            enableVisitorUploadChangeNotifications: true,
-          },
-        },
-      },
-    });
-
+    // Viewer binary uploads are stored by TUS inside the owning team's prefix.
     if (
-      !link ||
-      !link.enableUpload ||
-      link.dataroomId !== dataroomId ||
-      !link.teamId
+      !documentData.key.startsWith(`${teamId}/`) ||
+      documentData.key.split("/").some((part) => part === "..")
     ) {
-      return NextResponse.json(
-        { message: "Uploads not allowed for this link" },
-        { status: 403 },
-      );
-    }
-
-    const { viewerId, viewId } = dataroomSession;
-
-    // Check if the viewer exists
-    const viewer = await prisma.viewer.findUnique({
-      where: {
-        id: viewerId,
-        teamId: link.teamId,
-        views: { some: { id: viewId } },
-      },
-      select: { id: true },
-    });
-
-    if (!viewer) {
-      return NextResponse.json(
-        { message: "Viewer not found" },
-        { status: 404 },
+      throw new RequestListAccessError(
+        403,
+        "This file does not belong to this room's workspace.",
       );
     }
 
@@ -224,6 +188,7 @@ export async function POST(
 
     const updatedDocumentData = {
       ...documentData,
+      fileSize: documentData.fileSize,
       name: sanitizedDocumentName,
       enableExcelAdvancedMode:
         documentData.supportedFileType === "sheet" &&
@@ -231,87 +196,122 @@ export async function POST(
         supportsAdvancedExcelMode(documentData.contentType),
     };
 
-    // 1. Create the document
+    // Resolve the host-controlled destination before creating a document.
+    const allowedUploadFolderIds = link.uploadFolderIds.filter(Boolean);
+    const folderIds = [
+      ...new Set(
+        [folderId, task?.uploadFolderId, ...allowedUploadFolderIds].filter(
+          (id): id is string => !!id,
+        ),
+      ),
+    ];
+    const validFolders = await prisma.dataroomFolder.findMany({
+      where: { dataroomId, id: { in: folderIds } },
+      select: { id: true },
+    });
+    const dataroomFolderId = resolveUploadFolder({
+      isTaskUpload: !!task,
+      taskFolderId: task?.uploadFolderId,
+      requestedFolderId: folderId,
+      allowedFolderIds: allowedUploadFolderIds,
+      validFolderIds: new Set(validFolders.map(({ id }) => id)),
+    });
     const document = await processDocument({
       documentData: updatedDocumentData,
-      teamId: link.teamId,
+      teamId,
       teamPlan: link.team?.plan ?? "free",
       isExternalUpload: true,
     });
 
-    // 2. Resolve the target dataroom folder.
-    //
-    // Semantics:
-    //   - Admin selected 0 folders  → visitor can upload anywhere (use folderId
-    //     from the request, validated against the dataroom).
-    //   - Admin selected 1+ folders → the visitor-supplied folderId must be
-    //     inside that allow-list. If it isn't (e.g. the visitor is currently
-    //     browsing another folder), fall back to the first allowed folder so
-    //     uploads never silently escape the allow-list.
-    const allowedUploadFolderIds = Array.isArray(link.uploadFolderIds)
-      ? link.uploadFolderIds.filter(
-          (id): id is string => typeof id === "string" && !!id,
-        )
-      : [];
-
-    let dataroomFolderId: string | null = null;
-
-    if (allowedUploadFolderIds.length === 0) {
-      // No restriction: validate the visitor-chosen folder belongs to this
-      // dataroom before using it.
-      if (folderId) {
-        const dataroomFolder = await prisma.dataroomFolder.findUnique({
-          where: { id: folderId, dataroomId },
+    const newDataroomDocument = await prisma.$transaction(
+      async (tx) => {
+        // Re-check after processing: revoked links, reassignment, completed
+        // requests and a frozen room must not accept a late finalization.
+        const current = await resolveViewerUploadAccess(
+          dataroomSession,
+          linkId,
+          dataroomId,
+          taskId,
+          tx,
+        );
+        const currentFolderIds = [
+          ...new Set(
+            [
+              folderId,
+              current.task?.uploadFolderId,
+              ...current.link.uploadFolderIds,
+            ].filter((id): id is string => !!id),
+          ),
+        ];
+        const currentFolders = await tx.dataroomFolder.findMany({
+          where: { dataroomId, id: { in: currentFolderIds } },
           select: { id: true },
         });
-        dataroomFolderId = dataroomFolder?.id ?? null;
-      }
-    } else {
-      // Restricted: look up all allowed folders in one query and prefer the
-      // one the visitor is currently in if it's on the list.
-      const allowedFolders = await prisma.dataroomFolder.findMany({
-        where: {
-          id: { in: allowedUploadFolderIds },
-          dataroomId,
-        },
-        select: { id: true },
-      });
-      const allowedSet = new Set(allowedFolders.map((f) => f.id));
-
-      if (folderId && allowedSet.has(folderId)) {
-        dataroomFolderId = folderId;
-      } else {
-        // Preserve admin-selected ordering so the first allowed folder wins
-        // when the visitor isn't currently inside one of the allowed folders.
-        dataroomFolderId =
-          allowedUploadFolderIds.find((id) => allowedSet.has(id)) ?? null;
-      }
-    }
-
-    const newDataroomDocument = await prisma.dataroomDocument.create({
-      data: {
-        dataroomId: dataroomId,
-        documentId: document.id,
-        folderId: dataroomFolderId,
+        const currentFolderId = resolveUploadFolder({
+          isTaskUpload: !!current.task,
+          taskFolderId: current.task?.uploadFolderId,
+          requestedFolderId: folderId,
+          allowedFolderIds: current.link.uploadFolderIds,
+          validFolderIds: new Set(currentFolders.map(({ id }) => id)),
+        });
+        if (currentFolderId !== dataroomFolderId)
+          throw new RequestListAccessError(
+            409,
+            "The upload destination changed. Try again.",
+          );
+        const roomDocument = await tx.dataroomDocument.create({
+          data: {
+            dataroomId,
+            documentId: document.id,
+            folderId: dataroomFolderId,
+          },
+        });
+        await tx.documentUpload.create({
+          data: {
+            documentId: document.id,
+            viewerId,
+            viewId,
+            linkId,
+            originalFilename: document.name,
+            fileSize: documentData.fileSize ?? 0,
+            numPages: document.numPages,
+            mimeType: document.contentType,
+            dataroomId,
+            dataroomDocumentId: roomDocument.id,
+            teamId,
+            taskId: current.task?.id,
+          },
+        });
+        if (current.task) {
+          await tx.taskActivity.create({
+            data: {
+              taskId: current.task.id,
+              type: "UPLOADED",
+              viewerId,
+              viewId,
+            },
+          });
+          if (current.task.status !== "SUBMITTED") {
+            await tx.task.update({
+              where: { id: current.task.id },
+              data: { status: "SUBMITTED" },
+            });
+            await tx.taskActivity.create({
+              data: {
+                taskId: current.task.id,
+                type: "STATUS_CHANGED",
+                fromStatus: current.task.status,
+                toStatus: "SUBMITTED",
+                viewerId,
+                viewId,
+              },
+            });
+          }
+        }
+        return roomDocument;
       },
-    });
-
-    // 3. Create the DocumentUpload record to track the upload details
-    await prisma.documentUpload.create({
-      data: {
-        documentId: document.id,
-        viewerId: viewerId,
-        viewId: viewId,
-        linkId: linkId,
-        originalFilename: document.name,
-        fileSize: documentData.fileSize ?? 0,
-        numPages: document.numPages,
-        mimeType: document.contentType,
-        dataroomId: dataroomId,
-        dataroomDocumentId: newDataroomDocument.id,
-        teamId: link.teamId,
-      },
-    });
+      { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+    );
 
     // 4. Send upload notification to team if enabled
     if (link.enableNotification) {
@@ -344,12 +344,12 @@ export async function POST(
               dataroomId,
               linkId,
               viewerId,
-              teamId: link.teamId,
+              teamId,
             },
             {
-              idempotencyKey: `upload-notification-${link.teamId}-${dataroomId}-${linkId}-${viewerId}-${newDataroomDocument.id}`,
+              idempotencyKey: `upload-notification-${teamId}-${dataroomId}-${linkId}-${viewerId}-${newDataroomDocument.id}`,
               tags: [
-                `team_${link.teamId}`,
+                `team_${teamId}`,
                 `dataroom_${dataroomId}`,
                 `link_${linkId}`,
                 `viewer_${viewerId}`,
@@ -401,13 +401,13 @@ export async function POST(
               dataroomId,
               dataroomDocumentIds: accumulatedDocIds,
               senderUserId: null,
-              teamId: link.teamId,
+              teamId,
               excludeViewerId: viewerId,
             },
             {
-              idempotencyKey: `visitor-change-notification-${link.teamId}-${dataroomId}-${viewerId}-${Date.now()}`,
+              idempotencyKey: `visitor-change-notification-${teamId}-${dataroomId}-${viewerId}-${Date.now()}`,
               tags: [
-                `team_${link.teamId}`,
+                `team_${teamId}`,
                 `dataroom_${dataroomId}`,
                 `visitor_upload_${viewerId}`,
               ],
@@ -438,6 +438,24 @@ export async function POST(
       },
     });
   } catch (error) {
+    if (error instanceof RequestListAccessError)
+      return NextResponse.json(
+        { message: error.message },
+        { status: error.status },
+      );
+    if (error instanceof z.ZodError || error instanceof SyntaxError)
+      return NextResponse.json(
+        { message: "Invalid upload details." },
+        { status: 400 },
+      );
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2034"
+    )
+      return NextResponse.json(
+        { message: "This request changed during upload. Try again." },
+        { status: 409 },
+      );
     console.error("Error uploading document:", error);
     return NextResponse.json(
       { message: "Error uploading document" },

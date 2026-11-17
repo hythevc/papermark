@@ -1,6 +1,8 @@
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
+import { PapermarkApiError } from "@/lib/api/errors";
+
 function sanitizeError(err: unknown) {
   if (!(err instanceof Error)) {
     return { name: typeof err, message: String(err) };
@@ -17,6 +19,11 @@ function sanitizeError(err: unknown) {
 }
 
 export function errorhandler(err: unknown, res: NextApiResponse) {
+  if (err instanceof PapermarkApiError) {
+    return res
+      .status(err.statusCode)
+      .end(err.statusCode >= 500 ? "Internal Server Error" : err.message);
+  }
   if (err instanceof TeamError || err instanceof DocumentError) {
     return res.status(err.statusCode).end(err.message);
   } else {
@@ -32,6 +39,12 @@ export function errorhandler(err: unknown, res: NextApiResponse) {
  * rather than write to one.
  */
 export function errorResponse(err: unknown) {
+  if (err instanceof PapermarkApiError) {
+    return new NextResponse(
+      err.statusCode >= 500 ? "Internal Server Error" : err.message,
+      { status: err.statusCode },
+    );
+  }
   if (err instanceof TeamError || err instanceof DocumentError) {
     return new NextResponse(err.message, { status: err.statusCode });
   }

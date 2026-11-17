@@ -6,6 +6,7 @@ import { waitUntil } from "@vercel/functions";
 import { getServerSession } from "next-auth";
 
 import { revalidateLinksForDataroom } from "@/lib/api/links/revalidate";
+import { enforceDataroomMemberScope } from "@/lib/api/rbac/guard";
 import { applyDataroomDocumentPermissionDefaults } from "@/lib/dataroom/apply-default-permissions";
 import { errorhandler } from "@/lib/errorHandler";
 import prisma from "@/lib/prisma";
@@ -42,6 +43,10 @@ export default async function handler(
   };
 
   const userId = (session.user as CustomUser).id;
+
+  if (await enforceDataroomMemberScope({ userId, teamId, dataroomId, res })) {
+    return;
+  }
 
   try {
     // `folderPath` is still sent by older clients but no longer trusted; the

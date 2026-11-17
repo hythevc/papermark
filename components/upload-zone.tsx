@@ -1856,6 +1856,7 @@ export default function UploadZone({
           ref={setFilesInputNode}
           name="file"
           id="upload-multi-files-zone"
+          aria-label="Upload documents"
           className="sr-only"
         />
 

@@ -11,6 +11,7 @@ import {
 } from "@/ee/limits/constants";
 import { getServerSession } from "next-auth";
 
+import { PapermarkApiError } from "@/lib/api/errors";
 import { errorhandler } from "@/lib/errorHandler";
 import prisma from "@/lib/prisma";
 import { CustomUser } from "@/lib/types";
@@ -99,57 +100,66 @@ export default async function handle(
       return res.status(401).end("Unauthorized");
     }
 
-    const { team } = req.body;
+    const team = req.body?.team;
 
     const user = session.user as CustomUser;
 
+    if (typeof team !== "string" || !team.trim() || team.trim().length > 120) {
+      return res
+        .status(400)
+        .json("Enter a workspace name of 1–120 characters.");
+    }
     try {
-      const grantUnlimited = await canCreateUnlimitedTeam(user.id);
+      const newTeam = await prisma.$transaction(async (tx) => {
+        // Serialize provisioning for this user so concurrent requests cannot
+        // both observe the same remaining paid-workspace allowance.
+        await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${user.id}))`;
+        const grantUnlimited = await canCreateUnlimitedTeam(user.id, tx);
 
-      // Datarooms-premium admins can provision their own teams (same
-      // principle as datarooms-unlimited), but are capped at
-      // PREMIUM_TEAM_LIMIT teams. Unlimited takes precedence.
-      const premiumEligibility = grantUnlimited
-        ? null
-        : await getPremiumTeamEligibility(user.id);
+        // Datarooms-premium admins can provision their own teams (same
+        // principle as datarooms-unlimited), but are capped at
+        // PREMIUM_TEAM_LIMIT teams. Unlimited takes precedence.
+        const premiumEligibility = grantUnlimited
+          ? null
+          : await getPremiumTeamEligibility(user.id, tx);
 
-      if (
-        premiumEligibility?.isPremiumAdmin &&
-        !premiumEligibility.canCreate
-      ) {
-        return res
-          .status(403)
-          .json(
+        if (
+          premiumEligibility?.isPremiumAdmin &&
+          !premiumEligibility.canCreate
+        ) {
+          throw new PapermarkApiError(
+            "forbidden",
             `You have reached the limit of ${PREMIUM_TEAM_LIMIT} teams for your plan.`,
           );
-      }
+        }
 
-      const grantPremium = premiumEligibility?.canCreate ?? false;
+        const grantPremium = premiumEligibility?.canCreate ?? false;
 
-      const newTeam = await prisma.team.create({
-        data: {
-          name: team,
-          ...(grantUnlimited
-            ? {
-                plan: "datarooms-unlimited",
-                limits: structuredClone(DATAROOMS_UNLIMITED_PLAN_LIMITS),
-              }
-            : grantPremium
+        return tx.team.create({
+          data: {
+            name: team.trim(),
+            ...(grantUnlimited
               ? {
-                  plan: "datarooms-premium",
-                  limits: structuredClone(DATAROOMS_PREMIUM_PLAN_LIMITS),
+                  plan: "datarooms-unlimited",
+                  limits: structuredClone(DATAROOMS_UNLIMITED_PLAN_LIMITS),
                 }
-              : {}),
-          users: {
-            create: {
-              userId: user.id,
-              role: "ADMIN",
+              : grantPremium
+                ? {
+                    plan: "datarooms-premium",
+                    limits: structuredClone(DATAROOMS_PREMIUM_PLAN_LIMITS),
+                  }
+                : {}),
+            users: {
+              create: {
+                userId: user.id,
+                role: "ADMIN",
+              },
             },
           },
-        },
-        include: {
-          users: true,
-        },
+          include: {
+            users: true,
+          },
+        });
       });
 
       return res.status(201).json(newTeam);

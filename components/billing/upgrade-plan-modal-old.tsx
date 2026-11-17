@@ -7,18 +7,19 @@ import { useTeam } from "@/context/team-context";
 import { PLANS } from "@/ee/stripe/utils";
 import { CheckIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 import { useAnalytics } from "@/lib/analytics";
 import { usePlan } from "@/lib/swr/use-billing";
 import { capitalize, cn } from "@/lib/utils";
+
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { DataroomTrialModal } from "../datarooms/dataroom-trial-modal";
 import X from "../shared/icons/x";
 import { Badge } from "../ui/badge";
 import { Switch } from "../ui/switch";
+import { BillingUnavailableDialog } from "./billing-unavailable";
 
 export function UpgradePlanModal({
   clickedPlan,
@@ -40,7 +41,14 @@ export function UpgradePlanModal({
   const [period, setPeriod] = useState<"yearly" | "monthly">("yearly");
   const [clicked, setClicked] = useState<boolean>(false);
   const teamInfo = useTeam();
-  const { plan: teamPlan, trial, isCustomer } = usePlan();
+  const {
+    plan: teamPlan,
+    trial,
+    isCustomer,
+    billingActionsAvailable,
+    billingActionsReason,
+    loading: billingLoading,
+  } = usePlan();
   const analytics = useAnalytics();
 
   const isTrial = !!trial;
@@ -122,6 +130,22 @@ export function UpgradePlanModal({
   }>(children)
     ? React.cloneElement(children, { onClick: handleUpgradeClick })
     : children;
+
+  if (!billingActionsAvailable)
+    return (
+      <BillingUnavailableDialog
+        open={open}
+        setOpen={setOpen}
+        reason={billingActionsReason}
+        trialEligible={
+          !billingLoading &&
+          !isTrial &&
+          (teamPlan === "free" || teamPlan === "pro")
+        }
+      >
+        {buttonChild}
+      </BillingUnavailableDialog>
+    );
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -222,6 +246,7 @@ export function UpgradePlanModal({
             className="w-full"
             loading={clicked}
             onClick={() => {
+              if (!billingActionsAvailable) return;
               setClicked(true);
               // @ts-ignore
               // prettier-ignore

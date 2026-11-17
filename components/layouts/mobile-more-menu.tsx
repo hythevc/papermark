@@ -53,9 +53,10 @@ export function MobileMoreMenu({ open, onClose }: MobileMoreMenuProps) {
   } = useSelfMembership();
   const navigationReady = !membershipLoading && !!role;
   const returnFocusRef = useRef<HTMLElement | null>(null);
-  const { integration: slackIntegration } = useSlackIntegration({
-    enabled: !!currentTeam?.id,
-  });
+  const { integration: slackIntegration, configured: slackConfigured } =
+    useSlackIntegration({
+      enabled: !!currentTeam?.id,
+    });
   const [settingsExpanded, setSettingsExpanded] = useState(() =>
     matchesNavigationPath(router.pathname, "/settings"),
   );
@@ -304,7 +305,7 @@ export function MobileMoreMenu({ open, onClose }: MobileMoreMenuProps) {
                     )}
                   </div>
 
-                  {!slackIntegration && (
+                  {slackConfigured === true && !slackIntegration && (
                     <Link
                       href="/settings/slack"
                       onClick={onClose}

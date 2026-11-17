@@ -1,10 +1,12 @@
 import { JSXElementConstructor, ReactElement } from "react";
 
+import nodemailer from "nodemailer";
 import { render, toPlainText } from "react-email";
 import { Resend } from "resend";
 
 import { BRAND } from "@/lib/brand";
 import { resolveEmailIdentity } from "@/lib/emails/config";
+import { localSmtpOptions } from "@/lib/local-integration";
 import prisma from "@/lib/prisma";
 import { log, nanoid } from "@/lib/utils";
 
@@ -44,7 +46,8 @@ export const sendEmail = async ({
   oneClickUnsubscribe?: boolean;
   idempotencyKey?: string;
 }) => {
-  if (!resend) {
+  const localTransport = localSmtpOptions();
+  if (!resend && !localTransport) {
     // Throw an error if resend is not initialized
     throw new Error("Resend not initialized");
   }
@@ -58,6 +61,29 @@ export const sendEmail = async ({
   );
   const html = await render(react);
   const plainText = toPlainText(html);
+
+  if (localTransport) {
+    if (scheduledAt) {
+      throw new Error("Local SMTP capture does not schedule email delivery.");
+    }
+    // https://nodemailer.com/smtp/ — actual SMTP delivery to the opted-in,
+    // loopback-only capture service; no fabricated provider success.
+    const transport = nodemailer.createTransport(localTransport);
+    const result = await transport.sendMail({
+      from: identity.from,
+      to,
+      cc,
+      replyTo: identity.replyTo,
+      subject,
+      html,
+      text: plainText,
+      disableFileAccess: true,
+      disableUrlAccess: true,
+    });
+    return { id: result.messageId };
+  }
+
+  if (!resend) throw new Error("Resend not initialized");
 
   try {
     const { data, error } = await resend.emails.send(

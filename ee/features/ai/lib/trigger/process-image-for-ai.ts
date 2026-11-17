@@ -1,5 +1,5 @@
 import { vertex } from "@/ee/features/ai/lib/models/google";
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 import { logger, metadata, task } from "@trigger.dev/sdk";
 import { generateText } from "ai";
 import path from "path";
@@ -150,7 +150,7 @@ ${imageDescription}
     const file = new File([markdownBuffer], `${documentName}.md`, {
       type: "text/markdown",
     });
-    const fileResponse = await openai.files.create({
+    const fileResponse = await getOpenAIClient().files.create({
       file,
       purpose: "assistants",
     });

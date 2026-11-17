@@ -4,13 +4,14 @@ import {
   UpdateWorkflowRequestSchema,
   formatZodError,
 } from "@/ee/features/workflows/lib/validation";
-import { authOptions } from "@/lib/auth/auth-options";
 import { customAlphabet } from "nanoid";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
 
+import { authOptions } from "@/lib/auth/auth-options";
 import prisma from "@/lib/prisma";
 import { CustomUser } from "@/lib/types";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 
 // GET /app/(ee)/api/workflows/[workflowId]?teamId=xxx - Get single workflow with details
 export async function GET(
@@ -96,7 +97,7 @@ export async function GET(
     const entryUrl =
       workflow.entryLink.domainSlug && workflow.entryLink.slug
         ? `https://${workflow.entryLink.domainSlug}/${workflow.entryLink.slug}`
-        : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${workflow.entryLink.id}`;
+        : constructLinkUrl({ id: workflow.entryLink.id });
 
     return NextResponse.json({
       ...workflow,

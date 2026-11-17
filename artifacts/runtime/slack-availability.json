@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-11-17T02:58:23.280Z",
+  "mode": "real NextAuth session and isolated Postgres, no API/security mocks",
+  "checks": [
+    {
+      "name": "Retained workspace Slack GET returns explicit unavailable without a false installation",
+      "status": "passed"
+    },
+    {
+      "name": "Unavailable Slack mutations return503 rather than provider or database success",
+      "status": "passed"
+    },
+    {
+      "name": "Blocked and inactive memberships cannot read Slack integration status",
+      "status": "passed"
+    },
+    {
+      "name": "Scoped members may read availability but cannot mutate team integration settings",
+      "status": "passed"
+    },
+    {
+      "name": "Unauthenticated and foreign-workspace reads remain denied",
+      "status": "passed"
+    }
+  ],
+  "limitations": [
+    "Slack is genuinely unconfigured in this environment. No Slack installation, provider delivery or configured remote-error path is certified."
+  ],
+  "decoderTests": {
+    "command": "node --import tsx --test lib/integrations/slack/status.test.ts",
+    "passed": 4,
+    "total": 4,
+    "scope": "Pure state decoder; does not certify a configured Slack provider."
+  },
+  "visualEvidence": "Protected screenshot recapture is performed separately; settings unavailable state is source-reviewed here."
+}

@@ -1,4 +1,4 @@
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 
 /**
  * Create a vector store for a team
@@ -11,7 +11,7 @@ export async function createTeamVectorStore(
   name: string,
 ): Promise<string> {
   try {
-    const vectorStore = await openai.vectorStores.create({
+    const vectorStore = await getOpenAIClient().vectorStores.create({
       name: `Team: ${name}`,
       metadata: {
         teamId,

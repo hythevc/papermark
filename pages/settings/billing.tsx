@@ -21,9 +21,14 @@ export default function Billing() {
   const teamInfo = useTeam();
   const teamId = teamInfo?.currentTeam?.id;
 
-  const { plan } = usePlan();
+  const { plan, billingActionsAvailable } = usePlan();
 
   useEffect(() => {
+    if (!billingActionsAvailable) {
+      if (router.query.success || router.query.cancel)
+        router.replace("/settings/billing", undefined, { shallow: true });
+      return;
+    }
     if (router.query.success) {
       toast.success("Upgrade success!");
       analytics.capture("User Upgraded", {
@@ -46,7 +51,7 @@ export default function Billing() {
       // Remove the cancel query parameter
       router.replace("/settings/billing", undefined, { shallow: true });
     }
-  }, [router.query]);
+  }, [router.query, billingActionsAvailable]);
 
   return (
     <>

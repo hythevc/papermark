@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import { z } from "zod";
 
+import { canPreviewLink } from "@/lib/auth/preview-access";
 import { redis } from "@/lib/redis";
 
 export const PREVIEW_EXPIRATION_TIME = 20 * 60 * 1000; // 20 minutes
@@ -13,10 +14,18 @@ const ZPreviewSessionSchema = z.object({
 
 type PreviewSession = z.infer<typeof ZPreviewSessionSchema>;
 
+export class PreviewAccessError extends Error {
+  constructor() {
+    super("You cannot preview this link.");
+    this.name = "PreviewAccessError";
+  }
+}
+
 async function createPreviewSession(
   linkId: string,
   userId: string,
 ): Promise<{ token: string; expiresAt: number }> {
+  if (!(await canPreviewLink(linkId, userId))) throw new PreviewAccessError();
   const sessionToken = crypto.randomBytes(32).toString("hex");
   const expiresAt = Date.now() + PREVIEW_EXPIRATION_TIME;
 
@@ -74,6 +83,10 @@ async function verifyPreviewSession(
       return null;
     }
 
+    if (!(await canPreviewLink(linkId, userId))) {
+      await redis.del(`preview_session:${sessionToken}`);
+      return null;
+    }
     return sessionData;
   } catch (error) {
     console.error("Preview session verification error:", error);

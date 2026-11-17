@@ -20,7 +20,7 @@ The preview's document/visit totals are illustrative and clearly labeled. Dashbo
 
 ## Next product increments
 
-1. Restore the missing baseline source and verify the complete document-sharing path with real test services.
+1. Complete environment-specific deployment, provider, and security checks on the restored runtime; keep dated local API and browser evidence separate from production verification.
 2. Measure time from room creation to a reviewed first share; improve setup using observed friction.
 3. Persist checklist items, owners, and due dates when research establishes how teams actually collaborate.
 4. Build an attention queue from real unanswered requests, missing materials, expiring links, and visitor events. Viewing a document alone must not be described as investment intent.

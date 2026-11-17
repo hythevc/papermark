@@ -1,0 +1,38 @@
+{
+  "id": "/",
+  "name": "Roomline",
+  "short_name": "Roomline",
+  "description": "Your documents, sharing controls, and viewer insights in one workspace.",
+  "lang": "en",
+  "start_url": "/datarooms",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f8f5",
+  "theme_color": "#174b3f",
+  "icons": [
+    {
+      "src": "/icons/roomline.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/roomline-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/roomline-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/roomline-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -4,11 +4,11 @@
   "provenance": {
     "original": "Better Design tool draft",
     "originalArtifact": "artifacts/revamp/better-design-feature-map.tool-draft.json",
-    "reconciledOn": "2026-11-14",
+    "reconciledOn": "2026-11-17",
     "sourceOfTruth": "docs/roomline/revamp/SCREEN_INVENTORY.json routes + added_routes",
-    "screenTemplateCount": 94,
-    "note": "Corrected actual route index, not a tested user-flow diagram. Removed false helper routes, canonicalized Next catch-all parameter syntax, eliminated duplicate screen steps, and left API/data associations unverified rather than attributing every API to404.",
-    "sourceRefresh": "Current hashes, marker lines and shared UI imports refreshed after the final auth/homepage composition changes."
+    "screenTemplateCount": 95,
+    "note": "Corrected actual route index, not a tested user-flow diagram. Removed false helper routes, canonicalized Next catch-all parameter syntax, eliminated duplicate screen steps, and left API/data associations unverified rather than attributing every API to 404.",
+    "sourceRefresh": "Current hashes, marker lines and shared UI imports refreshed after source restoration and installable mobile web additions; original tool provenance retained."
   },
   "features": [
     {
@@ -406,6 +406,7 @@
                 "components/ui/button.tsx",
                 "components/ui/dropdown-menu.tsx",
                 "components/ui/upgrade-button.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -434,10 +435,12 @@
               "screen": "pages/settings/billing/invoices.tsx",
               "inventoryId": "S055",
               "components": [
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/app.tsx",
                 "components/settings/settings-header.tsx",
                 "components/ui/button.tsx",
                 "components/ui/table.tsx",
+                "components/ui/dialog.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -467,9 +470,11 @@
               "screen": "pages/settings/upgrade-holiday-offer.tsx",
               "inventoryId": "S068",
               "components": [
+                "components/billing/billing-unavailable.tsx",
                 "components/ui/button.tsx",
                 "components/ui/switch.tsx",
                 "components/ui/tooltip.tsx",
+                "components/ui/dialog.tsx",
                 "components/ui/loading-spinner.tsx"
               ],
               "data": [],
@@ -490,6 +495,7 @@
         "components/ui/button.tsx",
         "components/ui/dropdown-menu.tsx",
         "components/ui/upgrade-button.tsx",
+        "components/billing/billing-unavailable.tsx",
         "components/layouts/breadcrumb.tsx",
         "components/layouts/mobile-bottom-nav.tsx",
         "components/layouts/mobile-header.tsx",
@@ -500,6 +506,7 @@
         "components/layouts/blocking-modal.tsx",
         "components/navigation-menu.tsx",
         "components/ui/table.tsx",
+        "components/ui/dialog.tsx",
         "components/ui/loading-spinner.tsx",
         "components/ui/switch.tsx",
         "components/ui/tooltip.tsx"
@@ -676,6 +683,7 @@
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
                 "components/ui/tooltip.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/ui/card.tsx",
                 "components/ui/checkbox.tsx",
                 "components/ui/input.tsx",
@@ -709,7 +717,7 @@
         {
           "id": "screen-s012",
           "name": "Room overview/next steps (screen template)",
-          "verification": "source_only; consult root manifest for actual rendered states",
+          "verification": "Default/light production snapshots at 1440px/390px accepted; remaining states are source_only. See artifacts/runtime/authenticated/report.json and root manifest.",
           "steps": [
             {
               "name": "Room overview/next steps",
@@ -779,13 +787,17 @@
               "route": "/datarooms/[id]/analytics",
               "screen": "pages/datarooms/[id]/analytics/index.tsx",
               "inventoryId": "S013",
-              "components": [],
+              "components": [
+                "ee/features/dataroom-analytics/pages/dataroom-analytics-page.tsx",
+                "components/layouts/app.tsx",
+                "components/ui/button.tsx",
+                "components/ui/checkbox.tsx",
+                "components/ui/skeleton.tsx"
+              ],
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/dataroom-analytics/pages/dataroom-analytics-page"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -843,6 +855,13 @@
               "screen": "pages/datarooms/[id]/branding/index.tsx",
               "inventoryId": "S015",
               "components": [
+                "ee/features/branding/components/banner-editor.tsx",
+                "ee/features/branding/components/branding-link-preview-form.tsx",
+                "ee/features/branding/components/branding-preview-chrome.tsx",
+                "ee/features/branding/components/branding-social-preview-readonly.tsx",
+                "ee/features/branding/components/collapsible-branding-section.tsx",
+                "ee/features/branding/components/dataroom-layout-preset-cards.tsx",
+                "ee/features/branding/components/visitor-language-card.tsx",
                 "components/billing/upgrade-plan-modal.tsx",
                 "components/layouts/app.tsx",
                 "components/ui/badge.tsx",
@@ -861,9 +880,12 @@
                 "components/ui/tooltip.tsx",
                 "components/ui/upgrade-button.tsx",
                 "components/view/dataroom/dataroom-banner-media.tsx",
+                "ee/features/branding/components/branding-editor-utils.ts",
+                "components/ui/collapsible.tsx",
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -881,18 +903,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/branding/components/banner-editor",
-                "@/ee/features/branding/components/branding-link-preview-form",
-                "@/ee/features/branding/components/branding-preview-chrome",
-                "@/ee/features/branding/components/branding-social-preview-readonly",
-                "@/ee/features/branding/components/collapsible-branding-section",
-                "@/ee/features/branding/components/dataroom-layout-preset-cards",
-                "@/ee/features/branding/components/visitor-language-card",
-                "@/ee/features/branding/lib/auto-fill-result",
-                "@/ee/features/branding/lib/dataroom-viewer-layout",
-                "@/ee/features/branding/lib/resolve-dataroom-displayed-brand"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -938,17 +949,21 @@
               "screen": "pages/datarooms/[id]/conversations/[conversationId]/index.tsx",
               "inventoryId": "S017",
               "components": [
-                "ee/features/conversations/pages/conversation-overview.tsx",
+                "ee/features/conversations/pages/conversation-detail.tsx",
                 "ee/features/conversations/components/dashboard/conversation-list-item.tsx",
-                "ee/features/conversations/components/dashboard/conversations-not-enabled-banner.tsx",
+                "ee/features/conversations/components/dashboard/publish-faq-modal.tsx",
+                "ee/features/conversations/components/shared/conversation-document-context.tsx",
+                "ee/features/conversations/components/shared/conversation-message.tsx",
                 "components/layouts/app.tsx",
+                "components/ui/avatar.tsx",
                 "components/ui/badge.tsx",
                 "components/ui/button.tsx",
                 "components/ui/dialog.tsx",
-                "components/ui/feature-preview.tsx",
                 "components/ui/input.tsx",
                 "components/ui/scroll-area.tsx",
                 "components/ui/tabs.tsx",
+                "components/ui/textarea.tsx",
+                "components/ui/tooltip.tsx",
                 "ee/features/conversations/pages/faq-overview.tsx"
               ],
               "data": [],
@@ -1020,6 +1035,8 @@
                 "components/ui/input.tsx",
                 "components/billing/plan-badge.tsx",
                 "components/billing/upgrade-plan-modal.tsx",
+                "ee/features/redaction/components/redaction-jobs-dialog.tsx",
+                "ee/features/redaction/components/redaction-config-dialog.tsx",
                 "components/shared/icons/advanced-sheet.tsx",
                 "components/shared/icons/portrait-landscape.tsx",
                 "components/ui/tooltip.tsx",
@@ -1231,6 +1248,7 @@
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/ui/input.tsx",
                 "components/ui/label.tsx",
                 "components/shared/icons/bar-chart.tsx",
@@ -1598,6 +1616,7 @@
               "inventoryId": "S030",
               "components": [
                 "ee/features/ai/components/agents-settings-card.tsx",
+                "ee/features/request-lists/components/request-list-settings-card.tsx",
                 "components/datarooms/settings/dataroom-tag-section.tsx",
                 "components/datarooms/settings/duplicate-dataroom.tsx",
                 "components/layouts/app.tsx",
@@ -1626,10 +1645,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/request-lists/components/request-list-settings-card",
-                "@/ee/features/request-lists/lib/use-request-list-feature"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -1861,8 +1877,14 @@
               "screen": "pages/datarooms/[id]/tasks/index.tsx",
               "inventoryId": "S037",
               "components": [
+                "ee/features/request-lists/components/request-list-view.tsx",
                 "components/layouts/app.tsx",
                 "components/ui/tooltip.tsx",
+                "components/ui/button.tsx",
+                "components/ui/card.tsx",
+                "components/ui/input.tsx",
+                "components/ui/label.tsx",
+                "components/ui/textarea.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -1875,9 +1897,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/request-lists/components/request-list-view"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -1932,6 +1952,7 @@
         "components/billing/unlimited-plan-modal.tsx",
         "components/ui/dialog.tsx",
         "components/ui/tooltip.tsx",
+        "components/billing/billing-unavailable.tsx",
         "components/ui/card.tsx",
         "components/ui/checkbox.tsx",
         "components/ui/input.tsx",
@@ -1984,11 +2005,20 @@
         "components/visitors/dataroom-visitor-custom-fields.tsx",
         "components/visitors/dataroom-visitor-useragent.tsx",
         "components/visitors/visitor-avatar.tsx",
+        "ee/features/dataroom-analytics/pages/dataroom-analytics-page.tsx",
         "components/tab-menu.tsx",
+        "ee/features/branding/components/banner-editor.tsx",
+        "ee/features/branding/components/branding-link-preview-form.tsx",
+        "ee/features/branding/components/branding-preview-chrome.tsx",
+        "ee/features/branding/components/branding-social-preview-readonly.tsx",
+        "ee/features/branding/components/collapsible-branding-section.tsx",
+        "ee/features/branding/components/dataroom-layout-preset-cards.tsx",
+        "ee/features/branding/components/visitor-language-card.tsx",
         "components/ui/fade-scroll-area.tsx",
         "components/ui/radio-group.tsx",
         "components/ui/upgrade-button.tsx",
         "components/view/dataroom/dataroom-banner-media.tsx",
+        "ee/features/branding/components/branding-editor-utils.ts",
         "components/shared/icons/check.tsx",
         "components/shared/icons/chevron-up.tsx",
         "ee/features/conversations/pages/conversation-overview.tsx",
@@ -1996,6 +2026,11 @@
         "ee/features/conversations/components/dashboard/conversations-not-enabled-banner.tsx",
         "components/ui/feature-preview.tsx",
         "ee/features/conversations/pages/faq-overview.tsx",
+        "ee/features/conversations/pages/conversation-detail.tsx",
+        "ee/features/conversations/components/dashboard/publish-faq-modal.tsx",
+        "ee/features/conversations/components/shared/conversation-document-context.tsx",
+        "ee/features/conversations/components/shared/conversation-message.tsx",
+        "components/ui/avatar.tsx",
         "ee/features/conversations/components/dashboard/edit-faq-modal.tsx",
         "components/documents/document-header.tsx",
         "components/documents/document-preview-button.tsx",
@@ -2009,6 +2044,8 @@
         "components/shared/icons/more-vertical.tsx",
         "components/shared/icons/papermark-sparkle.tsx",
         "components/billing/plan-badge.tsx",
+        "ee/features/redaction/components/redaction-jobs-dialog.tsx",
+        "ee/features/redaction/components/redaction-config-dialog.tsx",
         "components/shared/icons/advanced-sheet.tsx",
         "components/shared/icons/portrait-landscape.tsx",
         "components/documents/add-document-modal.tsx",
@@ -2080,12 +2117,12 @@
         "components/visitors/visitor-status-filter.tsx",
         "components/billing/add-seat-modal.tsx",
         "components/teams/add-team-member-modal.tsx",
-        "components/ui/avatar.tsx",
         "components/visitors/visitor-status-badge.tsx",
         "ee/features/permissions/components/dataroom-link-sheet.tsx",
         "components/shared/icons/chevron-right.tsx",
         "components/shared/icons/circle.tsx",
         "ee/features/ai/components/agents-settings-card.tsx",
+        "ee/features/request-lists/components/request-list-settings-card.tsx",
         "components/datarooms/settings/dataroom-tag-section.tsx",
         "components/datarooms/settings/duplicate-dataroom.tsx",
         "components/ui/progress.tsx",
@@ -2099,6 +2136,7 @@
         "components/datarooms/settings/introduction-settings.tsx",
         "components/ui/rich-text-editor.tsx",
         "components/datarooms/settings/notification-settings.tsx",
+        "ee/features/request-lists/components/request-list-view.tsx",
         "components/visitors/dataroom-viewers.tsx"
       ]
     },
@@ -2109,7 +2147,7 @@
         {
           "id": "screen-s039",
           "name": "Document library (screen template)",
-          "verification": "source_only; consult root manifest for actual rendered states",
+          "verification": "Default/light production snapshots at 1440px/390px accepted; remaining states are source_only. See artifacts/runtime/authenticated/report.json and root manifest.",
           "steps": [
             {
               "name": "Document library",
@@ -2174,6 +2212,7 @@
               "screen": "pages/documents/[id]/index.tsx",
               "inventoryId": "S040",
               "components": [
+                "ee/features/redaction/components/redaction-launcher.tsx",
                 "components/billing/upgrade-plan-modal.tsx",
                 "components/documents/document-header.tsx",
                 "components/documents/document-preview-button.tsx",
@@ -2190,10 +2229,12 @@
                 "components/documents/video-analytics.tsx",
                 "components/visitors/visitors-table.tsx",
                 "components/links/bulk-import-modal.tsx",
+                "ee/features/redaction/components/redaction-config-dialog.tsx",
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
                 "components/ui/tooltip.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "ee/features/ai/components/document-ai-dialog.tsx",
                 "components/shared/icons/file-up.tsx",
                 "components/shared/icons/more-vertical.tsx",
@@ -2202,6 +2243,7 @@
                 "components/ui/dropdown-menu.tsx",
                 "components/ui/input.tsx",
                 "components/billing/plan-badge.tsx",
+                "ee/features/redaction/components/redaction-jobs-dialog.tsx",
                 "components/shared/icons/advanced-sheet.tsx",
                 "components/shared/icons/portrait-landscape.tsx",
                 "components/documents/add-document-modal.tsx",
@@ -2266,9 +2308,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/redaction/components/redaction-launcher"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -2283,8 +2323,16 @@
               "screen": "pages/documents/[id]/redactions/[jobId].tsx",
               "inventoryId": "S041",
               "components": [
+                "ee/features/redaction/components/redaction-workspace.tsx",
                 "components/layouts/app.tsx",
                 "components/ui/loading-spinner.tsx",
+                "components/ui/button.tsx",
+                "components/ui/card.tsx",
+                "components/ui/dialog.tsx",
+                "components/ui/input.tsx",
+                "components/ui/label.tsx",
+                "ee/features/redaction/components/redaction-client.ts",
+                "ee/features/redaction/components/redaction-config-dialog.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -2297,9 +2345,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/redaction/components/redaction-workspace"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -2472,6 +2518,7 @@
         "components/ui/sidebar.tsx",
         "components/layouts/blocking-modal.tsx",
         "components/ui/loading-spinner.tsx",
+        "ee/features/redaction/components/redaction-launcher.tsx",
         "components/documents/document-header.tsx",
         "components/documents/document-preview-button.tsx",
         "components/documents/document-stats-placeholder.tsx",
@@ -2484,9 +2531,11 @@
         "components/documents/video-analytics.tsx",
         "components/visitors/visitors-table.tsx",
         "components/links/bulk-import-modal.tsx",
+        "ee/features/redaction/components/redaction-config-dialog.tsx",
         "components/billing/plan-price.tsx",
         "components/billing/unlimited-plan-modal.tsx",
         "components/ui/dialog.tsx",
+        "components/billing/billing-unavailable.tsx",
         "ee/features/ai/components/document-ai-dialog.tsx",
         "components/shared/icons/file-up.tsx",
         "components/shared/icons/more-vertical.tsx",
@@ -2494,6 +2543,7 @@
         "components/ui/collapsible.tsx",
         "components/ui/input.tsx",
         "components/billing/plan-badge.tsx",
+        "ee/features/redaction/components/redaction-jobs-dialog.tsx",
         "components/shared/icons/advanced-sheet.tsx",
         "components/shared/icons/portrait-landscape.tsx",
         "components/documents/add-document-to-dataroom-modal.tsx",
@@ -2540,6 +2590,8 @@
         "components/visitors/visitor-useragent.tsx",
         "components/visitors/visitor-useragent-placeholder.tsx",
         "components/visitors/visitor-video-chart.tsx",
+        "ee/features/redaction/components/redaction-workspace.tsx",
+        "ee/features/redaction/components/redaction-client.ts",
         "components/documents/hidden-documents-list.tsx",
         "components/documents/hidden-document-card.tsx",
         "components/documents/hidden-folder-card.tsx",
@@ -2858,9 +2910,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/branding/lib/use-branding-preview-params"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -2878,10 +2928,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/branding/lib/brand-logo",
-                "@/ee/features/branding/lib/use-branding-preview-params"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -2913,14 +2960,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/branding/lib/dataroom-viewer-layout",
-                "@/ee/features/branding/lib/use-branding-preview-params",
-                "@/ee/features/branding/lib/brand-logo",
-                "@/ee/features/branding/lib/use-logo-tone",
-                "@/ee/features/branding/lib/dataroom-banner",
-                "@/ee/features/branding/lib/dataroom-preview-presets"
-              ]
+              "directMissingImports": []
             }
           ]
         }
@@ -3099,6 +3139,43 @@
       ]
     },
     {
+      "id": "mobile-installation",
+      "name": "Mobile Installation",
+      "flows": [
+        {
+          "id": "screen-s095",
+          "name": "Installable mobile web guide (screen template)",
+          "verification": "source_only; consult root manifest for actual rendered states",
+          "steps": [
+            {
+              "name": "Installable mobile web guide",
+              "route": "/mobile",
+              "screen": "pages/mobile.tsx",
+              "inventoryId": "S095",
+              "components": [
+                "components/marketing/marketing-shell.tsx",
+                "components/pwa/pwa-install-button.tsx",
+                "components/ui/button.tsx",
+                "components/pwa/pwa-provider.tsx",
+                "components/ui/loading-spinner.tsx"
+              ],
+              "data": [],
+              "dataStatus": "not inferred; API/data ownership must be validated separately",
+              "access": "public on configured application hosts; PWA registration and install metadata only on exact configured app origin",
+              "directMissingImports": []
+            }
+          ]
+        }
+      ],
+      "components": [
+        "components/marketing/marketing-shell.tsx",
+        "components/pwa/pwa-install-button.tsx",
+        "components/ui/button.tsx",
+        "components/pwa/pwa-provider.tsx",
+        "components/ui/loading-spinner.tsx"
+      ]
+    },
+    {
       "id": "notification-preferences",
       "name": "Notification Preferences",
       "flows": [
@@ -3164,18 +3241,40 @@
               "route": "/partners",
               "screen": "pages/partners.tsx",
               "inventoryId": "S049",
-              "components": [],
+              "components": [
+                "components/layouts/app.tsx",
+                "components/ui/button.tsx",
+                "components/layouts/breadcrumb.tsx",
+                "components/layouts/mobile-bottom-nav.tsx",
+                "components/layouts/mobile-header.tsx",
+                "components/layouts/trial-banner.tsx",
+                "components/sidebar/sidebar-panels.tsx",
+                "components/ui/separator.tsx",
+                "components/ui/sidebar.tsx",
+                "components/layouts/blocking-modal.tsx",
+                "components/ui/loading-spinner.tsx"
+              ],
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/partners/pages/partner-program"
-              ]
+              "directMissingImports": []
             }
           ]
         }
       ],
-      "components": []
+      "components": [
+        "components/layouts/app.tsx",
+        "components/ui/button.tsx",
+        "components/layouts/breadcrumb.tsx",
+        "components/layouts/mobile-bottom-nav.tsx",
+        "components/layouts/mobile-header.tsx",
+        "components/layouts/trial-banner.tsx",
+        "components/sidebar/sidebar-panels.tsx",
+        "components/ui/separator.tsx",
+        "components/ui/sidebar.tsx",
+        "components/layouts/blocking-modal.tsx",
+        "components/ui/loading-spinner.tsx"
+      ]
     },
     {
       "id": "system",
@@ -3442,6 +3541,12 @@
               "screen": "pages/branding.tsx",
               "inventoryId": "S008",
               "components": [
+                "ee/features/branding/components/banner-editor.tsx",
+                "ee/features/branding/components/branding-link-preview-form.tsx",
+                "ee/features/branding/components/branding-preview-chrome.tsx",
+                "ee/features/branding/components/collapsible-branding-section.tsx",
+                "ee/features/branding/components/dataroom-layout-preset-cards.tsx",
+                "ee/features/branding/components/team-brand-switcher.tsx",
                 "components/billing/upgrade-plan-modal.tsx",
                 "components/layouts/app.tsx",
                 "components/ui/button.tsx",
@@ -3459,9 +3564,14 @@
                 "components/ui/tooltip.tsx",
                 "components/ui/upgrade-button.tsx",
                 "components/view/dataroom/dataroom-banner-media.tsx",
+                "ee/features/branding/components/branding-editor-utils.ts",
+                "components/ui/collapsible.tsx",
+                "components/ui/badge.tsx",
+                "components/ui/dialog.tsx",
+                "components/ui/select.tsx",
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
-                "components/ui/dialog.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -3476,21 +3586,18 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/branding/components/banner-editor",
-                "@/ee/features/branding/components/branding-link-preview-form",
-                "@/ee/features/branding/components/branding-preview-chrome",
-                "@/ee/features/branding/components/collapsible-branding-section",
-                "@/ee/features/branding/components/dataroom-layout-preset-cards",
-                "@/ee/features/branding/components/team-brand-switcher",
-                "@/ee/features/branding/lib/auto-fill-result",
-                "@/ee/features/branding/lib/dataroom-viewer-layout"
-              ]
+              "directMissingImports": []
             }
           ]
         }
       ],
       "components": [
+        "ee/features/branding/components/banner-editor.tsx",
+        "ee/features/branding/components/branding-link-preview-form.tsx",
+        "ee/features/branding/components/branding-preview-chrome.tsx",
+        "ee/features/branding/components/collapsible-branding-section.tsx",
+        "ee/features/branding/components/dataroom-layout-preset-cards.tsx",
+        "ee/features/branding/components/team-brand-switcher.tsx",
         "components/billing/upgrade-plan-modal.tsx",
         "components/layouts/app.tsx",
         "components/ui/button.tsx",
@@ -3508,9 +3615,14 @@
         "components/ui/tooltip.tsx",
         "components/ui/upgrade-button.tsx",
         "components/view/dataroom/dataroom-banner-media.tsx",
+        "ee/features/branding/components/branding-editor-utils.ts",
+        "components/ui/collapsible.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/dialog.tsx",
+        "components/ui/select.tsx",
         "components/billing/plan-price.tsx",
         "components/billing/unlimited-plan-modal.tsx",
-        "components/ui/dialog.tsx",
+        "components/billing/billing-unavailable.tsx",
         "components/layouts/breadcrumb.tsx",
         "components/layouts/mobile-bottom-nav.tsx",
         "components/layouts/mobile-header.tsx",
@@ -3685,6 +3797,7 @@
                 "components/ui/button.tsx",
                 "components/ui/dialog.tsx",
                 "components/ui/tooltip.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -3809,6 +3922,7 @@
                 "components/ui/tooltip.tsx",
                 "components/ui/upgrade-button.tsx",
                 "components/ui/input.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/billing/plan-price.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
@@ -3854,6 +3968,7 @@
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -3883,6 +3998,7 @@
               "screen": "pages/settings/presets/[id].tsx",
               "inventoryId": "S062",
               "components": [
+                "ee/features/permissions/components/confidential-view/confidential-view-section.tsx",
                 "components/billing/upgrade-plan-modal.tsx",
                 "components/layouts/app.tsx",
                 "components/links/link-sheet/index.tsx",
@@ -3909,10 +4025,12 @@
                 "components/ui/input.tsx",
                 "components/ui/label.tsx",
                 "components/ui/separator.tsx",
+                "components/links/link-sheet/link-item.tsx",
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
                 "components/ui/tooltip.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -3928,7 +4046,6 @@
                 "components/links/link-sheet/domain-section.tsx",
                 "components/links/link-sheet/tags/inline-tag-selector.tsx",
                 "components/links/link-sheet/agreement-panel/index.tsx",
-                "components/links/link-sheet/link-item.tsx",
                 "components/ui/badge.tsx",
                 "components/ui/popover.tsx",
                 "components/ui/textarea.tsx",
@@ -3959,9 +4076,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/permissions/components/confidential-view/confidential-view-section"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -3976,6 +4091,7 @@
               "screen": "pages/settings/presets/new.tsx",
               "inventoryId": "S063",
               "components": [
+                "ee/features/permissions/components/confidential-view/confidential-view-section.tsx",
                 "components/billing/upgrade-plan-modal.tsx",
                 "components/layouts/app.tsx",
                 "components/links/link-sheet/index.tsx",
@@ -4001,10 +4117,12 @@
                 "components/ui/input.tsx",
                 "components/ui/label.tsx",
                 "components/ui/separator.tsx",
+                "components/links/link-sheet/link-item.tsx",
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
                 "components/ui/tooltip.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -4020,7 +4138,6 @@
                 "components/links/link-sheet/domain-section.tsx",
                 "components/links/link-sheet/tags/inline-tag-selector.tsx",
                 "components/links/link-sheet/agreement-panel/index.tsx",
-                "components/links/link-sheet/link-item.tsx",
                 "components/ui/badge.tsx",
                 "components/ui/popover.tsx",
                 "components/ui/textarea.tsx",
@@ -4051,9 +4168,7 @@
               "data": [],
               "dataStatus": "not inferred; API/data ownership must be validated separately",
               "access": "session-protected application route; additional role, scope and plan checks vary",
-              "directMissingImports": [
-                "@/ee/features/permissions/components/confidential-view/confidential-view-section"
-              ]
+              "directMissingImports": []
             }
           ]
         },
@@ -4076,6 +4191,7 @@
                 "components/ui/button.tsx",
                 "components/ui/dialog.tsx",
                 "components/ui/tooltip.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -4256,6 +4372,7 @@
                 "components/billing/plan-price.tsx",
                 "components/billing/unlimited-plan-modal.tsx",
                 "components/ui/dialog.tsx",
+                "components/billing/billing-unavailable.tsx",
                 "components/layouts/breadcrumb.tsx",
                 "components/layouts/mobile-bottom-nav.tsx",
                 "components/layouts/mobile-header.tsx",
@@ -4409,6 +4526,7 @@
         "components/ui/form.tsx",
         "components/billing/plan-price.tsx",
         "components/billing/unlimited-plan-modal.tsx",
+        "components/billing/billing-unavailable.tsx",
         "components/settings/delete-team-modal.tsx",
         "components/ui/select.tsx",
         "components/billing/plan-badge.tsx",
@@ -4423,6 +4541,7 @@
         "components/shared/icons/x.tsx",
         "components/shared/icons/chevron-right.tsx",
         "components/shared/icons/circle.tsx",
+        "ee/features/permissions/components/confidential-view/confidential-view-section.tsx",
         "components/links/link-sheet/index.tsx",
         "components/links/link-sheet/agreement-section.tsx",
         "components/links/link-sheet/allow-download-section.tsx",
@@ -4491,7 +4610,9 @@
       "source": "ee/features/conversations/pages/conversation-detail.tsx",
       "toolCandidateRoute": "/conversation-detail",
       "classification": "implementation_helper_not_filesystem_route",
-      "consumingRoutes": [],
+      "consumingRoutes": [
+        "/datarooms/[id]/conversations/[conversationId]"
+      ],
       "note": "EE/features/.../pages is not a Next router root. Direct consumers listed; component-level transitive reuse is not exhaustive."
     },
     {
@@ -4500,7 +4621,6 @@
       "classification": "implementation_helper_not_filesystem_route",
       "consumingRoutes": [
         "/datarooms/[id]/conversations",
-        "/datarooms/[id]/conversations/[conversationId]",
         "/datarooms/[id]/conversations/faqs"
       ],
       "note": "EE/features/.../pages is not a Next router root. Direct consumers listed; component-level transitive reuse is not exhaustive."
@@ -4542,6 +4662,110 @@
         "/workflows"
       ],
       "note": "EE/features/.../pages is not a Next router root. Direct consumers listed; component-level transitive reuse is not exhaustive."
+    }
+  ],
+  "routeAliases": [
+    {
+      "route": "/settings",
+      "destination": "/settings/general",
+      "kind": "redirect",
+      "target_screen_present": true
+    },
+    {
+      "route": "/settings/upgrade",
+      "destination": "/settings/billing/upgrade",
+      "kind": "redirect",
+      "target_screen_present": false,
+      "resolution_chain": [
+        "/settings/upgrade",
+        "/settings/billing/upgrade",
+        "/settings/billing"
+      ],
+      "final_destination": "/settings/billing",
+      "final_target_screen_present": true,
+      "current_status": "Source-resolved redirect chain to the actual billing screen; alias itself is not a screen template."
+    },
+    {
+      "route": "https://{customer-domain}/{slug}",
+      "destination": "/view/domains/[domain]/[slug]",
+      "kind": "customer-host rewrite",
+      "target_screen_present": true
+    },
+    {
+      "route": "MCP host /oauth/authorize",
+      "destination": "/mcp-oauth/authorize",
+      "kind": "conditional rewrite",
+      "target_screen_present": false
+    },
+    {
+      "route": "/settings/billing/upgrade",
+      "destination": "/settings/billing",
+      "kind": "middleware redirect after API/customer-host isolation",
+      "source": "middleware.ts",
+      "target_screen_present": true,
+      "current_status": "Source-resolved; destination retains normal authentication and billing availability gates."
+    }
+  ],
+  "sharedShells": [
+    {
+      "source": "pages/_app.tsx",
+      "sha256": "6c12ae444c69516e437050e0bc342586b88162d0782599decfda3347444c4fa2"
+    },
+    {
+      "source": "pages/_document.tsx",
+      "sha256": "0866a7bf83645160310fddd3c93e2805ae2f36d6e5994760b81e182f04e704f1"
+    },
+    {
+      "source": "app/layout.tsx",
+      "sha256": "2c9014288b55798061e6365ff67ba9396bd3be2150c008c646f56edc610d2f96"
+    },
+    {
+      "source": "app/(auth)/layout.tsx",
+      "sha256": "d8768c39ffeab60e036b7bc3289769ed7f754088e0e2ec8d59005e51e2915749"
+    },
+    {
+      "source": "components/layouts/app.tsx",
+      "sha256": "1be891fd9b6cc796fcca24a992e84ff84c48ab0a638c3ce8c517a760f870e6ea"
+    },
+    {
+      "source": "components/layouts/mobile-header.tsx",
+      "sha256": "91ea82a8613cf46861523e537aa85e2380e96222f7000de3b99227e007d4664a"
+    },
+    {
+      "source": "components/layouts/mobile-bottom-nav.tsx",
+      "sha256": "92aefa774b92714dbb69eacae788a2b870485e1ec36583c063480c937cdfcc1c"
+    },
+    {
+      "source": "components/layouts/mobile-more-menu.tsx",
+      "sha256": "ffe6153d4b3e4567247f3fdd9488047b5166d911f0049854989084ef80ecb2ee"
+    },
+    {
+      "source": "components/layouts/mobile-dataroom-more-menu.tsx",
+      "sha256": "40c428f936d6a11dc6e8da4367ae37f3c36f1cfb9cc97efbeca8c2fa6c607072"
+    },
+    {
+      "source": "components/sidebar/sidebar-panels.tsx",
+      "sha256": "3c69ef391bb86a642963867f487c44df9a73c8ca5c6cced73517fe7970429d4f"
+    },
+    {
+      "source": "components/sidebar/app-sidebar.tsx",
+      "sha256": "85ab2232961ab827f8b2f197462f6df8eef026cb7c7a5b07375968351d647832"
+    },
+    {
+      "source": "components/sidebar/dataroom-sidebar.tsx",
+      "sha256": "f687029ce213c474892a99aa276693faef9a12c9553cb96db618b82067079cb9"
+    },
+    {
+      "source": "components/sidebar/nav-main.tsx",
+      "sha256": "e3f47f6d163762a60be731a8d0ee0fddd1e8b26aae0ab85f695f6e549157bbc2"
+    },
+    {
+      "source": "components/sidebar/nav-user.tsx",
+      "sha256": "959801ad3a56be7e237a25f8de98d87b3b2e10cfcf18a288d87dba5abffb3a81"
+    },
+    {
+      "source": "components/sidebar/team-switcher.tsx",
+      "sha256": "a47611c32bb830901656c5ff72d57928b281956423f958608ebdac67bf533a5b"
     }
   ]
 }

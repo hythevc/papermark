@@ -4,6 +4,7 @@ import {
   popDigestQueue,
 } from "@/lib/redis/dataroom-notification-queue";
 import { log } from "@/lib/utils";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 import { generateUnsubscribeUrl } from "@/lib/utils/unsubscribe";
 
 import { sendDataroomDigestNotification } from "./send-dataroom-digest-notification";
@@ -101,7 +102,7 @@ async function processBatch(batch: DigestBatch, frequency: "daily" | "weekly") {
   if (link?.domainId && link.domainSlug && link.slug) {
     linkUrl = `https://${link.domainSlug}/${link.slug}`;
   } else if (link) {
-    linkUrl = `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
+    linkUrl = constructLinkUrl({ id: link.id });
   }
 
   if (!linkUrl) return;

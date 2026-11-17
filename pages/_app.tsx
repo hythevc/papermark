@@ -15,6 +15,8 @@ import { isMarketingRouteTemplate } from "@/lib/marketing-routes";
 
 import { PostHogGroupSync } from "@/components/providers/posthog-group-sync";
 import { PostHogCustomProvider } from "@/components/providers/posthog-provider";
+import { PagesPwaMetadata } from "@/components/pwa/pages-pwa-metadata";
+import { PwaProvider } from "@/components/pwa/pwa-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,45 +36,52 @@ export default function App({
   router,
 }: AppProps<{ session: Session }>) {
   const metadata = (
-    <Head>
-      <title>{`${BRAND.name} | ${BRAND.tagline}`}</title>
-      <meta name="theme-color" content="#174b3f" key="theme-color" />
-      <meta name="description" content={BRAND.description} key="description" />
-      <meta
-        property="og:title"
-        content={`${BRAND.name} | ${BRAND.tagline}`}
-        key="og-title"
-      />
-      <meta
-        property="og:description"
-        content={BRAND.description}
-        key="og-description"
-      />
-      <meta property="og:url" content={BRAND.marketingUrl} key="og-url" />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={BRAND.name} key="tw-title" />
-      <meta
-        name="twitter:description"
-        content={BRAND.description}
-        key="tw-description"
-      />
-      <link rel="icon" href={BRAND.favicon} key="favicon" />
-    </Head>
+    <>
+      <PagesPwaMetadata />
+      <Head>
+        <title>{`${BRAND.name} | ${BRAND.tagline}`}</title>
+        <meta name="theme-color" content="#174b3f" key="theme-color" />
+        <meta
+          name="description"
+          content={BRAND.description}
+          key="description"
+        />
+        <meta
+          property="og:title"
+          content={`${BRAND.name} | ${BRAND.tagline}`}
+          key="og-title"
+        />
+        <meta
+          property="og:description"
+          content={BRAND.description}
+          key="og-description"
+        />
+        <meta property="og:url" content={BRAND.marketingUrl} key="og-url" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={BRAND.name} key="tw-title" />
+        <meta
+          name="twitter:description"
+          content={BRAND.description}
+          key="tw-description"
+        />
+        <link rel="icon" href={BRAND.favicon} key="favicon" />
+      </Head>
+    </>
   );
 
   // Public marketing does not initialize authenticated workspace providers.
   if (isMarketingRouteTemplate(router.pathname)) {
     return (
-      <>
+      <PwaProvider>
         {metadata}
         <Component {...pageProps} />
-      </>
+      </PwaProvider>
     );
   }
 
   return (
-    <>
+    <PwaProvider>
       {metadata}
       <SessionProvider session={session}>
         <PostHogCustomProvider>
@@ -98,6 +107,6 @@ export default function App({
           </ThemeProvider>
         </PostHogCustomProvider>
       </SessionProvider>
-    </>
+    </PwaProvider>
   );
 }

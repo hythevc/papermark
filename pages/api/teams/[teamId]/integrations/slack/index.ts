@@ -4,11 +4,9 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 import { z } from "zod";
 
+import { hasAllPermissions } from "@/lib/api/rbac/permissions";
 import { getSlackEnv } from "@/lib/integrations/slack/env";
-import {
-  SlackCredential,
-  SlackCredentialPublic,
-} from "@/lib/integrations/slack/types";
+import { SlackCredential } from "@/lib/integrations/slack/types";
 import { uninstallSlackIntegration } from "@/lib/integrations/slack/uninstall";
 import { slackChannelsCacheKey } from "@/lib/integrations/slack/utils";
 import prisma from "@/lib/prisma";
@@ -49,17 +47,37 @@ export default async function handler(
     },
   });
 
-  if (!userTeam) {
+  if (!userTeam || userTeam.status !== "ACTIVE" || userTeam.blockedAt) {
     return res.status(403).json({ error: "Access denied" });
   }
 
+  if (!["GET", "PUT", "DELETE"].includes(req.method || "")) {
+    res.setHeader("Allow", "GET, PUT, DELETE");
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+  if (
+    req.method !== "GET" &&
+    !hasAllPermissions(userTeam.role, ["team.write"])
+  ) {
+    return res.status(403).json({ error: "Access denied" });
+  }
+  let env: ReturnType<typeof getSlackEnv>;
+  try {
+    env = getSlackEnv();
+  } catch {
+    res.setHeader("Cache-Control", "private, no-store, max-age=0");
+    const message = "Slack is not configured for this deployment.";
+    return req.method === "GET"
+      ? res.status(200).json({ configured: false, integration: null, message })
+      : res.status(503).json({ configured: false, error: message });
+  }
   switch (req.method) {
     case "GET":
-      return handleGet(req, res, teamId);
+      return handleGet(req, res, teamId, env);
     case "PUT":
-      return handleUpdate(req, res, teamId);
+      return handleUpdate(req, res, teamId, env);
     case "DELETE":
-      return handleDelete(req, res, teamId);
+      return handleDelete(req, res, teamId, env);
     default:
       return res.status(405).json({ error: "Method not allowed" });
   }
@@ -69,9 +87,8 @@ async function handleGet(
   req: NextApiRequest,
   res: NextApiResponse,
   teamId: string,
+  env: ReturnType<typeof getSlackEnv>,
 ) {
-  const env = getSlackEnv();
-
   try {
     const integrationFullData = await prisma.installedIntegration.findUnique({
       where: {
@@ -112,8 +129,8 @@ async function handleUpdate(
   req: NextApiRequest,
   res: NextApiResponse,
   teamId: string,
+  env: ReturnType<typeof getSlackEnv>,
 ) {
-  const env = getSlackEnv();
   try {
     const validationResult = slackIntegrationUpdateSchema.safeParse(req.body);
 
@@ -188,8 +205,8 @@ async function handleDelete(
   req: NextApiRequest,
   res: NextApiResponse,
   teamId: string,
+  env: ReturnType<typeof getSlackEnv>,
 ) {
-  const env = getSlackEnv();
   try {
     const integration = await prisma.installedIntegration.findUnique({
       where: {

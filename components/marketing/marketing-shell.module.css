@@ -26,7 +26,7 @@
   min-height: 100vh;
   background: var(--m-paper);
 }
-.theme a {
+:where(.theme) a {
   color: inherit;
   text-decoration: none;
 }

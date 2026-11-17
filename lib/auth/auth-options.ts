@@ -13,6 +13,7 @@ import { qstash } from "@/lib/cron";
 import { sendVerificationRequestEmail } from "@/lib/emails/send-verification-request";
 import hanko from "@/lib/hanko";
 import { jackson } from "@/lib/jackson";
+import { isLocalIntegration } from "@/lib/local-integration";
 import prisma from "@/lib/prisma";
 import { CustomUser } from "@/lib/types";
 
@@ -254,13 +255,29 @@ export const authOptions: NextAuthOptions = {
         userId: message.user.id,
       });
 
-      await qstash.publishJSON({
-        url: `${process.env.NEXT_PUBLIC_BASE_URL ?? getMainDomainUrl()}/api/cron/welcome-user`,
-        body: {
-          userId: message.user.id,
-        },
-        delay: 15 * 60,
-      });
+      // The isolated local harness exercises real login/session persistence,
+      // without dispatching optional welcome jobs to an external queue.
+      if (isLocalIntegration()) return;
+      if (!process.env.QSTASH_TOKEN) {
+        console.warn(
+          "Welcome email scheduling is not configured; the user account was created successfully.",
+        );
+        return;
+      }
+      try {
+        await qstash.publishJSON({
+          url: `${process.env.NEXT_PUBLIC_BASE_URL ?? getMainDomainUrl()}/api/cron/welcome-user`,
+          body: {
+            userId: message.user.id,
+          },
+          delay: 15 * 60,
+        });
+      } catch {
+        // An optional welcome campaign must not invalidate a verified signup.
+        console.warn(
+          "Welcome email scheduling failed; the user account remains active.",
+        );
+      }
     },
   },
 };

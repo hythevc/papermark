@@ -31,6 +31,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+import { BillingUnavailableDialog } from "./billing-unavailable";
+
 // Start Data Room Trial Button Component
 const StartDataRoomTrialButton = ({ teamId }: { teamId?: string }) => {
   const router = useRouter();
@@ -174,6 +176,9 @@ export function UpgradePlanModalWithDiscount({
     isOldAccount,
     isTrial,
     isFree,
+    billingActionsAvailable,
+    billingActionsReason,
+    loading: billingLoading,
   } = usePlan();
   const analytics = useAnalytics();
   const [dataRoomsPlanSelection, setDataRoomsPlanSelection] = useState<
@@ -239,6 +244,22 @@ export function UpgradePlanModalWithDiscount({
   const getDiscountedYearlyPrice = (yearlyPrice: number) => {
     return Math.round(yearlyPrice * 0.7); // Round to whole number
   };
+
+  if (!billingActionsAvailable)
+    return (
+      <BillingUnavailableDialog
+        open={open}
+        setOpen={setOpen}
+        reason={billingActionsReason}
+        trialEligible={
+          !billingLoading &&
+          !isTrial &&
+          (teamPlan === "free" || teamPlan === "pro")
+        }
+      >
+        {buttonChild}
+      </BillingUnavailableDialog>
+    );
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -455,6 +476,7 @@ export function UpgradePlanModalWithDiscount({
                           loading={selectedPlan === planOption}
                           disabled={selectedPlan !== null}
                           onClick={() => {
+                            if (!billingActionsAvailable) return;
                             const priceId = getPriceIdFromPlan({
                               planName: displayPlanName,
                               period,
@@ -522,9 +544,7 @@ export function UpgradePlanModalWithDiscount({
                                   }
                                   const data = await res.json();
                                   if (!data.url) {
-                                    throw new Error(
-                                      "Failed to start checkout",
-                                    );
+                                    throw new Error("Failed to start checkout");
                                   }
                                   window.location.href = data.url;
                                 })

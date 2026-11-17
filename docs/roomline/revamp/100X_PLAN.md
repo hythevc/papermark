@@ -33,7 +33,7 @@ Acceptance: actually inspected public/mobile screenshots; working public navigat
 | Activity / analytics | Evidence answers a concrete question and does not invent investment intent | Event accuracy, period/version context, anonymous/internal/bot limits and accessible chart/table checks |
 | Settings / roles / billing / support | Clear plan/role differences, reversible decisions, predictable entitlement changes | Real upgrade/downgrade/cancel/failure paths, audit events and support links |
 
-Every applicable default, loading, processing, empty, filtered-empty, failed, selected, disabled, read-only, pending, access-denied, success, and confirmation state needs review. Use the 88-screen baseline plus 6 added route templates (94 total) as a planning map; do not call that count a completed browser audit. Group shared contracts sensibly and include route/state/theme evidence where actually rendered.
+Every applicable default, loading, processing, empty, filtered-empty, failed, selected, disabled, read-only, pending, access-denied, success, and confirmation state needs review. Use the 88-screen baseline plus 7 added route templates (95 total) as a planning map; do not call that count a completed browser audit. Group shared contracts sensibly and include route/state/theme evidence where actually rendered.
 
 ## P3 — Native applications only when supplied
 

@@ -17,6 +17,7 @@ test("public content routes cover the marketing journey and valid content slugs"
     "/solutions/due-diligence",
     "/guides/sharing-checklist",
     "/design-system",
+    "/mobile",
     "/404",
   ]) {
     assert.equal(isMarketingPathname(path), true, path);

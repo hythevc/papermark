@@ -1,4 +1,4 @@
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 
 interface VectorStoreFileOptions {
   vectorStoreId: string;
@@ -27,7 +27,7 @@ export async function addFileToVectorStore({
 }: VectorStoreFileOptions): Promise<string> {
   try {
     // Add file to vector store with metadata
-    const vectorStoreFile = await openai.vectorStores.files.create(
+    const vectorStoreFile = await getOpenAIClient().vectorStores.files.create(
       vectorStoreId,
       {
         file_id: fileId,

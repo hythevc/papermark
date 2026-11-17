@@ -63,7 +63,10 @@ async function readBetaFeatures(): Promise<BetaFeaturesRecord | undefined> {
   }
 
   inFlightBetaFeatures ??= fetchBetaFeatures().then((value) => {
-    cachedBetaFeatures = { value, expiresAt: Date.now() + BETA_FEATURES_TTL_MS };
+    cachedBetaFeatures = {
+      value,
+      expiresAt: Date.now() + BETA_FEATURES_TTL_MS,
+    };
     inFlightBetaFeatures = undefined;
     return value;
   });
@@ -98,11 +101,39 @@ export const getFeatureFlags = async ({ teamId }: { teamId?: string }) => {
     customPrivacyUrl: false,
   };
 
+  // Self-hosted deployments can configure explicit team allowlists without
+  // depending on Vercel Edge Config. Unknown flags and malformed input fail off.
+  if (teamId && process.env.ROOMLINE_FEATURE_FLAGS) {
+    try {
+      const configured: unknown = JSON.parse(
+        process.env.ROOMLINE_FEATURE_FLAGS,
+      );
+      if (
+        configured &&
+        typeof configured === "object" &&
+        !Array.isArray(configured)
+      ) {
+        for (const [key, teams] of Object.entries(configured)) {
+          if (
+            Object.hasOwn(teamFeatures, key) &&
+            Array.isArray(teams) &&
+            teams.every((id) => typeof id === "string") &&
+            teams.includes(teamId)
+          ) {
+            teamFeatures[key as BetaFeatures] = true;
+          }
+        }
+      }
+    } catch {
+      console.warn(
+        "ROOMLINE_FEATURE_FLAGS is invalid; explicit feature allowlists were not applied.",
+      );
+    }
+  }
+
   // Return all features as false if edge config is not available
   if (!process.env.EDGE_CONFIG) {
-    return Object.fromEntries(
-      Object.entries(teamFeatures).map(([key, _v]) => [key, false]),
-    );
+    return teamFeatures;
   } else if (!teamId) {
     return teamFeatures;
   }

@@ -53,6 +53,7 @@ export default function SlackSettings() {
   // Use SWR hook for integration data
   const {
     integration,
+    configured,
     error: integrationError,
     loading: loadingIntegration,
     mutate: mutateIntegration,
@@ -67,7 +68,7 @@ export default function SlackSettings() {
     mutate: mutateChannels,
     refresh: refreshChannels,
   } = useSlackChannels({
-    enabled: !!integration,
+    enabled: configured === true && !!integration,
   });
 
   const ChannelIcon = useMemo(
@@ -137,7 +138,7 @@ export default function SlackSettings() {
   }, [router.query, mutateIntegration, analytics, teamId]);
 
   const handleConnect = async () => {
-    if (!teamId) return;
+    if (!teamId || configured !== true) return;
 
     setConnecting(true);
     analytics.capture("Slack Connect Button Clicked", {
@@ -172,7 +173,7 @@ export default function SlackSettings() {
       });
 
       if (response.ok) {
-        mutateIntegration(undefined, false);
+        mutateIntegration({ configured: true, integration: null }, false);
       } else {
         const data = await response.json();
         throw new Error(data.error || "Failed to disconnect Slack");
@@ -381,6 +382,28 @@ export default function SlackSettings() {
         <div>
           {loadingIntegration ? (
             <SlackSettingsSkeleton />
+          ) : configured === false ? (
+            <Card role="status">
+              <CardHeader>
+                <CardTitle>Slack unavailable</CardTitle>
+                <CardDescription>
+                  Slack integration is currently unavailable. Contact your
+                  workspace administrator for help.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          ) : integrationError && configured !== true ? (
+            <Card role="alert">
+              <CardHeader>
+                <CardTitle>Unable to load Slack settings</CardTitle>
+                <CardDescription>
+                  Try again to check the current connection.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button onClick={() => mutateIntegration()}>Try again</Button>
+              </CardContent>
+            </Card>
           ) : (
             <>
               <div className="mb-4 flex items-center justify-between md:mb-8 lg:mb-12">
@@ -395,7 +418,10 @@ export default function SlackSettings() {
                   </p>
                 </div>
                 {!integration ? (
-                  <Button onClick={handleConnect} disabled={connecting}>
+                  <Button
+                    onClick={handleConnect}
+                    disabled={connecting || configured !== true}
+                  >
                     {connecting ? (
                       <>
                         <div className="mr-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white"></div>

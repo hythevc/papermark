@@ -12,13 +12,10 @@ import { CheckIcon, CircleHelpIcon, UserPlusIcon, XIcon } from "lucide-react";
 
 import { useAnalytics } from "@/lib/analytics";
 import { usePlan } from "@/lib/swr/use-billing";
-import { useGeoCurrency } from "@/lib/swr/use-geo-currency";
-import { useSubscriptionCurrency } from "@/lib/swr/use-subscription-currency";
 import { capitalize, cn } from "@/lib/utils";
 
 import {
   type Currency,
-  CurrencyToggle,
   PeriodToggle,
   PlanPrice,
 } from "@/components/billing/plan-price";
@@ -32,6 +29,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+import { BillingUnavailableDialog } from "./billing-unavailable";
 
 // Start Data Room Trial Button Component
 const StartDataRoomTrialButton = ({ teamId }: { teamId?: string }) => {
@@ -191,7 +190,7 @@ export function UpgradePlanModal({
   open?: boolean;
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   highlightItem?: string[];
-  /** Feature ids (or `aliasIds`) to omit from every plan card's feature list.
+  /** Feature ids to omit from every plan card's feature list.
    *  Use this when the upsell is about a specific feature and a generic line
    *  (e.g. "Unlimited data rooms") would distract from the message. */
   hideItems?: string[];
@@ -199,21 +198,20 @@ export function UpgradePlanModal({
 }) {
   const router = useRouter();
   const [period, setPeriod] = useState<"yearly" | "monthly">("yearly");
-  const geoCurrency = useGeoCurrency();
-  const { currency: subscriptionCurrency } = useSubscriptionCurrency();
-  const [currencyOverride, setCurrencyOverride] = useState<Currency | null>(
-    null,
-  );
-  // Existing customers are locked to the currency they already pay in (Stripe
-  // subscriptions cannot mix currencies). Otherwise default to the visitor's
-  // geo currency, with a manual toggle taking precedence.
-  const currency: Currency =
-    subscriptionCurrency ?? currencyOverride ?? geoCurrency ?? "usd";
-  const isCurrencyLocked = subscriptionCurrency != null;
+  // The configured catalog contains EUR prices only.
+  const currency: Currency = "eur";
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const teamInfo = useTeam();
   const teamId = teamInfo?.currentTeam?.id;
-  const { plan: teamPlan, isCustomer, isOldAccount, isTrial } = usePlan();
+  const {
+    plan: teamPlan,
+    isCustomer,
+    isOldAccount,
+    isTrial,
+    billingActionsAvailable,
+    billingActionsReason,
+    loading: billingLoading,
+  } = usePlan();
   const analytics = useAnalytics();
   const [dataRoomsPlanSelection, setDataRoomsPlanSelection] = useState<
     "base" | "plus" | "premium"
@@ -318,6 +316,22 @@ export function UpgradePlanModal({
     ? React.cloneElement(children, { onClick: handleUpgradeClick })
     : children;
 
+  if (!billingActionsAvailable)
+    return (
+      <BillingUnavailableDialog
+        open={open}
+        setOpen={setOpen}
+        reason={billingActionsReason}
+        trialEligible={
+          !billingLoading &&
+          !isTrial &&
+          (teamPlan === "free" || teamPlan === "pro")
+        }
+      >
+        {buttonChild}
+      </BillingUnavailableDialog>
+    );
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{buttonChild}</DialogTrigger>
@@ -334,19 +348,9 @@ export function UpgradePlanModal({
           {/* Fixed header — billing period toggle stays visible while the cards scroll */}
           <div className="flex-none bg-gray-50 px-4 pb-5 pt-10 dark:bg-gray-900 sm:px-6 sm:pb-5 sm:pt-6">
             <div className="relative flex flex-col items-center gap-3 sm:block">
-              {!isCurrencyLocked && (
-                <div className="sm:absolute sm:left-0 sm:top-1/2 sm:-translate-y-1/2">
-                  <CurrencyToggle
-                    value={currency}
-                    onChange={setCurrencyOverride}
-                  />
-                </div>
-              )}
               <div className="flex items-center justify-center gap-2">
                 <PeriodToggle value={period} onChange={setPeriod} />
-                <span className="text-sm text-[#fb7a00]">
-                  (Save up to 35%)
-                </span>
+                <span className="text-sm text-[#fb7a00]">(Save up to 35%)</span>
               </div>
             </div>
           </div>
@@ -449,7 +453,6 @@ export function UpgradePlanModal({
 
                 const planFeatures = getPlanFeatures(effectivePlan, {
                   period,
-                  currency,
                   highlightFeatures: highlightForSelector,
                 });
 
@@ -574,11 +577,6 @@ export function UpgradePlanModal({
                           period
                         ].amount ?? 0
                       }
-                      amountUsd={
-                        PLANS.find((p) => p.name === displayPlanName)?.price[
-                          period
-                        ].amountUsd
-                      }
                       period={period}
                       currency={currency}
                     />
@@ -652,24 +650,12 @@ export function UpgradePlanModal({
                           // flow; otherwise keep it off every plan card.
                           if (
                             feature.id === "assign" &&
-                            !(
-                              highlightItem?.includes("assign") ||
-                              feature.aliasIds?.some((alias) =>
-                                highlightItem?.includes(alias),
-                              )
-                            )
+                            !highlightItem?.includes("assign")
                           ) {
                             return false;
                           }
                           if (!hideItems?.length) return true;
                           if (hideItems.includes(feature.id)) return false;
-                          if (
-                            feature.aliasIds?.some((alias) =>
-                              hideItems.includes(alias),
-                            )
-                          ) {
-                            return false;
-                          }
                           return true;
                         })
                         .map((feature, i) => {
@@ -684,10 +670,7 @@ export function UpgradePlanModal({
                                   ...feature,
                                   isHighlighted:
                                     feature.isHighlighted ||
-                                    highlightItem?.includes(feature.id) ||
-                                    feature.aliasIds?.some((alias) =>
-                                      highlightItem?.includes(alias),
-                                    ),
+                                    highlightItem?.includes(feature.id),
                                 }}
                                 onUnlimitedClick={
                                   feature.isUsers && isDataRoomPlan
@@ -733,6 +716,7 @@ export function UpgradePlanModal({
                         loading={selectedPlan === planOption}
                         disabled={selectedPlan !== null}
                         onClick={() => {
+                          if (!billingActionsAvailable) return;
                           const priceId = getPriceIdFromPlan({
                             planName: displayPlanName,
                             period,

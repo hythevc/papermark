@@ -17,6 +17,7 @@ import {
   generateEncrpytedPassword,
   isDataUrl,
 } from "@/lib/utils";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 import { sendLinkCreatedWebhook } from "@/lib/webhook/triggers/link-created";
 
 // Reused from `pages/api/webhooks/services/[...path]/index.ts` so the CSV
@@ -105,8 +106,7 @@ export async function handleBulkLinkImport(
   );
   if (!rateLimitResult.success) {
     return res.status(429).json({
-      error:
-        "Too many bulk link imports. Please wait before importing again.",
+      error: "Too many bulk link imports. Please wait before importing again.",
       remaining: rateLimitResult.remaining,
     });
   }
@@ -160,7 +160,9 @@ export async function handleBulkLinkImport(
   const linkLimit = limits?.links;
   const currentLinkCount = limits?.usage?.links ?? 0;
   const isUnlimited =
-    linkLimit === undefined || linkLimit === null || !Number.isFinite(linkLimit);
+    linkLimit === undefined ||
+    linkLimit === null ||
+    !Number.isFinite(linkLimit);
   const remainingCapacity = isUnlimited
     ? Number.POSITIVE_INFINITY
     : Math.max(0, (linkLimit as number) - currentLinkCount);
@@ -322,7 +324,7 @@ export async function handleBulkLinkImport(
         linkUrl:
           newLink.domainSlug && newLink.slug
             ? `https://${newLink.domainSlug}/${newLink.slug}`
-            : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${newLink.id}`,
+            : constructLinkUrl({ id: newLink.id }),
       });
 
       waitUntil(

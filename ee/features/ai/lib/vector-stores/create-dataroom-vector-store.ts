@@ -1,4 +1,4 @@
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 
 /**
  * Create a vector store for a dataroom
@@ -17,7 +17,7 @@ export async function createDataroomVectorStore({
   name: string;
 }): Promise<string> {
   try {
-    const vectorStore = await openai.vectorStores.create({
+    const vectorStore = await getOpenAIClient().vectorStores.create({
       name: `Dataroom: ${name}`,
       metadata: {
         dataroomId,

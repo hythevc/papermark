@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-17T02:42:39.501Z",
+  "checks": [
+    {
+      "name": "Public liveness",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "name": "Readiness rejects unauthenticated callers",
+      "status": "passed",
+      "httpStatus": 401
+    },
+    {
+      "name": "Private readiness reports missing hosted mail honestly",
+      "status": "passed",
+      "httpStatus": 503,
+      "services": {
+        "database": true,
+        "redis": true,
+        "storage": true,
+        "emailConfigured": false,
+        "sessionConfigured": true
+      },
+      "emailDeliveryVerified": false
+    }
+  ],
+  "limitation": "Local real services; hosted email binding intentionally absent. No deployment verification."
+}

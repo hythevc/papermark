@@ -307,6 +307,9 @@ const nextConfig = {
     ];
   },
   experimental: {
+    // Keep build workers within the memory available on shared CI runners.
+    // This does not limit request concurrency in the deployed application.
+    cpus: 2,
     // Rewrite barrel imports (e.g. `import { Icon } from "lucide-react"`) to
     // direct submodule imports at build time. Cuts dev boot, cold starts and
     // HMR for these large re-export packages without losing ergonomic imports.

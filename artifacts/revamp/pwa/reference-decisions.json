@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-17",
+  "scope": "Installable mobile web PWA and /mobile guide; no native app or deployment",
+  "registry": "docs/roomline/revamp/REFERENCE_REGISTRY.json",
+  "evidence": [
+    "DESIGN.md",
+    "docs/roomline/PRODUCT.md",
+    "docs/roomline/revamp/REFERENCE_REVIEW_A.md",
+    "docs/roomline/revamp/REFERENCE_REVIEW_B.md",
+    "artifacts/revamp/pwa/web-interface-guidelines.md",
+    "docs/roomline/MOBILE_WEB.md",
+    "scripts/runtime/pwa-policy.test.mjs",
+    "artifacts/revamp/pwa/browser-report.json",
+    "artifacts/runtime/authenticated/report.json"
+  ],
+  "decisions": [
+    {
+      "id": "taste",
+      "name": "Taste Skill",
+      "status": "applied",
+      "reason": "Read pinned source review and reference lock; preserve the approved Roomline direction and real product behavior. No Taste script, export conversion or image generation was run."
+    },
+    {
+      "id": "web-guidelines",
+      "name": "Web Design Guidelines",
+      "status": "applied",
+      "reason": "Refreshed the actual linked command.md for this task; review targets include semantic controls, live status, visible focus, safe areas, zoom and truthful failure copy."
+    },
+    {
+      "id": "image-to-code",
+      "name": "Image-to-code",
+      "status": "not_applicable",
+      "reason": "Read applicability notes. There is no approved screenshot to convert; this task adds installation plumbing and an instructional page using the existing design system."
+    },
+    {
+      "id": "awesome-design-md",
+      "name": "Awesome DESIGN.md",
+      "status": "applied",
+      "reason": "Read the pinned source review and DESIGN.md; keep documented token/state roles and distinguish installability evidence from visual or native-device claims."
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright CLI / browser testing",
+      "status": "applied",
+      "reason": "Read pinned browser workflow and ran installed Playwright with system Chromium. Actual registration, manifest/icons, empty CDP installability errors, exact public cache, offline fallback and reconnect passed8 checks; screenshots inspected. No natural prompt, OS installation or iOS-device pass claimed."
+    },
+    {
+      "id": "refero",
+      "name": "Refero",
+      "status": "not_applicable",
+      "reason": "Existing locked direction suffices for the small installation guide. No new reference search or authenticated product comparison is required or claimed."
+    },
+    {
+      "id": "mobbin",
+      "name": "Mobbin",
+      "status": "not_applicable",
+      "reason": "This scope is installable mobile web rather than a native mobile redesign. Prior Dropbox references are not OS install evidence; no fresh catalog request made."
+    },
+    {
+      "id": "better-design",
+      "name": "Better Design",
+      "status": "not_applicable",
+      "reason": "No new feature-map generation or global design rules are needed to implement the explicit browser installation contract."
+    },
+    {
+      "id": "uxpilot",
+      "name": "UXPilot",
+      "status": "not_applicable",
+      "reason": "The specified browser/Safari installation steps do not require a generated user journey. No flow generation or external write performed."
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn/ui",
+      "status": "applied",
+      "reason": "Read components.json and local Button source; reuse installed React18/Tailwind3/Radix APIs and lg44px button sizing without registry overwrite."
+    },
+    {
+      "id": "21st",
+      "name": "21st CLI / component registry / MCP",
+      "status": "not_applicable",
+      "reason": "No new registry component is needed. Existing native controls and local Button cover the guide; no credential, generator or returned code used."
+    },
+    {
+      "id": "uxcritique",
+      "name": "UXCritique",
+      "status": "unavailable",
+      "reason": "No callable verified UXCritique integration is available. Local browser/privacy review is not relabeled as execution of that tool."
+    },
+    {
+      "id": "intuitive-software-design",
+      "name": "Intuitive Software Design",
+      "status": "unavailable",
+      "reason": "No verified source or callable integration was established in the registry. No output is invented."
+    },
+    {
+      "id": "design-system",
+      "name": "Design System",
+      "status": "applied",
+      "reason": "Read DESIGN.md and PRODUCT.md. Reuse Roomline semantic tokens, forest/paper identity, calm Read-mode composition and accessible states."
+    },
+    {
+      "id": "imperial-cv",
+      "name": "imperial_masters_cv",
+      "status": "unavailable",
+      "reason": "The named CV remains unavailable and has no bearing on installation. No personal data is inferred or fetched."
+    },
+    {
+      "id": "hallmark",
+      "name": "Hallmark",
+      "status": "applied",
+      "reason": "Read source-review notes; preserve existing authentication/routes and document offline boundaries before presentation changes. No remote engine executed."
+    },
+    {
+      "id": "astryx",
+      "name": "Astryx",
+      "status": "not_applicable",
+      "reason": "The React19/StyleX package is incompatible with this React18 app and unnecessary for PWA metadata. Existing local tokens remain canonical."
+    },
+    {
+      "id": "rune",
+      "name": "Rune",
+      "status": "not_applicable",
+      "reason": "User selected mobile web first. No native Rust renderer or native project is introduced."
+    },
+    {
+      "id": "unslop",
+      "name": "Unslop",
+      "status": "applied",
+      "reason": "Read attributed review notes for Damir Sokolovsky\u2019s guidance; keep purposeful hierarchy and concrete content. No copied code, toolkit or scoring run."
+    },
+    {
+      "id": "logiaweb",
+      "name": "Logiaweb Design Inspo Stack",
+      "status": "not_applicable",
+      "reason": "No new inspiration-discovery question exists in the prescribed installation steps. Prior reviewed research method remains context only."
+    },
+    {
+      "id": "jaimedhenriques-ui",
+      "name": "Requested jaimedhenriques/ui",
+      "status": "not_applicable",
+      "reason": "The redirected newer fork is not installed. The local owned Button is the actual API contract; no new package migration."
+    },
+    {
+      "id": "screenshot-to-code",
+      "name": "Screenshot to Code",
+      "status": "not_applicable",
+      "reason": "No screenshot conversion target or provider is required. Actual browser screenshots are verification evidence rather than generation inputs."
+    },
+    {
+      "id": "website-cloner",
+      "name": "AI Website Cloner Template",
+      "status": "not_applicable",
+      "reason": "This is an independent functional PWA addition, not cloning a website. No competitor assets, remote templates or newer framework adopted."
+    },
+    {
+      "id": "anti-slop",
+      "name": "Anti-slop",
+      "status": "applied",
+      "reason": "Read source-review notes; implement real retry/status behavior and explicit online-only workspace limits with no fictional offline account content."
+    },
+    {
+      "id": "skillui",
+      "name": "SkillUI",
+      "status": "not_applicable",
+      "reason": "Existing tokens and source inventory are already explicit. No extraction CLI or inferred design authority is needed."
+    },
+    {
+      "id": "elaya",
+      "name": "Elaya AI Design Skills",
+      "status": "not_applicable",
+      "reason": "No landing/Figma generation or new visual language is requested. Retain the established Roomline typography and motion choices."
+    },
+    {
+      "id": "emil-apple",
+      "name": "Emil Kowalski Skills / Apple Design",
+      "status": "applied",
+      "reason": "Read source-review notes for direct web feedback and restrained motion. Document actual Safari manual steps without claiming native Apple implementation."
+    },
+    {
+      "id": "ux-ui-agent-skills",
+      "name": "UX/UI Agent Skills / XIAS",
+      "status": "applied",
+      "reason": "Read reviewed token/state guidance; distinguish available prompt, dismissed prompt, failure, standalone and offline states. No kit accuracy score claimed."
+    },
+    {
+      "id": "impeccable",
+      "name": "Impeccable",
+      "status": "applied",
+      "reason": "Read reviewed Read/Operate guidance; the installation page explains a task plainly and does not turn workspace operations into a marketing demo."
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "name": "UI/UX Pro Max",
+      "status": "applied",
+      "reason": "Read reviewed priority guidance; accessibility, honest state feedback and responsive behavior precede styling. No toolkit search or generated score run."
+    },
+    {
+      "id": "tasteskill-site",
+      "name": "Taste Skill website",
+      "status": "not_applicable",
+      "reason": "The pinned repository/source review already supplies applicable guidance. Website marketing examples are not needed for this bounded technical task."
+    },
+    {
+      "id": "12ui",
+      "name": "12ui Design",
+      "status": "not_applicable",
+      "reason": "Read the actual cloud skill. Its image draft/branch/convert workflow does not apply to installability plumbing and this guide within an approved existing system; no generation run claimed."
+    },
+    {
+      "id": "product-design",
+      "name": "Product Design",
+      "status": "applied",
+      "reason": "Use the existing reviewed product/design notes to preserve access contracts and source-backed claims. No new full product audit or competitor measurement claimed."
+    },
+    {
+      "id": "frontend-design",
+      "name": "Installed frontend-design skill",
+      "status": "unavailable",
+      "reason": "The registry names .agents/skills/frontend-design/SKILL.md, but that path is absent in this checkout. Existing DESIGN.md and local components provide the task-specific direction."
+    }
+  ]
+}

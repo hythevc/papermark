@@ -1,0 +1,287 @@
+{
+  "checkedAt": "2026-11-17T03:52:59.970Z",
+  "expectedServerMode": "production",
+  "method": "Attempt four actual authenticated local screenshots using retained synthetic owner fixtures; no route, API or authentication mocks and no product mutation.",
+  "captures": [
+    {
+      "route": "/documents",
+      "source": "pages/documents/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "accepted",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy."
+        }
+      ],
+      "httpErrors": [],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 0,
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440,
+        "mainCount": 1
+      },
+      "buildId": "Fmo26OV53AAGKGw3Dp2Na",
+      "visibleAlerts": [
+        ""
+      ],
+      "loadingRemaining": 0,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "axe": {
+        "violations": [],
+        "incompleteCount": 3
+      },
+      "screenshot": "artifacts/runtime/authenticated/documents-1440.png",
+      "review": "Individually inspected final production image: readable library heading, upload/search controls and actual synthetic PDF row; sidebar team/invite controls remain visible; no clipping or page-level overflow."
+    },
+    {
+      "route": "/datarooms/[id]",
+      "source": "pages/datarooms/[id]/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "accepted",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy."
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/avatar/16a833c3fb2033176478969c4542dfc1b14058092c2be0d16dc14195f49302e5",
+          "status": 404,
+          "resourceType": "image"
+        },
+        {
+          "path": "/avatar/107493c2c082384deb14bf62bd2fc441732d4472dd6e3879959902b7dcc7dce0",
+          "status": 404,
+          "resourceType": "image"
+        }
+      ],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 1,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440,
+        "mainCount": 1
+      },
+      "buildId": "Fmo26OV53AAGKGw3Dp2Na",
+      "visibleAlerts": [
+        "Roomline | Move the conversation forward."
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [],
+        "incompleteCount": 2
+      },
+      "screenshot": "artifacts/runtime/authenticated/room-overview-1440.png",
+      "review": "Individually inspected final production image: Overview selection and breadcrumb are correct; next-step cards, real metrics, sharing row and visitor rows are readable; initials fallback is visible for external avatar failures; no page-level overflow."
+    },
+    {
+      "route": "/documents",
+      "source": "pages/documents/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "accepted",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy."
+        }
+      ],
+      "httpErrors": [],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 0,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390,
+        "mainCount": 1
+      },
+      "buildId": "Fmo26OV53AAGKGw3Dp2Na",
+      "visibleAlerts": [
+        ""
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [],
+        "incompleteCount": 3
+      },
+      "screenshot": "artifacts/runtime/authenticated/documents-390.png",
+      "review": "Individually inspected final production image: readable document count, upload/search controls and card; Documents is the active mobile destination; no clipping or page-level overflow."
+    },
+    {
+      "route": "/datarooms/[id]",
+      "source": "pages/datarooms/[id]/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "accepted",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy."
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/avatar/107493c2c082384deb14bf62bd2fc441732d4472dd6e3879959902b7dcc7dce0",
+          "status": 404,
+          "resourceType": "image"
+        },
+        {
+          "path": "/avatar/16a833c3fb2033176478969c4542dfc1b14058092c2be0d16dc14195f49302e5",
+          "status": 404,
+          "resourceType": "image"
+        }
+      ],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 1,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390,
+        "mainCount": 1
+      },
+      "buildId": "Fmo26OV53AAGKGw3Dp2Na",
+      "visibleAlerts": [
+        "Roomline | Move the conversation forward."
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [],
+        "incompleteCount": 1
+      },
+      "screenshot": "artifacts/runtime/authenticated/room-overview-390.png",
+      "review": "Individually inspected final production image: next-step cards reflow to one column, long visitor text wraps and the sharing table has contained scrolling; the mobile nav does not select Documents on Overview; no page-level overflow."
+    }
+  ],
+  "limitations": [
+    "Target coverage is only the documents library and one owned room overview in light theme at two desktop-browser viewport widths; captures and their individual statuses record the actual outcome.",
+    "Automated Axe checks do not establish complete accessibility conformance; no physical device, native app or 95-screen visual pass is claimed.",
+    "Optional external provider errors are recorded as observed; this test does not configure or verify those providers.",
+    "Browser logs include the report-only CSP upgrade-insecure-requests directive being ignored.",
+    "Two external avatar requests return 404 on each room overview; the inspected initials fallback remains visible.",
+    "Axe incomplete items remain recorded for manual accessibility review; zero automated violations is not complete conformance."
+  ],
+  "aliasChecks": [
+    {
+      "route": "/settings/billing/upgrade",
+      "destination": "/settings/billing",
+      "status": "passed",
+      "httpStatus": 200,
+      "redirectLimit": 5
+    },
+    {
+      "route": "/settings/upgrade",
+      "destination": "/settings/billing",
+      "status": "passed",
+      "httpStatus": 200,
+      "redirectLimit": 5
+    }
+  ],
+  "cachePrivacy": {
+    "status": "passed",
+    "entries": {
+      "roomline-public-v1": [
+        {
+          "path": "/offline.html",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline.svg",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline-192.png",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline-512.png",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline-maskable-512.png",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/apple-touch-icon.png",
+          "hasQuery": false
+        }
+      ]
+    }
+  },
+  "productionBuildId": "Fmo26OV53AAGKGw3Dp2Na",
+  "servedBuildMatchesDisk": true,
+  "reviewSummary": "Four actual production route/viewport images individually inspected and accepted with zero WCAG-tagged Axe violations, zero page JavaScript exceptions and no page-level horizontal overflow. This is focused snapshot evidence, not a 95-screen or complete accessibility pass."
+}

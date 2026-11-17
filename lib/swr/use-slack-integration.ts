@@ -1,27 +1,31 @@
 import { useTeam } from "@/context/team-context";
-import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 
-import { SlackIntegration } from "@/lib/integrations/slack/types";
+import {
+  SlackIntegrationResponse,
+  decodeSlackIntegration,
+} from "@/lib/integrations/slack/status";
 import { fetcher } from "@/lib/utils";
 
 export function useSlackIntegration({ enabled = true }: { enabled?: boolean }) {
   const { currentTeamId: teamId } = useTeam();
-  const { data, error, isLoading, mutate } = useSWRImmutable<SlackIntegration>(
-    enabled && teamId ? `/api/teams/${teamId}/integrations/slack` : null,
-    fetcher,
-    {
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-      dedupingInterval: 30000,
-      revalidateIfStale: false,
-      errorRetryCount: 2,
-      errorRetryInterval: 5000,
-    },
-  );
+  const { data, error, isLoading, mutate } =
+    useSWRImmutable<SlackIntegrationResponse>(
+      enabled && teamId ? `/api/teams/${teamId}/integrations/slack` : null,
+      fetcher,
+      {
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+        dedupingInterval: 30000,
+        revalidateIfStale: false,
+        errorRetryCount: 2,
+        errorRetryInterval: 5000,
+      },
+    );
 
+  const state = decodeSlackIntegration(data, error?.status);
   return {
-    integration: data || null,
+    ...state,
     error,
     loading: isLoading && !data,
     mutate,

@@ -19,7 +19,13 @@ export default function ProAnnualBanner({
 }) {
   const router = useRouter();
   const teamInfo = useTeam();
-  const { plan: teamPlan, trial, isCustomer, isOldAccount } = usePlan();
+  const {
+    plan: teamPlan,
+    trial,
+    isCustomer,
+    isOldAccount,
+    billingActionsAvailable,
+  } = usePlan();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -29,6 +35,8 @@ export default function ProAnnualBanner({
       expires: 7,
     });
   };
+
+  if (!billingActionsAvailable) return null;
 
   return (
     <aside className="relative mb-2 flex w-full flex-col justify-center rounded-lg border border-gray-700 bg-background p-4 text-foreground">
@@ -52,6 +60,7 @@ export default function ProAnnualBanner({
           className="grow"
           loading={isLoading}
           onClick={() => {
+            if (!billingActionsAvailable) return;
             if (isCustomer && teamPlan === "pro") {
               setIsLoading(true);
               fetch(`/api/teams/${teamInfo?.currentTeam?.id}/billing/manage`, {

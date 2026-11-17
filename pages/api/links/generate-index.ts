@@ -9,6 +9,7 @@ import {
 import { resolveDataroomIndexEnabledForViewer } from "@/lib/featureFlags/dataroom-index-viewer";
 import prisma from "@/lib/prisma";
 import { IndexFileFormat } from "@/lib/types/index-file";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 
 export default async function handle(
   req: NextApiRequest,
@@ -224,9 +225,7 @@ export default async function handle(
       linkWithDataroom,
       {
         format,
-        baseUrl: link.domainId
-          ? `${link.domainSlug}/${link.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`,
+        baseUrl: constructLinkUrl(link),
         showHierarchicalIndex,
       },
     );

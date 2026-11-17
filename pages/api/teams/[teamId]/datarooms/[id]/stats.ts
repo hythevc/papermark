@@ -108,7 +108,7 @@ export default async function handle(
 
       // exclude views from the team's members
       let excludedViews: View[] = [];
-      if (excludeTeamMembers) {
+      if (excludeTeamMembers === "true") {
         excludedViews = documentViews.filter((view) => {
           return users.some((user) => user.email === view.viewerEmail);
         });
@@ -118,22 +118,41 @@ export default async function handle(
         (view) => !excludedViews.map((view) => view.id).includes(view.id),
       );
 
-      const duration = await getTotalDataroomDuration({
-        dataroomId: dataroomId,
-        excludedLinkIds: [],
-        excludedViewIds: excludedViews.map((view) => view.id),
-        since: 0,
-      });
+      let duration: {
+        data: { viewId: string; sum_duration: number }[];
+      } | null = null;
+      if (process.env.TINYBIRD_TOKEN) {
+        try {
+          duration = await getTotalDataroomDuration({
+            dataroomId: dataroomId,
+            excludedLinkIds: [],
+            excludedViewIds: excludedViews.map((view) => view.id),
+            since: 0,
+          });
+        } catch {
+          console.warn(
+            "Data room duration analytics are unavailable; returning persisted view counts.",
+          );
+        }
+      }
 
-      const total_duration = duration.data.reduce(
-        (totalDuration, data) => totalDuration + data.sum_duration,
-        0,
-      );
+      const total_duration =
+        duration?.data.reduce(
+          (totalDuration, data) => totalDuration + data.sum_duration,
+          0,
+        ) ?? null;
 
       const stats = {
-        dataroomViews: dataroomViews,
-        documentViews: documentViews,
-        duration: duration.data,
+        dataroomViews:
+          excludeTeamMembers === "true"
+            ? dataroomViews.filter(
+                (view) =>
+                  !users.some((user) => user.email === view.viewerEmail),
+              )
+            : dataroomViews,
+        documentViews: filteredViews,
+        duration: duration?.data ?? [],
+        durationAvailable: duration !== null,
         total_duration,
       };
 

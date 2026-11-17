@@ -10,9 +10,8 @@ import LoadingSpinner from "@/components/ui/loading-spinner";
 /**
  * Full-page redaction workspace.
  *
- * The detection and apply phases run in background Trigger.dev tasks, so this
- * page is safe to close and revisit at any time — the job state lives on the
- * `DocumentRedactionJob` row and real-time progress is re-subscribed on load.
+ * Manual regions persist on the job. Applying creates a bounded, flattened PDF
+ * synchronously; this deployment does not claim AI detection or background runs.
  */
 export default function DocumentRedactionJobPage() {
   const router = useRouter();

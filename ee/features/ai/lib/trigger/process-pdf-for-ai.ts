@@ -1,7 +1,7 @@
 import { logger, metadata, task } from "@trigger.dev/sdk";
 import path from "path";
 
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 import { getFile } from "@/lib/files/get-file";
 import prisma from "@/lib/prisma";
 import { processPdfForAIQueue } from "@/lib/trigger/queues";
@@ -66,7 +66,7 @@ export const processPdfForAITask = task({
 
     // Upload to OpenAI Files
     const file = new File([buffer], fileName, { type: "application/pdf" });
-    const fileResponse = await openai.files.create({
+    const fileResponse = await getOpenAIClient().files.create({
       file,
       purpose: "assistants",
     });

@@ -3,6 +3,7 @@ import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 import { isMarketingPathname } from "@/lib/marketing-routes";
 import AppMiddleware from "@/lib/middleware/app";
 import DomainMiddleware from "@/lib/middleware/domain";
+import { isPublicPwaAssetPathname, isPwaApplicationHost } from "@/lib/pwa";
 
 import { BLOCKED_PATHNAMES } from "./lib/constants";
 import IncomingWebhookMiddleware, {
@@ -122,6 +123,34 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   // For custom domains, we need to handle them differently
   if (isCustomDomain(host || "")) {
     return DomainMiddleware(req);
+  }
+
+  // Older plan links target an absent picker. Keep them on the actual billing
+  // page, after API/customer-host isolation and before normal authentication.
+  if (path === "/settings/billing/upgrade") {
+    return NextResponse.redirect(new URL("/settings/billing", req.url));
+  }
+
+  // Installation assets are public only on this deployment's app host. Keep
+  // this after API, webhook and customer-domain isolation and use exact paths.
+  if (isPublicPwaAssetPathname(path)) {
+    if (!isPwaApplicationHost(host))
+      return new NextResponse(null, { status: 404 });
+    const response = NextResponse.next();
+    response.headers.set("X-Content-Type-Options", "nosniff");
+    if (path === "/sw.js") {
+      response.headers.set(
+        "Content-Type",
+        "application/javascript; charset=utf-8",
+      );
+      response.headers.set("Cache-Control", "no-store, max-age=0");
+      response.headers.set("Service-Worker-Allowed", "/");
+    }
+    if (path === "/manifest.webmanifest") {
+      response.headers.set("Content-Type", "application/manifest+json");
+      response.headers.set("Cache-Control", "no-cache");
+    }
+    return response;
   }
 
   // Marketing content is public only after application-host isolation.

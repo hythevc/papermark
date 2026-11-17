@@ -11,6 +11,8 @@ import { EU_COUNTRY_CODES } from "../constants";
 import { capitalize, getDomainWithoutWWW } from "../utils";
 import { LOCALHOST_GEO_DATA, LOCALHOST_IP } from "../utils/geo";
 
+let warnedAboutMissingTinybird = false;
+
 export async function recordLinkView({
   req,
   clickId,
@@ -102,21 +104,44 @@ export async function recordLinkView({
     city: geo.city || "Unknown",
   };
 
-  const [, ,] = await Promise.all([
-    // record link view in Tinybird
-    recordLinkViewTB(clickData),
-
-    // send email notification
-    enableNotification ? sendNotification({ viewId, locationData }) : null,
-
-    // send webhook event
-    !isPaused
-      ? sendLinkViewWebhook({
-          teamId,
-          clickData,
-        })
-      : null,
-  ]);
+  // Access and its Postgres view record are already established by the caller.
+  // Optional delivery failures must not turn that access into a failed request.
+  const sideEffects: { name: string; run: () => Promise<unknown> }[] = [];
+  if (process.env.TINYBIRD_TOKEN) {
+    sideEffects.push({
+      name: "Tinybird ingestion",
+      run: () => recordLinkViewTB(clickData),
+    });
+  } else if (!warnedAboutMissingTinybird) {
+    warnedAboutMissingTinybird = true;
+    console.warn(
+      "[Tracking] Tinybird is not configured. Analytics ingestion is unavailable; Postgres view records remain available.",
+    );
+  }
+  if (enableNotification) {
+    sideEffects.push({
+      name: "access notification",
+      run: () => sendNotification({ viewId, locationData }),
+    });
+  }
+  if (!isPaused) {
+    sideEffects.push({
+      name: "view webhook",
+      run: () => sendLinkViewWebhook({ teamId, clickData }),
+    });
+  }
+  await Promise.all(
+    sideEffects.map(async ({ name, run }) => {
+      try {
+        await run();
+      } catch (error) {
+        const errorType = error instanceof Error ? error.name : "UnknownError";
+        console.warn(
+          `[Tracking] Optional ${name} failed (${errorType}). The recorded view is unchanged.`,
+        );
+      }
+    }),
+  );
 
   return clickData;
 }

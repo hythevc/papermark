@@ -27,6 +27,7 @@ import useLimits from "@/lib/swr/use-limits";
 import { DocumentWithLinksAndLinkCountAndViewCount } from "@/lib/types";
 import { cn, getBreadcrumbPath, nFormatter, timeAgo } from "@/lib/utils";
 import { fileIcon } from "@/lib/utils/get-file-icon";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 import { useCopyToClipboard } from "@/lib/utils/use-copy-to-clipboard";
 
 import { UpgradePlanModal } from "@/components/billing/upgrade-plan-modal";
@@ -88,10 +89,7 @@ export default function DocumentsCard({
   const currentFolderPath = router.query.name as string[] | undefined;
 
   function handleCopyToClipboard(id: string) {
-    copyToClipboard(
-      `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${id}`,
-      "Link copied to clipboard.",
-    );
+    copyToClipboard(constructLinkUrl({ id }), "Link copied to clipboard.");
   }
 
   // https://github.com/radix-ui/primitives/issues/1241#issuecomment-1888232392
@@ -300,8 +298,7 @@ export default function DocumentsCard({
       {
         loading: "Hiding document from All Documents...",
         success: "Document hidden from All Documents.",
-        error: (err) =>
-          err.message || "Failed to hide document. Try again.",
+        error: (err) => err.message || "Failed to hide document. Try again.",
       },
     );
   };
@@ -335,10 +332,7 @@ export default function DocumentsCard({
                   className="relative block w-full min-w-0 truncate"
                 >
                   <span className="block truncate">{prismaDocument.name}</span>
-                  <span
-                    className="absolute inset-0 z-0"
-                    aria-hidden
-                  />
+                  <span className="absolute inset-0 z-0" aria-hidden />
                 </Link>
               </h2>
               {prismaDocument._count.datarooms > 0 && (

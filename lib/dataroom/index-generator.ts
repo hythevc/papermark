@@ -1,7 +1,6 @@
-import { DataroomFolder, Document, DocumentVersion } from "@prisma/client";
+import { DataroomFolder } from "@prisma/client";
 import ExcelJS from "exceljs";
 
-import { LinkWithDataroom } from "../types";
 import {
   DataroomIndex,
   DataroomIndexEntry,
@@ -38,6 +37,19 @@ interface DataroomDocumentWithVersion {
   };
 }
 
+/** Only the already-authorized room data used to build a downloadable index. */
+export interface DataroomIndexSource {
+  id: string;
+  dataroom: {
+    id: string;
+    name: string;
+    createdAt: Date;
+    lastUpdatedAt: Date;
+    folders: DataroomFolder[];
+    documents: DataroomDocumentWithVersion[];
+  };
+}
+
 const formatBytes = (bytes: number): number => {
   if (bytes === 0) return 0;
   // Convert bytes to MB by dividing by 1024^2 (1MB = 1024 * 1024 bytes)
@@ -47,7 +59,7 @@ const formatBytes = (bytes: number): number => {
 };
 
 export async function generateDataroomIndex(
-  link: LinkWithDataroom,
+  link: DataroomIndexSource,
   options: GenerateIndexOptions = {},
 ): Promise<{ data: Buffer; filename: string; mimeType: string }> {
   const { format = "excel", baseUrl, showHierarchicalIndex = false } = options;
@@ -88,9 +100,9 @@ export async function generateDataroomIndex(
     indexData.totalFolders++;
 
     // Process documents in the folder
-    const documents = (
-      link.dataroom?.documents as DataroomDocumentWithVersion[]
-    ).filter((doc) => doc.folderId === folder.id);
+    const documents = link.dataroom.documents.filter(
+      (doc) => doc.folderId === folder.id,
+    );
 
     for (const doc of documents) {
       const latestVersion =
@@ -130,9 +142,7 @@ export async function generateDataroomIndex(
   const rootFolders = link.dataroom.folders.filter(
     (f: DataroomFolder) => !f.parentId,
   );
-  const rootDocuments = (
-    link.dataroom.documents as DataroomDocumentWithVersion[]
-  ).filter((d) => !d.folderId);
+  const rootDocuments = link.dataroom.documents.filter((doc) => !doc.folderId);
 
   // Add root dataroom entry
   indexData.entries.push({

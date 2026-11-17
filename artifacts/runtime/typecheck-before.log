@@ -1,0 +1,208 @@
+components/billing/plan-price.tsx(5,8): error TS2307: Cannot find module '@/ee/stripe/currency' or its corresponding type declarations.
+components/billing/unlimited-plan-modal.tsx(143,54): error TS2551: Property 'amountUsd' does not exist on type '{ amount: number; unitPrice: number; priceIds: { test: { old: string; new: string; }; production: { old: string; new: string; }; }; } | { amount: number; unitPrice: number; priceIds: { test: { old: string; new: string; }; production: { ...; }; }; }'. Did you mean 'amount'?
+  Property 'amountUsd' does not exist on type '{ amount: number; unitPrice: number; priceIds: { test: { old: string; new: string; }; production: { old: string; new: string; }; }; }'.
+components/billing/upgrade-plan-modal.tsx(452,19): error TS2353: Object literal may only specify known properties, and 'currency' does not exist in type 'FeatureOptions'.
+components/billing/upgrade-plan-modal.tsx(580,27): error TS2551: Property 'amountUsd' does not exist on type '{ amount: number; unitPrice: number; priceIds: { test: { old: string; new: string; }; production: { old: string; new: string; }; }; } | { amount: number; unitPrice: number; priceIds: { test: { old: string; new: string; }; production: { ...; }; }; }'. Did you mean 'amount'?
+  Property 'amountUsd' does not exist on type '{ amount: number; unitPrice: number; priceIds: { test: { old: string; new: string; }; production: { old: string; new: string; }; }; }'.
+components/billing/upgrade-plan-modal.tsx(657,39): error TS2339: Property 'aliasIds' does not exist on type 'Feature'.
+components/billing/upgrade-plan-modal.tsx(657,55): error TS7006: Parameter 'alias' implicitly has an 'any' type.
+components/billing/upgrade-plan-modal.tsx(667,37): error TS2339: Property 'aliasIds' does not exist on type 'Feature'.
+components/billing/upgrade-plan-modal.tsx(667,53): error TS7006: Parameter 'alias' implicitly has an 'any' type.
+components/billing/upgrade-plan-modal.tsx(688,45): error TS2339: Property 'aliasIds' does not exist on type 'Feature'.
+components/billing/upgrade-plan-modal.tsx(688,61): error TS7006: Parameter 'alias' implicitly has an 'any' type.
+components/documents/document-header.tsx(79,12): error TS2307: Cannot find module '@/ee/features/redaction/components/redaction-jobs-dialog' or its corresponding type declarations.
+components/documents/document-header.tsx(86,12): error TS2307: Cannot find module '@/ee/features/redaction/components/redaction-config-dialog' or its corresponding type declarations.
+components/documents/document-header.tsx(1294,15): error TS2322: Type '{ open: true; onOpenChange: Dispatch<SetStateAction<boolean>>; documentId: string; documentName: string; onStartNew: () => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'open' does not exist on type 'IntrinsicAttributes'.
+components/documents/document-header.tsx(1303,15): error TS2322: Type '{ open: true; onOpenChange: Dispatch<SetStateAction<boolean>>; documentId: string; documentName: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'open' does not exist on type 'IntrinsicAttributes'.
+components/emails/otp-verification.tsx(3,40): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+components/emails/otp-verification.tsx(48,15): error TS2322: Type 'any' is not assignable to type 'never'.
+components/layouts/mobile-dataroom-more-menu.tsx(8,46): error TS2307: Cannot find module '@/ee/features/request-lists/lib/use-request-list-feature' or its corresponding type declarations.
+components/links/link-sheet/brand-section.tsx(4,8): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-dataroom-displayed-brand' or its corresponding type declarations.
+components/links/link-sheet/link-options.tsx(3,37): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-section' or its corresponding type declarations.
+components/sidebar/dataroom-sidebar.tsx(8,46): error TS2307: Cannot find module '@/ee/features/request-lists/lib/use-request-list-feature' or its corresponding type declarations.
+components/tokens/scopes.ts(1,33): error TS2307: Cannot find module '@/lib/oauth/scopes' or its corresponding type declarations.
+components/view/access-form/index.tsx(3,34): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+components/view/dataroom/dataroom-banner-media.tsx(5,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-banner' or its corresponding type declarations.
+components/view/dataroom/dataroom-view.tsx(6,38): error TS2307: Cannot find module '@/ee/features/request-lists/lib/swr/use-viewer-request-list' or its corresponding type declarations.
+components/view/dataroom/document-card.tsx(7,41): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+components/view/dataroom/folder-card.tsx(7,41): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(6,34): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(7,40): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-banner' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(11,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(12,29): error TS2307: Cannot find module '@/ee/features/branding/lib/use-logo-tone' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(13,44): error TS2307: Cannot find module '@/ee/features/conversations/components/viewer/conversation-sidebar-provider' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(14,34): error TS2307: Cannot find module '@/ee/features/request-lists/components/viewer/request-list-sheet' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(15,50): error TS2307: Cannot find module '@/ee/features/request-lists/lib/events' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(16,38): error TS2307: Cannot find module '@/ee/features/request-lists/lib/swr/use-viewer-request-list' or its corresponding type declarations.
+components/view/dataroom/nav-dataroom.tsx(346,15): error TS2322: Type 'any' is not assignable to type 'never'.
+components/view/dataroom/nav-dataroom.tsx(449,15): error TS2322: Type 'any' is not assignable to type 'never'.
+components/view/dataroom/nav-dataroom.tsx(700,11): error TS2322: Type '{ dataroomId: string | undefined; dataroomName: any; viewId: string; viewerId: string | undefined; linkId: string; isEnabled: true; isOpen: boolean; onOpenChange: Dispatch<SetStateAction<boolean>>; }' is not assignable to type 'IntrinsicAttributes & ConversationSidebarProps'.
+  Property 'dataroomName' does not exist on type 'IntrinsicAttributes & ConversationSidebarProps'.
+components/view/nav.tsx(7,34): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+components/view/nav.tsx(8,44): error TS2307: Cannot find module '@/ee/features/conversations/components/viewer/conversation-sidebar-provider' or its corresponding type declarations.
+components/view/nav.tsx(170,15): error TS2322: Type 'any' is not assignable to type 'never'.
+components/view/nav.tsx(572,11): error TS2322: Type '{ dataroomId: string | undefined; documentId: string; documentName: string | undefined; dataroomName: string | undefined; pageNumber: number | undefined; viewId: string; viewerId: string | undefined; linkId: string; isEnabled: true; isOpen: boolean; onOpenChange: Dispatch<...>; }' is not assignable to type 'IntrinsicAttributes & ConversationSidebarProps'.
+  Property 'documentName' does not exist on type 'IntrinsicAttributes & ConversationSidebarProps'.
+components/view/view-data.tsx(14,8): error TS2307: Cannot find module '@/ee/features/conversations/components/viewer/conversation-sidebar-provider' or its corresponding type declarations.
+components/view/viewer/dataroom-viewer.tsx(18,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+components/view/viewer/dataroom-viewer.tsx(22,8): error TS2307: Cannot find module '@/ee/features/conversations/components/viewer/conversation-sidebar-provider' or its corresponding type declarations.
+components/view/viewer/dataroom-viewer.tsx(23,35): error TS2307: Cannot find module '@/ee/features/request-lists/components/viewer/request-list-button' or its corresponding type declarations.
+components/view/viewer/dataroom-viewer.tsx(24,38): error TS2307: Cannot find module '@/ee/features/request-lists/lib/swr/use-viewer-request-list' or its corresponding type declarations.
+components/view/viewer/excel-viewer.tsx(4,41): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-overlay' or its corresponding type declarations.
+components/view/viewer/html-viewer.tsx(5,41): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-overlay' or its corresponding type declarations.
+components/view/viewer/image-viewer.tsx(5,41): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-overlay' or its corresponding type declarations.
+components/view/viewer/notion-page.tsx(6,41): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-overlay' or its corresponding type declarations.
+components/view/viewer/pages-horizontal-viewer.tsx(5,41): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-overlay' or its corresponding type declarations.
+components/view/viewer/pages-vertical-viewer.tsx(5,41): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-overlay' or its corresponding type declarations.
+components/view/viewer/video-viewer.tsx(3,41): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-overlay' or its corresponding type declarations.
+components/welcome/containers/onboarding-link-options.tsx(3,37): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-section' or its corresponding type declarations.
+ee/emails/pause-resume-reminder.tsx(13,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/features/access-notifications/components/blocked-email-attempt.tsx(13,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/features/billing/cancellation/api/pause-route.ts(76,53): error TS2339: Property 'current_period_end' does not exist on type 'Response<Subscription>'.
+ee/features/billing/cancellation/emails/components/pause-resume-reminder.tsx(15,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/features/billing/renewal-reminder/emails/subscription-renewal-reminder.tsx(12,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/features/conversations/components/viewer/conversation-view-sidebar.tsx(14,10): error TS2459: Module '"@/lib/utils/sanitize-html"' declares 'MAX_MESSAGE_LENGTH' locally, but it is not exported.
+ee/features/conversations/emails/components/conversation-notification.tsx(14,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/features/conversations/emails/components/conversation-team-notification.tsx(14,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/features/conversations/pages/conversation-detail.tsx(27,10): error TS2459: Module '"@/lib/utils/sanitize-html"' declares 'MAX_MESSAGE_LENGTH' locally, but it is not exported.
+ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx(12,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx(14,8): error TS2307: Cannot find module '@react-email/components' or its corresponding type declarations.
+ee/stripe/functions/get-subscription-item.ts(25,20): error TS2551: Property 'discount' does not exist on type 'Response<Subscription>'. Did you mean 'discounts'?
+ee/stripe/functions/get-subscription-item.ts(25,45): error TS2551: Property 'discount' does not exist on type 'Response<Subscription>'. Did you mean 'discounts'?
+ee/stripe/functions/get-subscription-item.ts(26,33): error TS2551: Property 'discount' does not exist on type 'Response<Subscription>'. Did you mean 'discounts'?
+ee/stripe/functions/get-subscription-item.ts(34,25): error TS2551: Property 'discount' does not exist on type 'Response<Subscription>'. Did you mean 'discounts'?
+ee/stripe/functions/get-subscription-item.ts(40,38): error TS2339: Property 'current_period_start' does not exist on type 'Response<Subscription>'.
+ee/stripe/functions/get-subscription-item.ts(41,36): error TS2339: Property 'current_period_end' does not exist on type 'Response<Subscription>'.
+ee/stripe/index.ts(8,5): error TS2322: Type '"2024-06-20"' is not assignable to type '"2026-06-24.dahlia"'.
+ee/stripe/index.ts(20,5): error TS2322: Type '"2024-06-20"' is not assignable to type '"2026-06-24.dahlia"'.
+ee/stripe/webhooks/checkout-session-completed.ts(16,53): error TS2307: Cannot find module '@/lib/trigger/send-scheduled-email' or its corresponding type declarations.
+ee/stripe/webhooks/checkout-session-completed.ts(44,51): error TS2339: Property 'current_period_start' does not exist on type 'Response<Subscription>'.
+ee/stripe/webhooks/checkout-session-completed.ts(45,49): error TS2339: Property 'current_period_end' does not exist on type 'Response<Subscription>'.
+ee/stripe/webhooks/customer-subscription-updated.ts(57,49): error TS2339: Property 'current_period_start' does not exist on type 'Subscription'.
+ee/stripe/webhooks/customer-subscription-updated.ts(58,47): error TS2339: Property 'current_period_end' does not exist on type 'Subscription'.
+ee/stripe/webhooks/invoice-upcoming.ts(27,14): error TS2339: Property 'price' does not exist on type 'InvoiceLineItem'.
+ee/stripe/webhooks/invoice-upcoming.ts(27,28): error TS2339: Property 'price' does not exist on type 'InvoiceLineItem'.
+ee/stripe/webhooks/invoice-upcoming.ts(29,14): error TS2339: Property 'price' does not exist on type 'InvoiceLineItem'.
+ee/stripe/webhooks/invoice-upcoming.ts(30,15): error TS2339: Property 'price' does not exist on type 'InvoiceLineItem'.
+ee/stripe/webhooks/invoice-upcoming.ts(31,16): error TS2339: Property 'price' does not exist on type 'InvoiceLineItem'.
+lib/api/documents/process-document.ts(4,8): error TS2307: Cannot find module '@/ee/features/conversions/lib/trigger/convert-files' or its corresponding type declarations.
+lib/api/documents/validate-external-url.ts(4,35): error TS2307: Cannot find module '@/lib/api/errors' or its corresponding type declarations.
+lib/api/links/bulk-import.ts(103,18): error TS2339: Property 'bulkLinkImport' does not exist on type '{ auth: RegionRatelimit; billing: RegionRatelimit; }'.
+lib/api/links/link-data.ts(6,8): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+lib/api/links/link-data.ts(10,8): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-dataroom-displayed-brand' or its corresponding type declarations.
+lib/api/links/link-data.ts(11,39): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-public-link-meta' or its corresponding type declarations.
+lib/api/links/link-data.ts(12,45): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-public-link-meta' or its corresponding type declarations.
+lib/api/usage.ts(6,32): error TS2307: Cannot find module '@/lib/api/errors' or its corresponding type declarations.
+lib/emails/send-email-otp-verification.ts(4,8): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+lib/emails/send-email-otp-verification.ts(5,34): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+lib/redis/brand-logo-cache.ts(5,8): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+lib/swr/use-geo-currency.ts(3,31): error TS2307: Cannot find module '@/ee/stripe/currency' or its corresponding type declarations.
+lib/swr/use-subscription-currency.ts(2,31): error TS2307: Cannot find module '@/ee/stripe/currency' or its corresponding type declarations.
+lib/trigger/conversation-message-notification.ts(2,3): error TS2724: '"@/ee/features/conversations/lib/trigger/conversation-message-notification"' has no exported member named 'sendConversationMentionNotificationTask'. Did you mean 'sendConversationMessageNotificationTask'?
+pages/api/file/tus-viewer/[[...file]].ts(3,34): error TS2307: Cannot find module '@/ee/features/request-lists/lib/assignments' or its corresponding type declarations.
+pages/api/jobs/send-conversation-mention-notification.ts(2,25): error TS2307: Cannot find module '@/ee/features/conversations/api/send-conversation-mention-notification' or its corresponding type declarations.
+pages/api/links/[id]/index.ts(3,37): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/links/generate-index.ts(6,3): error TS2305: Module '"@/lib/dataroom/index-generator"' has no exported member 'DataroomIndexSource'.
+pages/api/links/index.ts(4,37): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/branding.ts(10,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+pages/api/teams/[teamId]/branding.ts(11,33): error TS2307: Cannot find module '@/ee/features/branding/lib/delete-team-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/branding.ts(15,8): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/branding.ts(158,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/branding.ts(161,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/branding.ts(169,9): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+pages/api/teams/[teamId]/branding.ts(180,7): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string | null | undefined'.
+pages/api/teams/[teamId]/branding.ts(274,9): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+pages/api/teams/[teamId]/branding.ts(285,7): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string | null | undefined'.
+pages/api/teams/[teamId]/branding.ts(304,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/branding.ts(307,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/brands/[brandId]/index.ts(3,33): error TS2307: Cannot find module '@/ee/features/branding/lib/delete-team-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/brands/[brandId]/index.ts(4,35): error TS2307: Cannot find module '@/ee/features/branding/lib/prepare-brand-write' or its corresponding type declarations.
+pages/api/teams/[teamId]/brands/index.ts(3,35): error TS2307: Cannot find module '@/ee/features/branding/lib/prepare-brand-write' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/[id]/apply-permissions.ts(9,57): error TS2307: Cannot find module '@/lib/dataroom/apply-default-permissions' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(10,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(11,54): error TS2307: Cannot find module '@/ee/features/branding/lib/upsert-dataroom-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(196,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(199,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(212,9): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(289,9): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(311,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/datarooms/[id]/branding.ts(314,11): error TS2322: Type 'unknown' is not assignable to type 'boolean | undefined'.
+pages/api/teams/[teamId]/datarooms/[id]/documents/index.ts(15,45): error TS2307: Cannot find module '@/lib/dataroom/apply-default-permissions' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/[id]/generate-index.ts(8,3): error TS2305: Module '"@/lib/dataroom/index-generator"' has no exported member 'DataroomIndexSource'.
+pages/api/teams/[teamId]/datarooms/[id]/index.ts(3,37): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/[id]/questions/[[...questions]].ts(3,29): error TS2307: Cannot find module '@/ee/features/conversations/api/team-questions-route' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/create-from-folder.ts(3,39): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/create-from-folder.ts(226,51): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+pages/api/teams/[teamId]/datarooms/generate-ai.ts(4,39): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/index.ts(4,39): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/trial.ts(7,8): error TS2307: Cannot find module '@/ee/features/billing/dataroom-trial/lib/trigger/send-scheduled-email' or its corresponding type declarations.
+pages/api/teams/[teamId]/datarooms/trial.ts(8,39): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/teams/[teamId]/documents/[id]/add-to-dataroom.ts(13,45): error TS2307: Cannot find module '@/lib/dataroom/apply-default-permissions' or its corresponding type declarations.
+pages/api/teams/[teamId]/documents/[id]/versions/index.ts(4,44): error TS2307: Cannot find module '@/ee/features/conversions/lib/trigger/convert-files' or its corresponding type declarations.
+pages/api/teams/[teamId]/documents/agreement.ts(9,44): error TS2307: Cannot find module '@/ee/features/conversions/lib/trigger/convert-files' or its corresponding type declarations.
+pages/api/teams/[teamId]/domains/[domain]/verify.ts(76,18): error TS2339: Property 'domainVerification' does not exist on type '{ auth: RegionRatelimit; billing: RegionRatelimit; }'.
+pages/api/teams/[teamId]/remove-teammate.ts(5,43): error TS2307: Cannot find module '@/lib/api/auth/restricted-tokens' or its corresponding type declarations.
+pages/api/teams/[teamId]/tokens/index.ts(9,8): error TS2307: Cannot find module '@/lib/api/auth/restricted-tokens' or its corresponding type declarations.
+pages/api/teams/[teamId]/tokens/index.ts(13,48): error TS2307: Cannot find module '@/lib/oauth/scopes' or its corresponding type declarations.
+pages/api/teams/index.ts(6,8): error TS2307: Cannot find module '@/ee/limits/can-create-premium-team' or its corresponding type declarations.
+pages/api/teams/index.ts(7,40): error TS2307: Cannot find module '@/ee/limits/can-create-unlimited-team' or its corresponding type declarations.
+pages/api/webhooks/services/[...path]/index.ts(4,39): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-base-brand' or its corresponding type declarations.
+pages/api/webhooks/services/[...path]/index.ts(11,45): error TS2307: Cannot find module '@/lib/dataroom/apply-default-permissions' or its corresponding type declarations.
+pages/branding.tsx(6,30): error TS2307: Cannot find module '@/ee/features/branding/components/banner-editor' or its corresponding type declarations.
+pages/branding.tsx(7,41): error TS2307: Cannot find module '@/ee/features/branding/components/branding-link-preview-form' or its corresponding type declarations.
+pages/branding.tsx(8,39): error TS2307: Cannot find module '@/ee/features/branding/components/branding-preview-chrome' or its corresponding type declarations.
+pages/branding.tsx(9,44): error TS2307: Cannot find module '@/ee/features/branding/components/collapsible-branding-section' or its corresponding type declarations.
+pages/branding.tsx(10,43): error TS2307: Cannot find module '@/ee/features/branding/components/dataroom-layout-preset-cards' or its corresponding type declarations.
+pages/branding.tsx(15,8): error TS2307: Cannot find module '@/ee/features/branding/components/team-brand-switcher' or its corresponding type declarations.
+pages/branding.tsx(19,8): error TS2307: Cannot find module '@/ee/features/branding/lib/auto-fill-result' or its corresponding type declarations.
+pages/branding.tsx(28,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+pages/branding.tsx(1780,55): error TS7006: Parameter 'opt' implicitly has an 'any' type.
+pages/datarooms/[id]/analytics/index.tsx(1,25): error TS2307: Cannot find module '@/ee/features/dataroom-analytics/pages/dataroom-analytics-page' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(4,30): error TS2307: Cannot find module '@/ee/features/branding/components/banner-editor' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(5,41): error TS2307: Cannot find module '@/ee/features/branding/components/branding-link-preview-form' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(6,39): error TS2307: Cannot find module '@/ee/features/branding/components/branding-preview-chrome' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(7,47): error TS2307: Cannot find module '@/ee/features/branding/components/branding-social-preview-readonly' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(8,44): error TS2307: Cannot find module '@/ee/features/branding/components/collapsible-branding-section' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(9,43): error TS2307: Cannot find module '@/ee/features/branding/components/dataroom-layout-preset-cards' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(10,37): error TS2307: Cannot find module '@/ee/features/branding/components/visitor-language-card' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(14,8): error TS2307: Cannot find module '@/ee/features/branding/lib/auto-fill-result' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(23,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(27,8): error TS2307: Cannot find module '@/ee/features/branding/lib/resolve-dataroom-displayed-brand' or its corresponding type declarations.
+pages/datarooms/[id]/branding/index.tsx(1793,47): error TS7006: Parameter 'v' implicitly has an 'any' type.
+pages/datarooms/[id]/branding/index.tsx(1918,55): error TS7006: Parameter 'opt' implicitly has an 'any' type.
+pages/datarooms/[id]/conversations/[conversationId]/index.tsx(12,32): error TS2322: Type '{ initialConversationId: string | undefined; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'initialConversationId' does not exist on type 'IntrinsicAttributes'.
+pages/datarooms/[id]/settings/index.tsx(5,41): error TS2307: Cannot find module '@/ee/features/request-lists/components/request-list-settings-card' or its corresponding type declarations.
+pages/datarooms/[id]/settings/index.tsx(6,46): error TS2307: Cannot find module '@/ee/features/request-lists/lib/use-request-list-feature' or its corresponding type declarations.
+pages/datarooms/[id]/tasks/index.tsx(1,33): error TS2307: Cannot find module '@/ee/features/request-lists/components/request-list-view' or its corresponding type declarations.
+pages/documents/[id]/index.tsx(8,35): error TS2307: Cannot find module '@/ee/features/redaction/components/redaction-launcher' or its corresponding type declarations.
+pages/documents/[id]/redactions/[jobId].tsx(3,36): error TS2307: Cannot find module '@/ee/features/redaction/components/redaction-workspace' or its corresponding type declarations.
+pages/entrance_ppreview_demo.tsx(3,42): error TS2307: Cannot find module '@/ee/features/branding/lib/use-branding-preview-params' or its corresponding type declarations.
+pages/nav_ppreview_demo.tsx(1,34): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+pages/nav_ppreview_demo.tsx(2,42): error TS2307: Cannot find module '@/ee/features/branding/lib/use-branding-preview-params' or its corresponding type declarations.
+pages/nav_ppreview_demo.tsx(43,15): error TS2322: Type 'any' is not assignable to type 'never'.
+pages/partners.tsx(1,25): error TS2307: Cannot find module '@/ee/features/partners/pages/partner-program' or its corresponding type declarations.
+pages/room_ppreview_demo.tsx(6,8): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-viewer-layout' or its corresponding type declarations.
+pages/room_ppreview_demo.tsx(7,42): error TS2307: Cannot find module '@/ee/features/branding/lib/use-branding-preview-params' or its corresponding type declarations.
+pages/room_ppreview_demo.tsx(8,34): error TS2307: Cannot find module '@/ee/features/branding/lib/brand-logo' or its corresponding type declarations.
+pages/room_ppreview_demo.tsx(29,29): error TS2307: Cannot find module '@/ee/features/branding/lib/use-logo-tone' or its corresponding type declarations.
+pages/room_ppreview_demo.tsx(30,40): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-banner' or its corresponding type declarations.
+pages/room_ppreview_demo.tsx(31,43): error TS2307: Cannot find module '@/ee/features/branding/lib/dataroom-preview-presets' or its corresponding type declarations.
+pages/room_ppreview_demo.tsx(238,34): error TS7006: Parameter 'f' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(245,10): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(348,15): error TS2322: Type 'any' is not assignable to type 'never'.
+pages/room_ppreview_demo.tsx(413,15): error TS2322: Type 'any' is not assignable to type 'never'.
+pages/room_ppreview_demo.tsx(600,36): error TS7006: Parameter 'f' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(722,52): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(729,49): error TS7006: Parameter 'v' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(784,40): error TS7006: Parameter 'f' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(812,52): error TS7006: Parameter 'folder' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(833,54): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(871,52): error TS7006: Parameter 'folder' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(871,60): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(894,54): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+pages/room_ppreview_demo.tsx(894,59): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+pages/settings/presets/[id].tsx(6,37): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-section' or its corresponding type declarations.
+pages/settings/presets/new.tsx(6,37): error TS2307: Cannot find module '@/ee/features/permissions/components/confidential-view/confidential-view-section' or its corresponding type declarations.

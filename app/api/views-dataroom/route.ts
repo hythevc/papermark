@@ -14,7 +14,7 @@ import {
   generateSessionFingerprint,
 } from "@/lib/auth/dataroom-auth";
 import { verifyDataroomSession } from "@/lib/auth/dataroom-auth";
-import { PreviewSession, verifyPreviewSession } from "@/lib/auth/preview-auth";
+import { verifyPreviewSession } from "@/lib/auth/preview-auth";
 import { isEmbeddableUrl } from "@/lib/edge-config/embeddable-domains";
 import { sendOtpVerificationEmail } from "@/lib/emails/send-email-otp-verification";
 import { getFeatureFlags } from "@/lib/featureFlags";
@@ -249,7 +249,7 @@ export async function POST(request: NextRequest) {
     // Check if the user is part of the team and therefore skip verification steps
     let isTeamMember: boolean = false;
     let isPreview: boolean = false;
-    if (userId && previewToken) {
+    if (previewToken) {
       const session = await getServerSession(authOptions);
       if (!session) {
         return NextResponse.json(
@@ -257,39 +257,11 @@ export async function POST(request: NextRequest) {
           { status: 401 },
         );
       }
-
-      const sessionUserId = (session.user as CustomUser).id;
-      const teamMembership = await prisma.userTeam.findUnique({
-        where: {
-          userId_teamId: {
-            userId: sessionUserId,
-            teamId: link.teamId!,
-          },
-        },
-      });
-      if (teamMembership) {
-        isTeamMember = true;
-        isPreview = true;
-        isEmailVerified = true;
-      }
-    }
-
-    // Check if there's a valid preview session
-    let previewSession: PreviewSession | null = null;
-    if (!isPreview && previewToken) {
-      const session = await getServerSession(authOptions);
-      if (!session) {
-        return NextResponse.json(
-          { message: "You need to be logged in to preview the link." },
-          { status: 401 },
-        );
-      }
-      previewSession = await verifyPreviewSession(
+      const previewSession = await verifyPreviewSession(
         previewToken,
         (session.user as CustomUser).id,
         linkId,
       );
-
       if (!previewSession) {
         return NextResponse.json(
           {
@@ -299,7 +271,9 @@ export async function POST(request: NextRequest) {
           { status: 401 },
         );
       }
+      isTeamMember = true;
       isPreview = true;
+      isEmailVerified = true;
     }
 
     let dataroomSession: DataroomSession | null = null;
@@ -1076,13 +1050,23 @@ export async function POST(request: NextRequest) {
 
       const documentVersionAccess = await prisma.documentVersion.findUnique({
         where: { id: documentVersionId },
-        select: { documentId: true },
+        select: { documentId: true, isPrimary: true },
       });
 
       if (!documentVersionAccess) {
         return NextResponse.json(
           { message: "Document version not found." },
           { status: 404 },
+        );
+      }
+
+      if (!isPreview && !documentVersionAccess.isPrimary) {
+        return NextResponse.json(
+          {
+            message:
+              "This document version is no longer shared. Reload to open the current version.",
+          },
+          { status: 403 },
         );
       }
 
@@ -1277,7 +1261,10 @@ export async function POST(request: NextRequest) {
         // get pages from document version
         console.time("get-pages");
         documentPages = await prisma.documentPage.findMany({
-          where: { versionId: documentVersionId },
+          where: {
+            versionId: documentVersionId,
+            ...(!isPreview && { version: { isPrimary: true } }),
+          },
           orderBy: { pageNumber: "asc" },
           select: {
             file: true,
@@ -1324,7 +1311,10 @@ export async function POST(request: NextRequest) {
         // get file from document version
         console.time("get-file");
         documentVersion = await prisma.documentVersion.findUnique({
-          where: { id: documentVersionId },
+          where: {
+            id: documentVersionId,
+            ...(!isPreview && { isPrimary: true }),
+          },
           select: {
             file: true,
             storageType: true,

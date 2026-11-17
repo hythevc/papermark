@@ -1,142 +1,82 @@
 # Roomline screen inventory and source assessment
 
-Snapshot read on **2026-11-14**, branch `codex/roomline-saas`, commit `5a26e46311216134453b3a124bba0aa595d5ddeb`. The connected GitHub read found [PR #1](https://github.com/hythevc/papermark/pull/1) open and draft at that same head, based on `main` (`ed19717`). The working tree was clean when this inventory started. No repository-wide `AGENTS.md` was found at initial census; the only match then was within an optional bundled React skill. The revamp subsequently added root `AGENTS.md` and `DESIGN.md`, which were read for the mobile implementation pass.
+Current source index: **2026-11-17**. The filesystem contains **95 non-API screen templates: 88 baseline identities plus 7 additions**. There are 88 Pages Router templates and 7 App Router templates, including 46 dynamic templates and 3 catch-all templates. API/health routes and static PWA resources do not add screen templates.
 
-This is a **source inventory**, not a fresh visual audit, accessibility conformance assessment, or production-service test. Historical screenshots and checks in `artifacts/` belong to the prior release and are not presented as fresh evidence here. No supplied API key was used. Current source hashes, exact imports, state-marker evidence, and the complete route list are in [SCREEN_INVENTORY.json](SCREEN_INVENTORY.json). The [screen check matrix (88 baseline + 6 revamp rows)](SCREEN_CHECK_MATRIX.md) records coverage and the next check for every template.
+This document and [SCREEN_INVENTORY.json](SCREEN_INVENTORY.json) describe source coverage. They do not establish visual quality, accessibility conformance, native-device installation, or authorization for every state. The [95-row screen matrix](SCREEN_CHECK_MATRIX.md) covers every actual template; rendered and runtime evidence belongs to the root review manifest and task-specific reports.
 
+## Current source and compiler checkpoint
 
-## Final source refresh
+Every route hash, recorded shared-source hash and lexical state-marker excerpt was refreshed and checked against the working tree. Direct UI imports, one additional UI-import layer, shared shells and their composed UI imports are indexed. Global `shared_shell_hashes` also cover nested sidebar/team-switcher modules; this source composition is separate from claims about what is visible on a route. No unresolved local import specifier remains in the static scan of `app`, `pages`, `components`, `lib`, `ee`, and `context`: **0 unique missing specifiers, 0 occurrences**. All 95 route records have zero direct missing imports. Static import resolution is a separate measurement from compilation and runtime behavior.
 
-Both JSON arrays now describe the **current working-tree source**, refreshed after the auth-shell and homepage composition changes on 2026-11-14. `routes` retains the 88 baseline template identities; `added_routes` retains the six revamp template identities. Route hashes, direct and composed UI imports, shared-shell hashes, and every recorded marker line/excerpt were regenerated and checked against current files. The prior source snapshot is preserved at `artifacts/revamp/screen-inventory.pre-refresh.json`, so the original census context is not silently overwritten.
+The authoritative [final verification record](../../../artifacts/runtime/final-verification.json) records **0 strict TypeScript diagnostics and exit 0**, a successful production build, 164 runtime tests passed/1 opt-in test skipped, and 21 evidence-tool tests passed, with a digest of 1,750 application/configuration source files. Earlier [compiler checkpoints](../../../artifacts/runtime/typecheck-checkpoint.json) remain historical records. This inventory did not rerun a compiler. Compilation and import resolution do not establish every product state.
 
-All 94 route hashes and recorded shared-source hashes matched at validation time; all marker excerpts matched their declared file/line. Auth wrappers now trace the current `AuthShell`/`AuthSidePanel` composition, and the homepage traces `MarketingHeader`/`MarketingFooter` composition and `ProductPreview`. Generic primitive implementation markers and CSS selector matches are excluded from the state evidence. Current `/404` access is public after application-host isolation. These are freshness and source-coverage checks, not rendered-state or authorization checks.
+`.better-design/feature-map.json` has exactly the same 95 canonical route templates. The original Better Design draft remains at `artifacts/revamp/better-design-feature-map.tool-draft.json`. Its six false `/conversation-detail`, `/conversation-overview`, `/faq-overview`, `/workflow-detail`, `/workflow-new`, and `/workflow-overview` routes remain classified as implementation helpers. API/data associations are not guessed from route names.
 
-The fresh local-import scan remains 50 missing specifiers, including 45 under EE, across 116 occurrences. The feature map and matrix each cover exactly the same 94 filesystem templates. Existing historical compiler results remain explicitly historical; no full compiler rerun was performed for this refresh.
+## Areas and per-screen states
 
+| Area | Templates |
+| --- | ---: |
+| account | 2 |
+| auth onboarding | 8 |
+| billing | 3 |
+| component reference | 1 |
+| dashboard | 1 |
+| data rooms | 28 |
+| documents | 6 |
+| guest viewing | 8 |
+| internal previews | 4 |
+| marketing | 6 |
+| mobile installation | 1 |
+| notification preferences | 2 |
+| partner program | 1 |
+| system | 1 |
+| visitors | 2 |
+| workflows | 3 |
+| workspace branding | 1 |
+| workspace settings | 17 |
 
-## Revamp addendum: current source coverage
+The JSON records per-screen access classification, current source status, direct/shared UI sources, source hashes, line-level state candidates and critical states still requiring applicable checks. Lexical markers identify possible loading, error, empty, success, pending, disabled/read-only, confirmation and access/plan handling; they are not passed rendered tests. Generic UI-primitive implementation markers are excluded. Missing markers do not prove that a composed component lacks the behavior.
 
-The initial baseline above contains 88 templates. The current in-progress revamp adds **6 templates, for 94 total** (87 Pages Router, 7 App Router; 46 dynamic; 3 catch-all). Baseline JSON records remain under `routes`; new records are under `added_routes`; `current_summary` combines them. The matrix now has 94 rows. Each addition was read with its direct UI imports; rendered evidence belongs to the root review manifest.
+Important in-page flows include room creation; upload/processing/recovery; folder create/move/reorder; document versions; link settings and file permissions; invites; groups; conversations and request lists; brand previews; billing/cancellation; API keys; profile/email changes; and passkeys. These keep their actual server-backed permissions and service dependencies. The source matrix remains source-only even where separate focused runtime checks have passed.
 
-| New template | Source | Existing content instances |
+## Added templates and dynamic instances
+
+| Added template | Source | Scope |
 | --- | --- | --- |
+| `/design-system` | `pages/design-system.tsx` | Interactive component reference |
+| `/guides` | `pages/guides/index.tsx` | Guide index |
+| `/guides/[slug]` | `pages/guides/[slug].tsx` | Fundraising and sharing checklist instances |
 | `/product` | `pages/product.tsx` | Product overview |
 | `/security` | `pages/security.tsx` | Sharing-control explanation |
-| `/guides` | `pages/guides/index.tsx` | Guide index |
-| `/guides/[slug]` | `pages/guides/[slug].tsx` | `/guides/fundraising-checklist`, `/guides/sharing-checklist` |
-| `/solutions/[slug]` | `pages/solutions/[slug].tsx` | `/solutions/fundraising`, `/solutions/due-diligence` |
-| `/design-system` | `pages/design-system.tsx` | Public interactive component reference |
+| `/solutions/[slug]` | `pages/solutions/[slug].tsx` | Fundraising and due-diligence instances |
+| `/mobile` | `pages/mobile.tsx` | Browser installation guide |
 
-The four content URLs generated by the two `[slug]` files are four instances, not four additional templates. `/404` has also become a public application-host error destination through `lib/marketing-routes.ts`. Dedicated local pricing/contact/integration/policy screens are still absent; local resource guidance now exists under `/guides`.
+The four content URLs generated by two `[slug]` files remain **four instances of two templates**. Dynamic room/document/viewer/workflow parameters are likewise grouped by their actual filesystem template. Marketing is public only after application-host isolation; customer/API routing still takes precedence. Guest-viewing routes are public entry points with server-enforced link/access controls, not unrestricted document access.
 
-The corrected `.better-design/feature-map.json` contains exactly 94 actual screen templates. Its original tool draft is preserved in `artifacts/revamp/better-design-feature-map.tool-draft.json`. Six false routes (`/conversation-detail`, `/conversation-overview`, `/faq-overview`, `/workflow-detail`, `/workflow-new`, `/workflow-overview`) are recorded as implementation helpers rather than screens. The draft's lossy parameter spelling and repeated route steps were replaced by canonical filesystem templates. Its blanket attribution of APIs to 404 was not treated as verified data ownership. This is a corrected source index, not evidence of complete user-flow execution.
+## Mobile web and offline boundaries
 
-The source-confirmed mobile repairs are recorded in [MOBILE_SHELL_REVIEW.md](MOBILE_SHELL_REVIEW.md): shared height variables, route-active matching, named 44px controls, Radix menu semantics/focus handling, loaded/scoped/assigned-room gates, frozen sharing, and feature/plan-gated workflow discovery. These changes do not convert the baseline mobile findings below into a rendered pass. Native source is still absent.
+The selected scope is **installable mobile web first**. Native iOS/Android/Expo/RN/Capacitor/Flutter source is absent, and native implementation is **not applicable** to this selected scope. It is not represented as a missing native-app revamp or a shipped native app.
 
-## Baseline scope and counts
+PWA source now includes the manifest, app-origin-only registration, both-router metadata, branded SVG/192/512/maskable/Apple icons, a six-resource public cache and a generic reconnect page. `/offline.html` is a static fallback resource, not an additional Next.js template. The worker never stores workspace, API, identity, document, download, Next.js data or navigation responses. Full policy details and actual checks are in [MOBILE_WEB.md](../MOBILE_WEB.md); reference decisions are in `artifacts/revamp/pwa/reference-decisions.json`.
 
-| Measure | Count | Definition |
-| --- | ---: | --- |
-| Filesystem screen templates | 88 | 81 Pages Router screens and 7 App Router screens; includes the custom 404 template |
-| Dynamic screen templates | 44 | Parameterized files, not actual customer/room/document records |
-| Catch-all/optional catch-all templates | 3 | `/documents/tree/[...name]`, `/datarooms/[id]/documents/[...name]`, `/auth/email/[[...params]]` |
-| Source groups | 16 | Areas below |
-| Route files with direct missing local imports | 13 | Excludes missing imports reached only through shared components |
-| Missing local import specifiers in product source | 50 | Fresh static scan of `app`, `pages`, `components`, `lib`, `ee`, and `context`; 45 start with `@/ee/` |
-| Missing local import occurrences | 116 | Repeated references counted; excludes unresolved third-party packages and symbol/type drift |
-| Native/mobile application projects | 0 found | Responsive Next.js web application only; no Expo, React Native, Capacitor, Flutter, iOS, or Android project found |
+Worker/middleware policy tests passed 18/18 at `scripts/runtime/pwa-policy.test.mjs`; PWA host/path and public-route tests passed 7/7 at `lib/pwa.test.ts` and `lib/marketing-routes.test.ts`. A real persistent-profile Chromium run passed 8 registration, manifest/icon, installability-diagnostic, cache-privacy, offline and reconnect checks; see `artifacts/revamp/pwa/browser-report.json`. Its natural install prompt was not observed. Earlier timeout/incognito attempts are preserved separately; no Android launcher, iOS home-screen or actual OS installation pass is claimed. The planned Railway app hosts the PWA; the Vercel static marketing export omits registration/manifest metadata.
 
-All 88 route sources and their first-level local UI imports were read and indexed. State markers are evidence-discovery candidates: a `loading` variable can be a handler state rather than a rendered loading screen, and a custom component can supply behavior absent from its caller. Marker absence is not a confirmed defect. Shared shells, redirects, metadata/static resources, API routes, and generated route instances are excluded from the screen count and accounted for separately.
+The earlier mobile-shell repairs use shared header/navigation heights, safe-area reserve, correct route-active matching, named 44px controls, membership/scope loading gates, frozen sharing and feature/plan-gated discovery. See [MOBILE_SHELL_REVIEW.md](MOBILE_SHELL_REVIEW.md). Every role/plan/theme, long-content state, keyboard path and real-device behavior still needs its own applicable evidence.
 
-## Baseline areas and existing states
+## Preserved historical baseline
 
-| Area | Templates | Baseline screens and state coverage to preserve/check |
-| --- | ---: | --- |
-| Marketing | 1 | `/`: hero, four interactive sample-preview sections, sample search/no-results/clear, FAQ disclosure, mobile menu, sign-in/registration links. Product, how-it-works, and FAQ are anchors on this screen. Sample data is explicitly labeled. |
-| Auth and onboarding | 8 | `/login`, `/register`, `/auth/email/[[...params]]`, `/auth/saml`, `/auth/confirm-email-change/[token]`, `/verify/invitation`, `/verify`, `/welcome`. Email input, code/magic-link, submission pending/error, invalid/expired token, existing session, invitation/session mismatch, and onboarding query states. `/verify` redirects to `/auth/email`. |
-| Dashboard | 1 | `/dashboard`: entry redirect, time ranges and custom date range, links/documents/visitors/recent-views tabs, loading, no-activity overlay, share prompt, premium range gating. Source has an error-handling path; full recovery needs runtime validation. |
-| Data rooms | 28 | Room list plus 27 room-context templates: overview; files and nested folder; document detail; access links; participants; visitors; analytics/audit log; branding; Q&A list/detail/FAQs; request list; viewer-group list and five group screens; seven room settings. Loading/error/empty/search, plan/scope restriction, frozen/read-only, upload/reorder, link/invite, and destructive-action states span the shared components. |
-| Documents | 6 | Library, hidden documents, nested folder tree, new-document flow, document details, redaction job. Check empty/search/loading, upload/process/retry, version/preview, link creation, archive/delete, and redaction job lifecycle. Root and folder library share a template family. |
-| Guest viewing | 8 | Four template families each on ordinary and custom-domain routes: shared entry, document detail, embed, downloads. Entry can resolve document, room, or workflow. Preserve unavailable/expired/archived/frozen/error screens; access form/email/password/agreement; verification; allowed/denied files; viewer modes; download jobs; visitor upload/request/Q&A controls where enabled. |
-| Visitors | 2 | Visitor list and detail, search/sort/activity filters, plan/scoped-member restriction, loading/empty/activity states. |
-| Account | 2 | General profile/email/avatar/subscription and passkey/security. Editing, validation, pending/saved/error, unavailable passkey service, enrollment/removal states. Profile copy still includes upstream identity. |
-| Billing | 3 | Subscription management, invoices, inherited holiday promotion. Free/trial/paid; active/paused/cancelled; checkout/portal pending-success-cancel-error; invoice loading-empty-error-ready; cancellation/reactivation. Real products, prices, entitlements, and Stripe transitions are not verified. |
-| Workspace settings | 17 | General, people, domains, notifications, agreements, AI, security/SSO/SCIM, Slack, tags, tokens, incoming webhooks, presets list/new/edit, outbound webhooks list/new/detail. Each needs populated/empty, role/plan, validation, dirty/saved, pending/error, and destructive/revoke states as applicable. |
-| Workspace branding | 1 | `/branding`: media/brand editor with layout/social/link-preview states, upload/validation, dirty/saved, reset, and plan gate. Direct missing branding imports prevent complete source availability. |
-| Workflows | 3 | List, new, detail/steps. Existing EE components include loading/empty/plan gate, name/entry-link validation, submission failure, detail error/loading, and step deletion. Upstream domain defaults/copy remain. |
-| Notification preferences | 2 | Public tokenized preference and unsubscribe screens. Invalid/missing token, current preferences, saving, success/error and unsubscribe completion require verification. |
-| Partner program | 1 | `/partners` is a wrapper around an unavailable EE page. No complete screen behavior can be established from this checkout. |
-| Internal previews | 4 | `/custom_fields_ppreview_demo`, `/entrance_ppreview_demo`, `/nav_ppreview_demo`, `/room_ppreview_demo`: query-driven sample/access/branding previews. They are not the homepage preview and are session-protected by current application middleware. Three directly reference unavailable EE source. |
-| System | 1 | `pages/404.tsx` supplies custom error content. A direct `/404` request passes app middleware; framework-rendered not-found states can use the same component. |
+The initial inventory was read on **2026-11-14**, branch `codex/roomline-saas`, commit `5a26e46311216134453b3a124bba0aa595d5ddeb`. PR #1 was then read as open/draft at that head; this refresh does not claim a new remote PR read. The baseline contained 88 templates, 50 missing local import specifiers (45 EE), 116 static occurrences and 13 route files with direct omissions. The earlier compiler comparison reported 203 untouched diagnostics and 201 Roomline diagnostics. Those are historical measurements, not the current restored-source status.
 
-### Dynamic template grouping
+The original source refresh remains at `artifacts/revamp/screen-inventory.pre-refresh.json`. The immediately prior 94-template source index is preserved at `artifacts/revamp/screen-inventory.pre-runtime-restoration.json`, with its prose and matrix snapshots alongside it. The JSON `summary`, initial `commit`, `remote_pr` and `known_baseline_typecheck` preserve baseline context; `current_summary`, `current_source_import_scan`, `current_typecheck_checkpoint` and current route/source hashes describe the present index.
 
-IDs, names, and tokens are parameters, not separate screens. The JSON retains each distinct pathname template and its parameters. Grouped reuse is explicit:
+## Remaining verification limits
 
-- Ordinary guest `/view/[linkId]` and customer-domain `/view/domains/[domain]/[slug]` share the entry family. Their `/d/[documentId]`, `/downloads`, and `/embed` variants form three additional families.
-- `/documents` and `/documents/tree/[...name]` are library/folder variants. Room root `/datarooms/[id]/documents` and nested `[...name]` variants similarly share room-files behavior.
-- Q&A detail seeds the existing conversation overview with `conversationId`. Group settings/members/links/permissions/analytics remain distinct tab templates, even though they share `GroupHeader` and `GroupNavigation`.
-- App Router `page-client.tsx` files, invitation helper components, `_app.tsx`, `_document.tsx`, layouts, and modal/sheet components are shared implementation surfaces, not extra filesystem screens. Their states still belong in the review scope.
+No local pricing/contact/integrations/policy screen is invented; configured external policy/contact destinations can be used. The legacy `/settings/upgrade` link now redirects through `/settings/billing/upgrade` to the actual `/settings/billing` screen, after API/customer-host isolation and with normal destination authentication. It is a redirect chain, not two extra templates. The separate absent MCP-authorization destination remains a route-contract finding rather than an unresolved TypeScript import. External billing, AI, email delivery, production storage and conversion providers require deployment-specific configuration and checks.
 
-### Important in-page surfaces
+Source restoration and passing focused tests do not establish every authenticated screen, tenant boundary, revoked guest path, paid entitlement, document format or conversion provider. Current guest/revocation reports and the final review manifest provide their actual outcomes. No deployment or commercial launch-readiness claim is made by this inventory.
 
-The route census alone is insufficient for a revamp. Include room creation (blank/template/AI preview); file upload and processing/recovery; folder create/move/reorder; document version/preview; link sheets, per-file permissions and sharing summaries; email invites and bulk CSV import; group member/access editors; Q&A compose/detail; request-list upload; brand/layout preview; plan upgrade/cancellation; seat management; API key creation/revocation; webhook event retries; profile/email change; and passkey enrollment/removal. These inherit the screen's access and service requirements. Do not replace missing permission logic with presentation-only toggles.
+## Focused final production renders
 
-## Access boundaries and navigation
+The documents library and one owned room overview were captured from the actual frozen production build at 1440px and 390px, using the retained synthetic owner session and real local services without route/API/authentication mocks. All four images were individually inspected and accepted, with zero WCAG-tagged Axe violations, zero page JavaScript exceptions and no page-level horizontal overflow. The served build ID matched `.next/BUILD_ID`. See `artifacts/runtime/authenticated/report.json`. This does not turn the other 93 templates, other states or dark theme into rendered passes.
 
-On configured application hosts, `/`, `/login`, and `/register` are public account/marketing entry points; existing sessions are redirected from the account-entry screens. `/auth/email*`, `/verify*`, `/view/*`, `/unsubscribe*`, and `/notification-preferences*` bypass the ordinary session gate but still apply their own link/token/session requirements. Most other screen routes pass `AppMiddleware`, followed by route/component-specific role, assigned-room, and plan checks. This classification is from `middleware.ts` and `lib/middleware/app.ts`; it is not authorization test evidence.
-
-`/auth/saml` currently falls through the session-protected middleware path despite being a callback screen. Confirm its intended unauthenticated flow against the identity-provider integration before changing access rules. Customer hosts use `DomainMiddleware`; API and MCP hosts have their own isolation rules. Any new marketing route must be explicitly integrated with these rules instead of broadening public access to application routes.
-
-| Alias/resource | Existing behavior | Gap or treatment |
-| --- | --- | --- |
-| `/settings` | Redirects to `/settings/general` | Target exists |
-| `/settings/upgrade` | Redirects to `/settings/billing/upgrade` | Target screen is absent from both routers; restore a compatible billing destination or deliberately replace this navigation |
-| Customer-domain `/{slug}` | Rewrites through `/view/domains/[domain]/[slug]` | Keep tenant/domain/link resolution separate from application marketing |
-| MCP host `/oauth/authorize` | Rewrites to `/mcp-oauth/authorize` | Target screen absent; consent/authorization experience needs intended compatible source or independently specified replacement |
-| `/robots.txt` | `app/robots.txt` | Non-screen resource, excludes account/verification/auth/unsubscribe paths |
-| `/favicon.ico`, `/_static/*`, `/_icons/*`, `/_example/*`, `/templates/*`, `/vendor/*` | Public files | Not screen templates. Includes inherited assets; asset presence is not evidence of current certifications or permission to make compliance claims. |
-
-The only checked-in public marketing screen is `/`. There are no dedicated `/product`, `/pricing`, `/security`, `/contact`, `/solutions/*`, `/integrations`, `/resources`, `/privacy`, or `/terms` screens. This is a scope decision for the revamp: some policy/help links are configurable external URLs, so a local route is not automatically required for every item. No `/product-tour` route exists; the interactive tour is currently a section of the homepage.
-
-## Mobile source behavior and gaps
-
-This is responsive web, not a shipped native app or installable PWA. No native project files, Expo/RN/Capacitor/Flutter configuration, application manifest, or service worker were found. A bundler fallback mentioning `react-native-sqlite-storage` does not establish a React Native project.
-
-| Surface | Existing source behavior | Next check / source gap |
-| --- | --- | --- |
-| App shell | Desktop sidebar changes at `md`; fixed mobile header/bottom navigation with safe-area padding | `components/layouts/app.tsx` reserves `4rem` bottom space while `mobile-bottom-nav.tsx` has `min-h-[4.5rem]` before safe area: confirmed 8px source mismatch at a 16px root font. Actual occlusion needs a browser check. |
-| Mobile More menus | Full-screen overlays, body-scroll lock, expandable settings/analytics branches | Plain overlay markup lacks explicit dialog semantics/focus containment/Escape handling; close buttons have icon-only content and no explicit name. Candidate keyboard/AT defects must be checked with actual custom components and runtime focus. |
-| Navigation | Scoped-member-specific tabs; room Documents/Sharing/Analytics/More | Global More has no Workflows link. Room More's “Overview” is analytics overview, not `/datarooms/[id]`; the new room overview/next-steps screen is not an explicit mobile tab. Do not mark Documents selected when the actual route is room overview. |
-| Login/register | Login wraps at `md`; desktop auth side panel is hidden on mobile. Registration uses `min-h-screen`, 20vh top margin | Check landscape, browser chrome, keyboard and focus scroll. `h-screen` on login and tall spacing are source risks, not fresh overflow evidence. |
-| Room list/overview | Filters stack; summary uses two columns on small screens; room cards and next steps stack | Preserve loading/error/empty/frozen/member states at 320/390px; verify touch targets and filtered-status announcements. |
-| Files/folders | Folder sidebar hides below `md`; document toolbar can horizontally scroll; mobile actions use responsive buttons | Verify folder access remains discoverable, drag/reorder alternatives work by keyboard/touch, and upload progress/errors stay reachable above bottom navigation. |
-| Sharing | Link table is explicitly `min-w-[800px]` inside horizontal scroll; access header has several inline actions | Prioritize a readable mobile access summary/action menu. Narrow header wrapping, sticky context, and horizontal-table affordances need fresh checks. |
-| Guest viewer | Mobile folder sheet, card/list layouts, wrapped search/actions; page controls, swipe/pinch/touch zoom; Excel sheet tabs scroll | Verify access-gate order, zoom-versus-scroll, sticky controls, long names, download status, allowed-file filtering, focus return, and denied-access recovery on actual devices. |
-| Settings/billing | Common responsive gutters; billing can stack; member tables scroll | Verify forms, destructive confirmations, plan/seat controls and billing redirects with software keyboard and long translated strings. |
-| Workflows | Max-width forms/detail and responsive gutters, with desktop-oriented rows/cards | No native project or distinct mobile flow. Verify step editor, entry-link configuration, creation errors, and navigation discovery. |
-
-Relevant source: `components/layouts/app.tsx`, `mobile-header.tsx`, `mobile-bottom-nav.tsx`, `mobile-more-menu.tsx`, `mobile-dataroom-more-menu.tsx`, `components/links/links-table.tsx`, `components/view/viewer/dataroom-viewer.tsx`, and `ee/features/workflows/pages/*`. Specific state markers and shared components for every screen are in the matrix and JSON.
-
-## Source blockers and safe repair boundaries
-
-The prior committed compiler comparison reports 203 untouched diagnostics and 201 Roomline diagnostics, with no newly introduced normalized diagnostics; it is historical evidence, not a fresh typecheck. A new static import scan in this inventory found 50 missing local specifiers (45 under EE), appearing 116 times. These counts describe different measurements and should not be compared as if they were the same test.
-
-The 13 screen route files with direct unresolved local imports are `/branding`, `/datarooms/[id]/analytics`, `/datarooms/[id]/branding`, `/datarooms/[id]/settings`, `/datarooms/[id]/tasks`, `/documents/[id]`, `/documents/[id]/redactions/[jobId]`, `/entrance_ppreview_demo`, `/nav_ppreview_demo`, `/partners`, `/room_ppreview_demo`, `/settings/presets/[id]`, and `/settings/presets/new`. Other screens can still be blocked through shared layout, billing, server, viewer, and service dependencies. Direct-import absence does not establish that a screen is runnable.
-
-| Blocker | Source evidence | Safe action |
-| --- | --- | --- |
-| Missing EE modules | Currency/billing, branding resolvers/editors, confidential-view, redaction, request lists, analytics/partners and other source paths listed exactly in JSON | Restore the intended compatible source under the applicable entitlement, or independently specify and implement replacements. Do not stub security, permission filtering, billing entitlements, or source dependencies just to compile. |
-| Missing non-EE helpers | `lib/api/auth/restricted-tokens`, `lib/api/errors`, `lib/dataroom/apply-default-permissions`, `lib/oauth/scopes`, `lib/trigger/send-scheduled-email` | Restore compatible helpers or implement against explicit contracts and negative tests. Token restrictions/default permissions/OAuth scopes are security-sensitive and are not safe cosmetic fixes. |
-| Dependency/API drift | Prior launch report identifies missing `@react-email/components` usage and Stripe/type shape drift | Correct declared compatible dependencies and API contracts with meaningful tests; do not suppress build/type checks. |
-| Missing billing/OAuth destinations | `next.config.mjs` aliases above point to absent screen files | Resolve intended destinations/contracts; keep return-path and host validation. |
-| Unconfigured external services | Existing Prisma, storage, Redis, mail, analytics, conversion/jobs and payments integrations | Configure owned staging services through secret settings and test real flows. No service configuration or credential values were inspected here. |
-| Remaining upstream identity | Examples: profile copy, workflow domain fallback, billing/promotion, some lifecycle/viewer defaults/assets | Safe to audit and migrate ordinary product copy/owned destinations while preserving attribution and license notices; do not invent testimonials, prices or certifications. |
-| Mobile/app-shell inconsistencies | Bottom reserve mismatch, route-active ambiguity, menu focus/naming, discoverability gaps | Safe scoped UI repair while preserving loading/member/scope/plan/frozen controls and server authorization boundaries. |
-| Brand/marketing scope | Single landing screen, no local pricing/security/legal/resource screens | Define honest content and destinations. Prices, assurances, supported capabilities, legal policies, and name availability need business-specific evidence. |
-
-The root [AGPLv3 license](../../../LICENSE), [EE commercial license](../../../ee/LICENSE.md), and `ee/README.md` remain applicable. EE source itself lists data rooms, Q&A and advanced permissions as covered features and restricts production use to appropriate commercial entitlement. Development/testing UI work does not resolve production rights or source availability. This inventory makes no legal conclusion beyond the repository's stated terms.
-
-## Completion criteria for the next pass
-
-For each of the 88 template rows, record a fresh desktop and mobile screenshot or a named blocker; exercise the relevant populated/loading/error/empty/pending/success states; verify role/scoped membership/plan/frozen behavior; check keyboard, labels, focus return, touch targets, long text and zoom; and distinguish real services from mocked responses. New screens added by the revamp must be appended to the inventory. Real staging checks must include cross-tenant denial, share/revoke/expiry and download enforcement, processing failure/retry, billing/webhook lifecycle, and accessible mobile guest access. No blanket completion or superiority claim follows from this source census.
+Both legacy billing aliases reached `/settings/billing` within the bounded redirect limit. Actual plan GET 200 responses preserved the stored data-room entitlement while reporting an unconfigured payment provider and unavailable billing actions. Authenticated CacheStorage still held exactly the six public PWA assets. The report preserves nonblocking report-only CSP diagnostics and external avatar 404s with visible initials fallback; incomplete Axe items remain manual-review work. Prior failed/finding-bearing attempts are archived separately.

@@ -42,6 +42,8 @@ const ROOT_FILES = new Set([
   "package.json",
   "skills-lock.json",
   "middleware.ts",
+  "DEPLOYMENT.md",
+  "railway-staging-plan.json",
 ]);
 const DIRECTORIES = new Set([
   "artifacts",
@@ -92,7 +94,9 @@ export function safeFile(root, relative) {
     !(
       ROOT_FILES.has(relative) ||
       DIRECTORIES.has(parts[0]) ||
-      relative.startsWith("scripts/design/")
+      relative.startsWith("scripts/design/") ||
+      relative.startsWith("scripts/runtime/") ||
+      relative.startsWith("scripts/deploy/")
     )
   )
     throw new Error(

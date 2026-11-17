@@ -43,6 +43,7 @@ import { usePlan } from "@/lib/swr/use-billing";
 import useLimits from "@/lib/swr/use-limits";
 import { LinkWithViews, WatermarkConfig } from "@/lib/types";
 import { cn, copyToClipboard, nFormatter, timeAgo } from "@/lib/utils";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 import { useMediaQuery } from "@/lib/utils/use-media-query";
 
 import { UpgradePlanModal } from "@/components/billing/upgrade-plan-modal";
@@ -114,19 +115,11 @@ const isDocumentProcessing = (version?: DocumentVersion) => {
 };
 
 // Full URL helper
-const getFullUrl = (link: LinkWithViews) => {
-  if (link.domainId) {
-    return `https://${link.domainSlug}/${link.slug}`;
-  }
-  return `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
-};
+const getFullUrl = constructLinkUrl;
 
 // Display URL helper - shows the path portion that fits the cell
 const getDisplayUrl = (link: LinkWithViews) => {
-  if (link.domainId) {
-    return `${link.domainSlug}/${link.slug}`;
-  }
-  return `papermark.com/view/${link.id}`;
+  return constructLinkUrl(link).replace(/^https?:\/\//, "");
 };
 
 // Link URL cell component - displays URL with click-to-copy hover overlay
@@ -239,6 +232,7 @@ const LinkActionsCell = ({
         <Button
           variant="ghost"
           size="icon"
+          aria-label={copied ? "Link copied" : "Copy link"}
           className="h-8 w-8 transition-colors hover:text-foreground group-hover/link:bg-emerald-500/10 group-hover/link:hover:bg-emerald-500/20"
           onClick={handleCopy}
         >
@@ -255,6 +249,7 @@ const LinkActionsCell = ({
         <Button
           variant="ghost"
           size="icon"
+          aria-label={isProcessing ? "Preparing link preview" : "Preview link"}
           className="h-8 w-8 hover:text-foreground"
           onClick={handlePreview}
           disabled={isProcessing}
@@ -271,6 +266,7 @@ const LinkActionsCell = ({
           <Button
             variant="ghost"
             size="icon"
+            aria-label="Invite visitors by email"
             className="h-8 w-8 hover:text-foreground"
             onClick={handleInvite}
           >
@@ -453,9 +449,10 @@ export default function LinksTable({
     }
 
     const { previewToken } = await response.json();
-    const previewLink = `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}?previewToken=${previewToken}`;
+    const previewLink = new URL(constructLinkUrl({ id: link.id }));
+    previewLink.searchParams.set("previewToken", previewToken);
 
-    window.open(previewLink, "_blank");
+    window.open(previewLink.toString(), "_blank");
   };
 
   const handleDuplicateLink = async (link: LinkWithViews) => {
@@ -718,7 +715,12 @@ export default function LinksTable({
   const isDataroom = targetType === "DATAROOM";
 
   const linksTableContent = (
-    <div className="overflow-x-auto rounded-md border">
+    <div
+      role="region"
+      aria-label="Sharing links"
+      tabIndex={0}
+      className="overflow-x-auto rounded-md border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+    >
       <Table className="min-w-[800px]">
         <TableHeader>
           <TableRow className="*:whitespace-nowrap *:font-medium hover:bg-transparent">
@@ -852,8 +854,9 @@ export default function LinksTable({
                               <PopoverTrigger asChild>
                                 <Button
                                   variant="link"
+                                  aria-label="Edit link"
                                   className={cn(
-                                    "h-8 w-8 font-normal hover:no-underline focus-visible:ring-0 focus-visible:ring-offset-0",
+                                    "h-8 w-8 font-normal hover:no-underline",
                                     popoverOpen === link.id
                                       ? "text-foreground"
                                       : "text-muted-foreground hover:text-foreground",
@@ -918,6 +921,7 @@ export default function LinksTable({
                                   <Button
                                     variant="ghost"
                                     size="icon"
+                                    aria-label="Limited file access"
                                     className="h-8 w-8 cursor-default"
                                   >
                                     <FileSlidersIcon className="h-4 w-4 text-muted-foreground hover:text-foreground" />

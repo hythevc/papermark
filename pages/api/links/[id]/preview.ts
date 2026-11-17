@@ -2,7 +2,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { getServerSession } from "next-auth/next";
 
-import { createPreviewSession } from "@/lib/auth/preview-auth";
+import {
+  PreviewAccessError,
+  createPreviewSession,
+} from "@/lib/auth/preview-auth";
 import { CustomUser } from "@/lib/types";
 
 import { authOptions } from "../../auth/[...nextauth]";
@@ -20,12 +23,22 @@ export default async function handle(
 
     const { id } = req.query as { id: string };
 
-    const previewSession = await createPreviewSession(
-      id,
-      (session.user as CustomUser).id,
-    );
-
-    return res.status(200).json({ previewToken: previewSession.token });
+    try {
+      const previewSession = await createPreviewSession(
+        id,
+        (session.user as CustomUser).id,
+      );
+      res.setHeader("Cache-Control", "private, no-store, max-age=0");
+      return res.status(200).json({ previewToken: previewSession.token });
+    } catch (error) {
+      if (error instanceof PreviewAccessError)
+        return res.status(403).json({ error: "You cannot preview this link." });
+      console.error(
+        "Unable to create preview session.",
+        error instanceof Error ? error.name : "UnknownError",
+      );
+      return res.status(500).json({ error: "Unable to start preview." });
+    }
   } else {
     // We only allow POST requests
     res.setHeader("Allow", ["POST"]);

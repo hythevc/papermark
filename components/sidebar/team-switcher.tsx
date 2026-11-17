@@ -156,6 +156,7 @@ export function TeamSwitcher({
             >
               <SidebarMenuButton
                 size="lg"
+                aria-label={`Invite members to ${activeTeam.name}`}
                 className="size-12 justify-center border data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:hidden"
               >
                 <UserRoundPlusIcon className="!size-5" strokeWidth={1.5} />
@@ -168,6 +169,7 @@ export function TeamSwitcher({
             >
               <SidebarMenuButton
                 size="lg"
+                aria-label={`Invite members to ${activeTeam.name}`}
                 className="size-12 justify-center border data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:hidden"
               >
                 <UserRoundPlusIcon className="!size-5" strokeWidth={1.5} />
@@ -180,6 +182,7 @@ export function TeamSwitcher({
             >
               <SidebarMenuButton
                 size="lg"
+                aria-label={`Invite members to ${activeTeam.name}`}
                 className="size-12 justify-center border data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:hidden"
               >
                 <UserRoundPlusIcon className="!size-5" strokeWidth={1.5} />

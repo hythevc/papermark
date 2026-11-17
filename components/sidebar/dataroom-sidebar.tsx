@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 
 import { useSelfMembership } from "@/lib/hooks/use-self-membership";
+import { matchesNavigationPath } from "@/lib/navigation/mobile-navigation";
 import { useDataroom } from "@/lib/swr/use-dataroom";
 import { cn } from "@/lib/utils";
 
@@ -174,10 +175,17 @@ export function DataroomSidebarContent() {
 
   const navItems = [
     {
+      title: "Overview",
+      href: `/datarooms/${dataroomId}`,
+      icon: TableIcon,
+      segment: "overview",
+    },
+    {
       title: "Documents",
       href: `/datarooms/${dataroomId}/documents`,
       icon: FolderIcon,
       segment: "documents",
+      segments: ["documents", "document"],
     },
     {
       title: "Permissions",
@@ -256,16 +264,10 @@ export function DataroomSidebarContent() {
   const currentPath = router.asPath;
 
   const isItemActive = (item: (typeof navItems)[number]) => {
-    const segments = item.segments ?? [item.segment];
-    if (item.segment === "documents") {
-      return (
-        currentPath.includes(`/datarooms/${dataroomId}/documents`) ||
-        currentPath.includes(`/datarooms/${dataroomId}/document/`) ||
-        currentPath === `/datarooms/${dataroomId}`
-      );
-    }
-    return segments.some((seg) =>
-      currentPath.includes(`/datarooms/${dataroomId}/${seg}`),
+    if (item.segment === "overview")
+      return matchesNavigationPath(currentPath, item.href, true);
+    return (item.segments ?? [item.segment]).some((segment) =>
+      matchesNavigationPath(currentPath, `/datarooms/${dataroomId}/${segment}`),
     );
   };
 
@@ -318,7 +320,14 @@ export function DataroomSidebarContent() {
                             "rounded-md bg-gray-200 font-semibold dark:bg-secondary",
                         )}
                       >
-                        <Link href={item.href}>
+                        <Link
+                          href={item.href}
+                          aria-current={
+                            matchesNavigationPath(currentPath, item.href, true)
+                              ? "page"
+                              : undefined
+                          }
+                        >
                           <item.icon className="h-4 w-4" />
                           <span>{item.title}</span>
                         </Link>
@@ -333,10 +342,11 @@ export function DataroomSidebarContent() {
                         <SidebarMenuSub className="mr-0 pr-0">
                           {item.items!.map((subItem) => {
                             const isBaseSubItem = subItem.href === item.href;
-                            const subActive = isBaseSubItem
-                              ? currentPath === subItem.href
-                              : currentPath === subItem.href ||
-                                currentPath.startsWith(subItem.href + "/");
+                            const subActive = matchesNavigationPath(
+                              currentPath,
+                              subItem.href,
+                              isBaseSubItem,
+                            );
                             return (
                               <SidebarMenuSubItem
                                 key={subItem.title}
@@ -346,7 +356,18 @@ export function DataroomSidebarContent() {
                                 )}
                               >
                                 <SidebarMenuSubButton asChild>
-                                  <Link href={subItem.href}>
+                                  <Link
+                                    href={subItem.href}
+                                    aria-current={
+                                      matchesNavigationPath(
+                                        currentPath,
+                                        subItem.href,
+                                        true,
+                                      )
+                                        ? "page"
+                                        : undefined
+                                    }
+                                  >
                                     {subItem.icon && (
                                       <subItem.icon className="h-4 w-4" />
                                     )}
@@ -373,7 +394,14 @@ export function DataroomSidebarContent() {
                         "rounded-md bg-gray-200 font-semibold dark:bg-secondary",
                     )}
                   >
-                    <Link href={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={
+                        matchesNavigationPath(currentPath, item.href, true)
+                          ? "page"
+                          : undefined
+                      }
+                    >
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </Link>

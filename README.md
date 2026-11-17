@@ -2,9 +2,11 @@
 
 A focused workspace for the work behind the deal: organize documents, review sharing, and understand viewer engagement.
 
-Roomline is an independent development fork of [Papermark](https://github.com/mfts/papermark). The brand and UX revamp adds a complete public content journey, readable interactive product preview, consistent account entry, source improvements to room summaries and creation recovery, and shared component/mobile foundations. The assessment covers 94 route templates in source and distinguishes rendered public paths from blocked authenticated work.
+Roomline is an independent development fork of [Papermark](https://github.com/mfts/papermark). It now includes its own public content journey and interactive sample preview, account entry, room workflows, restored runtime modules, and a separate static marketing build. A strict repository typecheck reached **zero diagnostics**, and the complete Next.js production build passed on **17 November 2026**. The final strict typecheck and production build also pass; see the [verification report](artifacts/runtime/README.md) for exact evidence and remaining hosted/provider requirements. This does not establish a deployed business or complete visual coverage.
 
-![Roomline homepage](artifacts/revamp/after/home-1440.png)
+Real isolated local services have exercised email-code authentication, tenant checks, document storage/rendering, sharing controls, and revocation. See the [current runtime evidence](artifacts/runtime/README.md), [launch requirements](docs/roomline/LAUNCH.md), and [deployment status](DEPLOYMENT.md). Railway infrastructure is staged and both hosted deployments remain held at the deployment approval step. A business-owned Resend key/verified sender and separately verified Stripe configuration are still required.
+
+![Roomline homepage](artifacts/runtime/marketing/home-1440-first-viewport.png)
 
 ## Run locally
 
@@ -20,11 +22,13 @@ npm run dev
 
 Open [localhost:3000](http://localhost:3000). Product details live at `/product`, `/security`, `/solutions/fundraising`, `/solutions/due-diligence`, and `/guides`. `/design-system` is a sample component reference, not a live workspace. The homepage preview uses labeled sample data; it does not create or expose live rooms. `/login` and `/register` render the account entry screens.
 
-**This checkout is not production-ready.** The original repository references missing source modules and has existing type errors. See [launch requirements](docs/roomline/LAUNCH.md) for the concrete blockers, configuration, and verification limits.
+For the real disposable PostgreSQL/Redis/SMTP/S3 test environment, follow [LOCAL_RUNTIME.md](docs/roomline/LOCAL_RUNTIME.md). Captured SMTP is a real local protocol test, not proof of production sender ownership or delivery. Do not use development capture flags in a production deployment.
+
+For the public marketing artifact, use `npm run build:marketing`; it exports only public content to the gitignored `.roomline-marketing-output` directory. The authenticated application remains a full Next.js service. This is a web-first scope with optional browser installation support; no native iOS/Android repository, binary, or native-device verification is supplied.
 
 ## Assessment and verification
 
-Read the [consolidated assessment](.better-design/app-review.md), [interactive evidence report](artifacts/revamp/assessment.html), [94-screen matrix](docs/roomline/revamp/SCREEN_CHECK_MATRIX.md), and [prioritized plan](docs/roomline/revamp/100X_PLAN.md).
+Read the [current runtime evidence](artifacts/runtime/README.md) alongside the earlier [consolidated assessment](.better-design/app-review.md), [interactive evidence report](artifacts/revamp/assessment.html), [source route matrix](docs/roomline/revamp/SCREEN_CHECK_MATRIX.md), and [prioritized plan](docs/roomline/revamp/100X_PLAN.md). The earlier route inventory is not a claim that every screen or state has been rendered or tested. No measured competitor-superiority claim is made.
 
 ```sh
 npm run test:roomline
@@ -35,7 +39,7 @@ npm run design:check
 npm run design:browser
 npm run design:auth
 npm run design:states
-# This stricter check intentionally fails while launch blockers remain:
+# Release claims require complete, current evidence for their actual scope:
 npm run design:check:release
 ```
 

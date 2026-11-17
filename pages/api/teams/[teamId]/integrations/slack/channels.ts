@@ -4,6 +4,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 import { z } from "zod";
 
+import { hasAllPermissions } from "@/lib/api/rbac/permissions";
 import {
   SlackRateLimitError,
   getSlackClient,
@@ -51,11 +52,27 @@ export default async function handler(
     },
   });
 
-  if (!userTeam) {
+  if (!userTeam || userTeam.status !== "ACTIVE" || userTeam.blockedAt) {
     return res.status(403).json({ error: "Access denied" });
   }
 
-  const env = getSlackEnv();
+  if (
+    req.method === "PUT" &&
+    !hasAllPermissions(userTeam.role, ["team.write"])
+  ) {
+    return res.status(403).json({ error: "Access denied" });
+  }
+  let env: ReturnType<typeof getSlackEnv>;
+  try {
+    env = getSlackEnv();
+  } catch {
+    return res
+      .status(503)
+      .json({
+        configured: false,
+        error: "Slack is not configured for this deployment.",
+      });
+  }
 
   if (req.method === "GET") {
     try {
@@ -76,7 +93,8 @@ export default async function handler(
       }
 
       const cacheKey = slackChannelsCacheKey(teamId);
-      const skipCache = req.query.refresh === "true" || req.query.refresh === "1";
+      const skipCache =
+        req.query.refresh === "true" || req.query.refresh === "1";
 
       if (!skipCache) {
         try {

@@ -10,7 +10,11 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { waitUntil } from "@vercel/functions";
 import { getServerSession } from "next-auth/next";
 
+import { PapermarkApiError } from "@/lib/api/errors";
+import { hasAllPermissions } from "@/lib/api/rbac/permissions";
+import { trialInputSchema } from "@/lib/dataroom/trial-input";
 import { sendDataroomTrialWelcome } from "@/lib/emails/send-dataroom-trial";
+import { errorhandler } from "@/lib/errorHandler";
 import { newId } from "@/lib/id-helper";
 import prisma from "@/lib/prisma";
 import { companyTeamName, isGeneratedTeamName } from "@/lib/team-name";
@@ -38,17 +42,32 @@ export default async function handle(
     const email = (session.user as CustomUser).email;
 
     const { teamId } = req.query as { teamId: string };
+    const parsed = trialInputSchema.safeParse(req.body);
+    if (!parsed.success)
+      return res
+        .status(400)
+        .json({
+          message:
+            "Enter a room name, your name, and company. Check that all form values are valid text.",
+        });
     const { name, fullName, companyName, useCase, companySize, tools } =
-      req.body as {
-        name: string;
-        fullName: string;
-        companyName: string;
-        useCase: string;
-        companySize: string;
-        tools: string;
-      };
+      parsed.data;
 
     try {
+      const membership = await prisma.userTeam.findUnique({
+        where: { userId_teamId: { userId, teamId } },
+        select: { role: true, status: true, blockedAt: true },
+      });
+      if (
+        !membership ||
+        membership.status !== "ACTIVE" ||
+        membership.blockedAt ||
+        !hasAllPermissions(membership.role, ["datarooms.write", "team.write"])
+      ) {
+        return res
+          .status(403)
+          .json({ message: "You cannot start a trial for this workspace." });
+      }
       const team = await prisma.team.findUnique({
         where: {
           id: teamId,
@@ -108,10 +127,31 @@ export default async function handle(
       const defaultBrandId = await resolveDefaultBrandId(teamId);
 
       const dataroom = await prisma.$transaction(async (tx) => {
+        // Concurrent first-room requests must not provision multiple trials.
+        await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${teamId}))`;
+        const current = await tx.team.findUnique({
+          where: { id: teamId },
+          select: { plan: true, _count: { select: { datarooms: true } } },
+        });
+        if (
+          !current ||
+          current.plan.includes("drtrial") ||
+          current._count.datarooms > 0
+        ) {
+          throw new PapermarkApiError(
+            "conflict",
+            "A trial data room already exists.",
+          );
+        }
+        const startedAt = new Date();
         await tx.team.update({
           where: { id: teamId },
           data: {
-            plan: `${team.plan}+drtrial`,
+            plan: `${current.plan}+drtrial`,
+            trialStartedAt: startedAt,
+            trialEndsAt: new Date(
+              startedAt.getTime() + 7 * 24 * 60 * 60 * 1000,
+            ),
             ...(renamed ? { name: renamed } : {}),
           },
         });
@@ -141,51 +181,67 @@ export default async function handle(
        * Capture the reminder + expiry run ids so the trial can later be
        * extended (see scripts/extend-trial.ts).
        */
-      waitUntil(sendDataroomTrialWelcome({ fullName, to: email! }));
-      waitUntil(
-        sendDataroomTrialInfoEmailTask.trigger(
-          { to: email!, useCase, name: fullName.split(" ")[0] },
-          { delay: "1d", tags: [`team_${teamId}`] },
-        ),
-      );
-      waitUntil(
-        (async () => {
-          try {
-            const reminderHandle =
-              await sendDataroomTrial24hReminderEmailTask.trigger(
-                { to: email!, name: fullName.split(" ")[0], teamId },
-                { delay: "6d", tags: [`team_${teamId}`] },
+      if (process.env.RESEND_API_KEY) {
+        waitUntil(sendDataroomTrialWelcome({ fullName, to: email! }));
+      }
+      // Room creation is real and independent of optional notification workers.
+      if (process.env.TRIGGER_SECRET_KEY) {
+        waitUntil(
+          sendDataroomTrialInfoEmailTask
+            .trigger(
+              { to: email!, useCase, name: fullName.split(" ")[0] },
+              { delay: "1d", tags: [`team_${teamId}`] },
+            )
+            .catch(() =>
+              console.warn(
+                "Trial information email scheduling is unavailable.",
+              ),
+            ),
+        );
+        waitUntil(
+          (async () => {
+            try {
+              const reminderHandle =
+                await sendDataroomTrial24hReminderEmailTask.trigger(
+                  { to: email!, name: fullName.split(" ")[0], teamId },
+                  { delay: "6d", tags: [`team_${teamId}`] },
+                );
+              const expiredHandle =
+                await sendDataroomTrialExpiredEmailTask.trigger(
+                  { to: email!, name: fullName.split(" ")[0], teamId },
+                  { delay: "7d", tags: [`team_${teamId}`] },
+                );
+              await prisma.team.update({
+                where: { id: teamId },
+                data: {
+                  trialReminderRunId: reminderHandle.id,
+                  trialExpiredRunId: expiredHandle.id,
+                },
+              });
+            } catch (error) {
+              console.error(
+                `[dataroom-trial] Failed to schedule trial emails or persist run IDs for team ${teamId}:`,
+                error,
               );
-            const expiredHandle =
-              await sendDataroomTrialExpiredEmailTask.trigger(
-                { to: email!, name: fullName.split(" ")[0], teamId },
-                { delay: "7d", tags: [`team_${teamId}`] },
-              );
-            await prisma.team.update({
-              where: { id: teamId },
-              data: {
-                trialReminderRunId: reminderHandle.id,
-                trialExpiredRunId: expiredHandle.id,
-              },
-            });
-          } catch (error) {
-            console.error(
-              `[dataroom-trial] Failed to schedule trial emails or persist run IDs for team ${teamId}:`,
-              error,
-            );
-            await log({
-              message: `:x: Dataroom Trial: failed to schedule trial emails or persist run IDs for team \`${teamId}\`\n\n\`\`\`${
-                error instanceof Error ? error.message : String(error)
-              }\`\`\``,
-              type: "error",
-              mention: true,
-            });
-          }
-        })(),
-      );
+              await log({
+                message: `:x: Dataroom Trial: failed to schedule trial emails or persist run IDs for team \`${teamId}\`\n\n\`\`\`${
+                  error instanceof Error ? error.message : String(error)
+                }\`\`\``,
+                type: "error",
+                mention: true,
+              });
+            }
+          })(),
+        );
+      } else {
+        console.warn(
+          "Trial created without scheduled notifications: no worker is configured.",
+        );
+      }
 
       res.status(201).json(dataroomWithCount);
     } catch (error) {
+      if (error instanceof PapermarkApiError) return errorhandler(error, res);
       console.error("Request error", error);
       res.status(500).json({ error: "Error creating dataroom" });
     }

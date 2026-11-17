@@ -1,0 +1,422 @@
+{
+  "checkedAt": "2026-11-17T02:51:20.149Z",
+  "method": "Attempt four actual authenticated local screenshots using retained synthetic owner fixtures; no route, API or authentication mocks and no product mutation.",
+  "captures": [
+    {
+      "route": "/documents",
+      "source": "pages/documents/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "failed",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?%s%s \n\nCheck the render method of `Slot.SlotClone`. \n    at UpgradePlanModal (webpack-internal:///./components/billing/upgrade-plan-modal.tsx:293:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:56:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:29:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-popper/dist/index.mjs:53:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-tooltip/dist/index.mjs:195:13)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Popper (webpack-internal:///./node_m"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/api/teams/[fixture]/billing/plan",
+          "status": 404,
+          "resourceType": "fetch"
+        },
+        {
+          "path": "/api/teams/[fixture]/integrations/slack",
+          "status": 500,
+          "resourceType": "fetch"
+        }
+      ],
+      "failedRequests": [
+        {
+          "path": "/documents",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "httpStatus": 200,
+      "loadingObserved": 0,
+      "networkSettled": false,
+      "error": "page.evaluate: Execution context was destroyed, most likely because of a navigation"
+    },
+    {
+      "route": "/datarooms/[id]",
+      "source": "pages/datarooms/[id]/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "captured-with-findings",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?%s%s \n\nCheck the render method of `Slot.SlotClone`. \n    at UpgradePlanModal (webpack-internal:///./components/billing/upgrade-plan-modal.tsx:293:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:56:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:29:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-popper/dist/index.mjs:53:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-tooltip/dist/index.mjs:195:13)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Popper (webpack-internal:///./node_m"
+        },
+        {
+          "type": "warning",
+          "text": "[Fast Refresh] performing full reload\n\nFast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.\nYou might have a file which exports a React component but also exports a value that is imported by a non-React component file.\nConsider migrating the non-React component export to a separate file and importing it into both files.\n\nIt is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.\nFast Refresh requires at least one parent function component in your React tree."
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/api/teams/[fixture]/integrations/slack",
+          "status": 500,
+          "resourceType": "fetch"
+        },
+        {
+          "path": "/api/teams/[fixture]/billing/plan",
+          "status": 404,
+          "resourceType": "fetch"
+        },
+        {
+          "path": "/api/teams/[fixture]/billing/plan",
+          "status": 404,
+          "resourceType": "fetch"
+        },
+        {
+          "path": "/avatar/16a833c3fb2033176478969c4542dfc1b14058092c2be0d16dc14195f49302e5",
+          "status": 404,
+          "resourceType": "image"
+        },
+        {
+          "path": "/avatar/107493c2c082384deb14bf62bd2fc441732d4472dd6e3879959902b7dcc7dce0",
+          "status": 404,
+          "resourceType": "image"
+        },
+        {
+          "path": "/api/teams/[fixture]/billing/plan",
+          "status": 404,
+          "resourceType": "fetch"
+        }
+      ],
+      "failedRequests": [
+        {
+          "path": "/documents",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/webpack/pages/documents.551e98359f0c6b25.hot-update.js",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/webpack/webpack.551e98359f0c6b25.hot-update.js",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/api/teams/[fixture]/billing/plan",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "httpStatus": 200,
+      "loadingObserved": 1,
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440,
+        "mainCount": 1
+      },
+      "visibleAlerts": [
+        "Roomline | Move the conversation forward."
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [
+          {
+            "id": "aria-allowed-attr",
+            "impact": "critical",
+            "description": "Ensure an element's role supports its ARIA attributes",
+            "affectedNodes": 2,
+            "targets": [
+              [
+                "div[aria-controls=\"radix-:r4r:\"]"
+              ],
+              [
+                "div[aria-controls=\"radix-:r51:\"]"
+              ]
+            ]
+          },
+          {
+            "id": "button-name",
+            "impact": "critical",
+            "description": "Ensure buttons have discernible text",
+            "affectedNodes": 3,
+            "targets": [
+              [
+                ".group-hover\\/link\\:bg-emerald-500\\/10"
+              ],
+              [
+                ".gap-1.items-center > .hover\\:bg-accent.leading-5.ring-offset-background:nth-child(2)"
+              ],
+              [
+                ".underline-offset-4"
+              ]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "affectedNodes": 2,
+            "targets": [
+              [
+                ".hover\\:bg-gray-100.group\\/row:nth-child(1) > td:nth-child(1) > .sm\\:space-x-3.overflow-visible.items-center > .flex-1.min-w-0 > .focus\\:outline-none > .text-muted-foreground\\/60.sm\\:text-sm.text-xs"
+              ],
+              [
+                ".hover\\:bg-gray-100.group\\/row:nth-child(2) > td:nth-child(1) > .sm\\:space-x-3.overflow-visible.items-center > .flex-1.min-w-0 > .focus\\:outline-none > .text-muted-foreground\\/60.sm\\:text-sm.text-xs"
+              ]
+            ]
+          }
+        ],
+        "incompleteCount": 2
+      },
+      "screenshot": "artifacts/runtime/authenticated/attempt-01/room-overview-1440.png",
+      "review": "Image inspected: actual authenticated synthetic fixture rendered; initial optional-provider and Axe findings are preserved in this attempt. This is not an accessibility pass or final-source acceptance."
+    },
+    {
+      "route": "/documents",
+      "source": "pages/documents/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "captured-with-findings",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?%s%s \n\nCheck the render method of `Slot.SlotClone`. \n    at UpgradePlanModal (webpack-internal:///./components/billing/upgrade-plan-modal.tsx:293:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:56:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:29:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-popper/dist/index.mjs:53:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-tooltip/dist/index.mjs:195:13)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Popper (webpack-internal:///./node_m"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/api/teams/[fixture]/billing/plan",
+          "status": 404,
+          "resourceType": "fetch"
+        },
+        {
+          "path": "/api/teams/[fixture]/integrations/slack",
+          "status": 500,
+          "resourceType": "fetch"
+        }
+      ],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 0,
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390,
+        "mainCount": 1
+      },
+      "visibleAlerts": [
+        ""
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "affectedNodes": 1,
+            "targets": [
+              [
+                ".text-gray-400 > span"
+              ]
+            ]
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "description": "Ensure every form element has a label",
+            "affectedNodes": 1,
+            "targets": [
+              [
+                "#upload-multi-files-zone"
+              ]
+            ]
+          }
+        ],
+        "incompleteCount": 3
+      },
+      "screenshot": "artifacts/runtime/authenticated/attempt-01/documents-390.png",
+      "review": "Image inspected: actual authenticated synthetic fixture rendered; initial optional-provider and Axe findings are preserved in this attempt. This is not an accessibility pass or final-source acceptance."
+    },
+    {
+      "route": "/datarooms/[id]",
+      "source": "pages/datarooms/[id]/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "captured-with-findings",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/api/teams/[fixture]/billing/plan",
+          "status": 404,
+          "resourceType": "fetch"
+        },
+        {
+          "path": "/avatar/16a833c3fb2033176478969c4542dfc1b14058092c2be0d16dc14195f49302e5",
+          "status": 404,
+          "resourceType": "image"
+        },
+        {
+          "path": "/avatar/107493c2c082384deb14bf62bd2fc441732d4472dd6e3879959902b7dcc7dce0",
+          "status": 404,
+          "resourceType": "image"
+        }
+      ],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 1,
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390,
+        "mainCount": 1
+      },
+      "visibleAlerts": [
+        "Roomline | Move the conversation forward."
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [
+          {
+            "id": "aria-allowed-attr",
+            "impact": "critical",
+            "description": "Ensure an element's role supports its ARIA attributes",
+            "affectedNodes": 2,
+            "targets": [
+              [
+                "div[aria-controls=\"radix-:r4l:\"]"
+              ],
+              [
+                "div[aria-controls=\"radix-:r4r:\"]"
+              ]
+            ]
+          },
+          {
+            "id": "button-name",
+            "impact": "critical",
+            "description": "Ensure buttons have discernible text",
+            "affectedNodes": 2,
+            "targets": [
+              [
+                ".group-hover\\/link\\:bg-emerald-500\\/10"
+              ],
+              [
+                ".hover\\:bg-accent.h-8.leading-5:nth-child(2)"
+              ]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "affectedNodes": 2,
+            "targets": [
+              [
+                ".hover\\:bg-gray-100.group\\/row:nth-child(1) > td:nth-child(1) > .sm\\:space-x-3.overflow-visible.items-center > .flex-1.min-w-0 > .focus\\:outline-none > .text-muted-foreground\\/60.text-xs.sm\\:text-sm"
+              ],
+              [
+                ".hover\\:bg-gray-100.group\\/row:nth-child(2) > td:nth-child(1) > .sm\\:space-x-3.overflow-visible.items-center > .flex-1.min-w-0 > .focus\\:outline-none > .text-muted-foreground\\/60.text-xs.sm\\:text-sm"
+              ]
+            ]
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+            "affectedNodes": 1,
+            "targets": [
+              [
+                ".w-full:nth-child(3) > .overflow-x-auto.rounded-md.border"
+              ]
+            ]
+          }
+        ],
+        "incompleteCount": 1
+      },
+      "screenshot": "artifacts/runtime/authenticated/attempt-01/room-overview-390.png",
+      "review": "Image inspected: actual authenticated synthetic fixture rendered; initial optional-provider and Axe findings are preserved in this attempt. This is not an accessibility pass or final-source acceptance."
+    }
+  ],
+  "limitations": [
+    "Target coverage is only the documents library and one owned room overview in light theme at two desktop-browser viewport widths; captures and their individual statuses record the actual outcome.",
+    "Automated Axe checks do not establish complete accessibility conformance; no physical device, native app or 95-screen visual pass is claimed.",
+    "Optional external provider errors are recorded as observed; this test does not configure or verify those providers."
+  ]
+}

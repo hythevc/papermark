@@ -1,0 +1,265 @@
+{
+  "status": "targeted_revocation_repair_verified; previous full core run retained with its failed check",
+  "priorCoreRun": {
+    "checkedAt": "2026-11-17T02:04:34.751Z",
+    "mode": "real local services; no auth/permission mocks",
+    "checks": [
+      {
+        "name": "Unauthenticated room API denies access",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Real signup, SMTP OTP, NextAuth callback/session and replay denial",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Real free-plan room creation is denied",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Create explicit paid-plan fixture in isolated database",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Room create writes actual database record",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Room read/update/list preserve database state",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Independent real second user/session",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Cross-team room read/update/create denied",
+        "status": "passed",
+        "checkpointFrom": "2026-11-17T01:08:04.335Z"
+      },
+      {
+        "name": "Retained real NextAuth session resumes only its owned fixture room",
+        "status": "passed"
+      },
+      {
+        "name": "Real private PDF upload, persisted document, rendered page and room attachment",
+        "status": "passed"
+      },
+      {
+        "name": "Create real restricted, email-verified guest link",
+        "status": "passed"
+      },
+      {
+        "name": "Guest outside audience denied without view creation",
+        "status": "passed"
+      },
+      {
+        "name": "Allowed guest must complete real email verification",
+        "status": "passed"
+      },
+      {
+        "name": "Audience denial also prevents document bytes and download issuance",
+        "status": "passed"
+      },
+      {
+        "name": "Verified guest receives real rendered page bytes while downloads stay denied",
+        "status": "passed"
+      },
+      {
+        "name": "Owner can enable download and verified guest receives byte-identical original PDF",
+        "status": "passed"
+      },
+      {
+        "name": "Revoke link blocks established and new guest access",
+        "status": "passed"
+      },
+      {
+        "name": "Revoked guest cannot obtain new page or download URLs",
+        "status": "failed",
+        "errorType": "AssertionError"
+      }
+    ],
+    "limitations": [
+      "Paid plan is an explicit isolated database fixture after verifying free-plan denial; Stripe billing was not exercised.",
+      "SMTP capture verifies local delivery, not a production sender domain or delivery provider.",
+      "Local Redis REST proxy and S3 gateway are real isolated services; hosted Upstash/AWS/Tinybird behavior is not certified.",
+      "Revocation checks deny new app-issued page/download access. Previously issued object-storage signed URLs remain capabilities until their expiry; this harness does not claim instant invalidation of previously delivered bytes."
+    ],
+    "failure": {
+      "type": "AssertionError",
+      "step": "Revoked guest cannot obtain new page or download URLs"
+    }
+  },
+  "revocationRepairReplay": {
+    "checkedAt": "2026-11-17T02:34:05.229Z",
+    "mode": "real retained owner session, SMTP OTP, Postgres and S3; no route/auth mocks",
+    "checks": [
+      {
+        "name": "Create a fresh owned email-verified link through the authenticated API",
+        "status": "passed"
+      },
+      {
+        "name": "Verify a real guest using the SMTP-delivered one-time code",
+        "status": "passed"
+      },
+      {
+        "name": "Before revocation, page refresh returns an actual accessible PNG",
+        "status": "passed"
+      },
+      {
+        "name": "Before revocation, the verified guest can request a real PDF download",
+        "status": "passed"
+      },
+      {
+        "name": "Revoke that same link through the owner API and confirm persisted state",
+        "status": "passed"
+      },
+      {
+        "name": "Revoked room access denies the established guest",
+        "status": "passed"
+      },
+      {
+        "name": "Revoked document access denies the established guest",
+        "status": "passed"
+      },
+      {
+        "name": "Revoked page refresh denies new signed page URLs",
+        "status": "passed"
+      },
+      {
+        "name": "Revoked download denies a new signed original URL",
+        "status": "passed"
+      }
+    ],
+    "limitations": [
+      "Previously issued signed URLs remain capabilities until expiry; checks concern new URL issuance."
+    ],
+    "observedStatuses": {
+      "Revoked room access denies the established guest": 404,
+      "Revoked document access denies the established guest": 404,
+      "Revoked page refresh denies new signed page URLs": 403,
+      "Revoked download denies a new signed original URL": 403
+    }
+  },
+  "localServiceHealth": {
+    "checkedAt": "2026-11-17T01:08:31.141Z",
+    "checks": [
+      {
+        "name": "Redis real SET/GETDEL single use",
+        "status": "passed"
+      },
+      {
+        "name": "Redis sliding-window enforcement",
+        "status": "passed"
+      },
+      {
+        "name": "Redis REST rejects absent token",
+        "status": "passed"
+      },
+      {
+        "name": "S3 create private test buckets",
+        "status": "passed"
+      },
+      {
+        "name": "S3 real upload and byte-identical read",
+        "status": "passed"
+      },
+      {
+        "name": "S3 rejects anonymous object read",
+        "status": "passed"
+      },
+      {
+        "name": "S3 rejects incorrect credentials",
+        "status": "passed"
+      },
+      {
+        "name": "S3 remove owned health object",
+        "status": "passed"
+      },
+      {
+        "name": "Mailpit local HTTP API",
+        "status": "passed"
+      }
+    ]
+  },
+  "focusedRegressionTests": {
+    "command": "node --import tsx --test lib/api/views/page-access.test.ts",
+    "passed": 9,
+    "total": 9,
+    "evidenceType": "authorization policy tests with controlled database doubles; separate from real HTTP replay"
+  },
+  "sourceChanges": [
+    "app/api/views/pages/route.ts",
+    "lib/api/views/page-access.ts",
+    "lib/api/views/page-access.test.ts",
+    "pages/api/links/[id]/index.ts",
+    "lib/auth/preview-access.ts",
+    "lib/auth/preview-auth.ts",
+    "pages/api/links/[id]/preview.ts",
+    "app/api/views/route.ts",
+    "app/api/views-dataroom/route.ts"
+  ],
+  "scopeLimits": [
+    "The prior broad core run passed 17 of 18 checks. It was not relabeled as an 18/18 run after the fix.",
+    "The independent targeted real replay passed 9 of 9 checks, including real guest email verification, accessible PNG/PDF bytes before revoke and no new URLs afterward.",
+    "Direct S3 service-health evidence is not resumable TUS upload evidence; that separate integration is recorded by the extended harness.",
+    "This API/database/storage evidence does not visually verify every application screen or certify hosted production providers.",
+    "No external production deployment, provider configuration, sender deliverability, payment collection or native application was verified by this replay."
+  ],
+  "previewAccessReplay": {
+    "checkedAt": "2026-11-17T02:47:04.696Z",
+    "mode": "real NextAuth owner session, PostgreSQL/Redis and initial signed-page APIs; no auth/permission mocks",
+    "checks": [
+      {
+        "name": "Active owner can obtain real preview tokens for room and document links",
+        "status": "passed"
+      },
+      {
+        "name": "Active owner initial room and document previews return actual PNG page bytes",
+        "status": "passed"
+      },
+      {
+        "name": "A signed-in outsider cannot obtain a preview token for a foreign workspace",
+        "status": "passed"
+      },
+      {
+        "name": "A caller-supplied userId cannot replace token verification on either initial-view route",
+        "status": "passed"
+      },
+      {
+        "name": "Blocked membership denies new preview-token issuance",
+        "status": "passed"
+      },
+      {
+        "name": "Removing membership invalidates previously issued room, document and page previews",
+        "status": "passed"
+      },
+      {
+        "name": "Scoped room assignment permits preview, then its removal revokes existing tokens",
+        "status": "passed"
+      },
+      {
+        "name": "Original owner membership is restored and a fresh owner preview succeeds",
+        "status": "passed"
+      }
+    ],
+    "limitations": [
+      "Test-only links and one foreign room are seeded in the isolated database; this replay does not retest room/link creation UX.",
+      "Previously issued storage URLs retain their TTL; this verifies authorization for issuing new URLs."
+    ],
+    "membershipRestored": true
+  },
+  "storageCapabilityLifetime": {
+    "source": "pages/api/file/s3/get-presigned-get-url.ts",
+    "testedPageAndOriginalDefaultSeconds": 120,
+    "endpointMaximumSeconds": 3600,
+    "scope": "The tested getFile page/original path uses the two-minute default. Other signing paths, including bulk archives, have separate lifetimes."
+  }
+}

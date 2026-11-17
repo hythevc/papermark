@@ -1,5 +1,9 @@
 import { OpenAI } from "openai";
 
-export const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+let client: OpenAI | undefined;
+
+/** Construct the real provider only when an AI operation is requested. */
+export function getOpenAIClient(): OpenAI {
+  client ??= new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  return client;
+}

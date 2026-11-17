@@ -142,6 +142,7 @@ export function MarketingFooter({ className = "" }: { className?: string }) {
         <Link href="/solutions/due-diligence">Due diligence</Link>
         <Link href="/security">Security</Link>
         <Link href="/guides">Guides</Link>
+        <Link href="/mobile">Install Roomline</Link>
         <a href="https://github.com/hythevc/papermark">
           Source &amp; attribution
         </a>

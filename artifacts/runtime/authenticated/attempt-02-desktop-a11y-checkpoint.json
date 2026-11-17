@@ -1,0 +1,275 @@
+{
+  "checkedAt": "2026-11-17T03:10:45.046Z",
+  "method": "Attempt four actual authenticated local screenshots using retained synthetic owner fixtures; no route, API or authentication mocks and no product mutation.",
+  "captures": [
+    {
+      "route": "/documents",
+      "source": "pages/documents/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "captured-with-findings",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?%s%s \n\nCheck the render method of `Slot.SlotClone`. \n    at UpgradePlanModal (webpack-internal:///./components/billing/upgrade-plan-modal.tsx:295:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:56:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:29:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-popper/dist/index.mjs:53:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-tooltip/dist/index.mjs:195:13)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Popper (webpack-internal:///./node_m"
+        }
+      ],
+      "httpErrors": [],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 0,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440,
+        "mainCount": 1
+      },
+      "visibleAlerts": [
+        ""
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [
+          {
+            "id": "button-name",
+            "impact": "critical",
+            "description": "Ensure buttons have discernible text",
+            "affectedNodes": 1,
+            "targets": [
+              [
+                ".size-12"
+              ]
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "impact": "serious",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "affectedNodes": 1,
+            "targets": [
+              [
+                ".duration-100"
+              ]
+            ]
+          }
+        ],
+        "incompleteCount": 3
+      },
+      "screenshot": "artifacts/runtime/authenticated/attempt-02/documents-1440.png",
+      "review": "Actual saved image individually inspected: readable content and no page-level overflow. This checkpoint retains the two desktop-document Axe findings before their final source repair; it is not final-source or accessibility acceptance."
+    },
+    {
+      "route": "/datarooms/[id]",
+      "source": "pages/datarooms/[id]/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "captured-with-findings",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/avatar/16a833c3fb2033176478969c4542dfc1b14058092c2be0d16dc14195f49302e5",
+          "status": 404,
+          "resourceType": "image"
+        },
+        {
+          "path": "/avatar/107493c2c082384deb14bf62bd2fc441732d4472dd6e3879959902b7dcc7dce0",
+          "status": 404,
+          "resourceType": "image"
+        }
+      ],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 1,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440,
+        "mainCount": 1
+      },
+      "visibleAlerts": [
+        "Roomline | Move the conversation forward."
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [],
+        "incompleteCount": 2
+      },
+      "screenshot": "artifacts/runtime/authenticated/attempt-02/room-overview-1440.png",
+      "review": "Actual saved image individually inspected: readable content and no page-level overflow. This checkpoint retains the two desktop-document Axe findings before their final source repair; it is not final-source or accessibility acceptance."
+    },
+    {
+      "route": "/documents",
+      "source": "pages/documents/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "captured-with-findings",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?%s%s \n\nCheck the render method of `Slot.SlotClone`. \n    at UpgradePlanModal (webpack-internal:///./components/billing/upgrade-plan-modal.tsx:295:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:56:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-slot/dist/index.mjs:29:11)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:44:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs:20:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-primitive/dist/index.mjs:38:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-popper/dist/index.mjs:53:13)\n    at eval (webpack-internal:///./node_modules/@radix-ui/react-tooltip/dist/index.mjs:195:13)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Provider (webpack-internal:///./node_modules/@radix-ui/react-context/dist/index.mjs:34:15)\n    at Popper (webpack-internal:///./node_m"
+        }
+      ],
+      "httpErrors": [],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 0,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390,
+        "mainCount": 1
+      },
+      "visibleAlerts": [
+        ""
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [],
+        "incompleteCount": 3
+      },
+      "screenshot": "artifacts/runtime/authenticated/attempt-02/documents-390.png",
+      "review": "Actual saved image individually inspected: readable content and no page-level overflow. This checkpoint retains the two desktop-document Axe findings before their final source repair; it is not final-source or accessibility acceptance."
+    },
+    {
+      "route": "/datarooms/[id]",
+      "source": "pages/datarooms/[id]/index.tsx",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "captured-with-findings",
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        }
+      ],
+      "httpErrors": [
+        {
+          "path": "/avatar/16a833c3fb2033176478969c4542dfc1b14058092c2be0d16dc14195f49302e5",
+          "status": 404,
+          "resourceType": "image"
+        },
+        {
+          "path": "/avatar/107493c2c082384deb14bf62bd2fc441732d4472dd6e3879959902b7dcc7dce0",
+          "status": 404,
+          "resourceType": "image"
+        }
+      ],
+      "failedRequests": [],
+      "httpStatus": 200,
+      "loadingObserved": 1,
+      "billingPlan": {
+        "status": 200,
+        "plan": "datarooms",
+        "billingProviderState": "unconfigured",
+        "providerVerified": false,
+        "billingActionsAvailable": false
+      },
+      "networkSettled": true,
+      "geometry": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390,
+        "mainCount": 1
+      },
+      "visibleAlerts": [
+        "Roomline | Move the conversation forward."
+      ],
+      "loadingRemaining": 0,
+      "axe": {
+        "violations": [],
+        "incompleteCount": 1
+      },
+      "screenshot": "artifacts/runtime/authenticated/attempt-02/room-overview-390.png",
+      "review": "Actual saved image individually inspected: readable content and no page-level overflow. This checkpoint retains the two desktop-document Axe findings before their final source repair; it is not final-source or accessibility acceptance."
+    }
+  ],
+  "limitations": [
+    "Target coverage is only the documents library and one owned room overview in light theme at two desktop-browser viewport widths; captures and their individual statuses record the actual outcome.",
+    "Automated Axe checks do not establish complete accessibility conformance; no physical device, native app or 95-screen visual pass is claimed.",
+    "Optional external provider errors are recorded as observed; this test does not configure or verify those providers."
+  ],
+  "cachePrivacy": {
+    "status": "passed",
+    "entries": {
+      "roomline-public-v1": [
+        {
+          "path": "/offline.html",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline.svg",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline-192.png",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline-512.png",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/roomline-maskable-512.png",
+          "hasQuery": false
+        },
+        {
+          "path": "/icons/apple-touch-icon.png",
+          "hasQuery": false
+        }
+      ]
+    }
+  }
+}

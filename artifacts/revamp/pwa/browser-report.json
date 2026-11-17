@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-11-17T02:37:08.723Z",
+  "origin": "http://localhost:3000",
+  "method": "Actual local app in headless Chromium with a temporary persistent unauthenticated profile and real service worker; no network route mocks or synthetic install events. The profile is deleted when the browser closes.",
+  "checks": [
+    {
+      "name": "public service worker and manifest MIME/update headers",
+      "status": "passed"
+    },
+    {
+      "name": "actual application provider registers and controls the application origin",
+      "status": "passed"
+    },
+    {
+      "name": "manifest identity, scope and decoded installation icon dimensions",
+      "status": "passed"
+    },
+    {
+      "name": "real Chromium CDP installability diagnostics",
+      "status": "passed"
+    },
+    {
+      "name": "actual CacheStorage contains exactly the public allowlist after API, framework-data and query probes",
+      "status": "passed"
+    },
+    {
+      "name": "online private navigation keeps the actual authentication redirect and adds no cached document",
+      "status": "passed"
+    },
+    {
+      "name": "offline document navigation receives only the generic fallback; API fetch fails and cache stays public-only",
+      "status": "passed"
+    },
+    {
+      "name": "reconnect retry reloads the original route and restores the server authentication flow",
+      "status": "passed"
+    }
+  ],
+  "screenshots": [
+    {
+      "route": "/datarooms/pwa-local-privacy-probe",
+      "state": "generic-offline-fallback",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/pwa/offline-390.png",
+      "status": "accepted",
+      "review": "Saved image inspected: readable content, visible retry control, no clipping or horizontal overflow."
+    },
+    {
+      "route": "/datarooms/pwa-local-privacy-probe",
+      "state": "generic-offline-fallback",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/pwa/offline-1440.png",
+      "status": "accepted",
+      "review": "Saved image inspected: readable content, visible retry control, no clipping or horizontal overflow."
+    }
+  ],
+  "limitations": [
+    "Headless Chromium and viewport emulation do not verify OS-level installation, iOS Safari, native apps, or a physical mobile device.",
+    "Tests use an unauthenticated browser and public/local probe requests; authenticated authorization and tenant isolation are outside this check.",
+    "CDP installability diagnostics describe this tested origin and browser session only."
+  ],
+  "registration": {
+    "scope": "http://localhost:3000/",
+    "activeScript": "http://localhost:3000/sw.js",
+    "controller": "http://localhost:3000/sw.js",
+    "secureContext": true
+  },
+  "manifest": {
+    "start_url": "/datarooms",
+    "scope": "/",
+    "display": "standalone",
+    "decodedIcons": [
+      {
+        "src": "/icons/roomline-192.png",
+        "width": 192,
+        "height": 192,
+        "declared": "192x192"
+      },
+      {
+        "src": "/icons/roomline-512.png",
+        "width": 512,
+        "height": 512,
+        "declared": "512x512"
+      },
+      {
+        "src": "/icons/roomline-maskable-512.png",
+        "width": 512,
+        "height": 512,
+        "declared": "512x512"
+      }
+    ]
+  },
+  "installability": {
+    "installabilityErrors": []
+  },
+  "naturalInstallEvent": null,
+  "cacheContents": {
+    "roomline-public-v1": [
+      "http://localhost:3000/icons/apple-touch-icon.png",
+      "http://localhost:3000/icons/roomline-192.png",
+      "http://localhost:3000/icons/roomline-512.png",
+      "http://localhost:3000/icons/roomline-maskable-512.png",
+      "http://localhost:3000/icons/roomline.svg",
+      "http://localhost:3000/offline.html"
+    ]
+  },
+  "pageErrors": [],
+  "installPromptObservation": {
+    "status": "not-observed",
+    "reason": "No natural beforeinstallprompt event was emitted during this headless session. CDP installability errors were empty; no synthetic install event or OS installation was performed."
+  }
+}
