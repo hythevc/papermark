@@ -19,8 +19,8 @@
     "branch": "codex/roomline-saas",
     "deploymentMustPinReviewedCommit": true,
     "sourceNotConnected": true,
-    "selectedCommit": null,
-    "selectionStatus": "Await final published reviewed commit; no source connection/deployment has occurred."
+    "selectedCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be",
+    "selectionStatus": "Exact reviewed application commit selected; no source connection or deployment has occurred."
   },
   "secrets": {
     "algorithm": "32 independent CSPRNG bytes encoded as 64 lowercase hex characters per name",
@@ -150,9 +150,16 @@
     "nativePrivate": true,
     "actualNameReference": "${{Files.BUCKET}}",
     "cors": {
-      "AllowedMethods": ["GET", "HEAD"],
-      "AllowedOrigins": ["*"],
-      "AllowedHeaders": ["*"],
+      "AllowedMethods": [
+        "GET",
+        "HEAD"
+      ],
+      "AllowedOrigins": [
+        "*"
+      ],
+      "AllowedHeaders": [
+        "*"
+      ],
       "ExposeHeaders": [
         "ETag",
         "Content-Length",
@@ -603,12 +610,12 @@
         "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
         "serviceId": "c765d930-419c-4e64-8369-c7184ee789e1",
         "repo": "hythevc/papermark",
-        "commitSha": null,
+        "commitSha": "b59108e0b3fa020916af28bb4133ccee7ec824be",
         "staged": true,
         "branch": "codex/roomline-saas"
       },
-      "require": "Blocked until source.selectedCommit is the final published reviewed SHA; never connect the branch unpinned.",
-      "executionStatus": "not connected; selected commit pending"
+      "require": "After explicit approval, stage this exact selected commit in the reviewed staging environment; never connect an unpinned branch.",
+      "executionStatus": "Not connected; exact commit selected, explicit deployment approval required."
     },
     {
       "phase": "review-app",
@@ -743,7 +750,9 @@
       "NEXT_PUBLIC_MARKETING_URL",
       "application source"
     ],
-    "remainingUnstagedAccordingToRoot": ["application source"]
+    "remainingUnstagedAccordingToRoot": [
+      "application source"
+    ]
   },
   "actualServiceIds": {
     "Postgres": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",

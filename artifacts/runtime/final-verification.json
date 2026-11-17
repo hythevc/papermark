@@ -52,7 +52,9 @@
   },
   "deployment": {
     "applied": false,
-    "status": "Blocked awaiting explicit approval; empty project records and pending infrastructure only."
+    "status": "Blocked awaiting explicit approval; empty project records and pending infrastructure only.",
+    "selectedApplicationCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be",
+    "sourceConnected": false
   },
   "limits": [
     "Local production build and isolated real services; no hosted deployment verified.",
@@ -88,5 +90,6 @@
     "strictReleaseIncomplete": true,
     "reason": "Remaining screen states are source-only;21st authenticated tooling awaits rotated credentials. This is not release certification.",
     "strictLog": "artifacts/runtime/strict-release-check.log"
-  }
+  },
+  "applicationSourceCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be"
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-17T03:58:10.575Z",
+  "reviewedAt": "2026-11-17T04:02:33.721Z",
   "scope": {
     "summary": "Roomline UX revamp, operational source restoration, real isolated owner/guest verification, installable mobile web, and separate marketing/SaaS staging preparation. All95 screen templates indexed; browser-verified pairs and unverified screens explicitly distinguished.",
     "baseline": "origin/main ed19717; initial design snapshot3f5b144; runtime restoration against the current working source digest",
@@ -365,7 +365,7 @@
       "scripts/runtime/version-concurrency.cjs",
       "styles/globals.css"
     ],
-    "sourceDigest": "19597e3faf434e8ef428cdcf93d2cf36717819adc52b96f255446524bdde9692"
+    "sourceDigest": "84031cdfb77990d8b9a8c833b362d5d383ffa808666402e21f4e4d2176de582d"
   },
   "referenceRegistry": "docs/roomline/revamp/REFERENCE_REGISTRY.json",
   "toolReviews": [
