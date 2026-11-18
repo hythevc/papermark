@@ -1,0 +1,3673 @@
+{
+  "version": 1,
+  "product": "Roomline",
+  "features": [
+    {
+      "id": "home",
+      "name": "Home",
+      "flows": [
+        {
+          "id": "view-home",
+          "name": "View home",
+          "steps": [
+            {
+              "name": "Home",
+              "route": "/",
+              "screen": "pages/index.tsx",
+              "components": [
+                "pages/_app.tsx",
+                "pages/_document.tsx"
+              ],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": [
+        "components/marketing/roomline-home.tsx",
+        "components/shared/icons/home.tsx"
+      ]
+    },
+    {
+      "id": "404",
+      "name": "404",
+      "flows": [
+        {
+          "id": "view-404",
+          "name": "View 404",
+          "steps": [
+            {
+              "name": "404",
+              "route": "/404",
+              "screen": "pages/404.tsx",
+              "components": [],
+              "data": [
+                "pages/api/account/index.ts",
+                "pages/api/account/passkeys.ts",
+                "pages/api/agreements/signing/[agreementResponseId]/download.ts",
+                "pages/api/agreements/signing/complete.ts",
+                "pages/api/agreements/signing/session.ts",
+                "pages/api/agreements/signing/status.ts",
+                "pages/api/analytics/index.ts",
+                "pages/api/auth/[...nextauth].ts",
+                "pages/api/conversations/[[...conversations]].ts",
+                "pages/api/feedback/index.ts",
+                "pages/api/file/image-upload.ts",
+                "pages/api/file/notion/index.ts",
+                "pages/api/file/s3/get-presigned-get-url-proxy.ts",
+                "pages/api/file/s3/get-presigned-get-url.ts",
+                "pages/api/file/s3/get-presigned-post-url.ts",
+                "pages/api/file/s3/multipart.ts",
+                "pages/api/file/tus-viewer/[[...file]].ts",
+                "pages/api/file/tus/[[...file]].ts",
+                "pages/api/health.ts",
+                "pages/api/internal/billing/automatic-unpause.ts",
+                "pages/api/jobs/get-thumbnail.ts",
+                "pages/api/jobs/process-download-batch.ts",
+                "pages/api/jobs/send-conversation-mention-notification.ts",
+                "pages/api/jobs/send-conversation-new-message-notification.ts",
+                "pages/api/jobs/send-conversation-team-member-notification.ts",
+                "pages/api/jobs/send-dataroom-new-document-notification.ts",
+                "pages/api/jobs/send-dataroom-upload-notification.ts",
+                "pages/api/jobs/send-notification.ts",
+                "pages/api/jobs/send-pause-resume-notification.ts",
+                "pages/api/links/[id]/annotations.ts",
+                "pages/api/links/[id]/archive.ts",
+                "pages/api/links/[id]/documents/[documentId]/annotations.ts",
+                "pages/api/links/[id]/duplicate.ts",
+                "pages/api/links/[id]/index.ts",
+                "pages/api/links/[id]/preview.ts",
+                "pages/api/links/[id]/transfer.ts",
+                "pages/api/links/download/[jobId].ts",
+                "pages/api/links/download/bulk.ts",
+                "pages/api/links/download/dataroom-document.ts",
+                "pages/api/links/download/dataroom-folder.ts",
+                "pages/api/links/download/file/[jobId]/[partIndex].ts",
+                "pages/api/links/download/index.ts",
+                "pages/api/links/download/jobs.ts",
+                "pages/api/links/download/verify.ts",
+                "pages/api/links/generate-index.ts",
+                "pages/api/links/index.ts",
+                "pages/api/mupdf/annotate-document.ts",
+                "pages/api/mupdf/convert-page.ts",
+                "pages/api/mupdf/get-pages.ts",
+                "pages/api/notification-preferences/dataroom.ts",
+                "pages/api/passkeys/register.ts",
+                "pages/api/progress-token.ts",
+                "pages/api/record_click.ts",
+                "pages/api/record_reaction.ts",
+                "pages/api/record_video_view.ts",
+                "pages/api/record_view.ts",
+                "pages/api/report.ts",
+                "pages/api/revalidate.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/download.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/index.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/responses/[responseId]/download.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/responses/index.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/signing/presign.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/signing/setup-status.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/signing/setup.ts",
+                "pages/api/teams/[teamId]/agreements/[agreementId]/signing/sync.ts",
+                "pages/api/teams/[teamId]/agreements/index.ts",
+                "pages/api/teams/[teamId]/ai-settings.ts",
+                "pages/api/teams/[teamId]/branding.ts",
+                "pages/api/teams/[teamId]/brands/[brandId]/default.ts",
+                "pages/api/teams/[teamId]/brands/[brandId]/index.ts",
+                "pages/api/teams/[teamId]/brands/index.ts",
+                "pages/api/teams/[teamId]/change-role.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/apply-permissions.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/apply-template.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/branding.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/calculate-indexes.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/conversations/[[...conversations]].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/conversations/toggle-conversations.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/documents/[documentId]/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/documents/[documentId]/overview.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/documents/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/documents/move.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/download/[jobId].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/download/bulk.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/download/jobs.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/duplicate.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/export-visits.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/faqs/[faqId].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/faqs/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folder-documents/[...name].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/[...name].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/bulk.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/import-template.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/manage/[folderId]/dataroom-to-dataroom.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/manage/[folderId]/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/manage/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/move.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/folders/parents/[...name].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/generate-index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/duplicate.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/export-visits.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/invite.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/links.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/members/[memberId].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/members/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/permissions.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/uninvited.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/[groupId]/views/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/groups/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/links.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/links/[linkId]/invite.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/links/bulk.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/members.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/permission-groups/[permissionGroupId].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/permission-groups/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/questions/[[...questions]].ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/reorder.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/search.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/stats.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/users/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/viewers/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/views-count.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/views/[viewId]/custom-fields.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/views/[viewId]/document-stats.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/views/[viewId]/history.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/views/[viewId]/user-agent.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/views/index.ts",
+                "pages/api/teams/[teamId]/datarooms/[id]/visitors/index.ts",
+                "pages/api/teams/[teamId]/datarooms/create-from-folder.ts",
+                "pages/api/teams/[teamId]/datarooms/generate-ai-structure.ts",
+                "pages/api/teams/[teamId]/datarooms/generate-ai.ts",
+                "pages/api/teams/[teamId]/datarooms/generate.ts",
+                "pages/api/teams/[teamId]/datarooms/index.ts",
+                "pages/api/teams/[teamId]/datarooms/trial.ts",
+                "pages/api/teams/[teamId]/documents/[id]/add-to-dataroom.ts",
+                "pages/api/teams/[teamId]/documents/[id]/advanced-mode.ts",
+                "pages/api/teams/[teamId]/documents/[id]/annotations/[annotationId].ts",
+                "pages/api/teams/[teamId]/documents/[id]/annotations/[annotationId]/images.ts",
+                "pages/api/teams/[teamId]/documents/[id]/annotations/index.ts",
+                "pages/api/teams/[teamId]/documents/[id]/change-orientation.ts",
+                "pages/api/teams/[teamId]/documents/[id]/check-notion-accessibility.ts",
+                "pages/api/teams/[teamId]/documents/[id]/download.ts",
+                "pages/api/teams/[teamId]/documents/[id]/duplicate.ts",
+                "pages/api/teams/[teamId]/documents/[id]/export-visits.ts",
+                "pages/api/teams/[teamId]/documents/[id]/index.ts",
+                "pages/api/teams/[teamId]/documents/[id]/links.ts",
+                "pages/api/teams/[teamId]/documents/[id]/links/bulk.ts",
+                "pages/api/teams/[teamId]/documents/[id]/overview.ts",
+                "pages/api/teams/[teamId]/documents/[id]/preview-data.ts",
+                "pages/api/teams/[teamId]/documents/[id]/preview-pages.ts",
+                "pages/api/teams/[teamId]/documents/[id]/stats.ts",
+                "pages/api/teams/[teamId]/documents/[id]/toggle-dark-mode.ts",
+                "pages/api/teams/[teamId]/documents/[id]/toggle-download-only.ts",
+                "pages/api/teams/[teamId]/documents/[id]/update-link-url.ts",
+                "pages/api/teams/[teamId]/documents/[id]/update-name.ts",
+                "pages/api/teams/[teamId]/documents/[id]/update-notion-url.ts",
+                "pages/api/teams/[teamId]/documents/[id]/versions/index.ts",
+                "pages/api/teams/[teamId]/documents/[id]/video-analytics.ts",
+                "pages/api/teams/[teamId]/documents/[id]/views-count.ts",
+                "pages/api/teams/[teamId]/documents/[id]/views/[viewId]/click-events.ts",
+                "pages/api/teams/[teamId]/documents/[id]/views/[viewId]/custom-fields.ts",
+                "pages/api/teams/[teamId]/documents/[id]/views/[viewId]/stats.ts",
+                "pages/api/teams/[teamId]/documents/[id]/views/[viewId]/user-agent.ts",
+                "pages/api/teams/[teamId]/documents/[id]/views/[viewId]/video-stats.ts",
+                "pages/api/teams/[teamId]/documents/[id]/views/index.ts",
+                "pages/api/teams/[teamId]/documents/agreement.ts",
+                "pages/api/teams/[teamId]/documents/document-processing-status.ts",
+                "pages/api/teams/[teamId]/documents/hidden/index.ts",
+                "pages/api/teams/[teamId]/documents/hide.ts",
+                "pages/api/teams/[teamId]/documents/index.ts",
+                "pages/api/teams/[teamId]/documents/move.ts",
+                "pages/api/teams/[teamId]/documents/search.ts",
+                "pages/api/teams/[teamId]/documents/update.ts",
+                "pages/api/teams/[teamId]/domains/[domain]/index.ts",
+                "pages/api/teams/[teamId]/domains/[domain]/validate.ts",
+                "pages/api/teams/[teamId]/domains/[domain]/verify.ts",
+                "pages/api/teams/[teamId]/domains/index.ts",
+                "pages/api/teams/[teamId]/enable-advanced-mode.ts",
+                "pages/api/teams/[teamId]/export-jobs.ts",
+                "pages/api/teams/[teamId]/export-jobs/[exportId].ts",
+                "pages/api/teams/[teamId]/export-jobs/[exportId]/send-email.ts",
+                "pages/api/teams/[teamId]/folder-documents/[...name].ts",
+                "pages/api/teams/[teamId]/folders/[...name].ts",
+                "pages/api/teams/[teamId]/folders/bulk.ts",
+                "pages/api/teams/[teamId]/folders/hide.ts",
+                "pages/api/teams/[teamId]/folders/index.ts",
+                "pages/api/teams/[teamId]/folders/manage/[folderId]/add-to-dataroom.ts",
+                "pages/api/teams/[teamId]/folders/manage/[folderId]/index.ts",
+                "pages/api/teams/[teamId]/folders/manage/index.ts",
+                "pages/api/teams/[teamId]/folders/move.ts",
+                "pages/api/teams/[teamId]/folders/parents/[...name].ts",
+                "pages/api/teams/[teamId]/global-block-list.ts",
+                "pages/api/teams/[teamId]/ignored-domains.ts",
+                "pages/api/teams/[teamId]/incoming-webhooks/index.ts",
+                "pages/api/teams/[teamId]/index.ts",
+                "pages/api/teams/[teamId]/integrations/slack/channels.ts"
+              ]
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "account",
+      "name": "Account",
+      "flows": [
+        {
+          "id": "general",
+          "name": "General",
+          "steps": [
+            {
+              "name": "General",
+              "route": "/account/general",
+              "screen": "pages/account/general.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "name": "Security",
+          "steps": [
+            {
+              "name": "Security",
+              "route": "/account/security",
+              "screen": "pages/account/security.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": [
+        "components/account/account-header.tsx",
+        "components/account/update-subscription.tsx",
+        "components/account/upload-avatar.tsx"
+      ]
+    },
+    {
+      "id": "auth",
+      "name": "Auth",
+      "flows": [
+        {
+          "id": "confirm-email-change",
+          "name": "Confirm email change",
+          "steps": [
+            {
+              "name": "Auth detail",
+              "route": "/auth/confirm-email-change/:token",
+              "screen": "app/(auth)/auth/confirm-email-change/[token]/page.tsx",
+              "components": [
+                "app/(auth)/auth/confirm-email-change/[token]/page-client.tsx"
+              ],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "email",
+          "name": "Email",
+          "steps": [
+            {
+              "name": "Auth detail",
+              "route": "/auth/email/:params",
+              "screen": "app/(auth)/auth/email/[[...params]]/page.tsx",
+              "components": [
+                "app/(auth)/auth/email/[[...params]]/page-client.tsx",
+                "components/EmailForm.tsx",
+                "components/emails/data-rooms-information.tsx",
+                "components/emails/dataroom-trial-24h.tsx",
+                "components/emails/dataroom-trial-end.tsx",
+                "components/emails/dataroom-trial-welcome.tsx",
+                "components/emails/email-updated.tsx",
+                "components/emails/export-ready.tsx",
+                "components/emails/hundred-views-congrats.tsx",
+                "components/emails/onboarding-1.tsx",
+                "components/emails/onboarding-2.tsx",
+                "components/emails/onboarding-3.tsx",
+                "components/emails/onboarding-4.tsx",
+                "components/emails/otp-verification.tsx",
+                "components/emails/shared/footer.tsx",
+                "components/emails/slack-integration.tsx",
+                "components/emails/thousand-views-congrats.tsx",
+                "components/emails/upgrade-one-month-checkin.tsx",
+                "components/emails/upgrade-personal-welcome.tsx",
+                "components/emails/upgrade-plan.tsx",
+                "components/emails/upgrade-six-month-checkin.tsx",
+                "components/emails/verification-email-change.tsx",
+                "components/emails/viewed-dataroom-paused.tsx",
+                "components/emails/viewed-dataroom.tsx",
+                "components/emails/welcome.tsx",
+                "components/emails/year-in-review-papermark.tsx",
+                "components/view/access-form/email-section.tsx",
+                "components/view/access-form/email-verification-form.tsx",
+                "ee/features/access-notifications/components/blocked-email-attempt.tsx"
+              ],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "saml",
+          "name": "Saml",
+          "steps": [
+            {
+              "name": "Saml",
+              "route": "/auth/saml",
+              "screen": "app/(auth)/auth/saml/page.tsx",
+              "components": [
+                "app/(auth)/auth/saml/page-client.tsx",
+                "ee/features/security/sso/components/saml-config-modal.tsx"
+              ],
+              "data": [
+                "app/(ee)/api/auth/saml/authorize/route.ts",
+                "app/(ee)/api/auth/saml/callback/route.ts",
+                "app/(ee)/api/auth/saml/token/route.ts",
+                "app/(ee)/api/auth/saml/userinfo/route.ts",
+                "app/(ee)/api/auth/saml/verify/route.ts"
+              ]
+            }
+          ]
+        }
+      ],
+      "components": [
+        "components/shared/auth-side-panel.tsx"
+      ]
+    },
+    {
+      "id": "branding",
+      "name": "Branding",
+      "flows": [
+        {
+          "id": "view-branding",
+          "name": "View branding",
+          "steps": [
+            {
+              "name": "Branding",
+              "route": "/branding",
+              "screen": "pages/branding.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "conversation-detail",
+      "name": "Conversation detail",
+      "flows": [
+        {
+          "id": "view-conversation-detail",
+          "name": "View conversation detail",
+          "steps": [
+            {
+              "name": "Conversation detail",
+              "route": "/conversation-detail",
+              "screen": "ee/features/conversations/pages/conversation-detail.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "conversation-overview",
+      "name": "Conversation overview",
+      "flows": [
+        {
+          "id": "view-conversation-overview",
+          "name": "View conversation overview",
+          "steps": [
+            {
+              "name": "Conversation overview",
+              "route": "/conversation-overview",
+              "screen": "ee/features/conversations/pages/conversation-overview.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "custom-fields-ppreview-demo",
+      "name": "Custom fields ppreview demo",
+      "flows": [
+        {
+          "id": "view-custom-fields-ppreview-demo",
+          "name": "View custom fields ppreview demo",
+          "steps": [
+            {
+              "name": "Custom fields ppreview demo",
+              "route": "/custom_fields_ppreview_demo",
+              "screen": "pages/custom_fields_ppreview_demo.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "flows": [
+        {
+          "id": "view-dashboard",
+          "name": "View dashboard",
+          "steps": [
+            {
+              "name": "Dashboard",
+              "route": "/dashboard",
+              "screen": "pages/dashboard.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "datarooms",
+      "name": "Datarooms",
+      "flows": [
+        {
+          "id": "analytics-audit-log",
+          "name": "Analytics audit log",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Analytics",
+              "route": "/datarooms/:id/analytics",
+              "screen": "pages/datarooms/[id]/analytics/index.tsx",
+              "components": [
+                "components/analytics/analytics-card.tsx",
+                "components/analytics/dashboard-views-chart.tsx",
+                "components/analytics/time-range-select.tsx",
+                "components/analytics/views-table.tsx",
+                "components/analytics/visitors-table.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "Audit log",
+              "route": "/datarooms/:id/analytics/audit-log",
+              "screen": "pages/datarooms/[id]/analytics/audit-log.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "branding",
+          "name": "Branding",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Branding",
+              "route": "/datarooms/:id/branding",
+              "screen": "pages/datarooms/[id]/branding/index.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "conversations",
+          "name": "Conversations",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Conversations",
+              "route": "/datarooms/:id/conversations",
+              "screen": "pages/datarooms/[id]/conversations/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id/conversations/:conversationId",
+              "screen": "pages/datarooms/[id]/conversations/[conversationId]/index.tsx",
+              "components": [
+                "components/ai-elements/conversation.tsx",
+                "components/view/conversations/sidebar.tsx",
+                "ee/features/conversations/components/dashboard/conversation-list-item.tsx",
+                "ee/features/conversations/components/dashboard/conversations-not-enabled-banner.tsx",
+                "ee/features/conversations/components/shared/conversation-document-context.tsx",
+                "ee/features/conversations/components/shared/conversation-message.tsx",
+                "ee/features/conversations/components/viewer/conversation-view-sidebar.tsx",
+                "ee/features/conversations/emails/components/conversation-notification.tsx",
+                "ee/features/conversations/emails/components/conversation-team-notification.tsx"
+              ],
+              "data": [
+                "ee/features/conversations/api/conversations-route.ts",
+                "ee/features/conversations/api/send-conversation-new-message-notification.ts",
+                "ee/features/conversations/api/team-conversations-route.ts",
+                "ee/features/conversations/api/toggle-conversations-route.ts",
+                "ee/features/conversations/lib/api/conversations/index.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "conversations-faqs",
+          "name": "Conversations faqs",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Conversations",
+              "route": "/datarooms/:id/conversations",
+              "screen": "pages/datarooms/[id]/conversations/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Faqs",
+              "route": "/datarooms/:id/conversations/faqs",
+              "screen": "pages/datarooms/[id]/conversations/faqs/index.tsx",
+              "components": [
+                "ee/features/conversations/components/dashboard/edit-faq-modal.tsx",
+                "ee/features/conversations/components/dashboard/publish-faq-modal.tsx",
+                "ee/features/conversations/components/viewer/faq-section.tsx"
+              ],
+              "data": [
+                "ee/features/conversations/api/team-faqs-route.ts",
+                "app/(ee)/api/faqs/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "document",
+          "name": "Document",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id/document/:documentId",
+              "screen": "pages/datarooms/[id]/document/[documentId].tsx",
+              "components": [
+                "components/analytics/documents-table.tsx",
+                "components/datarooms/actions/remove-document-modal.tsx",
+                "components/datarooms/dataroom-document-card.tsx",
+                "components/datarooms/edit-dataroom-document-modal.tsx",
+                "components/document-upload.tsx",
+                "components/documents/actions/delete-documents-modal.tsx",
+                "components/documents/add-document-dropdown.tsx",
+                "components/documents/add-document-modal.tsx",
+                "components/documents/add-document-to-dataroom-modal.tsx",
+                "components/documents/add-folder-to-dataroom-modal.tsx",
+                "components/documents/alert.tsx",
+                "components/documents/annotations/annotation-form.tsx",
+                "components/documents/annotations/annotation-sheet.tsx",
+                "components/documents/breadcrumb.tsx",
+                "components/documents/delete-folder-modal.tsx",
+                "components/documents/document-card.tsx",
+                "components/documents/document-header.tsx",
+                "components/documents/document-preview-button.tsx",
+                "components/documents/document-preview-modal.tsx",
+                "components/documents/document-stats-placeholder.tsx",
+                "components/documents/documents-list.tsx",
+                "components/documents/drag-and-drop/draggable-item.tsx",
+                "components/documents/drag-and-drop/droppable-folder.tsx",
+                "components/documents/edit-document-name-modal.tsx",
+                "components/documents/empty-document.tsx",
+                "components/documents/export-visits-modal.tsx",
+                "components/documents/file-process-status-bar.tsx",
+                "components/documents/filters/sort-button.tsx",
+                "components/documents/folder-card.tsx",
+                "components/documents/hidden-document-card.tsx",
+                "components/documents/hidden-documents-list.tsx",
+                "components/documents/hidden-folder-card.tsx",
+                "components/documents/loading-document.tsx",
+                "components/documents/move-folder-modal.tsx",
+                "components/documents/notion-accessibility-indicator.tsx",
+                "components/documents/pagination.tsx",
+                "components/documents/preview-viewers/index.ts",
+                "components/documents/preview-viewers/preview-excel-viewer.tsx",
+                "components/documents/preview-viewers/preview-image-viewer.tsx",
+                "components/documents/preview-viewers/preview-pages-viewer.tsx",
+                "components/documents/preview-viewers/preview-viewer.tsx",
+                "components/documents/stats-card.tsx",
+                "components/documents/stats-chart-dummy.tsx",
+                "components/documents/stats-chart-skeleton.tsx",
+                "components/documents/stats-chart.tsx",
+                "components/documents/stats-element.tsx",
+                "components/documents/stats.tsx",
+                "components/documents/video-analytics.tsx",
+                "components/documents/video-chart-placeholder.tsx",
+                "components/documents/video-retention-chart.tsx",
+                "components/documents/video-stats-placeholder.tsx",
+                "components/emails/viewed-document-paused.tsx",
+                "components/emails/viewed-document.tsx",
+                "components/view/dataroom/dataroom-document-view.tsx",
+                "components/view/dataroom/document-card.tsx",
+                "components/view/dataroom/document-upload-modal.tsx",
+                "components/view/dataroom/pending-document-card.tsx",
+                "components/view/document-view.tsx",
+                "components/visitors/contacts-document-table.tsx",
+                "components/visitors/document-view-stats.tsx",
+                "ee/features/ai/components/document-ai-dialog.tsx",
+                "ee/features/ai/components/document-context-selector.tsx"
+              ],
+              "data": [
+                "lib/api/documents/process-document.ts",
+                "lib/api/documents/validate-external-url.ts",
+                "app/(ee)/api/ai/store/teams/[teamId]/documents/[documentId]/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "name": "Documents",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Documents",
+              "route": "/datarooms/:id/documents",
+              "screen": "pages/datarooms/[id]/documents/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id/documents/:name",
+              "screen": "pages/datarooms/[id]/documents/[...name].tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "groups-group-analytics",
+          "name": "Groups group analytics",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Groups",
+              "route": "/datarooms/:id/groups",
+              "screen": "pages/datarooms/[id]/groups/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id/groups/:groupId",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/index.tsx",
+              "components": [
+                "components/datarooms/groups/add-group-modal.tsx",
+                "components/datarooms/groups/delete-group/delete-group-modal.tsx",
+                "components/datarooms/groups/delete-group/index.tsx",
+                "components/datarooms/groups/group-card-placeholder.tsx",
+                "components/datarooms/groups/group-card.tsx",
+                "components/datarooms/groups/group-header.tsx",
+                "components/datarooms/groups/group-navigation.tsx",
+                "components/providers/posthog-group-sync.tsx",
+                "components/ui/button-group.tsx",
+                "components/ui/input-group.tsx",
+                "components/ui/radio-group.tsx",
+                "components/ui/toggle-group.tsx",
+                "components/visitors/visitor-group-modal.tsx",
+                "components/visitors/visitor-groups-section.tsx"
+              ],
+              "data": [
+                "ee/features/dataroom-invitations/api/group-invite.ts"
+              ]
+            },
+            {
+              "name": "Group analytics",
+              "route": "/datarooms/:id/groups/:groupId/group-analytics",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/group-analytics.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "groups-links",
+          "name": "Groups links",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Groups",
+              "route": "/datarooms/:id/groups",
+              "screen": "pages/datarooms/[id]/groups/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id/groups/:groupId",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/index.tsx",
+              "components": [
+                "components/datarooms/groups/add-group-modal.tsx",
+                "components/datarooms/groups/delete-group/delete-group-modal.tsx",
+                "components/datarooms/groups/delete-group/index.tsx",
+                "components/datarooms/groups/group-card-placeholder.tsx",
+                "components/datarooms/groups/group-card.tsx",
+                "components/datarooms/groups/group-header.tsx",
+                "components/datarooms/groups/group-navigation.tsx",
+                "components/providers/posthog-group-sync.tsx",
+                "components/ui/button-group.tsx",
+                "components/ui/input-group.tsx",
+                "components/ui/radio-group.tsx",
+                "components/ui/toggle-group.tsx",
+                "components/visitors/visitor-group-modal.tsx",
+                "components/visitors/visitor-groups-section.tsx"
+              ],
+              "data": [
+                "ee/features/dataroom-invitations/api/group-invite.ts"
+              ]
+            },
+            {
+              "name": "Links",
+              "route": "/datarooms/:id/groups/:groupId/links",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/links.tsx",
+              "components": [
+                "components/analytics/links-table.tsx",
+                "components/documents/link-document-indicator.tsx",
+                "components/emails/verification-link.tsx",
+                "components/links/bulk-import-modal.tsx",
+                "components/links/delete-link-modal.tsx",
+                "components/links/embed-code-modal.tsx",
+                "components/links/link-active-controls.tsx",
+                "components/links/link-sheet/access-preview-message.ts",
+                "components/links/link-sheet/access-screen-preview.tsx",
+                "components/links/link-sheet/agreement-panel/index.tsx",
+                "components/links/link-sheet/agreement-section.tsx",
+                "components/links/link-sheet/ai-agents-section.tsx",
+                "components/links/link-sheet/allow-block-list-section.tsx",
+                "components/links/link-sheet/allow-download-section.tsx",
+                "components/links/link-sheet/allow-list-section.tsx",
+                "components/links/link-sheet/allow-notification-section.tsx",
+                "components/links/link-sheet/brand-section.tsx",
+                "components/links/link-sheet/conversation-section.tsx",
+                "components/links/link-sheet/custom-fields-panel/custom-field.tsx",
+                "components/links/link-sheet/custom-fields-panel/index.tsx",
+                "components/links/link-sheet/custom-fields-section.tsx",
+                "components/links/link-sheet/dataroom-link-sheet.tsx",
+                "components/links/link-sheet/deny-list-section.tsx",
+                "components/links/link-sheet/domain-section.tsx",
+                "components/links/link-sheet/email-access-section.tsx",
+                "components/links/link-sheet/email-authentication-section.tsx",
+                "components/links/link-sheet/email-protection-section.tsx",
+                "components/links/link-sheet/expiration-section.tsx",
+                "components/links/link-sheet/expirationIn-section.tsx",
+                "components/links/link-sheet/feedback-section.tsx",
+                "components/links/link-sheet/index-file-section.tsx",
+                "components/links/link-sheet/index.tsx",
+                "components/links/link-sheet/link-item.tsx",
+                "components/links/link-sheet/link-options.tsx",
+                "components/links/link-sheet/link-success-sheet.tsx",
+                "components/links/link-sheet/og-section.tsx",
+                "components/links/link-sheet/password-section.tsx",
+                "components/links/link-sheet/permissions-sheet.tsx",
+                "components/links/link-sheet/pro-banner-section.tsx",
+                "components/links/link-sheet/question-section.tsx",
+                "components/links/link-sheet/screenshot-protection-section.tsx",
+                "components/links/link-sheet/tags/inline-tag-selector.tsx",
+                "components/links/link-sheet/tags/tag-badge.tsx",
+                "components/links/link-sheet/tags/tag-details.tsx",
+                "components/links/link-sheet/tags/tag-section.tsx",
+                "components/links/link-sheet/upload-section/index.tsx",
+                "components/links/link-sheet/watermark-panel/index.tsx",
+                "components/links/link-sheet/watermark-panel/watermark-preview.tsx",
+                "components/links/link-sheet/watermark-section.tsx",
+                "components/links/link-sheet/welcome-message-section.tsx",
+                "components/links/links-table.tsx",
+                "components/links/links-visitors.tsx",
+                "components/links/preview-button.tsx",
+                "components/links/transfer-link-modal.tsx",
+                "components/shared/brand-legal-links.tsx",
+                "components/shared/icons/external-link.tsx",
+                "components/view/link-preview.tsx",
+                "components/welcome/containers/link-option-container.tsx",
+                "components/welcome/containers/onboarding-dataroom-link-options.tsx",
+                "components/welcome/containers/onboarding-link-options.tsx",
+                "ee/features/conversations/components/dashboard/link-option-conversation-section.tsx",
+                "ee/features/permissions/components/dataroom-link-sheet.tsx"
+              ],
+              "data": [
+                "ee/features/dataroom-invitations/api/link-invite.ts",
+                "lib/api/links/bulk-import.ts",
+                "lib/api/links/dashboard-include.ts",
+                "lib/api/links/link-data.ts",
+                "lib/api/links/revalidate.ts",
+                "app/(ee)/api/links/[id]/upload/route.ts",
+                "app/(ee)/api/workflow-entry/link/[entryLinkId]/access/route.ts",
+                "app/(ee)/api/workflow-entry/link/[entryLinkId]/verify/route.ts",
+                "app/api/verify/login-link/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "groups-members",
+          "name": "Groups members",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Groups",
+              "route": "/datarooms/:id/groups",
+              "screen": "pages/datarooms/[id]/groups/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id/groups/:groupId",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/index.tsx",
+              "components": [
+                "components/datarooms/groups/add-group-modal.tsx",
+                "components/datarooms/groups/delete-group/delete-group-modal.tsx",
+                "components/datarooms/groups/delete-group/index.tsx",
+                "components/datarooms/groups/group-card-placeholder.tsx",
+                "components/datarooms/groups/group-card.tsx",
+                "components/datarooms/groups/group-header.tsx",
+                "components/datarooms/groups/group-navigation.tsx",
+                "components/providers/posthog-group-sync.tsx",
+                "components/ui/button-group.tsx",
+                "components/ui/input-group.tsx",
+                "components/ui/radio-group.tsx",
+                "components/ui/toggle-group.tsx",
+                "components/visitors/visitor-group-modal.tsx",
+                "components/visitors/visitor-groups-section.tsx"
+              ],
+              "data": [
+                "ee/features/dataroom-invitations/api/group-invite.ts"
+              ]
+            },
+            {
+              "name": "Members",
+              "route": "/datarooms/:id/groups/:groupId/members",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/members.tsx",
+              "components": [
+                "components/datarooms/groups/add-member-modal.tsx",
+                "components/datarooms/groups/group-member-table.tsx",
+                "components/datarooms/settings/dataroom-team-members.tsx",
+                "components/teams/add-team-member-modal.tsx"
+              ],
+              "data": [
+                "ee/features/conversations/api/send-conversation-team-member-notification.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "groups-permissions",
+          "name": "Groups permissions",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Groups",
+              "route": "/datarooms/:id/groups",
+              "screen": "pages/datarooms/[id]/groups/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id/groups/:groupId",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/index.tsx",
+              "components": [
+                "components/datarooms/groups/add-group-modal.tsx",
+                "components/datarooms/groups/delete-group/delete-group-modal.tsx",
+                "components/datarooms/groups/delete-group/index.tsx",
+                "components/datarooms/groups/group-card-placeholder.tsx",
+                "components/datarooms/groups/group-card.tsx",
+                "components/datarooms/groups/group-header.tsx",
+                "components/datarooms/groups/group-navigation.tsx",
+                "components/providers/posthog-group-sync.tsx",
+                "components/ui/button-group.tsx",
+                "components/ui/input-group.tsx",
+                "components/ui/radio-group.tsx",
+                "components/ui/toggle-group.tsx",
+                "components/visitors/visitor-group-modal.tsx",
+                "components/visitors/visitor-groups-section.tsx"
+              ],
+              "data": [
+                "ee/features/dataroom-invitations/api/group-invite.ts"
+              ]
+            },
+            {
+              "name": "Permissions",
+              "route": "/datarooms/:id/groups/:groupId/permissions",
+              "screen": "pages/datarooms/[id]/groups/[groupId]/permissions.tsx",
+              "components": [
+                "components/datarooms/groups/group-permissions.tsx",
+                "components/datarooms/groups/set-unified-permissions-modal.tsx",
+                "components/datarooms/settings/permission-settings.tsx",
+                "ee/features/permissions/components/permissions-sheet.tsx"
+              ],
+              "data": [
+                "lib/api/rbac/permissions.ts",
+                "lib/hooks/use-dataroom-permissions.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "participants",
+          "name": "Participants",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Participants",
+              "route": "/datarooms/:id/participants",
+              "screen": "pages/datarooms/[id]/participants/index.tsx",
+              "components": [
+                "components/visitors/dataroom-participants-table.tsx"
+              ],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "permissions",
+          "name": "Permissions",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Permissions",
+              "route": "/datarooms/:id/permissions",
+              "screen": "pages/datarooms/[id]/permissions/index.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "settings-danger",
+          "name": "Settings danger",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Settings",
+              "route": "/datarooms/:id/settings",
+              "screen": "pages/datarooms/[id]/settings/index.tsx",
+              "components": [
+                "components/datarooms/settings/dataroom-tag-section.tsx",
+                "components/datarooms/settings/delete-dataroom/delete-dataroom-modal.tsx",
+                "components/datarooms/settings/delete-dataroom/index.tsx",
+                "components/datarooms/settings/duplicate-dataroom.tsx",
+                "components/datarooms/settings/settings-tabs.tsx",
+                "components/settings/global-block-list-form.tsx",
+                "components/settings/og-preview.tsx",
+                "components/settings/settings-header.tsx",
+                "components/settings/slack-settings-skeleton.tsx",
+                "components/settings/survey-settings.tsx",
+                "components/settings/timezone-selector.tsx",
+                "components/shared/icons/settings.tsx",
+                "ee/features/ai/components/agents-settings-card.tsx",
+                "ee/features/dataroom-freeze/components/freeze-settings.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "Danger",
+              "route": "/datarooms/:id/settings/danger",
+              "screen": "pages/datarooms/[id]/settings/danger.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "settings-downloads",
+          "name": "Settings downloads",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Settings",
+              "route": "/datarooms/:id/settings",
+              "screen": "pages/datarooms/[id]/settings/index.tsx",
+              "components": [
+                "components/datarooms/settings/dataroom-tag-section.tsx",
+                "components/datarooms/settings/delete-dataroom/delete-dataroom-modal.tsx",
+                "components/datarooms/settings/delete-dataroom/index.tsx",
+                "components/datarooms/settings/duplicate-dataroom.tsx",
+                "components/datarooms/settings/settings-tabs.tsx",
+                "components/settings/global-block-list-form.tsx",
+                "components/settings/og-preview.tsx",
+                "components/settings/settings-header.tsx",
+                "components/settings/slack-settings-skeleton.tsx",
+                "components/settings/survey-settings.tsx",
+                "components/settings/timezone-selector.tsx",
+                "components/shared/icons/settings.tsx",
+                "ee/features/ai/components/agents-settings-card.tsx",
+                "ee/features/dataroom-freeze/components/freeze-settings.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "Downloads",
+              "route": "/datarooms/:id/settings/downloads",
+              "screen": "pages/datarooms/[id]/settings/downloads.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "settings-file-permissions",
+          "name": "Settings file permissions",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Settings",
+              "route": "/datarooms/:id/settings",
+              "screen": "pages/datarooms/[id]/settings/index.tsx",
+              "components": [
+                "components/datarooms/settings/dataroom-tag-section.tsx",
+                "components/datarooms/settings/delete-dataroom/delete-dataroom-modal.tsx",
+                "components/datarooms/settings/delete-dataroom/index.tsx",
+                "components/datarooms/settings/duplicate-dataroom.tsx",
+                "components/datarooms/settings/settings-tabs.tsx",
+                "components/settings/global-block-list-form.tsx",
+                "components/settings/og-preview.tsx",
+                "components/settings/settings-header.tsx",
+                "components/settings/slack-settings-skeleton.tsx",
+                "components/settings/survey-settings.tsx",
+                "components/settings/timezone-selector.tsx",
+                "components/shared/icons/settings.tsx",
+                "ee/features/ai/components/agents-settings-card.tsx",
+                "ee/features/dataroom-freeze/components/freeze-settings.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "File permissions",
+              "route": "/datarooms/:id/settings/file-permissions",
+              "screen": "pages/datarooms/[id]/settings/file-permissions.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "settings-introduction",
+          "name": "Settings introduction",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Settings",
+              "route": "/datarooms/:id/settings",
+              "screen": "pages/datarooms/[id]/settings/index.tsx",
+              "components": [
+                "components/datarooms/settings/dataroom-tag-section.tsx",
+                "components/datarooms/settings/delete-dataroom/delete-dataroom-modal.tsx",
+                "components/datarooms/settings/delete-dataroom/index.tsx",
+                "components/datarooms/settings/duplicate-dataroom.tsx",
+                "components/datarooms/settings/settings-tabs.tsx",
+                "components/settings/global-block-list-form.tsx",
+                "components/settings/og-preview.tsx",
+                "components/settings/settings-header.tsx",
+                "components/settings/slack-settings-skeleton.tsx",
+                "components/settings/survey-settings.tsx",
+                "components/settings/timezone-selector.tsx",
+                "components/shared/icons/settings.tsx",
+                "ee/features/ai/components/agents-settings-card.tsx",
+                "ee/features/dataroom-freeze/components/freeze-settings.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "Introduction",
+              "route": "/datarooms/:id/settings/introduction",
+              "screen": "pages/datarooms/[id]/settings/introduction.tsx",
+              "components": [
+                "components/datarooms/settings/introduction-settings.tsx",
+                "components/view/dataroom/introduction-modal.tsx"
+              ],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "settings-notifications",
+          "name": "Settings notifications",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Settings",
+              "route": "/datarooms/:id/settings",
+              "screen": "pages/datarooms/[id]/settings/index.tsx",
+              "components": [
+                "components/datarooms/settings/dataroom-tag-section.tsx",
+                "components/datarooms/settings/delete-dataroom/delete-dataroom-modal.tsx",
+                "components/datarooms/settings/delete-dataroom/index.tsx",
+                "components/datarooms/settings/duplicate-dataroom.tsx",
+                "components/datarooms/settings/settings-tabs.tsx",
+                "components/settings/global-block-list-form.tsx",
+                "components/settings/og-preview.tsx",
+                "components/settings/settings-header.tsx",
+                "components/settings/slack-settings-skeleton.tsx",
+                "components/settings/survey-settings.tsx",
+                "components/settings/timezone-selector.tsx",
+                "components/shared/icons/settings.tsx",
+                "ee/features/ai/components/agents-settings-card.tsx",
+                "ee/features/dataroom-freeze/components/freeze-settings.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "Notifications",
+              "route": "/datarooms/:id/settings/notifications",
+              "screen": "pages/datarooms/[id]/settings/notifications.tsx",
+              "components": [
+                "components/datarooms/settings/notification-settings.tsx",
+                "components/emails/dataroom-digest-notification.tsx",
+                "components/emails/dataroom-notification.tsx",
+                "components/emails/dataroom-upload-notification.tsx",
+                "components/emails/installed-integration-notification.tsx",
+                "components/upload-notification.tsx"
+              ],
+              "data": [
+                "ee/features/billing/cancellation/api/send-pause-resume-notification.ts",
+                "ee/features/conversations/lib/api/notifications/index.ts",
+                "lib/api/notification-helper.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "settings-team",
+          "name": "Settings team",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Settings",
+              "route": "/datarooms/:id/settings",
+              "screen": "pages/datarooms/[id]/settings/index.tsx",
+              "components": [
+                "components/datarooms/settings/dataroom-tag-section.tsx",
+                "components/datarooms/settings/delete-dataroom/delete-dataroom-modal.tsx",
+                "components/datarooms/settings/delete-dataroom/index.tsx",
+                "components/datarooms/settings/duplicate-dataroom.tsx",
+                "components/datarooms/settings/settings-tabs.tsx",
+                "components/settings/global-block-list-form.tsx",
+                "components/settings/og-preview.tsx",
+                "components/settings/settings-header.tsx",
+                "components/settings/slack-settings-skeleton.tsx",
+                "components/settings/survey-settings.tsx",
+                "components/settings/timezone-selector.tsx",
+                "components/shared/icons/settings.tsx",
+                "ee/features/ai/components/agents-settings-card.tsx",
+                "ee/features/dataroom-freeze/components/freeze-settings.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "Team",
+              "route": "/datarooms/:id/settings/team",
+              "screen": "pages/datarooms/[id]/settings/team.tsx",
+              "components": [
+                "components/emails/team-invitation.tsx",
+                "components/layouts/mobile-team-switcher.tsx",
+                "components/settings/delete-team-modal.tsx",
+                "components/settings/delete-team.tsx",
+                "components/shared/icons/teams.tsx",
+                "components/sidebar/team-switcher.tsx",
+                "components/teams/add-team-modal.tsx",
+                "components/teams/delete-team-modal.tsx",
+                "components/teams/select-team.tsx"
+              ],
+              "data": [
+                "lib/api/auth/with-session-team.ts",
+                "lib/api/domains/clear-team-redirects.ts",
+                "lib/api/teams/is-saml-enforced-for-email-domain.ts",
+                "app/(ee)/api/ai/store/teams/[teamId]/datarooms/[dataroomId]/route.ts",
+                "app/(ee)/api/ai/store/teams/[teamId]/route.ts",
+                "app/(ee)/api/teams/[teamId]/datarooms/[id]/freeze/monitor-token/route.ts",
+                "app/(ee)/api/teams/[teamId]/datarooms/[id]/freeze/retry-archive/route.ts",
+                "app/(ee)/api/teams/[teamId]/datarooms/[id]/freeze/route.ts",
+                "app/(ee)/api/teams/[teamId]/datarooms/[id]/freeze/send-token/route.ts",
+                "app/(ee)/api/teams/[teamId]/directory-sync/route.ts",
+                "app/(ee)/api/teams/[teamId]/saml/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tasks",
+          "name": "Tasks",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Tasks",
+              "route": "/datarooms/:id/tasks",
+              "screen": "pages/datarooms/[id]/tasks/index.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "users",
+          "name": "Users",
+          "steps": [
+            {
+              "name": "Datarooms",
+              "route": "/datarooms",
+              "screen": "pages/datarooms/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Datarooms detail",
+              "route": "/datarooms/:id",
+              "screen": "pages/datarooms/[id]/index.tsx",
+              "components": [
+                "components/datarooms/add-dataroom-modal.tsx",
+                "components/datarooms/add-viewer-modal.tsx",
+                "components/datarooms/dataroom-breadcrumb.tsx",
+                "components/datarooms/dataroom-card.tsx",
+                "components/datarooms/dataroom-header.tsx",
+                "components/datarooms/dataroom-items-list.tsx",
+                "components/datarooms/dataroom-navigation.tsx",
+                "components/datarooms/dataroom-search-results.tsx",
+                "components/datarooms/dataroom-trial-modal.tsx",
+                "components/datarooms/empty-dataroom.tsx",
+                "components/datarooms/export-visits-modal.tsx",
+                "components/datarooms/folders/index.tsx",
+                "components/datarooms/folders/utils.ts",
+                "components/datarooms/move-dataroom-folder-modal.tsx",
+                "components/datarooms/sortable/sortable-item.tsx",
+                "components/datarooms/sortable/sortable-list.tsx",
+                "components/datarooms/stats-card.tsx",
+                "components/layouts/mobile-dataroom-more-menu.tsx",
+                "components/sidebar/dataroom-sidebar.tsx",
+                "components/view/dataroom/compact-dataroom-list-header.tsx",
+                "components/view/dataroom/dataroom-banner-media.tsx",
+                "components/view/dataroom/dataroom-folder-picker.tsx",
+                "components/view/dataroom/dataroom-no-banner-title.tsx",
+                "components/view/dataroom/dataroom-trailing-actions.tsx",
+                "components/view/dataroom/dataroom-view.tsx",
+                "components/view/dataroom/folder-card.tsx",
+                "components/view/dataroom/index-file-dialog.tsx",
+                "components/view/dataroom/nav-dataroom.tsx",
+                "components/view/viewer/dataroom-viewer.tsx",
+                "components/visitors/dataroom-view-stats.tsx",
+                "components/visitors/dataroom-viewers.tsx",
+                "components/visitors/dataroom-visitor-custom-fields.tsx",
+                "components/visitors/dataroom-visitor-useragent.tsx",
+                "components/visitors/dataroom-visitors-history.tsx",
+                "components/visitors/dataroom-visitors-table.tsx",
+                "components/welcome/dataroom-ai-generate.tsx",
+                "components/welcome/dataroom-choice.tsx",
+                "components/welcome/dataroom-trial.tsx",
+                "components/welcome/dataroom-upload.tsx",
+                "components/welcome/dataroom.tsx",
+                "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+                "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+                "ee/features/templates/components/dataroom-templates.tsx"
+              ],
+              "data": [
+                "ee/features/templates/api/datarooms/apply-template.ts",
+                "ee/features/templates/api/datarooms/generate.ts",
+                "app/api/cron/dataroom-digest/daily/route.ts",
+                "app/api/cron/dataroom-digest/weekly/route.ts",
+                "app/api/views-dataroom/route.ts"
+              ]
+            },
+            {
+              "name": "Users",
+              "route": "/datarooms/:id/users",
+              "screen": "pages/datarooms/[id]/users/index.tsx",
+              "components": [
+                "components/shared/icons/user-round.tsx",
+                "components/sidebar/nav-user.tsx",
+                "components/user-agent-icon.tsx"
+              ],
+              "data": [
+                "app/api/cron/welcome-user/route.ts"
+              ]
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "documents",
+      "name": "Documents",
+      "flows": [
+        {
+          "id": "redactions",
+          "name": "Redactions",
+          "steps": [
+            {
+              "name": "Documents",
+              "route": "/documents",
+              "screen": "pages/documents/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Documents detail",
+              "route": "/documents/:id",
+              "screen": "pages/documents/[id]/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Documents detail",
+              "route": "/documents/:id/redactions/:jobId",
+              "screen": "pages/documents/[id]/redactions/[jobId].tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "hidden",
+          "name": "Hidden",
+          "steps": [
+            {
+              "name": "Documents",
+              "route": "/documents",
+              "screen": "pages/documents/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Hidden",
+              "route": "/documents/hidden",
+              "screen": "pages/documents/hidden.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "new",
+          "name": "New",
+          "steps": [
+            {
+              "name": "Documents",
+              "route": "/documents",
+              "screen": "pages/documents/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "New",
+              "route": "/documents/new",
+              "screen": "pages/documents/new.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "tree",
+          "name": "Tree",
+          "steps": [
+            {
+              "name": "Documents",
+              "route": "/documents",
+              "screen": "pages/documents/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Documents detail",
+              "route": "/documents/tree/:name",
+              "screen": "pages/documents/tree/[...name].tsx",
+              "components": [
+                "components/datarooms/folders/selection-tree.tsx",
+                "components/datarooms/folders/sidebar-tree.tsx",
+                "components/datarooms/folders/view-tree.tsx"
+              ],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "entrance-ppreview-demo",
+      "name": "Entrance ppreview demo",
+      "flows": [
+        {
+          "id": "view-entrance-ppreview-demo",
+          "name": "View entrance ppreview demo",
+          "steps": [
+            {
+              "name": "Entrance ppreview demo",
+              "route": "/entrance_ppreview_demo",
+              "screen": "pages/entrance_ppreview_demo.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "faq-overview",
+      "name": "Faq overview",
+      "flows": [
+        {
+          "id": "view-faq-overview",
+          "name": "View faq overview",
+          "steps": [
+            {
+              "name": "Faq overview",
+              "route": "/faq-overview",
+              "screen": "ee/features/conversations/pages/faq-overview.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "login",
+      "name": "Login",
+      "flows": [
+        {
+          "id": "view-login",
+          "name": "View login",
+          "steps": [
+            {
+              "name": "Login",
+              "route": "/login",
+              "screen": "app/(auth)/login/page.tsx",
+              "components": [
+                "app/(auth)/login/page-client.tsx",
+                "ee/features/security/sso/components/sso-login.tsx"
+              ],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "nav-ppreview-demo",
+      "name": "Nav ppreview demo",
+      "flows": [
+        {
+          "id": "view-nav-ppreview-demo",
+          "name": "View nav ppreview demo",
+          "steps": [
+            {
+              "name": "Nav ppreview demo",
+              "route": "/nav_ppreview_demo",
+              "screen": "pages/nav_ppreview_demo.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": [
+        "components/layouts/mobile-bottom-nav.tsx",
+        "components/sidebar/nav-main.tsx"
+      ]
+    },
+    {
+      "id": "notification-preferences",
+      "name": "Notification preferences",
+      "flows": [
+        {
+          "id": "view-notification-preferences",
+          "name": "View notification preferences",
+          "steps": [
+            {
+              "name": "Notification preferences",
+              "route": "/notification-preferences",
+              "screen": "pages/notification-preferences.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "partners",
+      "name": "Partners",
+      "flows": [
+        {
+          "id": "view-partners",
+          "name": "View partners",
+          "steps": [
+            {
+              "name": "Partners",
+              "route": "/partners",
+              "screen": "pages/partners.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "register",
+      "name": "Register",
+      "flows": [
+        {
+          "id": "view-register",
+          "name": "View register",
+          "steps": [
+            {
+              "name": "Register",
+              "route": "/register",
+              "screen": "app/(auth)/register/page.tsx",
+              "components": [
+                "app/(auth)/register/page-client.tsx"
+              ],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "room-ppreview-demo",
+      "name": "Room ppreview demo",
+      "flows": [
+        {
+          "id": "view-room-ppreview-demo",
+          "name": "View room ppreview demo",
+          "steps": [
+            {
+              "name": "Room ppreview demo",
+              "route": "/room_ppreview_demo",
+              "screen": "pages/room_ppreview_demo.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "settings",
+      "name": "Settings",
+      "flows": [
+        {
+          "id": "agreements",
+          "name": "Agreements",
+          "steps": [
+            {
+              "name": "Agreements",
+              "route": "/settings/agreements",
+              "screen": "pages/settings/agreements.tsx",
+              "components": [
+                "components/agreements/agreement-row.tsx",
+                "components/agreements/signing-template-authoring.tsx",
+                "components/view/access-form/agreement-section.tsx"
+              ],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "ai",
+          "name": "Ai",
+          "steps": [
+            {
+              "name": "Ai",
+              "route": "/settings/ai",
+              "screen": "pages/settings/ai.tsx",
+              "components": [
+                "components/ai-elements/message.tsx",
+                "components/ai-elements/prompt-input.tsx",
+                "components/ai-elements/shimmer.tsx",
+                "ee/features/ai/components/ai-indexing-status.tsx"
+              ],
+              "data": [
+                "ee/features/ai/hooks/use-ai-indexing-status.ts",
+                "app/(ee)/api/ai/chat/[chatId]/messages/route.ts",
+                "app/(ee)/api/ai/chat/[chatId]/route.ts",
+                "app/(ee)/api/ai/chat/route.ts",
+                "app/(ee)/api/ai/store/runs/[runId]/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "billing-invoices",
+          "name": "Billing invoices",
+          "steps": [
+            {
+              "name": "Billing",
+              "route": "/settings/billing",
+              "screen": "pages/settings/billing.tsx",
+              "components": [
+                "components/billing/add-seat-modal.tsx",
+                "components/billing/plan-badge.tsx",
+                "components/billing/plan-price.tsx",
+                "components/billing/pro-annual-banner.tsx",
+                "components/billing/pro-banner.tsx",
+                "components/billing/unlimited-plan-modal.tsx",
+                "components/billing/upgrade-plan-container.tsx",
+                "components/billing/upgrade-plan-modal-old.tsx",
+                "components/billing/upgrade-plan-modal-with-discount.tsx",
+                "components/billing/upgrade-plan-modal.tsx",
+                "components/billing/yearly-upgrade-banner.tsx"
+              ],
+              "data": []
+            },
+            {
+              "name": "Invoices",
+              "route": "/settings/billing/invoices",
+              "screen": "pages/settings/billing/invoices.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "domains",
+          "name": "Domains",
+          "steps": [
+            {
+              "name": "Domains",
+              "route": "/settings/domains",
+              "screen": "pages/settings/domains.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "general",
+          "name": "General",
+          "steps": [
+            {
+              "name": "General",
+              "route": "/settings/general",
+              "screen": "pages/settings/general.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "incoming-webhooks",
+          "name": "Incoming webhooks",
+          "steps": [
+            {
+              "name": "Incoming webhooks",
+              "route": "/settings/incoming-webhooks",
+              "screen": "pages/settings/incoming-webhooks.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "notifications",
+          "name": "Notifications",
+          "steps": [
+            {
+              "name": "Notifications",
+              "route": "/settings/notifications",
+              "screen": "pages/settings/notifications.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "people",
+          "name": "People",
+          "steps": [
+            {
+              "name": "People",
+              "route": "/settings/people",
+              "screen": "pages/settings/people.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "presets",
+          "name": "Presets",
+          "steps": [
+            {
+              "name": "Presets",
+              "route": "/settings/presets",
+              "screen": "pages/settings/presets/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Settings detail",
+              "route": "/settings/presets/:id",
+              "screen": "pages/settings/presets/[id].tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "presets-new",
+          "name": "Presets new",
+          "steps": [
+            {
+              "name": "Presets",
+              "route": "/settings/presets",
+              "screen": "pages/settings/presets/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "New",
+              "route": "/settings/presets/new",
+              "screen": "pages/settings/presets/new.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "name": "Security",
+          "steps": [
+            {
+              "name": "Security",
+              "route": "/settings/security",
+              "screen": "pages/settings/security.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "slack",
+          "name": "Slack",
+          "steps": [
+            {
+              "name": "Slack",
+              "route": "/settings/slack",
+              "screen": "pages/settings/slack.tsx",
+              "components": [
+                "components/shared/icons/slack-icon.tsx",
+                "components/sidebar/banners/slack-banner.tsx"
+              ],
+              "data": [
+                "app/api/integrations/slack/oauth/authorize/route.ts",
+                "app/api/integrations/slack/oauth/callback/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tags",
+          "name": "Tags",
+          "steps": [
+            {
+              "name": "Tags",
+              "route": "/settings/tags",
+              "screen": "pages/settings/tags.tsx",
+              "components": [
+                "components/tags/add-tag-modal.tsx"
+              ],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "tokens",
+          "name": "Tokens",
+          "steps": [
+            {
+              "name": "Tokens",
+              "route": "/settings/tokens",
+              "screen": "pages/settings/tokens.tsx",
+              "components": [
+                "components/tokens/add-edit-token-modal.tsx",
+                "components/tokens/delete-token-modal.tsx",
+                "components/tokens/scopes.ts",
+                "components/tokens/token-created-modal.tsx"
+              ],
+              "data": [
+                "lib/api/auth/token.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "upgrade-holiday-offer",
+          "name": "Upgrade holiday offer",
+          "steps": [
+            {
+              "name": "Upgrade holiday offer",
+              "route": "/settings/upgrade-holiday-offer",
+              "screen": "pages/settings/upgrade-holiday-offer.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "webhooks",
+          "name": "Webhooks",
+          "steps": [
+            {
+              "name": "Webhooks",
+              "route": "/settings/webhooks",
+              "screen": "pages/settings/webhooks/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Settings detail",
+              "route": "/settings/webhooks/:id",
+              "screen": "pages/settings/webhooks/[id]/index.tsx",
+              "components": [
+                "components/webhooks/webhook-events.tsx"
+              ],
+              "data": [
+                "lib/api/views/send-webhook-event.ts",
+                "app/api/webhooks/callback/route.ts",
+                "app/api/webhooks/signing/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "webhooks-new",
+          "name": "Webhooks new",
+          "steps": [
+            {
+              "name": "Webhooks",
+              "route": "/settings/webhooks",
+              "screen": "pages/settings/webhooks/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "New",
+              "route": "/settings/webhooks/new",
+              "screen": "pages/settings/webhooks/new.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "unsubscribe",
+      "name": "Unsubscribe",
+      "flows": [
+        {
+          "id": "view-unsubscribe",
+          "name": "View unsubscribe",
+          "steps": [
+            {
+              "name": "Unsubscribe",
+              "route": "/unsubscribe",
+              "screen": "pages/unsubscribe.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "verify",
+      "name": "Verify",
+      "flows": [
+        {
+          "id": "invitation",
+          "name": "Invitation",
+          "steps": [
+            {
+              "name": "Verify",
+              "route": "/verify",
+              "screen": "app/(auth)/verify/page.tsx",
+              "components": [],
+              "data": [
+                "app/api/auth/verify-code/route.ts"
+              ]
+            },
+            {
+              "name": "Invitation",
+              "route": "/verify/invitation",
+              "screen": "app/(auth)/verify/invitation/page.tsx",
+              "components": [
+                "app/(auth)/verify/invitation/AcceptInvitationButton.tsx",
+                "app/(auth)/verify/invitation/InvitationStatusContent.tsx",
+                "app/(auth)/verify/invitation/status/ClientRedirect.tsx"
+              ],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "view",
+      "name": "View",
+      "flows": [
+        {
+          "id": "d",
+          "name": "D",
+          "steps": [
+            {
+              "name": "View detail",
+              "route": "/view/:linkId",
+              "screen": "pages/view/[linkId]/index.tsx",
+              "components": [
+                "components/view/ScreenProtection.tsx",
+                "components/view/access-form/access-form-theme.tsx",
+                "components/view/access-form/custom-fields-section.tsx",
+                "components/view/access-form/index.tsx",
+                "components/view/access-form/name-section.tsx",
+                "components/view/access-form/password-section.tsx",
+                "components/view/annotations/annotation-panel.tsx",
+                "components/view/annotations/annotation-toggle.tsx",
+                "components/view/custom-metatag.tsx",
+                "components/view/nav.tsx",
+                "components/view/powered-by.tsx",
+                "components/view/question.tsx",
+                "components/view/report-form.tsx",
+                "components/view/toolbar.tsx",
+                "components/view/view-data.tsx",
+                "components/view/viewer-i18n-provider.tsx",
+                "components/view/viewer-not-found.tsx",
+                "components/view/viewer-theme-color.tsx",
+                "components/view/viewer/advanced-excel-viewer.tsx",
+                "components/view/viewer/away-poster.tsx",
+                "components/view/viewer/excel-viewer.tsx",
+                "components/view/viewer/fullscreen-controls.tsx",
+                "components/view/viewer/horizontal-page-content.tsx",
+                "components/view/viewer/html-viewer.tsx",
+                "components/view/viewer/image-viewer.tsx",
+                "components/view/viewer/media-video-overlay.tsx",
+                "components/view/viewer/mobile-page-controls.tsx",
+                "components/view/viewer/notion-page.tsx",
+                "components/view/viewer/page-media.tsx",
+                "components/view/viewer/pages-horizontal-viewer.tsx",
+                "components/view/viewer/pages-vertical-viewer.tsx",
+                "components/view/viewer/pdf-default-viewer.tsx",
+                "components/view/viewer/video-player.tsx",
+                "components/view/viewer/video-viewer.tsx",
+                "components/view/viewer/viewer-surface-theme.tsx",
+                "components/view/visitor-graph.tsx",
+                "components/view/watermark-svg.tsx",
+                "ee/features/workflows/components/workflow-access-view.tsx"
+              ],
+              "data": [
+                "app/api/views/pages/route.ts",
+                "app/api/views/route.ts"
+              ]
+            },
+            {
+              "name": "View detail",
+              "route": "/view/:linkId/d/:documentId",
+              "screen": "pages/view/[linkId]/d/[documentId].tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "downloads",
+          "name": "Downloads",
+          "steps": [
+            {
+              "name": "View detail",
+              "route": "/view/:linkId",
+              "screen": "pages/view/[linkId]/index.tsx",
+              "components": [
+                "components/view/ScreenProtection.tsx",
+                "components/view/access-form/access-form-theme.tsx",
+                "components/view/access-form/custom-fields-section.tsx",
+                "components/view/access-form/index.tsx",
+                "components/view/access-form/name-section.tsx",
+                "components/view/access-form/password-section.tsx",
+                "components/view/annotations/annotation-panel.tsx",
+                "components/view/annotations/annotation-toggle.tsx",
+                "components/view/custom-metatag.tsx",
+                "components/view/nav.tsx",
+                "components/view/powered-by.tsx",
+                "components/view/question.tsx",
+                "components/view/report-form.tsx",
+                "components/view/toolbar.tsx",
+                "components/view/view-data.tsx",
+                "components/view/viewer-i18n-provider.tsx",
+                "components/view/viewer-not-found.tsx",
+                "components/view/viewer-theme-color.tsx",
+                "components/view/viewer/advanced-excel-viewer.tsx",
+                "components/view/viewer/away-poster.tsx",
+                "components/view/viewer/excel-viewer.tsx",
+                "components/view/viewer/fullscreen-controls.tsx",
+                "components/view/viewer/horizontal-page-content.tsx",
+                "components/view/viewer/html-viewer.tsx",
+                "components/view/viewer/image-viewer.tsx",
+                "components/view/viewer/media-video-overlay.tsx",
+                "components/view/viewer/mobile-page-controls.tsx",
+                "components/view/viewer/notion-page.tsx",
+                "components/view/viewer/page-media.tsx",
+                "components/view/viewer/pages-horizontal-viewer.tsx",
+                "components/view/viewer/pages-vertical-viewer.tsx",
+                "components/view/viewer/pdf-default-viewer.tsx",
+                "components/view/viewer/video-player.tsx",
+                "components/view/viewer/video-viewer.tsx",
+                "components/view/viewer/viewer-surface-theme.tsx",
+                "components/view/visitor-graph.tsx",
+                "components/view/watermark-svg.tsx",
+                "ee/features/workflows/components/workflow-access-view.tsx"
+              ],
+              "data": [
+                "app/api/views/pages/route.ts",
+                "app/api/views/route.ts"
+              ]
+            },
+            {
+              "name": "Downloads",
+              "route": "/view/:linkId/downloads",
+              "screen": "pages/view/[linkId]/downloads.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "embed",
+          "name": "Embed",
+          "steps": [
+            {
+              "name": "View detail",
+              "route": "/view/:linkId",
+              "screen": "pages/view/[linkId]/index.tsx",
+              "components": [
+                "components/view/ScreenProtection.tsx",
+                "components/view/access-form/access-form-theme.tsx",
+                "components/view/access-form/custom-fields-section.tsx",
+                "components/view/access-form/index.tsx",
+                "components/view/access-form/name-section.tsx",
+                "components/view/access-form/password-section.tsx",
+                "components/view/annotations/annotation-panel.tsx",
+                "components/view/annotations/annotation-toggle.tsx",
+                "components/view/custom-metatag.tsx",
+                "components/view/nav.tsx",
+                "components/view/powered-by.tsx",
+                "components/view/question.tsx",
+                "components/view/report-form.tsx",
+                "components/view/toolbar.tsx",
+                "components/view/view-data.tsx",
+                "components/view/viewer-i18n-provider.tsx",
+                "components/view/viewer-not-found.tsx",
+                "components/view/viewer-theme-color.tsx",
+                "components/view/viewer/advanced-excel-viewer.tsx",
+                "components/view/viewer/away-poster.tsx",
+                "components/view/viewer/excel-viewer.tsx",
+                "components/view/viewer/fullscreen-controls.tsx",
+                "components/view/viewer/horizontal-page-content.tsx",
+                "components/view/viewer/html-viewer.tsx",
+                "components/view/viewer/image-viewer.tsx",
+                "components/view/viewer/media-video-overlay.tsx",
+                "components/view/viewer/mobile-page-controls.tsx",
+                "components/view/viewer/notion-page.tsx",
+                "components/view/viewer/page-media.tsx",
+                "components/view/viewer/pages-horizontal-viewer.tsx",
+                "components/view/viewer/pages-vertical-viewer.tsx",
+                "components/view/viewer/pdf-default-viewer.tsx",
+                "components/view/viewer/video-player.tsx",
+                "components/view/viewer/video-viewer.tsx",
+                "components/view/viewer/viewer-surface-theme.tsx",
+                "components/view/visitor-graph.tsx",
+                "components/view/watermark-svg.tsx",
+                "ee/features/workflows/components/workflow-access-view.tsx"
+              ],
+              "data": [
+                "app/api/views/pages/route.ts",
+                "app/api/views/route.ts"
+              ]
+            },
+            {
+              "name": "Embed",
+              "route": "/view/:linkId/embed",
+              "screen": "pages/view/[linkId]/embed.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "domains-d",
+          "name": "Domains d",
+          "steps": [
+            {
+              "name": "View detail",
+              "route": "/view/domains/:domain/:slug",
+              "screen": "pages/view/domains/[domain]/[slug]/index.tsx",
+              "components": [
+                "components/domains/add-domain-modal.tsx",
+                "components/domains/delete-domain-modal.tsx",
+                "components/domains/domain-configuration.tsx",
+                "components/domains/domain-row.tsx",
+                "components/domains/use-domain-status.ts",
+                "components/emails/custom-domain-setup.tsx",
+                "components/emails/deleted-domain.tsx",
+                "components/emails/invalid-domain.tsx",
+                "components/settings/ignored-domains-form.tsx"
+              ],
+              "data": [
+                "app/api/cron/domains/utils.ts",
+                "lib/api/domains.ts",
+                "lib/api/domains/redis.ts",
+                "lib/api/domains/validate-redirect-url.ts",
+                "app/(ee)/api/workflow-entry/domains/[...domainSlug]/route.ts",
+                "app/api/cron/domains/route.ts"
+              ]
+            },
+            {
+              "name": "View detail",
+              "route": "/view/domains/:domain/:slug/d/:documentId",
+              "screen": "pages/view/domains/[domain]/[slug]/d/[documentId].tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        },
+        {
+          "id": "domains-downloads",
+          "name": "Domains downloads",
+          "steps": [
+            {
+              "name": "View detail",
+              "route": "/view/domains/:domain/:slug",
+              "screen": "pages/view/domains/[domain]/[slug]/index.tsx",
+              "components": [
+                "components/domains/add-domain-modal.tsx",
+                "components/domains/delete-domain-modal.tsx",
+                "components/domains/domain-configuration.tsx",
+                "components/domains/domain-row.tsx",
+                "components/domains/use-domain-status.ts",
+                "components/emails/custom-domain-setup.tsx",
+                "components/emails/deleted-domain.tsx",
+                "components/emails/invalid-domain.tsx",
+                "components/settings/ignored-domains-form.tsx"
+              ],
+              "data": [
+                "app/api/cron/domains/utils.ts",
+                "lib/api/domains.ts",
+                "lib/api/domains/redis.ts",
+                "lib/api/domains/validate-redirect-url.ts",
+                "app/(ee)/api/workflow-entry/domains/[...domainSlug]/route.ts",
+                "app/api/cron/domains/route.ts"
+              ]
+            },
+            {
+              "name": "Downloads",
+              "route": "/view/domains/:domain/:slug/downloads",
+              "screen": "pages/view/domains/[domain]/[slug]/downloads.tsx",
+              "components": [
+                "components/datarooms/actions/download-dataroom.tsx",
+                "components/datarooms/download-progress-modal.tsx",
+                "components/datarooms/settings/bulk-download-settings.tsx",
+                "components/emails/download-ready.tsx",
+                "components/shared/icons/cloud-download-off.tsx",
+                "components/view/dataroom/download-otp-verification.tsx",
+                "components/view/dataroom/downloads-panel.tsx",
+                "components/view/dataroom/viewer-download-progress-modal.tsx",
+                "components/view/viewer/download-only-viewer.tsx"
+              ],
+              "data": [
+                "app/(ee)/api/teams/[teamId]/datarooms/[id]/freeze/download/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "domains-embed",
+          "name": "Domains embed",
+          "steps": [
+            {
+              "name": "View detail",
+              "route": "/view/domains/:domain/:slug",
+              "screen": "pages/view/domains/[domain]/[slug]/index.tsx",
+              "components": [
+                "components/domains/add-domain-modal.tsx",
+                "components/domains/delete-domain-modal.tsx",
+                "components/domains/domain-configuration.tsx",
+                "components/domains/domain-row.tsx",
+                "components/domains/use-domain-status.ts",
+                "components/emails/custom-domain-setup.tsx",
+                "components/emails/deleted-domain.tsx",
+                "components/emails/invalid-domain.tsx",
+                "components/settings/ignored-domains-form.tsx"
+              ],
+              "data": [
+                "app/api/cron/domains/utils.ts",
+                "lib/api/domains.ts",
+                "lib/api/domains/redis.ts",
+                "lib/api/domains/validate-redirect-url.ts",
+                "app/(ee)/api/workflow-entry/domains/[...domainSlug]/route.ts",
+                "app/api/cron/domains/route.ts"
+              ]
+            },
+            {
+              "name": "Embed",
+              "route": "/view/domains/:domain/:slug/embed",
+              "screen": "pages/view/domains/[domain]/[slug]/embed.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "visitors",
+      "name": "Visitors",
+      "flows": [
+        {
+          "id": "view-visitors-detail",
+          "name": "View visitors detail",
+          "steps": [
+            {
+              "name": "Visitors",
+              "route": "/visitors",
+              "screen": "pages/visitors/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Visitors detail",
+              "route": "/visitors/:id",
+              "screen": "pages/visitors/[id]/index.tsx",
+              "components": [
+                "components/visitors/contacts-table.tsx",
+                "components/visitors/data-table-pagination.tsx",
+                "components/visitors/visitor-access-card.tsx",
+                "components/visitors/visitor-avatar.tsx",
+                "components/visitors/visitor-chart.tsx",
+                "components/visitors/visitor-clicks.tsx",
+                "components/visitors/visitor-custom-fields.tsx",
+                "components/visitors/visitor-status-badge.tsx",
+                "components/visitors/visitor-status-filter.tsx",
+                "components/visitors/visitor-useragent-base.tsx",
+                "components/visitors/visitor-useragent-placeholder.tsx",
+                "components/visitors/visitor-useragent.tsx",
+                "components/visitors/visitor-video-chart.tsx",
+                "components/visitors/visitors-table.tsx"
+              ],
+              "data": [
+                "lib/api/visitors/get-visitors.ts"
+              ]
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "welcome",
+      "name": "Welcome",
+      "flows": [
+        {
+          "id": "view-welcome",
+          "name": "View welcome",
+          "steps": [
+            {
+              "name": "Welcome",
+              "route": "/welcome",
+              "screen": "pages/welcome.tsx",
+              "components": [
+                "components/welcome/containers/upload-container.tsx",
+                "components/welcome/intro.tsx",
+                "components/welcome/next.tsx",
+                "components/welcome/notion-form.tsx",
+                "components/welcome/select.tsx",
+                "components/welcome/special-upload.tsx",
+                "components/welcome/upload.tsx"
+              ],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "workflow-detail",
+      "name": "Workflow detail",
+      "flows": [
+        {
+          "id": "view-workflow-detail",
+          "name": "View workflow detail",
+          "steps": [
+            {
+              "name": "Workflow detail",
+              "route": "/workflow-detail",
+              "screen": "ee/features/workflows/pages/workflow-detail.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "workflow-new",
+      "name": "Workflow new",
+      "flows": [
+        {
+          "id": "view-workflow-new",
+          "name": "View workflow new",
+          "steps": [
+            {
+              "name": "Workflow new",
+              "route": "/workflow-new",
+              "screen": "ee/features/workflows/pages/workflow-new.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "workflow-overview",
+      "name": "Workflow overview",
+      "flows": [
+        {
+          "id": "view-workflow-overview",
+          "name": "View workflow overview",
+          "steps": [
+            {
+              "name": "Workflow overview",
+              "route": "/workflow-overview",
+              "screen": "ee/features/workflows/pages/workflow-overview.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "workflows",
+      "name": "Workflows",
+      "flows": [
+        {
+          "id": "view-workflows-detail",
+          "name": "View workflows detail",
+          "steps": [
+            {
+              "name": "Workflows",
+              "route": "/workflows",
+              "screen": "pages/workflows/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "Workflows detail",
+              "route": "/workflows/:id",
+              "screen": "pages/workflows/[id].tsx",
+              "components": [
+                "ee/features/workflows/components/workflow-empty-state.tsx",
+                "ee/features/workflows/components/workflow-header.tsx",
+                "ee/features/workflows/components/workflow-list.tsx"
+              ],
+              "data": [
+                "app/(ee)/api/workflows/[workflowId]/executions/route.ts",
+                "app/(ee)/api/workflows/[workflowId]/route.ts",
+                "app/(ee)/api/workflows/[workflowId]/steps/[stepId]/route.ts",
+                "app/(ee)/api/workflows/[workflowId]/steps/route.ts",
+                "app/(ee)/api/workflows/route.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "new",
+          "name": "New",
+          "steps": [
+            {
+              "name": "Workflows",
+              "route": "/workflows",
+              "screen": "pages/workflows/index.tsx",
+              "components": [],
+              "data": []
+            },
+            {
+              "name": "New",
+              "route": "/workflows/new",
+              "screen": "pages/workflows/new.tsx",
+              "components": [],
+              "data": []
+            }
+          ]
+        }
+      ],
+      "components": []
+    }
+  ]
+}

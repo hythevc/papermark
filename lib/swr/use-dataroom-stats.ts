@@ -14,7 +14,8 @@ export type TDataroomStatsData = {
     viewId: string;
     sum_duration: number;
   }[];
-  total_duration: number;
+  total_duration: number | null;
+  durationAvailable: boolean;
 };
 
 export function useDataroomStats({
@@ -29,7 +30,11 @@ export function useDataroomStats({
     id: string;
   };
 
-  const { data: stats, error } = useSWR<TDataroomStatsData>(
+  const {
+    data: stats,
+    error,
+    mutate,
+  } = useSWR<TDataroomStatsData>(
     id &&
       teamId &&
       `/api/teams/${teamId}/datarooms/${id}/stats${excludeTeamMembers ? "?excludeTeamMembers=true" : ""}`,
@@ -43,6 +48,7 @@ export function useDataroomStats({
     stats,
     loading: !error && !stats,
     error,
+    mutate,
   };
 }
 

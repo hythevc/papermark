@@ -1,4 +1,5 @@
 import { WatermarkConfig } from "@/lib/types";
+import { DEFAULT_LINK_HOST } from "@/lib/utils/link-url";
 
 import { SVGWatermark } from "@/components/view/watermark-svg";
 
@@ -136,7 +137,7 @@ export default function WatermarkPreview({
                   </svg>
                 </div>
                 <span className="whitespace-normal text-xs text-muted-foreground">
-                  papermark.com/view/...
+                  {DEFAULT_LINK_HOST}/view/…
                 </span>
               </div>
             </div>

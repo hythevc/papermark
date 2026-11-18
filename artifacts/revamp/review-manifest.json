@@ -1,0 +1,4534 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-18T22:45:39.115Z",
+  "scope": {
+    "summary": "Roomline UX revamp, operational source restoration, real isolated owner/guest verification, installable mobile web, and separate marketing/SaaS staging preparation. All95 screen templates indexed; browser-verified pairs and unverified screens explicitly distinguished.",
+    "baseline": "origin/main ed19717; initial design snapshot3f5b144; runtime restoration against the current working source digest",
+    "files": [
+      "AGENTS.md",
+      "DEPLOYMENT.md",
+      "DESIGN.md",
+      "README.md",
+      "app/(auth)/auth/confirm-email-change/[token]/page.tsx",
+      "app/(auth)/auth/email/[[...params]]/page-client.tsx",
+      "app/(auth)/auth/email/[[...params]]/page.tsx",
+      "app/(auth)/auth/saml/page.tsx",
+      "app/(auth)/layout.tsx",
+      "app/(auth)/login/page-client.tsx",
+      "app/(auth)/login/page.tsx",
+      "app/(auth)/register/page-client.tsx",
+      "app/(auth)/register/page.tsx",
+      "app/(auth)/verify/invitation/InvitationStatusContent.tsx",
+      "app/(auth)/verify/invitation/page.tsx",
+      "app/(ee)/api/links/[id]/request-list/route.ts",
+      "app/(ee)/api/links/[id]/upload/route.ts",
+      "app/(ee)/api/workflows/[workflowId]/route.ts",
+      "app/(ee)/api/workflows/route.ts",
+      "app/api/views-dataroom/route.ts",
+      "app/api/views/pages/route.ts",
+      "app/api/views/route.ts",
+      "app/layout.tsx",
+      "components/billing/add-seat-modal.tsx",
+      "components/billing/billing-unavailable.tsx",
+      "components/billing/plan-price.tsx",
+      "components/billing/pro-annual-banner.tsx",
+      "components/billing/pro-banner.tsx",
+      "components/billing/unlimited-plan-modal.tsx",
+      "components/billing/upgrade-plan-container.tsx",
+      "components/billing/upgrade-plan-modal-old.tsx",
+      "components/billing/upgrade-plan-modal-with-discount.tsx",
+      "components/billing/upgrade-plan-modal.tsx",
+      "components/billing/yearly-upgrade-banner.tsx",
+      "components/datarooms/actions/generate-index-dialog.tsx",
+      "components/datarooms/add-dataroom-modal.tsx",
+      "components/datarooms/dataroom-card.tsx",
+      "components/datarooms/groups/set-unified-permissions-modal.tsx",
+      "components/datarooms/stats-card.tsx",
+      "components/design-system/component-reference.tsx",
+      "components/documents/document-card.tsx",
+      "components/documents/documents-list.tsx",
+      "components/documents/drag-and-drop/draggable-item.tsx",
+      "components/emails/otp-verification.tsx",
+      "components/emails/shared/footer.tsx",
+      "components/emails/verification-link.test.tsx",
+      "components/emails/verification-link.tsx",
+      "components/emails/viewed-dataroom-paused.tsx",
+      "components/emails/viewed-document-paused.tsx",
+      "components/emails/welcome.test.tsx",
+      "components/emails/welcome.tsx",
+      "components/layouts/app.tsx",
+      "components/layouts/breadcrumb.tsx",
+      "components/layouts/mobile-bottom-nav.tsx",
+      "components/layouts/mobile-dataroom-more-menu.tsx",
+      "components/layouts/mobile-header.tsx",
+      "components/layouts/mobile-more-menu.tsx",
+      "components/layouts/trial-banner.tsx",
+      "components/links/link-sheet/access-screen-preview.tsx",
+      "components/links/link-sheet/domain-section.tsx",
+      "components/links/link-sheet/index.tsx",
+      "components/links/link-sheet/link-success-sheet.tsx",
+      "components/links/link-sheet/watermark-panel/watermark-preview.tsx",
+      "components/links/links-table.tsx",
+      "components/marketing/marketing-shell.module.css",
+      "components/marketing/marketing-shell.tsx",
+      "components/marketing/product-preview.tsx",
+      "components/marketing/roomline-home.module.css",
+      "components/marketing/roomline-home.tsx",
+      "components/pwa/pages-pwa-metadata.tsx",
+      "components/pwa/pwa-install-button.tsx",
+      "components/pwa/pwa-provider.tsx",
+      "components/shared/auth-shell.module.css",
+      "components/shared/auth-shell.tsx",
+      "components/shared/auth-side-panel.tsx",
+      "components/shared/brand-legal-links.tsx",
+      "components/shared/brand-logo.tsx",
+      "components/sidebar/app-sidebar.tsx",
+      "components/sidebar/dataroom-sidebar.tsx",
+      "components/sidebar/nav-user.tsx",
+      "components/sidebar/sidebar-panels.tsx",
+      "components/sidebar/team-switcher.tsx",
+      "components/ui/badge.tsx",
+      "components/ui/button.tsx",
+      "components/ui/card.tsx",
+      "components/ui/dialog.tsx",
+      "components/ui/input.tsx",
+      "components/ui/select.tsx",
+      "components/ui/sheet.tsx",
+      "components/ui/textarea.tsx",
+      "components/upload-zone.tsx",
+      "components/view/dataroom/nav-dataroom.tsx",
+      "components/view/nav.tsx",
+      "components/view/viewer/notion-page.tsx",
+      "components/visitors/dataroom-visitors-table.tsx",
+      "components/welcome/containers/link-option-container.tsx",
+      "components/welcome/notion-form.tsx",
+      "components/welcome/special-upload.tsx",
+      "ee/emails/pause-resume-reminder.tsx",
+      "ee/features/access-notifications/components/blocked-email-attempt.tsx",
+      "ee/features/ai/lib/file-processing/process-document-for-vector-store.ts",
+      "ee/features/ai/lib/models/openai.ts",
+      "ee/features/ai/lib/trigger/add-file-to-vector-store.ts",
+      "ee/features/ai/lib/trigger/process-excel-for-ai.ts",
+      "ee/features/ai/lib/trigger/process-image-for-ai.ts",
+      "ee/features/ai/lib/trigger/process-pdf-for-ai.ts",
+      "ee/features/ai/lib/vector-stores/create-dataroom-vector-store.ts",
+      "ee/features/ai/lib/vector-stores/create-team-vector-store.ts",
+      "ee/features/ai/lib/vector-stores/delete-vector-store.ts",
+      "ee/features/ai/lib/vector-stores/get-vector-store-info.ts",
+      "ee/features/ai/lib/vector-stores/remove-file-from-vector-store.ts",
+      "ee/features/ai/lib/vector-stores/upload-file-to-vector-store.ts",
+      "ee/features/billing/cancellation/emails/components/pause-resume-reminder.tsx",
+      "ee/features/billing/dataroom-trial/lib/trigger/send-scheduled-email.ts",
+      "ee/features/billing/renewal-reminder/emails/subscription-renewal-reminder.tsx",
+      "ee/features/branding/components/banner-editor.tsx",
+      "ee/features/branding/components/branding-editor-utils.test.ts",
+      "ee/features/branding/components/branding-editor-utils.ts",
+      "ee/features/branding/components/branding-link-preview-form.tsx",
+      "ee/features/branding/components/branding-preview-chrome.tsx",
+      "ee/features/branding/components/branding-social-preview-readonly.tsx",
+      "ee/features/branding/components/collapsible-branding-section.tsx",
+      "ee/features/branding/components/dataroom-layout-preset-cards.tsx",
+      "ee/features/branding/components/team-brand-switcher.tsx",
+      "ee/features/branding/components/visitor-language-card.tsx",
+      "ee/features/branding/lib/auto-fill-result.ts",
+      "ee/features/branding/lib/brand-logo.ts",
+      "ee/features/branding/lib/branding-foundations.test.ts",
+      "ee/features/branding/lib/branding-integration.test.ts",
+      "ee/features/branding/lib/branding-persistence.test.ts",
+      "ee/features/branding/lib/dataroom-banner.ts",
+      "ee/features/branding/lib/dataroom-preview-presets.ts",
+      "ee/features/branding/lib/dataroom-viewer-layout.ts",
+      "ee/features/branding/lib/delete-team-brand.ts",
+      "ee/features/branding/lib/prepare-brand-write.ts",
+      "ee/features/branding/lib/resolve-base-brand.ts",
+      "ee/features/branding/lib/resolve-dataroom-displayed-brand.ts",
+      "ee/features/branding/lib/resolve-public-link-meta.ts",
+      "ee/features/branding/lib/upsert-dataroom-brand.ts",
+      "ee/features/branding/lib/use-branding-preview-params.ts",
+      "ee/features/branding/lib/use-logo-tone.ts",
+      "ee/features/conversations/components/viewer/conversation-sidebar-provider.tsx",
+      "ee/features/conversations/components/viewer/conversation-view-sidebar.tsx",
+      "ee/features/conversations/emails/components/conversation-notification.tsx",
+      "ee/features/conversations/emails/components/conversation-team-notification.tsx",
+      "ee/features/conversations/pages/conversation-detail.tsx",
+      "ee/features/conversions/lib/conversion-provider.test.ts",
+      "ee/features/conversions/lib/conversion-provider.ts",
+      "ee/features/conversions/lib/conversion-scope.test.ts",
+      "ee/features/conversions/lib/trigger/convert-files.ts",
+      "ee/features/dataroom-analytics/pages/dataroom-analytics-page.tsx",
+      "ee/features/dataroom-freeze/emails/components/dataroom-freeze-otp.tsx",
+      "ee/features/dataroom-invitations/emails/components/dataroom-viewer-invitation.tsx",
+      "ee/features/permissions/components/confidential-view/confidential-view-overlay.tsx",
+      "ee/features/permissions/components/confidential-view/confidential-view-section.tsx",
+      "ee/features/permissions/components/confidential-view/reading-mask.test.ts",
+      "ee/features/permissions/components/confidential-view/reading-mask.ts",
+      "ee/features/redaction/components/redaction-client.test.ts",
+      "ee/features/redaction/components/redaction-client.ts",
+      "ee/features/redaction/components/redaction-config-dialog.tsx",
+      "ee/features/redaction/components/redaction-jobs-dialog.tsx",
+      "ee/features/redaction/components/redaction-launcher.tsx",
+      "ee/features/redaction/components/redaction-workspace.tsx",
+      "ee/features/redaction/lib/manual-redaction.test.ts",
+      "ee/features/redaction/lib/manual-redaction.ts",
+      "ee/features/request-lists/components/request-list-settings-card.tsx",
+      "ee/features/request-lists/components/request-list-view.tsx",
+      "ee/features/request-lists/components/viewer/request-list-button.tsx",
+      "ee/features/request-lists/components/viewer/request-list-sheet.tsx",
+      "ee/features/request-lists/lib/access-policy.ts",
+      "ee/features/request-lists/lib/admin-validation.test.ts",
+      "ee/features/request-lists/lib/admin-validation.ts",
+      "ee/features/request-lists/lib/admin.ts",
+      "ee/features/request-lists/lib/assignments.ts",
+      "ee/features/request-lists/lib/events.ts",
+      "ee/features/request-lists/lib/schemas.ts",
+      "ee/features/request-lists/lib/swr/use-viewer-request-list.ts",
+      "ee/features/request-lists/lib/tus-metadata.test.ts",
+      "ee/features/request-lists/lib/tus-metadata.ts",
+      "ee/features/request-lists/lib/types.ts",
+      "ee/features/request-lists/lib/upload-folder.ts",
+      "ee/features/request-lists/lib/use-request-list-feature.ts",
+      "ee/features/request-lists/lib/viewer-access.ts",
+      "ee/features/request-lists/lib/viewer-policy.test.ts",
+      "ee/features/request-lists/lib/viewer-upload-access.test.ts",
+      "ee/features/request-lists/lib/viewer-upload-access.ts",
+      "ee/features/security/lib/ratelimit.ts",
+      "ee/features/storage/s3-store.ts",
+      "ee/limits/can-create-premium-team.ts",
+      "ee/limits/can-create-unlimited-team.ts",
+      "ee/limits/team-provisioning.test.ts",
+      "ee/limits/team-provisioning.ts",
+      "ee/stripe/currency.test.ts",
+      "ee/stripe/currency.ts",
+      "ee/stripe/index.test.ts",
+      "ee/stripe/index.ts",
+      "ee/stripe/webhooks/checkout-session-completed.ts",
+      "lib/api/auth/passkey.ts",
+      "lib/api/auth/restricted-tokens.test.ts",
+      "lib/api/auth/restricted-tokens.ts",
+      "lib/api/documents/process-document.ts",
+      "lib/api/errors.test.ts",
+      "lib/api/errors.ts",
+      "lib/api/links/bulk-import.ts",
+      "lib/api/views/page-access.test.ts",
+      "lib/api/views/page-access.ts",
+      "lib/auth/auth-options.ts",
+      "lib/auth/preview-access.ts",
+      "lib/auth/preview-auth.ts",
+      "lib/billing/plan-response.test.ts",
+      "lib/billing/plan-response.ts",
+      "lib/brand.ts",
+      "lib/dataroom/apply-default-permissions.test.ts",
+      "lib/dataroom/apply-default-permissions.ts",
+      "lib/dataroom/index-generator.test.ts",
+      "lib/dataroom/index-generator.ts",
+      "lib/dataroom/trial-input.test.ts",
+      "lib/dataroom/trial-input.ts",
+      "lib/document-processing.test.ts",
+      "lib/document-processing.ts",
+      "lib/documents/render-pdf.ts",
+      "lib/documents/version-policy.test.ts",
+      "lib/documents/version-policy.ts",
+      "lib/documents/version-publication.ts",
+      "lib/emails/config.test.ts",
+      "lib/emails/config.ts",
+      "lib/emails/process-dataroom-digest.ts",
+      "lib/emails/send-dataroom-info.ts",
+      "lib/emails/send-dataroom-trial-24h.ts",
+      "lib/emails/send-dataroom-trial-end.ts",
+      "lib/emails/send-dataroom-trial.ts",
+      "lib/emails/send-onboarding.ts",
+      "lib/emails/send-upgrade-month-checkin.ts",
+      "lib/emails/send-upgrade-personal-welcome.ts",
+      "lib/emails/send-upgrade-six-months-checkin.ts",
+      "lib/emails/send-verification-request.ts",
+      "lib/emails/send-welcome.ts",
+      "lib/errorHandler.ts",
+      "lib/featureFlags/index.ts",
+      "lib/files/viewer-tus-upload.ts",
+      "lib/hanko.ts",
+      "lib/integrations/slack/events.ts",
+      "lib/integrations/slack/status.test.ts",
+      "lib/integrations/slack/status.ts",
+      "lib/local-integration.test.ts",
+      "lib/local-integration.ts",
+      "lib/marketing-content.ts",
+      "lib/marketing-routes.test.ts",
+      "lib/marketing-routes.ts",
+      "lib/middleware/app.ts",
+      "lib/middleware/domain.ts",
+      "lib/navigation/mobile-navigation.test.ts",
+      "lib/navigation/mobile-navigation.ts",
+      "lib/oauth/scopes.test.ts",
+      "lib/oauth/scopes.ts",
+      "lib/pwa.test.ts",
+      "lib/pwa.ts",
+      "lib/resend.ts",
+      "lib/swr/use-billing.ts",
+      "lib/swr/use-dataroom-stats.ts",
+      "lib/swr/use-datarooms.ts",
+      "lib/swr/use-invoices.ts",
+      "lib/swr/use-slack-integration.ts",
+      "lib/tracking/record-link-view.ts",
+      "lib/trigger/bulk-download.ts",
+      "lib/trigger/conversation-message-notification.ts",
+      "lib/trigger/dataroom-change-notification.ts",
+      "lib/utils.ts",
+      "lib/utils/link-url.test.ts",
+      "lib/utils/link-url.ts",
+      "lib/year-in-review/send-emails.ts",
+      "middleware.ts",
+      "next.config.mjs",
+      "package.json",
+      "pages/404.tsx",
+      "pages/_app.tsx",
+      "pages/api/analytics/index.ts",
+      "pages/api/file/tus-viewer/[[...file]].ts",
+      "pages/api/file/tus/[[...file]].ts",
+      "pages/api/health.ts",
+      "pages/api/health/ready.ts",
+      "pages/api/links/[id]/index.ts",
+      "pages/api/links/[id]/preview.ts",
+      "pages/api/links/generate-index.ts",
+      "pages/api/teams/[teamId]/billing/plan.ts",
+      "pages/api/teams/[teamId]/datarooms/[id]/apply-permissions.ts",
+      "pages/api/teams/[teamId]/datarooms/[id]/generate-index.ts",
+      "pages/api/teams/[teamId]/datarooms/[id]/request-list.ts",
+      "pages/api/teams/[teamId]/datarooms/[id]/stats.ts",
+      "pages/api/teams/[teamId]/datarooms/trial.ts",
+      "pages/api/teams/[teamId]/documents/[id]/redactions/[[...redaction]].ts",
+      "pages/api/teams/[teamId]/documents/[id]/versions/index.ts",
+      "pages/api/teams/[teamId]/documents/agreement.ts",
+      "pages/api/teams/[teamId]/integrations/slack/channels.ts",
+      "pages/api/teams/[teamId]/integrations/slack/index.ts",
+      "pages/api/teams/index.ts",
+      "pages/api/webhooks/services/[...path]/index.ts",
+      "pages/datarooms/[id]/conversations/[conversationId]/index.tsx",
+      "pages/datarooms/[id]/index.tsx",
+      "pages/datarooms/index.tsx",
+      "pages/design-system.tsx",
+      "pages/documents/[id]/redactions/[jobId].tsx",
+      "pages/guides/[slug].tsx",
+      "pages/guides/index.tsx",
+      "pages/index.tsx",
+      "pages/mobile.tsx",
+      "pages/partners.tsx",
+      "pages/product.tsx",
+      "pages/room_ppreview_demo.tsx",
+      "pages/security.tsx",
+      "pages/settings/billing.tsx",
+      "pages/settings/billing/invoices.tsx",
+      "pages/settings/slack.tsx",
+      "pages/settings/upgrade-holiday-offer.tsx",
+      "pages/solutions/[slug].tsx",
+      "public/_static/roomline-logo-light.svg",
+      "public/_static/roomline-logo.svg",
+      "public/_static/roomline-mark.svg",
+      "public/icons/apple-touch-icon.png",
+      "public/icons/roomline-192.png",
+      "public/icons/roomline-512.png",
+      "public/icons/roomline-maskable-512.png",
+      "public/icons/roomline.svg",
+      "public/manifest.webmanifest",
+      "public/offline.html",
+      "public/sw.js",
+      "railway-staging-plan.json",
+      "scripts/deploy/configure-storage-cors.mjs",
+      "scripts/design/21st-mcp.mjs",
+      "scripts/design/21st-mcp.test.mjs",
+      "scripts/design/auth-checks.cjs",
+      "scripts/design/browser-checks.cjs",
+      "scripts/design/build-report.mjs",
+      "scripts/design/capture-component-states.cjs",
+      "scripts/design/check.mjs",
+      "scripts/design/check.test.mjs",
+      "scripts/design/refresh-runtime-review.mjs",
+      "scripts/design/review-manifest.schema.json",
+      "scripts/design/runtime-checks.cjs",
+      "scripts/runtime/build-marketing.mjs",
+      "scripts/runtime/build-marketing.test.mjs",
+      "scripts/runtime/dev-local.mjs",
+      "scripts/runtime/marketing-browser.cjs",
+      "scripts/runtime/protected-ui-browser.cjs",
+      "scripts/runtime/pwa-browser.cjs",
+      "scripts/runtime/pwa-policy.test.mjs",
+      "scripts/runtime/real-extended.cjs",
+      "scripts/runtime/real-integration.cjs",
+      "scripts/runtime/redact.mjs",
+      "scripts/runtime/redact.test.mjs",
+      "scripts/runtime/service-health.cjs",
+      "scripts/runtime/services.mjs",
+      "scripts/runtime/test.mjs",
+      "scripts/runtime/verify-page-revocation.cjs",
+      "scripts/runtime/verify-preview-access.cjs",
+      "scripts/runtime/verify-slack-availability.cjs",
+      "scripts/runtime/verify-version-privacy.cjs",
+      "scripts/runtime/version-concurrency.cjs",
+      "styles/globals.css"
+    ],
+    "sourceDigest": "c4f20f6fcfad6de9edcf178f68d0f3a3ca680544828574027fcf024e25d5e177"
+  },
+  "referenceRegistry": "docs/roomline/revamp/REFERENCE_REGISTRY.json",
+  "toolReviews": [
+    {
+      "id": "taste",
+      "status": "applied",
+      "reason": "Read the pinned direction workflow and applied hierarchy, spacing and product-specific identity decisions. No remote scripts executed; incompatible export/choreography requirements rejected explicitly.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "web-guidelines",
+      "status": "applied",
+      "reason": "Read the local wrapper and fresh primary guidelines; applied labels, focus, semantics, keyboard behavior, mobile sizing and reduced-motion checks.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "image-to-code",
+      "status": "not_applicable",
+      "reason": "No faithful screenshot-to-code target was requested or chosen for this original product design. Read the moved workflow; comparison captures were used, but no converter was run.",
+      "evidence": [
+        "e006"
+      ]
+    },
+    {
+      "id": "awesome-design-md",
+      "status": "applied",
+      "reason": "Read the canonical cloud skill, index and selected Linear study. Applied density and documentation principles while retaining the Roomline identity.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "playwright",
+      "status": "applied",
+      "reason": "Read CLI guidance; actual browser captures and interactions use the installed Playwright library with system Chromium. No CLI execution claim.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "refero",
+      "status": "applied",
+      "reason": "Used the connected Attio style reference to inform grouped navigation, restrained surfaces and information hierarchy; no copied identity or live competitor-app audit claim.",
+      "evidence": [
+        "e007",
+        "e004"
+      ]
+    },
+    {
+      "id": "mobbin",
+      "status": "applied",
+      "reason": "Inspected canonical Dropbox iOS sharing/access references and applied separation of sharing, access and actions. Citations and usage notice are preserved in the competitor report.",
+      "evidence": [
+        "e004"
+      ]
+    },
+    {
+      "id": "better-design",
+      "status": "applied",
+      "reason": "Read app rules, used and corrected a draft feature map, and consolidated a source-backed assessment and comprehension heuristic. No global team rule was published.",
+      "evidence": [
+        "e007",
+        "e025"
+      ]
+    },
+    {
+      "id": "uxpilot",
+      "status": "applied",
+      "reason": "Reviewed the connected 27-node user-flow draft and documented its sequencing correction. Artifact is a design input, not a runtime authorization specification.",
+      "evidence": [
+        "e007"
+      ]
+    },
+    {
+      "id": "shadcn",
+      "status": "applied",
+      "reason": "Read the applicable skill and actual local Radix APIs; improved customized primitives and a working component reference without bulk registry overwrite.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "21st",
+      "status": "unavailable",
+      "reason": "MCP config is environment-only (${API_KEY_21ST}); CLI installed by tooling agent. Authenticated search remains unavailable until a fresh rotated key is configured. Use scripts/design/21st-mcp.mjs to initialize/list/schema-check before component search; review source/dependencies before adoption. Never run returned code automatically.",
+      "evidence": [
+        "e026",
+        "e027"
+      ]
+    },
+    {
+      "id": "uxcritique",
+      "status": "unavailable",
+      "reason": "No callable UXCritique tool identified. Use a documented project-specific UX review and record unavailable; do not relabel it as execution of this tool.",
+      "evidence": [
+        "e004"
+      ]
+    },
+    {
+      "id": "intuitive-software-design",
+      "status": "unavailable",
+      "reason": "No callable tool identified. Record an explicit unavailable decision until an authoritative source or integration is connected.",
+      "evidence": [
+        "e007"
+      ]
+    },
+    {
+      "id": "design-system",
+      "status": "applied",
+      "reason": "Implemented semantic tokens, shared primitives and a light/dark component reference with real browser evidence and persistent DESIGN.md.",
+      "evidence": [
+        "e022",
+        "e028",
+        "e029"
+      ]
+    },
+    {
+      "id": "imperial-cv",
+      "status": "unavailable",
+      "reason": "No local file was supplied. Exact-name connected Drive lookup required reauthentication; no personal context inferred and no invented CV contents used.",
+      "evidence": [
+        "e007"
+      ]
+    },
+    {
+      "id": "hallmark",
+      "status": "applied",
+      "reason": "Read the portable design-system and redesign guidance; applied scoped tokens and preserved product contracts. No remote engine execution claim.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "astryx",
+      "status": "not_applicable",
+      "reason": "React 19/StyleX package transplantation is outside this React 18 revamp. Source and semantic-state principles were reviewed; package not installed.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "rune",
+      "status": "not_applicable",
+      "reason": "Native Rust/GPU implementation is outside this Next.js web repository. Source reviewed; no native source exists here to migrate.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "unslop",
+      "status": "applied",
+      "reason": "Read craft guidance and applied restrained hierarchy and intentional product content. Reference attribution is preserved; package not installed.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "logiaweb",
+      "status": "applied",
+      "reason": "Read the design-inspiration stack guide and applied reference selection by section and task, with source review separated from runtime proof.",
+      "evidence": [
+        "e005"
+      ]
+    },
+    {
+      "id": "jaimedhenriques-ui",
+      "status": "not_applicable",
+      "reason": "Reviewed redirected shadcn fork; its React 19/Next 16/Tailwind 4 examples were not copied into the customized React 18 components.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "screenshot-to-code",
+      "status": "not_applicable",
+      "reason": "Separate conversion service reviewed. No conversion target, provider calls or server execution was needed for the original Roomline implementation.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "website-cloner",
+      "status": "not_applicable",
+      "reason": "Template reviewed for inspection discipline. No website cloning or incompatible Next 16/React 19 migration was performed.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "anti-slop",
+      "status": "applied",
+      "reason": "Read UI/mobile/accessibility/copy guidance; applied clear copy, visible controls, useful recovery and actual state verification. No external installer executed.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "skillui",
+      "status": "not_applicable",
+      "reason": "Static extraction CLI source reviewed. No external-site extraction or inferred requirements were needed; CLI not executed.",
+      "evidence": [
+        "e005",
+        "e024"
+      ]
+    },
+    {
+      "id": "elaya",
+      "status": "applied",
+      "reason": "Read landing and token foundations, applying spacing/hierarchy while rejecting generic gradients, font bans and long UI motion.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "emil-apple",
+      "status": "applied",
+      "reason": "Read web Apple-design guidance and applied immediate feedback, restrained motion, familiar controls and mobile-web clarity. No native implementation claim.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "ux-ui-agent-skills",
+      "status": "applied",
+      "reason": "Read token, state and evidence guidance; applied local shared-component patterns. Incompatible framework adapters and toolkit quality scores were not adopted.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "impeccable",
+      "status": "applied",
+      "reason": "Read task-mode and hardening guidance; applied persuasion to marketing and operational clarity to components/mobile. No engine or detector execution claim.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "status": "applied",
+      "reason": "Read design-system and styling sources; applied accessibility and interaction criteria before decorative choices. No database-search score claimed.",
+      "evidence": [
+        "e006",
+        "e024"
+      ]
+    },
+    {
+      "id": "tasteskill-site",
+      "status": "applied",
+      "reason": "Read the site overview alongside the pinned repository workflow; applied its visual-direction principles without treating marketing claims as measured outcomes.",
+      "evidence": [
+        "e006"
+      ]
+    },
+    {
+      "id": "12ui",
+      "status": "unavailable",
+      "reason": "Cloud skill was read in the initial task. No CLI/design run is established by this review. Use its applicable design workflow when available; document unavailable status rather than silently claiming generation.",
+      "evidence": [
+        "e007"
+      ]
+    },
+    {
+      "id": "product-design",
+      "status": "applied",
+      "reason": "Read router/audit instructions and applied source inventory, current competitor evidence, prioritized findings and explicit verification limits.",
+      "evidence": [
+        "e007",
+        "e004"
+      ]
+    },
+    {
+      "id": "frontend-design",
+      "status": "applied",
+      "reason": "Read the installed frontend skill and implemented the chosen forest/paper direction, reconciling its generic suggestions with product constraints.",
+      "evidence": [
+        "e030"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e001",
+      "kind": "report",
+      "path": ".better-design/app-review.md"
+    },
+    {
+      "id": "e002",
+      "kind": "report",
+      "path": "docs/roomline/revamp/SCREEN_INVENTORY.json"
+    },
+    {
+      "id": "e003",
+      "kind": "report",
+      "path": "docs/roomline/revamp/SCREEN_CHECK_MATRIX.md"
+    },
+    {
+      "id": "e004",
+      "kind": "report",
+      "path": "docs/roomline/revamp/COMPETITIVE_ASSESSMENT.md"
+    },
+    {
+      "id": "e005",
+      "kind": "report",
+      "path": "docs/roomline/revamp/REFERENCE_REVIEW_A.md"
+    },
+    {
+      "id": "e006",
+      "kind": "report",
+      "path": "docs/roomline/revamp/REFERENCE_REVIEW_B.md"
+    },
+    {
+      "id": "e007",
+      "kind": "report",
+      "path": "docs/roomline/revamp/REFERENCE_LOCK.md"
+    },
+    {
+      "id": "e008",
+      "kind": "report",
+      "path": "docs/roomline/revamp/REFERENCE_REGISTRY.json"
+    },
+    {
+      "id": "e009",
+      "kind": "report",
+      "path": "artifacts/revamp/after/browser-report.json"
+    },
+    {
+      "id": "e010",
+      "kind": "report",
+      "path": "artifacts/revamp/after/auth-report.json"
+    },
+    {
+      "id": "e011",
+      "kind": "report",
+      "path": "artifacts/revamp/after/component-state-captures.json"
+    },
+    {
+      "id": "e012",
+      "kind": "report",
+      "path": "artifacts/revamp/after/preview-state-captures.json"
+    },
+    {
+      "id": "e013",
+      "kind": "report",
+      "path": "artifacts/revamp/foundation-browser-results.json"
+    },
+    {
+      "id": "e014",
+      "kind": "report",
+      "path": "artifacts/revamp/foundation-token-contrast.json"
+    },
+    {
+      "id": "e015",
+      "kind": "log",
+      "path": "artifacts/revamp/runtime-checks.txt"
+    },
+    {
+      "id": "e016",
+      "kind": "report",
+      "path": "artifacts/revamp/typecheck-comparison.json"
+    },
+    {
+      "id": "e017",
+      "kind": "report",
+      "path": "artifacts/revamp/ux-pilot-flow.json"
+    },
+    {
+      "id": "e018",
+      "kind": "report",
+      "path": "artifacts/revamp/home-comprehension.json"
+    },
+    {
+      "id": "e019",
+      "kind": "report",
+      "path": "docs/roomline/revamp/MOBILE_SHELL_REVIEW.md"
+    },
+    {
+      "id": "e020",
+      "kind": "report",
+      "path": "docs/roomline/revamp/21ST_SETUP.md"
+    },
+    {
+      "id": "e021",
+      "kind": "report",
+      "path": "AGENTS.md"
+    },
+    {
+      "id": "e022",
+      "kind": "report",
+      "path": "DESIGN.md"
+    },
+    {
+      "id": "e023",
+      "kind": "report",
+      "path": "docs/roomline/revamp/100X_PLAN.md"
+    },
+    {
+      "id": "e024",
+      "kind": "report",
+      "path": "artifacts/revamp/reference-source-versions.json"
+    },
+    {
+      "id": "e025",
+      "kind": "report",
+      "path": ".better-design/feature-map.json"
+    },
+    {
+      "id": "e026",
+      "kind": "source",
+      "path": "scripts/design/21st-mcp.mjs"
+    },
+    {
+      "id": "e027",
+      "kind": "source",
+      "path": "scripts/design/21st-mcp.test.mjs"
+    },
+    {
+      "id": "e028",
+      "kind": "source",
+      "path": "styles/globals.css"
+    },
+    {
+      "id": "e029",
+      "kind": "source",
+      "path": "tailwind.config.js"
+    },
+    {
+      "id": "e030",
+      "kind": "report",
+      "path": ".agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "id": "e031",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/home-1440.png",
+      "width": 1440,
+      "height": 4575
+    },
+    {
+      "id": "e032",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/product-1440.png",
+      "width": 1440,
+      "height": 3791
+    },
+    {
+      "id": "e033",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/security-1440.png",
+      "width": 1440,
+      "height": 2514
+    },
+    {
+      "id": "e034",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/solutions-fundraising-1440.png",
+      "width": 1440,
+      "height": 2639
+    },
+    {
+      "id": "e035",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/solutions-due-diligence-1440.png",
+      "width": 1440,
+      "height": 2718
+    },
+    {
+      "id": "e036",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/guides-1440.png",
+      "width": 1440,
+      "height": 1578
+    },
+    {
+      "id": "e037",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/guides-fundraising-checklist-1440.png",
+      "width": 1440,
+      "height": 3661
+    },
+    {
+      "id": "e038",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/guides-sharing-checklist-1440.png",
+      "width": 1440,
+      "height": 3661
+    },
+    {
+      "id": "e039",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/login-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e040",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/register-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e041",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/auth-email-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e042",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/404-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e043",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/design-system-1440.png",
+      "width": 1440,
+      "height": 4008
+    },
+    {
+      "id": "e044",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/home-390.png",
+      "width": 390,
+      "height": 5529
+    },
+    {
+      "id": "e045",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/product-390.png",
+      "width": 390,
+      "height": 4467
+    },
+    {
+      "id": "e046",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/security-390.png",
+      "width": 390,
+      "height": 3262
+    },
+    {
+      "id": "e047",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/solutions-fundraising-390.png",
+      "width": 390,
+      "height": 3213
+    },
+    {
+      "id": "e048",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/solutions-due-diligence-390.png",
+      "width": 390,
+      "height": 3240
+    },
+    {
+      "id": "e049",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/guides-390.png",
+      "width": 390,
+      "height": 1948
+    },
+    {
+      "id": "e050",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/guides-fundraising-checklist-390.png",
+      "width": 390,
+      "height": 5021
+    },
+    {
+      "id": "e051",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/guides-sharing-checklist-390.png",
+      "width": 390,
+      "height": 5108
+    },
+    {
+      "id": "e052",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/login-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e053",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/register-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e054",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/auth-email-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e055",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/404-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e056",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/design-system-390.png",
+      "width": 390,
+      "height": 6224
+    },
+    {
+      "id": "e057",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-dialog-open-light-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e058",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-sheet-open-light-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e059",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-loading-light-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e060",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-error-light-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e061",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-empty-light-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e062",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-default-dark-1440.png",
+      "width": 1440,
+      "height": 4008
+    },
+    {
+      "id": "e063",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-dialog-open-dark-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e064",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-sheet-open-dark-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e065",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-loading-dark-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e066",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-error-dark-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e067",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-empty-dark-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e068",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-dialog-open-light-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e069",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-sheet-open-light-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e070",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-loading-light-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e071",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-error-light-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e072",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-empty-light-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e073",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-default-dark-390.png",
+      "width": 390,
+      "height": 6284
+    },
+    {
+      "id": "e074",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-dialog-open-dark-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e075",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-sheet-open-dark-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e076",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-loading-dark-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e077",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-error-dark-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e078",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/component-empty-dark-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e079",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/preview-documents-1440.png",
+      "width": 1440,
+      "height": 4423
+    },
+    {
+      "id": "e080",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/preview-access-1440.png",
+      "width": 1440,
+      "height": 4442
+    },
+    {
+      "id": "e081",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/preview-activity-1440.png",
+      "width": 1440,
+      "height": 4410
+    },
+    {
+      "id": "e082",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/preview-documents-390.png",
+      "width": 390,
+      "height": 5394
+    },
+    {
+      "id": "e083",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/preview-access-390.png",
+      "width": 390,
+      "height": 5444
+    },
+    {
+      "id": "e084",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/preview-activity-390.png",
+      "width": 390,
+      "height": 5233
+    },
+    {
+      "id": "e085",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/register-error-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e086",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/code-entry-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e087",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/code-expired-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "e088",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/register-error-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e089",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/code-entry-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "e090",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/after/code-expired-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "runtime-e91",
+      "kind": "report",
+      "path": "artifacts/runtime/README.md"
+    },
+    {
+      "id": "runtime-e92",
+      "kind": "report",
+      "path": "artifacts/runtime/final-verification.json"
+    },
+    {
+      "id": "runtime-e93",
+      "kind": "report",
+      "path": "artifacts/runtime/core-local.json"
+    },
+    {
+      "id": "runtime-e94",
+      "kind": "report",
+      "path": "artifacts/runtime/extended-local.json"
+    },
+    {
+      "id": "runtime-e95",
+      "kind": "report",
+      "path": "artifacts/runtime/marketing/report.json"
+    },
+    {
+      "id": "runtime-e96",
+      "kind": "report",
+      "path": "artifacts/revamp/pwa/browser-report.json"
+    },
+    {
+      "id": "runtime-e97",
+      "kind": "report",
+      "path": "DEPLOYMENT.md"
+    },
+    {
+      "id": "runtime-e98",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/home-1440.png",
+      "width": 1440,
+      "height": 4575
+    },
+    {
+      "id": "runtime-e99",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/product-1440.png",
+      "width": 1440,
+      "height": 3791
+    },
+    {
+      "id": "runtime-e100",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/security-1440.png",
+      "width": 1440,
+      "height": 2514
+    },
+    {
+      "id": "runtime-e101",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/solutions-fundraising-1440.png",
+      "width": 1440,
+      "height": 2639
+    },
+    {
+      "id": "runtime-e102",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/solutions-due-diligence-1440.png",
+      "width": 1440,
+      "height": 2718
+    },
+    {
+      "id": "runtime-e103",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/guides-1440.png",
+      "width": 1440,
+      "height": 1578
+    },
+    {
+      "id": "runtime-e104",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/guides-fundraising-checklist-1440.png",
+      "width": 1440,
+      "height": 3661
+    },
+    {
+      "id": "runtime-e105",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/guides-sharing-checklist-1440.png",
+      "width": 1440,
+      "height": 3661
+    },
+    {
+      "id": "runtime-e106",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/mobile-1440.png",
+      "width": 1440,
+      "height": 1648
+    },
+    {
+      "id": "runtime-e107",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/404-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "runtime-e108",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/home-390.png",
+      "width": 390,
+      "height": 5529
+    },
+    {
+      "id": "runtime-e109",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/product-390.png",
+      "width": 390,
+      "height": 4467
+    },
+    {
+      "id": "runtime-e110",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/security-390.png",
+      "width": 390,
+      "height": 3262
+    },
+    {
+      "id": "runtime-e111",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/solutions-fundraising-390.png",
+      "width": 390,
+      "height": 3213
+    },
+    {
+      "id": "runtime-e112",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/solutions-due-diligence-390.png",
+      "width": 390,
+      "height": 3240
+    },
+    {
+      "id": "runtime-e113",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/guides-390.png",
+      "width": 390,
+      "height": 1948
+    },
+    {
+      "id": "runtime-e114",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/guides-fundraising-checklist-390.png",
+      "width": 390,
+      "height": 5021
+    },
+    {
+      "id": "runtime-e115",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/guides-sharing-checklist-390.png",
+      "width": 390,
+      "height": 5108
+    },
+    {
+      "id": "runtime-e116",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/mobile-390.png",
+      "width": 390,
+      "height": 2159
+    },
+    {
+      "id": "runtime-e117",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/marketing/404-390.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "runtime-e118",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/pwa/offline-390.png",
+      "width": 390,
+      "height": 1000
+    },
+    {
+      "id": "runtime-e119",
+      "kind": "screenshot",
+      "path": "artifacts/revamp/pwa/offline-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "runtime-e120",
+      "kind": "report",
+      "path": "artifacts/runtime/authenticated/report.json"
+    },
+    {
+      "id": "runtime-e121",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/authenticated/documents-1440.png",
+      "width": 1440,
+      "height": 1033
+    },
+    {
+      "id": "runtime-e122",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/authenticated/room-overview-1440.png",
+      "width": 1440,
+      "height": 1003
+    },
+    {
+      "id": "runtime-e123",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/authenticated/documents-390.png",
+      "width": 390,
+      "height": 935
+    },
+    {
+      "id": "runtime-e124",
+      "kind": "screenshot",
+      "path": "artifacts/runtime/authenticated/room-overview-390.png",
+      "width": 390,
+      "height": 1378
+    },
+    {
+      "id": "runtime-e125",
+      "kind": "report",
+      "path": "artifacts/deployment/vercel.json"
+    },
+    {
+      "id": "runtime-e126",
+      "kind": "report",
+      "path": "artifacts/deployment/vercel-browser/report.json"
+    },
+    {
+      "id": "runtime-e127",
+      "kind": "report",
+      "path": "artifacts/deployment/railway.json"
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "rendered-1",
+      "route": "/",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e031",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-2",
+      "route": "/product",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/product.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e032",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-3",
+      "route": "/security",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/security.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e033",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-4",
+      "route": "/solutions/fundraising",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e034",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-5",
+      "route": "/solutions/due-diligence",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e035",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-6",
+      "route": "/guides",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/guides/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e036",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-7",
+      "route": "/guides/fundraising-checklist",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e037",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-8",
+      "route": "/guides/sharing-checklist",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e038",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-9",
+      "route": "/login",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "app/(auth)/login/page.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e039",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-10",
+      "route": "/register",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "app/(auth)/register/page.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e040",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-11",
+      "route": "/auth/email",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "app/(auth)/auth/email/[[...params]]/page.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e041",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-12",
+      "route": "/404",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/404.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e042",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-13",
+      "route": "/design-system",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e043",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-14",
+      "route": "/",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e044",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-15",
+      "route": "/product",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/product.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e045",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-16",
+      "route": "/security",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/security.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e046",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-17",
+      "route": "/solutions/fundraising",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e047",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-18",
+      "route": "/solutions/due-diligence",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e048",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-19",
+      "route": "/guides",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/guides/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e049",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-20",
+      "route": "/guides/fundraising-checklist",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e050",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-21",
+      "route": "/guides/sharing-checklist",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e051",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-22",
+      "route": "/login",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "app/(auth)/login/page.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e052",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-23",
+      "route": "/register",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "app/(auth)/register/page.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e053",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-24",
+      "route": "/auth/email",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "app/(auth)/auth/email/[[...params]]/page.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e054",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-25",
+      "route": "/404",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/404.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e055",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-26",
+      "route": "/design-system",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local public route captured and checked at this viewport. One h1/main, no overflow, zero automated WCAG A/AA violations and no page errors; see report for exact coverage.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e056",
+        "e009"
+      ]
+    },
+    {
+      "id": "rendered-27",
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e057",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-28",
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e058",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-29",
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e059",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-30",
+      "route": "/design-system",
+      "state": "error",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e060",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-31",
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e061",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-32",
+      "route": "/design-system",
+      "state": "default",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e062",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-33",
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e063",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-34",
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e064",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-35",
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e065",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-36",
+      "route": "/design-system",
+      "state": "error",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e066",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-37",
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e067",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-38",
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e068",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-39",
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e069",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-40",
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e070",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-41",
+      "route": "/design-system",
+      "state": "error",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e071",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-42",
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e072",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-43",
+      "route": "/design-system",
+      "state": "default",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e073",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-44",
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e074",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-45",
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e075",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-46",
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e076",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-47",
+      "route": "/design-system",
+      "state": "error",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e077",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-48",
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "dark",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual local component reference, selected state/theme, captured and individually visually inspected. Automated accessibility and uncaught-error checks passed. This is shared-primitive evidence, not all application consumers.",
+      "sources": [
+        "pages/design-system.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e078",
+        "e011"
+      ]
+    },
+    {
+      "id": "rendered-49",
+      "route": "/",
+      "state": "preview documents",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Interactive sample preview tab selected in the actual homepage. Sample documents, access and activity are explicitly illustrative; not live workspace data.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e079",
+        "e012"
+      ]
+    },
+    {
+      "id": "rendered-50",
+      "route": "/",
+      "state": "preview access",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Interactive sample preview tab selected in the actual homepage. Sample documents, access and activity are explicitly illustrative; not live workspace data.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e080",
+        "e012"
+      ]
+    },
+    {
+      "id": "rendered-51",
+      "route": "/",
+      "state": "preview activity",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Interactive sample preview tab selected in the actual homepage. Sample documents, access and activity are explicitly illustrative; not live workspace data.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e081",
+        "e012"
+      ]
+    },
+    {
+      "id": "rendered-52",
+      "route": "/",
+      "state": "preview documents",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Interactive sample preview tab selected in the actual homepage. Sample documents, access and activity are explicitly illustrative; not live workspace data.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e082",
+        "e012"
+      ]
+    },
+    {
+      "id": "rendered-53",
+      "route": "/",
+      "state": "preview access",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Interactive sample preview tab selected in the actual homepage. Sample documents, access and activity are explicitly illustrative; not live workspace data.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e083",
+        "e012"
+      ]
+    },
+    {
+      "id": "rendered-54",
+      "route": "/",
+      "state": "preview activity",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Interactive sample preview tab selected in the actual homepage. Sample documents, access and activity are explicitly illustrative; not live workspace data.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e084",
+        "e012"
+      ]
+    },
+    {
+      "id": "rendered-55",
+      "route": "/register",
+      "state": "service error and retry",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual account UI with mocked APIs; captured after exercising the named state. No real email delivery, identity exchange, session establishment or production integration is claimed.",
+      "sources": [
+        "app/(auth)/register/page.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e085",
+        "e010"
+      ]
+    },
+    {
+      "id": "rendered-56",
+      "route": "/auth/email",
+      "state": "code entry",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual account UI with mocked APIs; captured after exercising the named state. No real email delivery, identity exchange, session establishment or production integration is claimed.",
+      "sources": [
+        "app/(auth)/auth/email/[[...params]]/page.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e086",
+        "e010"
+      ]
+    },
+    {
+      "id": "rendered-57",
+      "route": "/auth/email",
+      "state": "expired code and recovery",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual account UI with mocked APIs; captured after exercising the named state. No real email delivery, identity exchange, session establishment or production integration is claimed.",
+      "sources": [
+        "app/(auth)/auth/email/[[...params]]/page.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "e087",
+        "e010"
+      ]
+    },
+    {
+      "id": "rendered-58",
+      "route": "/register",
+      "state": "service error and retry",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual account UI with mocked APIs; captured after exercising the named state. No real email delivery, identity exchange, session establishment or production integration is claimed.",
+      "sources": [
+        "app/(auth)/register/page.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e088",
+        "e010"
+      ]
+    },
+    {
+      "id": "rendered-59",
+      "route": "/auth/email",
+      "state": "code entry",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual account UI with mocked APIs; captured after exercising the named state. No real email delivery, identity exchange, session establishment or production integration is claimed.",
+      "sources": [
+        "app/(auth)/auth/email/[[...params]]/page.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e089",
+        "e010"
+      ]
+    },
+    {
+      "id": "rendered-60",
+      "route": "/auth/email",
+      "state": "expired code and recovery",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Historical 14 November 2026 browser evidence; source has subsequently been restored. Actual account UI with mocked APIs; captured after exercising the named state. No real email delivery, identity exchange, session establishment or production integration is claimed.",
+      "sources": [
+        "app/(auth)/auth/email/[[...params]]/page.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "e090",
+        "e010"
+      ]
+    },
+    {
+      "id": "runtime-rendered-61",
+      "route": "/",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e98",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-62",
+      "route": "/product",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/product.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e99",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-63",
+      "route": "/security",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/security.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e100",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-64",
+      "route": "/solutions/fundraising",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e101",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-65",
+      "route": "/solutions/due-diligence",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e102",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-66",
+      "route": "/guides",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/guides/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e103",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-67",
+      "route": "/guides/fundraising-checklist",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e104",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-68",
+      "route": "/guides/sharing-checklist",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e105",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-69",
+      "route": "/mobile",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/mobile.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e106",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-70",
+      "route": "/404",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/404.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e107",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-71",
+      "route": "/",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e108",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-72",
+      "route": "/product",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/product.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e109",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-73",
+      "route": "/security",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/security.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e110",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-74",
+      "route": "/solutions/fundraising",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e111",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-75",
+      "route": "/solutions/due-diligence",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/solutions/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e112",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-76",
+      "route": "/guides",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/guides/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e113",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-77",
+      "route": "/guides/fundraising-checklist",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e114",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-78",
+      "route": "/guides/sharing-checklist",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/guides/[slug].tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e115",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-79",
+      "route": "/mobile",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/mobile.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e116",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-80",
+      "route": "/404",
+      "state": "isolated marketing export, default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual fresh static export rendered at this viewport; heading/main, overflow, console, account-link origin, public-only requests, no PWA registration, and automated accessibility checked. See report for interaction and visual-inspection scope.",
+      "sources": [
+        "pages/404.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e117",
+        "runtime-e95"
+      ]
+    },
+    {
+      "id": "runtime-rendered-81",
+      "route": "/datarooms/pwa-local-privacy-probe",
+      "state": "generic-offline-fallback",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual browser disconnected from network after real service-worker registration; generic offline page captured and inspected. No private document data cached. This is Chromium evidence, not physical-device installation.",
+      "sources": [
+        "public/offline.html"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e118",
+        "runtime-e96"
+      ]
+    },
+    {
+      "id": "runtime-rendered-82",
+      "route": "/datarooms/pwa-local-privacy-probe",
+      "state": "generic-offline-fallback",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual browser disconnected from network after real service-worker registration; generic offline page captured and inspected. No private document data cached. This is Chromium evidence, not physical-device installation.",
+      "sources": [
+        "public/offline.html"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e119",
+        "runtime-e96"
+      ]
+    },
+    {
+      "id": "runtime-rendered-83",
+      "route": "/documents",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual local protected screen with real NextAuth session and owned synthetic fixture, individually inspected. Browser coverage is limited to these recorded routes/states; API integration evidence is separate.",
+      "sources": [
+        "pages/documents/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e121",
+        "runtime-e120"
+      ]
+    },
+    {
+      "id": "runtime-rendered-84",
+      "route": "/datarooms/[id]",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual local protected screen with real NextAuth session and owned synthetic fixture, individually inspected. Browser coverage is limited to these recorded routes/states; API integration evidence is separate.",
+      "sources": [
+        "pages/datarooms/[id]/index.tsx"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "evidence": [
+        "runtime-e122",
+        "runtime-e120"
+      ]
+    },
+    {
+      "id": "runtime-rendered-85",
+      "route": "/documents",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual local protected screen with real NextAuth session and owned synthetic fixture, individually inspected. Browser coverage is limited to these recorded routes/states; API integration evidence is separate.",
+      "sources": [
+        "pages/documents/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e123",
+        "runtime-e120"
+      ]
+    },
+    {
+      "id": "runtime-rendered-86",
+      "route": "/datarooms/[id]",
+      "state": "default",
+      "theme": "light",
+      "status": "rendered",
+      "reason": "Actual local protected screen with real NextAuth session and owned synthetic fixture, individually inspected. Browser coverage is limited to these recorded routes/states; API integration evidence is separate.",
+      "sources": [
+        "pages/datarooms/[id]/index.tsx"
+      ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": [
+        "runtime-e124",
+        "runtime-e120"
+      ]
+    },
+    {
+      "id": "source-S003",
+      "route": "/account/general",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/account/general.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S004",
+      "route": "/account/security",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/account/security.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S005",
+      "route": "/auth/confirm-email-change/[token]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "app/(auth)/auth/confirm-email-change/[token]/page.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S007",
+      "route": "/auth/saml",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "app/(auth)/auth/saml/page.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S008",
+      "route": "/branding",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/branding.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S009",
+      "route": "/custom_fields_ppreview_demo",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/custom_fields_ppreview_demo.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S010",
+      "route": "/dashboard",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/dashboard.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S011",
+      "route": "/datarooms",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S013",
+      "route": "/datarooms/[id]/analytics",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/analytics/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S014",
+      "route": "/datarooms/[id]/analytics/audit-log",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/analytics/audit-log.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S015",
+      "route": "/datarooms/[id]/branding",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/branding/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S016",
+      "route": "/datarooms/[id]/conversations",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/conversations/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S017",
+      "route": "/datarooms/[id]/conversations/[conversationId]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/conversations/[conversationId]/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S018",
+      "route": "/datarooms/[id]/conversations/faqs",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/conversations/faqs/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S019",
+      "route": "/datarooms/[id]/document/[documentId]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/document/[documentId].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S020",
+      "route": "/datarooms/[id]/documents",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/documents/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S021",
+      "route": "/datarooms/[id]/documents/[...name]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/documents/[...name].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S022",
+      "route": "/datarooms/[id]/groups",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/groups/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S023",
+      "route": "/datarooms/[id]/groups/[groupId]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/groups/[groupId]/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S024",
+      "route": "/datarooms/[id]/groups/[groupId]/group-analytics",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/groups/[groupId]/group-analytics.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S025",
+      "route": "/datarooms/[id]/groups/[groupId]/links",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/groups/[groupId]/links.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S026",
+      "route": "/datarooms/[id]/groups/[groupId]/members",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/groups/[groupId]/members.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S027",
+      "route": "/datarooms/[id]/groups/[groupId]/permissions",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/groups/[groupId]/permissions.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S028",
+      "route": "/datarooms/[id]/participants",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/participants/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S029",
+      "route": "/datarooms/[id]/permissions",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/permissions/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S030",
+      "route": "/datarooms/[id]/settings",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/settings/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S031",
+      "route": "/datarooms/[id]/settings/danger",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/settings/danger.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S032",
+      "route": "/datarooms/[id]/settings/downloads",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/settings/downloads.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S033",
+      "route": "/datarooms/[id]/settings/file-permissions",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/settings/file-permissions.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S034",
+      "route": "/datarooms/[id]/settings/introduction",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/settings/introduction.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S035",
+      "route": "/datarooms/[id]/settings/notifications",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/settings/notifications.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S036",
+      "route": "/datarooms/[id]/settings/team",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/settings/team.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S037",
+      "route": "/datarooms/[id]/tasks",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/tasks/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S038",
+      "route": "/datarooms/[id]/users",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/datarooms/[id]/users/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S040",
+      "route": "/documents/[id]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/documents/[id]/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S041",
+      "route": "/documents/[id]/redactions/[jobId]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/documents/[id]/redactions/[jobId].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S042",
+      "route": "/documents/hidden",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/documents/hidden.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S043",
+      "route": "/documents/new",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/documents/new.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S044",
+      "route": "/documents/tree/[...name]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/documents/tree/[...name].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S045",
+      "route": "/entrance_ppreview_demo",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/entrance_ppreview_demo.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S047",
+      "route": "/nav_ppreview_demo",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/nav_ppreview_demo.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S048",
+      "route": "/notification-preferences",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/notification-preferences.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S049",
+      "route": "/partners",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/partners.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S051",
+      "route": "/room_ppreview_demo",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/room_ppreview_demo.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S052",
+      "route": "/settings/agreements",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/agreements.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S053",
+      "route": "/settings/ai",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/ai.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S054",
+      "route": "/settings/billing",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/billing.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S055",
+      "route": "/settings/billing/invoices",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/billing/invoices.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S056",
+      "route": "/settings/domains",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/domains.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S057",
+      "route": "/settings/general",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/general.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S058",
+      "route": "/settings/incoming-webhooks",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/incoming-webhooks.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S059",
+      "route": "/settings/notifications",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/notifications.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S060",
+      "route": "/settings/people",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/people.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S061",
+      "route": "/settings/presets",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/presets/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S062",
+      "route": "/settings/presets/[id]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/presets/[id].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S063",
+      "route": "/settings/presets/new",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/presets/new.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S064",
+      "route": "/settings/security",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/security.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S065",
+      "route": "/settings/slack",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/slack.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S066",
+      "route": "/settings/tags",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/tags.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S067",
+      "route": "/settings/tokens",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/tokens.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S068",
+      "route": "/settings/upgrade-holiday-offer",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/upgrade-holiday-offer.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S069",
+      "route": "/settings/webhooks",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/webhooks/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S070",
+      "route": "/settings/webhooks/[id]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/webhooks/[id]/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S071",
+      "route": "/settings/webhooks/new",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/settings/webhooks/new.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S072",
+      "route": "/unsubscribe",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/unsubscribe.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S073",
+      "route": "/verify",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "app/(auth)/verify/page.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S074",
+      "route": "/verify/invitation",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "app/(auth)/verify/invitation/page.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S075",
+      "route": "/view/[linkId]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/[linkId]/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S076",
+      "route": "/view/[linkId]/d/[documentId]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/[linkId]/d/[documentId].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S077",
+      "route": "/view/[linkId]/downloads",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/[linkId]/downloads.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S078",
+      "route": "/view/[linkId]/embed",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/[linkId]/embed.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S079",
+      "route": "/view/domains/[domain]/[slug]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/domains/[domain]/[slug]/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S080",
+      "route": "/view/domains/[domain]/[slug]/d/[documentId]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/domains/[domain]/[slug]/d/[documentId].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S081",
+      "route": "/view/domains/[domain]/[slug]/downloads",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/domains/[domain]/[slug]/downloads.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S082",
+      "route": "/view/domains/[domain]/[slug]/embed",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/view/domains/[domain]/[slug]/embed.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S083",
+      "route": "/visitors",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/visitors/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S084",
+      "route": "/visitors/[id]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/visitors/[id]/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S085",
+      "route": "/welcome",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/welcome.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S086",
+      "route": "/workflows",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/workflows/index.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S087",
+      "route": "/workflows/[id]",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/workflows/[id].tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "source-S088",
+      "route": "/workflows/new",
+      "state": "source inventory; browser/data state verification pending",
+      "theme": "not_applicable",
+      "status": "source_only",
+      "reason": "Current route and available UI sources indexed; direct local imports resolve. This screen and its data/state combinations were not all rendered. Successful whole-app compilation and selected API flows do not establish a visual pass.",
+      "sources": [
+        "pages/workflows/new.tsx"
+      ],
+      "evidence": [
+        "e002",
+        "runtime-e92",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "native-mobile",
+      "route": "native iOS/Android applications",
+      "state": "installable mobile web selected",
+      "theme": "not_applicable",
+      "status": "not_applicable",
+      "reason": "User selected installable mobile web first. No native app is required or claimed in this repository; physical-device installation remains a web acceptance check.",
+      "sources": [
+        "docs/roomline/MOBILE_WEB.md"
+      ],
+      "evidence": [
+        "runtime-e96",
+        "e002"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "responsive",
+      "status": "passed",
+      "reason": "Public routes at 1440/390 plus reflow checks at 320/768/1024/1728 and shared-component states at 1440/390 passed. Protected screens and physical mobile devices are outside this pass. Fresh isolated marketing route/viewport checks and generic offline screenshots are recorded separately; no whole-product or physical-device certification.",
+      "evidence": [
+        "e009",
+        "e011",
+        "e013",
+        "runtime-e95",
+        "runtime-e96",
+        "runtime-e125",
+        "runtime-e126"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "status": "passed",
+      "reason": "Public menus, FAQ, preview, forms and component Dialog/Sheet/Select keyboard and focus behavior checked. No global protected-app keyboard pass claimed.",
+      "evidence": [
+        "e009",
+        "e010",
+        "e013"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "status": "passed",
+      "reason": "Zero automated WCAG A/AA violations in recorded 26 public default and 24 component-state captures; declared token contrast checks pass. This is not a complete manual assistive-technology audit. Fresh isolated marketing route/viewport checks and generic offline screenshots are recorded separately; no whole-product or physical-device certification.",
+      "evidence": [
+        "e009",
+        "e011",
+        "e014",
+        "runtime-e95",
+        "runtime-e96",
+        "runtime-e125",
+        "runtime-e126"
+      ]
+    },
+    {
+      "id": "states",
+      "status": "passed",
+      "reason": "Shared components cover default/loading/error/empty/disabled/dialog/sheet states. Public preview and mocked auth retry/code recovery exercised. Real authenticated/data-dependent states remain pending in inventory.",
+      "evidence": [
+        "e011",
+        "e010",
+        "e012",
+        "e013"
+      ]
+    },
+    {
+      "id": "reduced_motion",
+      "status": "passed",
+      "reason": "Scoped public and shared-component checks confirm reduced motion preserves visible content and controls. Entire protected product not verified.",
+      "evidence": [
+        "e009",
+        "e013"
+      ]
+    },
+    {
+      "id": "runtime",
+      "status": "passed",
+      "reason": "Fresh whole-repository strict TypeScript and full production build pass with no bypass. Real local authentication, tenant/access, upload, redaction and revocation flows are evidenced. Hosted SaaS deployment, all optional providers and every protected screen/state remain outside this pass.",
+      "evidence": [
+        "runtime-e92",
+        "runtime-e93",
+        "runtime-e94",
+        "runtime-e91"
+      ]
+    },
+    {
+      "id": "content_truth",
+      "status": "passed",
+      "reason": "Visible marketing content reviewed against available source capabilities, samples labeled, no invented pricing/certification/customer proof or measured superiority. Full copy/service promises still require operating-company validation before launch.",
+      "evidence": [
+        "e001",
+        "e007",
+        "e018",
+        "e004"
+      ]
+    },
+    {
+      "id": "twentyfirst_auth",
+      "status": "blocked",
+      "reason": "Official CLI installed and environment-only MCP config/helper prepared. Authenticated tools/list/search awaits a fresh rotated API_KEY_21ST; exposed chat key was not reused or stored.",
+      "evidence": [
+        "e020"
+      ]
+    },
+    {
+      "id": "native_mobile",
+      "status": "not_applicable",
+      "reason": "User chose installable mobile web first; no native app claim. Real Chromium installability/offline evidence and device acceptance limits are documented.",
+      "evidence": [
+        "runtime-e96"
+      ]
+    }
+  ],
+  "limitations": [
+    "95 filesystem route templates are inventoried; only recorded browser route/state/viewport pairs are visually verified. Source review and API tests are distinct.",
+    "The historical 201-diagnostic report is preserved. Current whole-project compiler/build results are in final-verification.json; no type/build suppression was introduced.",
+    "Live local tests use real isolated PostgreSQL, Redis, S3, SMTP and synthetic fixtures. Hosted SaaS deployment and owned payment/email/provider configuration remain unverified.",
+    "Native apps are outside the selected installable-web scope. Headless Chromium installability/offline results do not verify an OS installation prompt, iOS Safari, physical keyboards or every assistive technology.",
+    "Competitor public references and catalog screens do not establish a full authenticated competitor audit or measured design/task superiority.",
+    "21st authenticated component search awaits rotated credentials; UXCritique, Intuitive Software Design, 12ui generation and imperial CV context were unavailable. Every named reference has an explicit decision.",
+    "Marketing is published on Vercel with 21 HTTP checks, 20 desktop/mobile captures and 3 interaction groups passed. The user approved Railway deployment, but automatic approval review rejected applying its 109 staged changes; the SaaS service remains offline. Inherited AGPL/enterprise licenses remain unchanged.",
+    "Normal CI checks evidence integrity, not release readiness. Strict release validation remains incomplete for source-only surfaces and unconfigured services."
+  ]
+}

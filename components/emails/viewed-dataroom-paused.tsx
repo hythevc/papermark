@@ -13,6 +13,8 @@ import {
   Text,
 } from "react-email";
 
+import { constructAppUrl } from "@/lib/utils/link-url";
+
 import { Footer } from "./shared/footer";
 
 export default function ViewedDataroomPausedEmail({
@@ -49,7 +51,7 @@ export default function ViewedDataroomPausedEmail({
             <Section className="my-8 text-center">
               <Button
                 className="rounded bg-black text-center text-xs font-semibold text-white no-underline"
-                href={`${process.env.NEXT_PUBLIC_MARKETING_URL}/settings/billing`}
+                href={constructAppUrl("/settings/billing")}
                 style={{ padding: "12px 20px" }}
               >
                 Manage Subscription

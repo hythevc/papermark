@@ -27,6 +27,7 @@ import { useDomains } from "@/lib/swr/use-domains";
 import useLimits from "@/lib/swr/use-limits";
 import { LinkWithViews, WatermarkConfig } from "@/lib/types";
 import { convertDataUrlToFile, fetcher, uploadImage } from "@/lib/utils";
+import { constructPreviewLinkUrl } from "@/lib/utils/link-url";
 
 import { UpgradePlanModal } from "@/components/billing/upgrade-plan-modal";
 import { Button } from "@/components/ui/button";
@@ -310,7 +311,7 @@ export default function LinkSheet({
     }
 
     const { previewToken } = await response.json();
-    const previewLink = `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}?previewToken=${previewToken}`;
+    const previewLink = constructPreviewLinkUrl(link.id, previewToken);
     setIsLoading(false);
     const linkElement = document.createElement("a");
     linkElement.href = previewLink;

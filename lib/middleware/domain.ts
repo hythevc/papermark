@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { BLOCKED_PATHNAMES } from "@/lib/constants";
 import { getDomainRedirectUrl } from "@/lib/api/domains/redis";
+import { BRAND } from "@/lib/brand";
+import { BLOCKED_PATHNAMES } from "@/lib/constants";
 
 export default async function DomainMiddleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
@@ -19,7 +20,7 @@ export default async function DomainMiddleware(req: NextRequest) {
       }
     }
 
-    return NextResponse.redirect(new URL("https://www.papermark.com", req.url));
+    return NextResponse.redirect(new URL(BRAND.marketingUrl));
   }
 
   const url = req.nextUrl.clone();
@@ -36,8 +37,7 @@ export default async function DomainMiddleware(req: NextRequest) {
 
   const headers: Record<string, string> = {
     "X-Robots-Tag": "noindex",
-    "X-Powered-By":
-      "Papermark - Secure Data Room Infrastructure for the modern web",
+    "X-Powered-By": `${BRAND.name} - Document sharing and data rooms`,
   };
 
   // Allow custom-domain embeds to be framed from any host, matching the

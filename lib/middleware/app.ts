@@ -2,14 +2,20 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { getToken } from "next-auth/jwt";
 
+import { BRAND } from "@/lib/brand";
+
 const LOGIN_PATH = "/login";
+const REGISTER_PATH = "/register";
 const DEFAULT_AUTH_REDIRECT_PATH = "/dashboard";
 
 function isProtocolRelativePath(path: string) {
   return path[1] === "/" || path[1] === "\\";
 }
 
-function normalizeNextPath(nextPath: string | null, requestUrl: string): string {
+function normalizeNextPath(
+  nextPath: string | null,
+  requestUrl: string,
+): string {
   if (!nextPath) {
     return DEFAULT_AUTH_REDIRECT_PATH;
   }
@@ -51,9 +57,12 @@ export default async function AppMiddleware(req: NextRequest) {
   const url = req.nextUrl;
   const path = url.pathname;
   const isInvited = url.searchParams.has("invitation");
+  const isAuthPage = path === LOGIN_PATH || path === REGISTER_PATH;
   const token = (await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET,
+    secureCookie:
+      new URL(process.env.NEXTAUTH_URL || BRAND.appUrl).protocol === "https:",
   })) as {
     email?: string;
     user?: {
@@ -61,8 +70,8 @@ export default async function AppMiddleware(req: NextRequest) {
     };
   };
 
-  // UNAUTHENTICATED if there's no token and the path isn't /login, redirect to /login
-  if (!token?.email && path !== LOGIN_PATH) {
+  // Unauthenticated visitors can sign in or register; app pages require a session.
+  if (!token?.email && !isAuthPage) {
     const loginUrl = new URL(LOGIN_PATH, req.url);
     // Append "next" parameter only if not navigating to the root
     if (path !== "/") {
@@ -80,12 +89,12 @@ export default async function AppMiddleware(req: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  if (!token?.email && path === LOGIN_PATH) {
+  if (!token?.email && isAuthPage) {
     const rawNextPath = url.searchParams.get("next");
 
     if (rawNextPath) {
       const normalizedNextPath = normalizeNextPath(rawNextPath, req.url);
-      const canonicalLoginUrl = new URL(LOGIN_PATH, req.url);
+      const canonicalLoginUrl = new URL(path, req.url);
       canonicalLoginUrl.searchParams.set("next", normalizedNextPath);
 
       if (canonicalLoginUrl.search !== url.search) {
@@ -112,8 +121,8 @@ export default async function AppMiddleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/welcome", req.url));
   }
 
-  // AUTHENTICATED if the path is /login, redirect to the next path
-  if (token?.email && path === LOGIN_PATH) {
+  // Authenticated visitors already have an account; continue to their destination.
+  if (token?.email && isAuthPage) {
     const nextPath = normalizeNextPath(url.searchParams.get("next"), req.url);
     return NextResponse.redirect(new URL(nextPath, req.url));
   }

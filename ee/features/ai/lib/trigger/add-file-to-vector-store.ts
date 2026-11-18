@@ -1,6 +1,6 @@
 import { logger, metadata, task } from "@trigger.dev/sdk";
 
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 import { addFileToVectorStoreQueue } from "@/lib/trigger/queues";
 
 import type { AddToVectorStorePayload } from "./types";
@@ -30,7 +30,7 @@ export const addFileToVectorStoreTask = task({
     metadata.set("progress", 80);
 
     // Add file to vector store with metadata
-    const vectorStoreFile = await openai.vectorStores.files.create(
+    const vectorStoreFile = await getOpenAIClient().vectorStores.files.create(
       vectorStoreId,
       {
         file_id: fileId,

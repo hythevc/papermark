@@ -654,22 +654,31 @@ export const NotionPage = ({
       {loading && <div>Loading...</div>}
 
       <div
-        ref={notionContainerRef}
         className={cn(
-          !isWindowFocused &&
-            screenshotProtectionEnabled &&
-            "blur-xl transition-all duration-300",
-          textSelectionEnabled && "notion-text-selection-enabled",
+          "relative",
+          confidentialViewEnabled && "h-[calc(100dvh-64px)]",
         )}
       >
-        <NotionRenderer
-          recordMap={recordMapState}
-          fullPage={true}
-          darkMode={theme ? theme === "dark" : false}
-          disableHeader={true}
-          mapPageUrl={toViewerPageHref}
-          components={notionComponents}
-        />
+        <div
+          ref={notionContainerRef}
+          className={cn(
+            !isWindowFocused &&
+              screenshotProtectionEnabled &&
+              "blur-xl transition-all duration-300",
+            textSelectionEnabled && "notion-text-selection-enabled",
+            confidentialViewEnabled && "h-full overflow-y-auto",
+          )}
+        >
+          <NotionRenderer
+            recordMap={recordMapState}
+            fullPage={true}
+            darkMode={theme ? theme === "dark" : false}
+            disableHeader={true}
+            mapPageUrl={toViewerPageHref}
+            components={notionComponents}
+          />
+        </div>
+        {confidentialViewEnabled ? <ConfidentialViewOverlay /> : null}
       </div>
       {screenshotProtectionEnabled ? <ScreenProtector /> : null}
       <AwayPoster

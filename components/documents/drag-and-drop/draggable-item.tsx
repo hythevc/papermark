@@ -23,7 +23,7 @@ export function DraggableItem({
   children,
   type,
 }: DraggableItemProps) {
-  const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+  const { listeners, setNodeRef, isDragging } = useDraggable({
     id: id,
     data: {
       type: type,
@@ -64,7 +64,8 @@ export function DraggableItem({
     <div
       ref={setNodeRef}
       style={style}
-      {...attributes}
+      // Pointer dragging uses a neutral wrapper around independent card controls.
+      // Keyboard users have the card menu's existing Move to folder action.
       {...listeners}
       // onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}

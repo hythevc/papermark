@@ -1,0 +1,68 @@
+[
+  {
+    "route": "/",
+    "state": "preview documents",
+    "theme": "light",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "screenshot": "artifacts/revamp/after/preview-documents-1440.png",
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "state": "preview access",
+    "theme": "light",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "screenshot": "artifacts/revamp/after/preview-access-1440.png",
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "state": "preview activity",
+    "theme": "light",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "screenshot": "artifacts/revamp/after/preview-activity-1440.png",
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "state": "preview documents",
+    "theme": "light",
+    "viewport": {
+      "width": 390,
+      "height": 1000
+    },
+    "screenshot": "artifacts/revamp/after/preview-documents-390.png",
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "state": "preview access",
+    "theme": "light",
+    "viewport": {
+      "width": 390,
+      "height": 1000
+    },
+    "screenshot": "artifacts/revamp/after/preview-access-390.png",
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "state": "preview activity",
+    "theme": "light",
+    "viewport": {
+      "width": 390,
+      "height": 1000
+    },
+    "screenshot": "artifacts/revamp/after/preview-activity-390.png",
+    "status": "passed"
+  }
+]

@@ -1,4 +1,4 @@
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 import { DocumentStorageType } from "@prisma/client";
 import { toFile } from "openai";
 import path from "path";
@@ -38,7 +38,7 @@ export async function processDocumentForVectorStore(
     // const buffer = await response.arrayBuffer();
     const file = await toFile(response, fileName, { type: "application/pdf" });
 
-    const fileResponse = await openai.files.create({
+    const fileResponse = await getOpenAIClient().files.create({
       file,
       purpose: "assistants",
     });

@@ -151,6 +151,8 @@ const SingleDataroomBreadcrumb = ({ path }: { path: string }) => {
 
   const title = useMemo(() => {
     switch (path) {
+      case "/datarooms/[id]":
+        return "Overview";
       case "/datarooms/[id]/documents":
         return "Documents";
       case "/datarooms/[id]/settings":
@@ -193,7 +195,7 @@ const SingleDataroomBreadcrumb = ({ path }: { path: string }) => {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <TruncatedBreadcrumbLink
-            href={`/datarooms/${dataroom?.id}/documents`}
+            href={`/datarooms/${dataroom?.id}`}
             text={dataroom?.name}
           />
         </BreadcrumbItem>

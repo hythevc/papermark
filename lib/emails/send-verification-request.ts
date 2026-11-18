@@ -1,6 +1,8 @@
-import { waitUntil } from "@vercel/functions";
 import { customAlphabet } from "nanoid";
 
+import { BRAND } from "@/lib/brand";
+import { resolveEmailIdentity } from "@/lib/emails/config";
+import { localSmtpOptions } from "@/lib/local-integration";
 import { redis } from "@/lib/redis";
 import { sendEmail } from "@/lib/resend";
 
@@ -31,6 +33,12 @@ export const sendVerificationRequestEmail = async (params: {
 }) => {
   const { url, email } = params;
 
+  // Report missing delivery configuration before accepting a login request.
+  if (!process.env.RESEND_API_KEY && !localSmtpOptions()) {
+    throw new Error("Email delivery is not configured. Set RESEND_API_KEY.");
+  }
+  resolveEmailIdentity({ verify: true }, process.env, BRAND.supportEmail);
+
   // Generate verification code
   const code = generateVerificationCode();
 
@@ -54,19 +62,20 @@ export const sendVerificationRequestEmail = async (params: {
     code,
   });
 
-  // Use waitUntil to send email in background after response is sent
-  // This keeps the serverless function alive until the email is sent
-  waitUntil(
-    sendEmail({
+  // Accept the request only after the transport accepts the message. A failed
+  // provider must not leave the user on a code screen for an unsent email.
+  try {
+    await sendEmail({
       to: email as string,
       verify: true,
-      subject: "Login for Papermark",
+      subject: `Your ${BRAND.name} login code`,
       react: emailTemplate,
       test: process.env.NODE_ENV === "development",
-    }).catch((e) => {
-      console.error("Failed to send verification email:", e);
-    }),
-  );
+    });
+  } catch (error) {
+    await redis.del(`${LOGIN_CODE_EMAIL_PREFIX}${email.toLowerCase()}:${code}`);
+    throw error;
+  }
 };
 
 /**

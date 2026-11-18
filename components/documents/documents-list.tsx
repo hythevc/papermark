@@ -514,7 +514,7 @@ export function DocumentsList({
       return (
         <div className="mb-2 flex items-center gap-x-2 pt-5">
           {folders && folders.length > 0 && (
-            <p className="flex items-center gap-x-1 text-sm text-gray-400">
+            <p className="flex items-center gap-x-1 text-sm text-muted-foreground">
               <FolderIcon className="h-5 w-5" />
               <span>
                 {folders.length} folder{folders.length > 1 ? "s" : ""}
@@ -522,7 +522,7 @@ export function DocumentsList({
             </p>
           )}
           {documents && documents.length > 0 && (
-            <p className="flex items-center gap-x-1 text-sm text-gray-400">
+            <p className="flex items-center gap-x-1 text-sm text-muted-foreground">
               <FileIcon className="h-5 w-5" />
               <span>
                 {documents.length} document{documents.length > 1 ? "s" : ""}

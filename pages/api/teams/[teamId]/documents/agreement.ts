@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+import type { convertFilesToPdfTask } from "@/ee/features/conversions/lib/trigger/convert-files";
 import { tasks } from "@trigger.dev/sdk";
-
 import { getServerSession } from "next-auth/next";
 
+import { usesInlineDocumentProcessing } from "@/lib/document-processing";
 import { errorhandler } from "@/lib/errorHandler";
 import prisma from "@/lib/prisma";
-import type { convertFilesToPdfTask } from "@/ee/features/conversions/lib/trigger/convert-files";
 import { convertPdfToImageRoute } from "@/lib/trigger/pdf-to-image-route";
 import { CustomUser } from "@/lib/types";
 import { getExtension, log, serializeFileSize } from "@/lib/utils";
@@ -134,50 +134,76 @@ export default async function handle(
 
       const isDownloadOnlyByExtension =
         /\.(log|err|prj|jgw|tif|tiff|ecw|bak)$/i.test(name);
+      const inlineProcessing = usesInlineDocumentProcessing();
 
       if (type === "docs" && !isDownloadOnlyByExtension) {
-        await tasks.trigger<typeof convertFilesToPdfTask>(
-          "convert-files-to-pdf",
-          {
+        if (inlineProcessing) {
+          const { convertDocumentVersion } =
+            await import("@/ee/features/conversions/lib/trigger/convert-files");
+          await convertDocumentVersion({
             documentId: document.id,
             documentVersionId: document.versions[0].id,
             teamId,
-          },
-          {
-            idempotencyKey: `${teamId}-${document.versions[0].id}-docs`,
-            tags: [
-              `team_${teamId}`,
-              `document_${document.id}`,
-              `version:${document.versions[0].id}`,
-            ],
-            queue: conversionQueueName(team.plan),
-            concurrencyKey: teamId,
-          },
-        );
+          });
+        } else
+          await tasks.trigger<typeof convertFilesToPdfTask>(
+            "convert-files-to-pdf",
+            {
+              documentId: document.id,
+              documentVersionId: document.versions[0].id,
+              teamId,
+            },
+            {
+              idempotencyKey: `${teamId}-${document.versions[0].id}-docs`,
+              tags: [
+                `team_${teamId}`,
+                `document_${document.id}`,
+                `version:${document.versions[0].id}`,
+              ],
+              queue: conversionQueueName(team.plan),
+              concurrencyKey: teamId,
+            },
+          );
       }
 
       if (type === "pdf") {
-        await convertPdfToImageRoute.trigger(
-          {
+        if (inlineProcessing) {
+          const { renderPdfVersion } =
+            await import("@/lib/documents/render-pdf");
+          await renderPdfVersion({
             documentId: document.id,
             documentVersionId: document.versions[0].id,
             teamId,
-            // docId: fileUrl.split("/")[1],
-          },
-          {
-            idempotencyKey: `${teamId}-${document.versions[0].id}`,
-            tags: [
-              `team_${teamId}`,
-              `document_${document.id}`,
-              `version:${document.versions[0].id}`,
-            ],
-            queue: conversionQueueName(team.plan),
-            concurrencyKey: teamId,
-          },
-        );
+          });
+        } else
+          await convertPdfToImageRoute.trigger(
+            {
+              documentId: document.id,
+              documentVersionId: document.versions[0].id,
+              teamId,
+              // docId: fileUrl.split("/")[1],
+            },
+            {
+              idempotencyKey: `${teamId}-${document.versions[0].id}`,
+              tags: [
+                `team_${teamId}`,
+                `document_${document.id}`,
+                `version:${document.versions[0].id}`,
+              ],
+              queue: conversionQueueName(team.plan),
+              concurrencyKey: teamId,
+            },
+          );
       }
 
-      return res.status(201).json(serializeFileSize(document));
+      const result =
+        inlineProcessing && (type === "pdf" || type === "docs")
+          ? await prisma.document.findUniqueOrThrow({
+              where: { id: document.id, teamId },
+              include: { links: true, versions: true },
+            })
+          : document;
+      return res.status(201).json(serializeFileSize(result));
     } catch (error) {
       log({
         message: `Failed to create document. \n\n*teamId*: _${teamId}_, \n\n*file*: ${fileUrl} \n\n ${error}`,

@@ -1,15 +1,14 @@
-import { logger, task } from "@trigger.dev/sdk";
-
 import {
-  getTeamStorageConfigById,
   type StorageConfig,
+  getTeamStorageConfigById,
 } from "@/ee/features/storage/config";
-import { ItemType } from "@prisma/client";
 import {
   InvocationType,
   InvokeCommand,
   type LambdaClient,
 } from "@aws-sdk/client-lambda";
+import { ItemType } from "@prisma/client";
+import { logger, task } from "@trigger.dev/sdk";
 
 import { buildBulkDownloadStructure } from "@/lib/dataroom/build-bulk-download-structure";
 import { collectDescendantIds } from "@/lib/dataroom/build-folder-hierarchy";
@@ -19,7 +18,7 @@ import { parseS3PresignedUrl } from "@/lib/files/bulk-download-presign";
 import { notifyDocumentDownload } from "@/lib/integrations/slack/events";
 import prisma from "@/lib/prisma";
 import { downloadJobStore } from "@/lib/redis-download-job-store";
-import { constructLinkUrl } from "@/lib/utils/link-url";
+import { constructAppUrl, constructLinkUrl } from "@/lib/utils/link-url";
 
 // Maximum files per batch (Lambda payload limit)
 const MAX_FILES_PER_BATCH = 500;
@@ -222,8 +221,7 @@ export const bulkDownloadTask = task({
       // Calculate total size from folder structure for batch decisions
       const totalPayloadSize = Object.values(folderStructure).reduce(
         (sum, folder) =>
-          sum +
-          folder.files.reduce((fSum, file) => fSum + (file.size || 0), 0),
+          sum + folder.files.reduce((fSum, file) => fSum + (file.size || 0), 0),
         0,
       );
       const filesWithKnownSize = Object.values(folderStructure).reduce(
@@ -348,9 +346,7 @@ export const bulkDownloadTask = task({
           batchNumber,
           fileCount: batch.fileKeys.length,
           knownSizeMB: Math.round(batch.knownSizeBytes / (1024 * 1024)),
-          estimatedSizeMB: Math.round(
-            batch.estimatedSizeBytes / (1024 * 1024),
-          ),
+          estimatedSizeMB: Math.round(batch.estimatedSizeBytes / (1024 * 1024)),
         });
 
         try {
@@ -807,9 +803,14 @@ async function buildDownloadContext({
   // 1. Re-validate the link/dataroom against the live DB. We use the live
   //    `enableWatermark` and `permissionGroupId` from here on, ignoring
   //    any snapshots in `sourceContext`.
-  const { enableWatermark, permissionGroupId } = await revalidateDownloadContext(
-    { jobId, dataroomId, teamId, type, linkId },
-  );
+  const { enableWatermark, permissionGroupId } =
+    await revalidateDownloadContext({
+      jobId,
+      dataroomId,
+      teamId,
+      type,
+      linkId,
+    });
 
   // 2. Heavy DB work + tree building.
   await downloadJobStore.updateJob(jobId, { phase: "BUILDING" });
@@ -829,7 +830,9 @@ async function buildDownloadContext({
   if (type === "folder") {
     rootFolder = allDataroomFolders.find((f) => f.id === folderId);
     if (!rootFolder) {
-      throw new Error(`Folder ${folderId} not found for dataroom ${dataroomId}`);
+      throw new Error(
+        `Folder ${folderId} not found for dataroom ${dataroomId}`,
+      );
     }
     const descendantIds = collectDescendantIds(folderId!, allDataroomFolders);
     foldersInScope = allDataroomFolders.filter(
@@ -1051,11 +1054,12 @@ async function sendEmailNotification({
       });
       downloadUrl = link
         ? `${constructLinkUrl(link)}/downloads`
-        : `${process.env.NEXT_PUBLIC_MARKETING_URL || "https://www.papermark.com"}/view/${linkId}/downloads`;
+        : `${constructLinkUrl({ id: linkId })}/downloads`;
       isViewer = true;
     } else {
-      const baseUrl = process.env.NEXTAUTH_URL || "https://app.papermark.com";
-      downloadUrl = `${baseUrl}/datarooms/${dataroomId}/documents`;
+      downloadUrl = constructAppUrl(
+        `/datarooms/${encodeURIComponent(dataroomId)}/documents`,
+      );
     }
 
     await sendDownloadReadyEmail({

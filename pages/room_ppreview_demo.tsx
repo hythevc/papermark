@@ -80,7 +80,6 @@ function PreviewNotionLogoChip({
         className="h-full w-full object-contain"
         src={src}
         alt=""
-        crossOrigin="anonymous"
         referrerPolicy="no-referrer"
         {...imgProps}
       />

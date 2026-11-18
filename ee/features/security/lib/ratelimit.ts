@@ -1,6 +1,11 @@
 import { Ratelimit } from "@upstash/ratelimit";
 
+import { isLocalIntegration } from "@/lib/local-integration";
 import { redis } from "@/lib/redis";
+
+// Keep Redis budgets locally; only the external IP-denylist fetch is disabled
+// in the explicitly development-only service harness.
+const enableProtection = !isLocalIntegration();
 
 /**
  * Simple rate limiters for core endpoints
@@ -11,7 +16,7 @@ export const rateLimiters = {
     redis,
     limiter: Ratelimit.slidingWindow(10, "20 m"),
     prefix: "rl:auth",
-    enableProtection: true,
+    enableProtection,
     analytics: true,
   }),
 
@@ -20,7 +25,25 @@ export const rateLimiters = {
     redis,
     limiter: Ratelimit.slidingWindow(10, "20 m"),
     prefix: "rl:billing",
-    enableProtection: true,
+    enableProtection,
+    analytics: true,
+  }),
+
+  // A team shares five imports per minute; an import can contain 500 links.
+  bulkLinkImport: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(5, "1 m"),
+    prefix: "rl:bulk-link-import",
+    enableProtection,
+    analytics: true,
+  }),
+
+  // Domain verification calls the hosting provider, so bound repeated polling.
+  domainVerification: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(10, "1 m"),
+    prefix: "rl:domain-verification",
+    enableProtection,
     analytics: true,
   }),
 };

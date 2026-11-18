@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-11-14T19:04:50.683Z",
+  "mode": "mocked APIs only; no email sent or credentials exchanged",
+  "results": [
+    {
+      "name": "login network failure preserves input and restores controls",
+      "status": "passed"
+    },
+    {
+      "name": "registration retry, callback, code constraints and expired recovery at1440",
+      "status": "passed"
+    },
+    {
+      "name": "registration retry, callback, code constraints and expired recovery at390",
+      "status": "passed"
+    }
+  ]
+}

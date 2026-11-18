@@ -1,0 +1,27 @@
+{
+  "pass": true,
+  "checks": [
+    "native pending/disabled",
+    "Slot disabled/loading pointer/keyboard/aux activation blocked",
+    "Radix dialog/sheet focus trap and return",
+    "overlay pointer cleanup",
+    "select keyboard choice",
+    "light/dark portal theme",
+    "responsive overflow 320/390/768/1024/1440",
+    "coarse target min44",
+    "mobile text min16",
+    "mobile overlay bounds",
+    "reduced motion",
+    "no nested controls"
+  ],
+  "targetCount": 24,
+  "theme": {
+    "lightBg": "rgb(249, 248, 246)",
+    "darkBg": "rgb(17, 24, 21)",
+    "darkPanel": "rgb(17, 24, 21)"
+  },
+  "motion": {
+    "duration": "1e-05s",
+    "transition": "1e-05s"
+  }
+}

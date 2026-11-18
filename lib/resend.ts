@@ -1,8 +1,12 @@
 import { JSXElementConstructor, ReactElement } from "react";
 
+import nodemailer from "nodemailer";
 import { render, toPlainText } from "react-email";
 import { Resend } from "resend";
 
+import { BRAND } from "@/lib/brand";
+import { resolveEmailIdentity } from "@/lib/emails/config";
+import { localSmtpOptions } from "@/lib/local-integration";
 import prisma from "@/lib/prisma";
 import { log, nanoid } from "@/lib/utils";
 
@@ -23,6 +27,7 @@ export const sendEmail = async ({
   replyTo,
   scheduledAt,
   unsubscribeUrl,
+  oneClickUnsubscribe = false,
   idempotencyKey,
 }: {
   to: string;
@@ -37,35 +42,56 @@ export const sendEmail = async ({
   replyTo?: string;
   scheduledAt?: string;
   unsubscribeUrl?: string;
+  // Opt in only for a route that implements the one-click unsubscribe POST.
+  oneClickUnsubscribe?: boolean;
   idempotencyKey?: string;
 }) => {
-  if (!resend) {
+  const localTransport = localSmtpOptions();
+  if (!resend && !localTransport) {
     // Throw an error if resend is not initialized
     throw new Error("Resend not initialized");
   }
 
+  // Resolve only from server-owned configuration. No upstream identity is a
+  // valid fallback for this deployment. Explicit callers remain supported.
+  const identity = resolveEmailIdentity(
+    { from, marketing, system, verify, replyTo, unsubscribeUrl },
+    process.env,
+    BRAND.supportEmail,
+  );
   const html = await render(react);
   const plainText = toPlainText(html);
 
-  const fromAddress =
-    from ??
-    (marketing
-      ? "Marc from Papermark <marc@updates.papermark.com>"
-      : system
-        ? "Papermark <system@papermark.com>"
-        : verify
-          ? "Papermark <system@verify.papermark.com>"
-          : !!scheduledAt
-            ? "Marc Seitz <marc@papermark.com>"
-            : "Marc from Papermark <marc@papermark.com>");
+  if (localTransport) {
+    if (scheduledAt) {
+      throw new Error("Local SMTP capture does not schedule email delivery.");
+    }
+    // https://nodemailer.com/smtp/ — actual SMTP delivery to the opted-in,
+    // loopback-only capture service; no fabricated provider success.
+    const transport = nodemailer.createTransport(localTransport);
+    const result = await transport.sendMail({
+      from: identity.from,
+      to,
+      cc,
+      replyTo: identity.replyTo,
+      subject,
+      html,
+      text: plainText,
+      disableFileAccess: true,
+      disableUrlAccess: true,
+    });
+    return { id: result.messageId };
+  }
+
+  if (!resend) throw new Error("Resend not initialized");
 
   try {
     const { data, error } = await resend.emails.send(
       {
-        from: fromAddress,
+        from: identity.from,
         to: test ? "delivered@resend.dev" : to,
         cc: cc,
-        replyTo: marketing ? "marc@papermark.com" : replyTo,
+        replyTo: identity.replyTo,
         subject,
         react,
         scheduledAt,
@@ -74,10 +100,13 @@ export const sendEmail = async ({
           // Reusing an idempotency key with a changed payload is a 409, so the
           // ref id has to come from the key rather than a fresh nanoid.
           "X-Entity-Ref-ID": idempotencyKey ?? nanoid(),
-          ...(unsubscribeUrl
+          ...(identity.unsubscribeUrl
             ? {
-                "List-Unsubscribe": `<${unsubscribeUrl}>`,
-                "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+                "List-Unsubscribe": `<${identity.unsubscribeUrl}>`,
+                // Preferences URLs do not necessarily implement one-click POST.
+                ...(oneClickUnsubscribe
+                  ? { "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" }
+                  : {}),
               }
             : {}),
         },

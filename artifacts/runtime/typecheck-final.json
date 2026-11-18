@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-11-17T03:49:01.143170+00:00",
+  "command": "node --max-old-space-size=6144 node_modules/typescript/bin/tsc --noEmit --pretty false --incremental --tsBuildInfoFile .next/cache/.tsbuildinfo",
+  "exitCode": 0,
+  "diagnostics": 0,
+  "strict": true,
+  "bypassesAdded": false,
+  "sourceDigest": "c08f061269bcf11b74eb26e1296860aacb4be23bf6a051d71a28218a9453d11c",
+  "sourceScope": "Application sources, public assets, Prisma and configuration/dependency lock; excludes reports, docs and tooling.",
+  "sourceFiles": 1750,
+  "log": "artifacts/runtime/typecheck-final.log",
+  "note": "Uses the compiler cache from the full production check; the standalone compiler still checks the complete strict project. Earlier nonincremental checkpoints also passed."
+}

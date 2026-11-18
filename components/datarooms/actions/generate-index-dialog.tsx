@@ -14,6 +14,7 @@ import { useAnalytics } from "@/lib/analytics";
 import { usePlan } from "@/lib/swr/use-billing";
 import { useDataroomLinks } from "@/lib/swr/use-dataroom";
 import { IndexFileFormat } from "@/lib/types/index-file";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 
 import { UpgradePlanModal } from "@/components/billing/upgrade-plan-modal";
 import { Button } from "@/components/ui/button";
@@ -170,9 +171,7 @@ export default function GenerateIndexDialog({
                     <div className="flex flex-col space-y-1">
                       <span>{link.name || `Link #${link.id.slice(-5)}`}</span>
                       <span className="text-xs text-muted-foreground">
-                        {link.domainId
-                          ? `${link.domainSlug}/${link.slug}`
-                          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`}
+                        {constructLinkUrl(link).replace(/^https?:\/\//, "")}
                       </span>
                     </div>
                   </SelectItem>

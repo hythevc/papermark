@@ -3,6 +3,8 @@ import { Dispatch, SetStateAction } from "react";
 import { PlanEnum } from "@/ee/stripe/constants";
 import Cookies from "js-cookie";
 
+import { usePlan } from "@/lib/swr/use-billing";
+
 import X from "@/components/shared/icons/x";
 import { Button } from "@/components/ui/button";
 
@@ -13,12 +15,16 @@ export default function ProBanner({
 }: {
   setShowProBanner: Dispatch<SetStateAction<boolean | null>>;
 }) {
+  const { billingActionsAvailable } = usePlan();
+
   const handleHideBanner = () => {
     setShowProBanner(false);
     Cookies.set("hideProBanner", "pro-banner", {
       expires: 7,
     });
   };
+
+  if (!billingActionsAvailable) return null;
 
   return (
     <aside className="relative mb-2 flex w-full flex-col justify-center rounded-lg border border-gray-700 bg-background p-4 text-foreground">

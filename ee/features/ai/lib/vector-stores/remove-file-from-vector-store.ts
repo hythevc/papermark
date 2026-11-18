@@ -1,4 +1,4 @@
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 
 /**
  * Remove a file from a vector store
@@ -10,7 +10,7 @@ export async function removeFileFromVectorStore(
   fileId: string,
 ): Promise<void> {
   try {
-    await openai.vectorStores.files.delete(fileId, {
+    await getOpenAIClient().vectorStores.files.delete(fileId, {
       vector_store_id: vectorStoreId,
     });
   } catch (error) {

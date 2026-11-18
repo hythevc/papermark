@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-11-17T02:36:26.951Z",
+  "mode": "real local HTTP APIs, retained real session, isolated PostgreSQL/Redis/S3; no auth mocks",
+  "checks": [
+    {
+      "name": "Onboarding creates a real free workspace with active admin membership",
+      "status": "passed"
+    },
+    {
+      "name": "Trial rejects malformed values without changing free workspace",
+      "status": "passed"
+    },
+    {
+      "name": "Concurrent use-case trial requests create exactly one real room and seven-day trial",
+      "status": "passed"
+    },
+    {
+      "name": "Blocked workspace membership cannot provision a trial",
+      "status": "passed"
+    },
+    {
+      "name": "Industry onboarding form creates a real trial without optional worker credentials",
+      "status": "passed"
+    },
+    {
+      "name": "Unauthenticated TUS creation is denied",
+      "status": "passed"
+    },
+    {
+      "name": "Real TUS POST, PATCH, HEAD and resumed PATCH preserve exact S3 bytes",
+      "status": "passed"
+    },
+    {
+      "name": "Real authenticated user without target membership cannot inspect or create TUS uploads",
+      "status": "passed"
+    },
+    {
+      "name": "Real PDF upload persists source bytes and renders pages for the owned redaction workspace",
+      "status": "passed"
+    },
+    {
+      "name": "Real manual-redaction POST creates a scoped review job",
+      "status": "passed"
+    },
+    {
+      "name": "Manual-redaction region PATCH and source PNG GET use the real source",
+      "status": "passed"
+    },
+    {
+      "name": "Wrong-team scope and blocked membership cannot read or apply redaction jobs",
+      "status": "passed"
+    },
+    {
+      "name": "Real apply publishes a rendered derivative, removes text, masks pixels and preserves the old version",
+      "status": "passed"
+    },
+    {
+      "name": "Applied-job replay and region edits are denied without creating another version",
+      "status": "passed"
+    }
+  ],
+  "completedPhases": [
+    "onboarding",
+    "tus",
+    "redaction"
+  ],
+  "cleanup": "completed",
+  "limitations": [
+    "Local services establish these isolated flows, not hosted Railway, Vercel, SMTP or production-provider delivery.",
+    "Redaction uses synthetic private-text fixtures. AI detection and Office/Keynote conversion services are not exercised.",
+    "Private auth state, fixture identifiers, object keys and source documents remain outside the checkout."
+  ]
+}

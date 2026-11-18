@@ -3,6 +3,7 @@ import { z } from "zod";
 
 import prisma from "@/lib/prisma";
 import { queueNotification } from "@/lib/redis/dataroom-notification-queue";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 import { ZViewerNotificationPreferencesSchema } from "@/lib/zod/schemas/notifications";
 
 const NotificationPayloadSchema = z.object({
@@ -258,7 +259,7 @@ export const sendDataroomChangeNotificationTask = schemaTask({
         if (link.domainId && link.domainSlug && link.slug) {
           linkUrl = `https://${link.domainSlug}/${link.slug}`;
         } else {
-          linkUrl = `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
+          linkUrl = constructLinkUrl({ id: link.id });
         }
 
         return {

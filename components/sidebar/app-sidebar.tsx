@@ -58,9 +58,10 @@ export function AppSidebarContent() {
   const documentsLimit = limits?.documents;
 
   // Check Slack integration status
-  const { integration: slackIntegration } = useSlackIntegration({
-    enabled: !!currentTeam?.id,
-  });
+  const { integration: slackIntegration, configured: slackConfigured } =
+    useSlackIntegration({
+      enabled: !!currentTeam?.id,
+    });
 
   // Check feature flags
   const { features } = useFeatureFlags();
@@ -282,7 +283,9 @@ export function AppSidebarContent() {
         <SidebarMenu className="group-data-[collapsible=icon]:hidden">
           <SidebarMenuItem>
             <div>
-              {!slackIntegration && showSlackBanner ? (
+              {slackConfigured === true &&
+              !slackIntegration &&
+              showSlackBanner ? (
                 <SlackBanner setShowSlackBanner={setShowSlackBanner} />
               ) : null}
               {isFree && !isTrial && showProBanner ? (

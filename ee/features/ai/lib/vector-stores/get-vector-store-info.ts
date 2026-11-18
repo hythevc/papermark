@@ -1,4 +1,4 @@
-import { openai } from "@/ee/features/ai/lib/models/openai";
+import { getOpenAIClient } from "@/ee/features/ai/lib/models/openai";
 import { type OpenAI } from "openai";
 
 /**
@@ -10,7 +10,7 @@ export async function getVectorStoreInfo(
   vectorStoreId: string,
 ): Promise<OpenAI.VectorStores.VectorStore> {
   try {
-    const vectorStore = await openai.vectorStores.retrieve(vectorStoreId);
+    const vectorStore = await getOpenAIClient().vectorStores.retrieve(vectorStoreId);
     return vectorStore;
   } catch (error) {
     console.error("Error getting vector store info:", error);

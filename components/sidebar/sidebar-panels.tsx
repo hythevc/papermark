@@ -10,6 +10,7 @@ import { motion } from "motion/react";
 
 import { usePlan } from "@/lib/swr/use-billing";
 
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { NavUser } from "@/components/sidebar/nav-user";
 import { SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
 import { BadgeTooltip } from "@/components/ui/tooltip";
@@ -33,10 +34,14 @@ function SidebarBrandHeader() {
   return (
     <SidebarHeader className="gap-y-0 pb-4">
       <p className="hidden w-full justify-center text-2xl font-bold tracking-tighter text-black group-data-[collapsible=icon]:inline-flex dark:text-white">
-        <Link href="/dashboard">P</Link>
+        <Link href="/dashboard">
+          <BrandLogo compact />
+        </Link>
       </p>
       <p className="ml-2 flex items-center text-2xl font-bold tracking-tighter text-black group-data-[collapsible=icon]:hidden dark:text-white">
-        <Link href="/dashboard">Papermark</Link>
+        <Link href="/dashboard">
+          <BrandLogo />
+        </Link>
         {userPlan && !isFree && !isDataroomsPlus && !isDataroomsPremium ? (
           <span className="relative ml-4 inline-flex items-center rounded-full bg-background px-2.5 py-1 text-xs tracking-normal text-foreground ring-1 ring-gray-800">
             {userPlan.charAt(0).toUpperCase() + userPlan.slice(1)}

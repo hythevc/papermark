@@ -1,0 +1,354 @@
+{
+  "name": "docsend-pricing",
+  "url": "https://www.docsend.com/pricing/",
+  "viewportCaptures": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "documentWidth": 1440,
+      "file": "docsend-pricing-1440.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390,
+      "file": "docsend-pricing-390.png"
+    }
+  ],
+  "capturedAt": "2026-11-14T18:41:31.192Z",
+  "status": 200,
+  "finalUrl": "https://www.docsend.com/pricing/",
+  "title": "DocSend Plans and Pricing | DocSend",
+  "headings": [
+    "Find the best DocSend plan for your business needs",
+    "Personal",
+    "Standard",
+    "Advanced",
+    "Advanced Data Rooms",
+    "Looking for more?",
+    "Compare Plans",
+    "Select a plan",
+    "Frequently Asked Questions",
+    "Is there a trial?",
+    "What is the difference between a user and a visitor?",
+    "What types of content can I send with DocSend?",
+    "Can I use DocSend as a Virtual Data Room (VDR)?",
+    "What's a Space?",
+    "My files are stored in the cloud. How do I get them into DocSend?",
+    "Do I have to pay for each Data Room?",
+    "What makes DocSend Advanced Data Rooms secure for handling sensitive deals?",
+    "Docsend",
+    "Use Cases",
+    "Industries",
+    "Features",
+    "About us",
+    "Docsend",
+    "Use Cases",
+    "Industries",
+    "Features",
+    "About us"
+  ],
+  "links": [
+    {
+      "text": "Skip to main content",
+      "href": "https://www.docsend.com/pricing/#main-app-container"
+    },
+    {
+      "text": "Virtual Data Rooms",
+      "href": "https://www.docsend.com/features/virtual-data-room"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.docsend.com/pricing"
+    },
+    {
+      "text": "Customers",
+      "href": "https://www.docsend.com/customers"
+    },
+    {
+      "text": "Sign In",
+      "href": "https://docsend.com/login"
+    },
+    {
+      "text": "Request a demo",
+      "href": "https://www.docsend.com/letschat"
+    },
+    {
+      "text": "Get started",
+      "href": "https://docsend.com/signup/"
+    },
+    {
+      "text": "Dropbox",
+      "href": "https://www.dropbox.com/"
+    },
+    {
+      "text": "How it works",
+      "href": "https://www.docsend.com/how-it-works/"
+    },
+    {
+      "text": "Integrations",
+      "href": "https://www.docsend.com/integrations/"
+    },
+    {
+      "text": "Help Center",
+      "href": "https://help.docsend.com/hc/en-us"
+    },
+    {
+      "text": "Partnerships",
+      "href": "https://www.docsend.com/partnerships/"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.docsend.com/pricing/"
+    },
+    {
+      "text": "Resources",
+      "href": "https://www.docsend.com/resources/"
+    },
+    {
+      "text": "M&A",
+      "href": "https://www.docsend.com/features/m-and-a/"
+    },
+    {
+      "text": "Fundraising",
+      "href": "https://www.docsend.com/solutions/startup-fundraising/"
+    },
+    {
+      "text": "Venture Capital",
+      "href": "https://www.docsend.com/solutions/venture-capitalist/"
+    },
+    {
+      "text": "Private Equity",
+      "href": "https://www.docsend.com/solutions/investment-management/"
+    },
+    {
+      "text": "Board Communications",
+      "href": "https://www.docsend.com/solutions/board-management/"
+    },
+    {
+      "text": "Investor Relations",
+      "href": "https://www.docsend.com/solutions/investor-relations-software/"
+    },
+    {
+      "text": "Financial Services",
+      "href": "https://www.docsend.com/solutions/financial-services/"
+    },
+    {
+      "text": "Startups",
+      "href": "https://www.docsend.com/solutions/startups/"
+    },
+    {
+      "text": "Legal and Advisory",
+      "href": "https://www.docsend.com/solutions/professional-services/"
+    },
+    {
+      "text": "Real Estate",
+      "href": "https://www.docsend.com/solutions/real-estate/"
+    },
+    {
+      "text": "Sales and Marketing",
+      "href": "https://www.docsend.com/solutions/tech-sales/"
+    },
+    {
+      "text": "Other Industries",
+      "href": "https://www.docsend.com/solutions/other-industries/"
+    },
+    {
+      "text": "Secure Sharing",
+      "href": "https://www.docsend.com/features/sharing/"
+    },
+    {
+      "text": "Document Analytics",
+      "href": "https://www.docsend.com/features/analytics/"
+    },
+    {
+      "text": "Video Analytics",
+      "href": "https://www.docsend.com/features/analytics-video/"
+    },
+    {
+      "text": "Dynamic Watermarking",
+      "href": "https://www.docsend.com/features/dynamic-watermarking/"
+    },
+    {
+      "text": "Data Rooms",
+      "href": "https://www.docsend.com/features/virtual-data-room/"
+    },
+    {
+      "text": "eSignature",
+      "href": "https://www.docsend.com/features/esignature/"
+    },
+    {
+      "text": "Non Disclosure Agreement",
+      "href": "https://www.docsend.com/features/one-click-nda/"
+    },
+    {
+      "text": "Impressum",
+      "href": "https://www.dropbox.com/lp/about/impressum"
+    },
+    {
+      "text": "Careers",
+      "href": "https://jobs.dropbox.com/"
+    },
+    {
+      "text": "Security",
+      "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.docsend.com/privacy-policy/"
+    },
+    {
+      "text": "Copyright and IP Policy",
+      "href": "https://www.docsend.com/copyright-and-ip-policy/"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.docsend.com/terms-of-service/"
+    },
+    {
+      "text": "Cookies & CCPA preferences",
+      "href": "https://www.docsend.com/pricing/#manage-cookies"
+    },
+    {
+      "text": "Trust Center",
+      "href": "https://www.docsend.com/trust-center/"
+    },
+    {
+      "text": "How it works",
+      "href": "https://www.docsend.com/how-it-works/"
+    },
+    {
+      "text": "Integrations",
+      "href": "https://www.docsend.com/integrations/"
+    },
+    {
+      "text": "Help Center",
+      "href": "https://help.docsend.com/hc/en-us"
+    },
+    {
+      "text": "Partnerships",
+      "href": "https://www.docsend.com/partnerships/"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.docsend.com/pricing/"
+    },
+    {
+      "text": "Resources",
+      "href": "https://www.docsend.com/resources/"
+    },
+    {
+      "text": "M&A",
+      "href": "https://www.docsend.com/features/m-and-a/"
+    },
+    {
+      "text": "Fundraising",
+      "href": "https://www.docsend.com/solutions/startup-fundraising/"
+    },
+    {
+      "text": "Venture Capital",
+      "href": "https://www.docsend.com/solutions/venture-capitalist/"
+    },
+    {
+      "text": "Private Equity",
+      "href": "https://www.docsend.com/solutions/investment-management/"
+    },
+    {
+      "text": "Board Communications",
+      "href": "https://www.docsend.com/solutions/board-management/"
+    },
+    {
+      "text": "Investor Relations",
+      "href": "https://www.docsend.com/solutions/investor-relations-software/"
+    },
+    {
+      "text": "Financial Services",
+      "href": "https://www.docsend.com/solutions/financial-services/"
+    },
+    {
+      "text": "Startups",
+      "href": "https://www.docsend.com/solutions/startups/"
+    },
+    {
+      "text": "Legal and Advisory",
+      "href": "https://www.docsend.com/solutions/professional-services/"
+    },
+    {
+      "text": "Real Estate",
+      "href": "https://www.docsend.com/solutions/real-estate/"
+    },
+    {
+      "text": "Sales and Marketing",
+      "href": "https://www.docsend.com/solutions/tech-sales/"
+    },
+    {
+      "text": "Other Industries",
+      "href": "https://www.docsend.com/solutions/other-industries/"
+    },
+    {
+      "text": "Secure Sharing",
+      "href": "https://www.docsend.com/features/sharing/"
+    },
+    {
+      "text": "Document Analytics",
+      "href": "https://www.docsend.com/features/analytics/"
+    },
+    {
+      "text": "Video Analytics",
+      "href": "https://www.docsend.com/features/analytics-video/"
+    },
+    {
+      "text": "Dynamic Watermarking",
+      "href": "https://www.docsend.com/features/dynamic-watermarking/"
+    },
+    {
+      "text": "Data Rooms",
+      "href": "https://www.docsend.com/features/virtual-data-room/"
+    },
+    {
+      "text": "eSignature",
+      "href": "https://www.docsend.com/features/esignature/"
+    },
+    {
+      "text": "Non Disclosure Agreement",
+      "href": "https://www.docsend.com/features/one-click-nda/"
+    },
+    {
+      "text": "Impressum",
+      "href": "https://www.dropbox.com/lp/about/impressum"
+    },
+    {
+      "text": "Careers",
+      "href": "https://jobs.dropbox.com/"
+    },
+    {
+      "text": "Security",
+      "href": "https://trust.dropbox.com/?product=docsend&itemName=product_features&source=click&itemUid=a5bb6b4d-c23b-4d4f-9da1-bedf5dc74ff5"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.docsend.com/privacy-policy/"
+    },
+    {
+      "text": "Copyright and IP Policy",
+      "href": "https://www.docsend.com/copyright-and-ip-policy/"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.docsend.com/terms-of-service/"
+    },
+    {
+      "text": "Cookies & CCPA preferences",
+      "href": "https://www.docsend.com/pricing/#manage-cookies"
+    },
+    {
+      "text": "Dropbox",
+      "href": "https://www.dropbox.com/"
+    },
+    {
+      "text": "Trust Center",
+      "href": "https://www.docsend.com/trust-center/"
+    }
+  ],
+  "visibleTextSnippet": "Virtual Data Rooms\nProduct\nSolutions\nPricing\nCustomers\nResources\nSign In\nRequest a demo\nGet started\nFind the best DocSend plan for your business needs\n\nSecure, end-to-end deal solutions for businesses of all sizes. Close deals confidently with DocSend.\n\nBilled monthly\nBilled yearly (Save up to 40%)\nFor secure sharing\nPersonal\n$10/user/month\nGet Started Free\nKey Features:\n1 user included\nBasic sharing controls\nDocument level analytics\n4 eSignatures per month\nUnlimited visitors\nView all features\nMost Popular\nFor multi-file secure sharing\nStandard\n$45/user/month\nGet Started Free\nAll Personal features, plus:\n1 user included\nMulti-file sharing\nVideo and rich media analytics\nFile requests\nCustomizable branding\nUnlimited eSignature\nView all features\nFor advanced security\nAdvanced\n$150/month\nGet Started Free\nAll Standard features, plus:\n3 users included\nLightweight data rooms (Spaces)\nEmail authentication for visitors\nAllow/block visitors lists\nFolder and file level security\nDynamic watermarking\nNDAs and gating agreements\nScreenshot protection\nNew\nView all features\nFor complete deal control\nAdvanced Data Rooms\n$180/month\nGet Started Free\nAll Advanced features, plus:\n3 users included\nEnhanced data rooms (Spaces)\nGroup visitor permissions\nDue diligence tracking\nNew\nData room audit log\nAutomatic file indexing\nData room analytics\nPriority email support\n2X capacity per data room\nView all features\nLooking for more?\nContact us for customizable solutions built to your specific needs\nContact Sales\nCompare Plans\nBilled monthly\nBilled yearly (Save up to 40%)\n \nPersonal\nFor secure sharing\n$10/user/month\nGet Started Free\nMost Popular\nStandard\nFor multi-file secure sharing\n$45/user/month\nGet Started Free\nAdvanced\nFor advanced security\n$150/month\nGet Started Free\nAdvanced Data Rooms\nFor compl"
+}

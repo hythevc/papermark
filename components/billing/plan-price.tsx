@@ -1,7 +1,10 @@
+import React from "react";
+
 import {
-  type Currency,
   CURRENCY_LABEL,
   CURRENCY_SYMBOL,
+  type Currency,
+  isSupportedCurrency,
 } from "@/ee/stripe/currency";
 
 import { cn } from "@/lib/utils";
@@ -10,39 +13,30 @@ export type { Currency };
 
 type Period = "monthly" | "yearly";
 
-// Picks the display symbol/value for a plan price, falling back to the EUR
-// amount when no USD price is configured. Shared so custom price layouts stay
-// consistent with <PlanPrice>.
+// Match the local EUR catalog instead of offering an unconfigured USD price.
 export function resolvePlanPrice({
   amount,
-  amountUsd,
   currency,
 }: {
   amount: number;
-  amountUsd?: number;
   currency: Currency;
 }): { symbol: string; value: number } {
-  const useUsd = currency === "usd" && amountUsd != null;
-  return {
-    symbol: useUsd ? CURRENCY_SYMBOL.usd : CURRENCY_SYMBOL.eur,
-    value: useUsd ? amountUsd : amount,
-  };
+  if (!isSupportedCurrency(currency)) {
+    throw new Error("No plan prices are configured for that currency.");
+  }
+  return { symbol: CURRENCY_SYMBOL[currency], value: amount };
 }
 
-// Renders a plan's monthly price in the selected currency. Falls back to the
-// EUR amount when no USD price is configured for the plan.
 export const PlanPrice = ({
   amount,
-  amountUsd,
   period,
   currency,
 }: {
   amount: number;
-  amountUsd?: number;
   period: Period;
   currency: Currency;
 }) => {
-  const { symbol, value } = resolvePlanPrice({ amount, amountUsd, currency });
+  const { symbol, value } = resolvePlanPrice({ amount, currency });
 
   return (
     <div className="mb-2 text-balance text-4xl font-medium tabular-nums text-gray-900 dark:text-white">
@@ -94,7 +88,6 @@ function SegmentedToggle<T extends string>({
 }
 
 const CURRENCY_OPTIONS: readonly SegmentedOption<Currency>[] = [
-  { value: "usd", label: CURRENCY_LABEL.usd },
   { value: "eur", label: CURRENCY_LABEL.eur },
 ];
 

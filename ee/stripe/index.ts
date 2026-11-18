@@ -1,33 +1,36 @@
 import Stripe from "stripe";
 
-const stripeOld = new Stripe(
-  process.env.STRIPE_SECRET_KEY_LIVE_OLD ??
-    process.env.STRIPE_SECRET_KEY_OLD ??
-    "",
-  {
-    apiVersion: "2024-06-20",
-    appInfo: {
-      name: "Papermark.io",
-      version: "0.1.0",
-    },
-    typescript: true,
-  },
-);
+import { BRAND } from "@/lib/brand";
 
-const stripeNew = new Stripe(
-  process.env.STRIPE_SECRET_KEY_LIVE ?? process.env.STRIPE_SECRET_KEY ?? "",
-  {
-    apiVersion: "2024-06-20",
-    appInfo: {
-      name: "Papermark.io",
-      version: "0.1.0",
-    },
-    typescript: true,
-  },
-);
+const clients: { old?: Stripe; current?: Stripe } = {};
 
 export const stripeInstance = (account: boolean = false) => {
-  return account ? stripeOld : stripeNew;
+  const accountType = account ? "old" : "current";
+  const existing = clients[accountType];
+  if (existing) return existing;
+
+  const secretKey = account
+    ? process.env.STRIPE_SECRET_KEY_LIVE_OLD?.trim() ||
+      process.env.STRIPE_SECRET_KEY_OLD?.trim()
+    : process.env.STRIPE_SECRET_KEY_LIVE?.trim() ||
+      process.env.STRIPE_SECRET_KEY?.trim();
+
+  if (!secretKey) {
+    throw new Error(
+      account
+        ? "Legacy Stripe billing is not configured. Set STRIPE_SECRET_KEY_OLD or STRIPE_SECRET_KEY_LIVE_OLD."
+        : "Stripe billing is not configured. Set STRIPE_SECRET_KEY or STRIPE_SECRET_KEY_LIVE.",
+    );
+  }
+
+  // Instantiate only the account an actual billing operation needs.
+  const client = new Stripe(secretKey, {
+    apiVersion: "2024-06-20",
+    appInfo: { name: BRAND.name, version: "0.1.0" },
+    typescript: true,
+  });
+  clients[accountType] = client;
+  return client;
 };
 
 export async function cancelSubscription(
@@ -47,7 +50,7 @@ export async function cancelSubscription(
     return await stripe.subscriptions.update(subscriptionId, {
       cancel_at_period_end: true,
       cancellation_details: {
-        comment: "Customer deleted their Papermark instance.",
+        comment: `Customer deleted their ${BRAND.name} instance.`,
       },
     });
   } catch (error) {

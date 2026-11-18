@@ -29,6 +29,7 @@ import {
   getExtensionFromContentType,
   getSupportedContentType,
 } from "@/lib/utils/get-content-type";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 import {
   type PublicHttpsDownload,
   fetchPublicHttpsUrlToBuffer,
@@ -44,8 +45,7 @@ export const config = {
 
 const MAX_WEBHOOK_FILE_BYTES = 100 * 1024 * 1024;
 const API_DOCS_URL = "https://www.papermark.com/docs/api";
-const LEGACY_API_NOTICE =
-  `This endpoint is deprecated; use the v1 API: ${API_DOCS_URL}`;
+const LEGACY_API_NOTICE = `This endpoint is deprecated; use the v1 API: ${API_DOCS_URL}`;
 
 // Define a common link schema to reuse
 const LinkSchema = z.object({
@@ -339,7 +339,7 @@ async function handleLinksGet(teamId: string, res: NextApiResponse) {
       linkUrl:
         link.domainSlug && link.slug
           ? `https://${link.domainSlug}/${link.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`,
+          : constructLinkUrl({ id: link.id }),
     }));
 
     return res.status(200).json(transformedLinks);
@@ -720,11 +720,7 @@ async function handleDocumentCreate(
     documentId: document.id,
     dataroomId: dataroomId ?? undefined,
     linkId: newLink?.id ?? undefined,
-    linkUrl: createLink
-      ? newLink?.domainSlug && newLink?.slug
-        ? `https://${newLink.domainSlug}/${newLink.slug}`
-        : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${newLink?.id}`
-      : undefined,
+    linkUrl: createLink && newLink ? constructLinkUrl(newLink) : undefined,
   });
 }
 
@@ -1073,7 +1069,7 @@ async function handleLinkCreate(
       linkUrl:
         domainId && link.domain && link.slug
           ? `https://${newLink.domainSlug}/${newLink.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${newLink.id}`,
+          : constructLinkUrl({ id: newLink.id }),
     });
   } catch (error) {
     console.error("Link creation error:", error);
@@ -1348,7 +1344,7 @@ async function handleLinkUpdate(
       linkUrl:
         updatedLink.domainSlug && updatedLink.slug
           ? `https://${updatedLink.domainSlug}/${updatedLink.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${updatedLink.id}`,
+          : constructLinkUrl({ id: updatedLink.id }),
     });
   } catch (error) {
     console.error("Link update error:", error);
@@ -1584,11 +1580,10 @@ async function handleDataroomCreate(
       message: "Dataroom created successfully",
       dataroomId: dataroom.id,
       linkId: createLink ? dataroom.links?.[0]?.id : undefined,
-      linkUrl: createLink
-        ? dataroom.links?.[0]?.domainSlug && dataroom.links?.[0]?.slug
-          ? `https://${dataroom.links?.[0]?.domainSlug}/${dataroom.links?.[0]?.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${dataroom.links?.[0]?.id}`
-        : undefined,
+      linkUrl:
+        createLink && dataroom.links?.[0]
+          ? constructLinkUrl(dataroom.links[0])
+          : undefined,
     });
   } catch (error) {
     console.error("Dataroom creation error:", error);

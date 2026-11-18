@@ -27,7 +27,7 @@ export default function YearlyUpgradeBanner({
   setShowBanner,
 }: YearlyUpgradeBannerProps) {
   const router = useRouter();
-  const { plan: teamPlan } = usePlan();
+  const { plan: teamPlan, billingActionsAvailable } = usePlan();
 
   const handleHideBanner = () => {
     setShowBanner(false);
@@ -47,7 +47,7 @@ export default function YearlyUpgradeBanner({
 
   const nextPlan = getNextPlan();
 
-  if (!nextPlan) return null; // Don't show banner if no next plan
+  if (!billingActionsAvailable || !nextPlan) return null; // Don't show banner if no next plan
 
   return (
     <AnimatePresence>

@@ -80,7 +80,6 @@ function NotionLogoChip({
         className="h-full w-full object-contain"
         src={src}
         alt=""
-        crossOrigin="anonymous"
         referrerPolicy="no-referrer"
         {...imgProps}
       />
@@ -136,7 +135,7 @@ export default function DataroomNav({
   // Lock the formatter to the active i18next language so dates re-render when
   // the visitor uses the language switcher without forcing a full page reload.
   const activeLocale = asSupportedLocale(i18n.language) ?? DEFAULT_LOCALE;
-  const [showConversations, setShowConversations] = useState<boolean>(false);
+  const [localShowConversations, setLocalShowConversations] = useState(false);
   const [showRequestList, setShowRequestList] = useState<boolean>(false);
   const [showDownloadModal, setShowDownloadModal] = useState<boolean>(false);
   const [downloadModalJobId, setDownloadModalJobId] = useState<string | null>(
@@ -161,12 +160,16 @@ export default function DataroomNav({
   // banner lives in the nav (above the body), so shift it in lockstep here so
   // the whole page below the top bar moves together while the top bar stays put.
   const conversationSidebar = useConversationSidebarSafe();
+  const showConversations =
+    conversationSidebar?.isOpen ?? localShowConversations;
+  const setShowConversations =
+    conversationSidebar?.setIsOpen ?? setLocalShowConversations;
   const chat = useViewerChatSafe();
-  const panelOpen =
-    !!conversationSidebar?.isOpen || !!(chat?.isOpen && chat?.isEnabled);
   const bannerShiftClass = cn(
-    "transition-[padding] duration-300 ease-in-out",
-    panelOpen && "pr-[400px]",
+    "transition-[padding] duration-200 motion-reduce:transition-none",
+    chat?.isOpen && chat?.isEnabled
+      ? "pr-[400px]"
+      : conversationSidebar?.isOpen && "lg:pr-[400px]",
   );
 
   // Derive downloads page URL from current path so it works for both
@@ -204,7 +207,7 @@ export default function DataroomNav({
   // Notion preset has no navbar, so its trailing buttons live in the body
   // toolbar (next to the search). The body toolbar dispatches this event when
   // the user clicks the conversations button; we honor it here so the
-  // sidebar state stays owned by the nav and we don't need to lift it.
+  // sidebar state stays in the shared provider without prop-drilling.
   useEffect(() => {
     const handler = () => setShowConversations((prev) => !prev);
     window.addEventListener(
@@ -216,7 +219,7 @@ export default function DataroomNav({
         VIEWER_TOGGLE_CONVERSATIONS_EVENT as any,
         handler as EventListener,
       );
-  }, []);
+  }, [setShowConversations]);
 
   // The Request List trigger button lives in the viewer body toolbar (next to
   // Add document / Search / Introduction). It dispatches this event so the
@@ -283,7 +286,7 @@ export default function DataroomNav({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [conversationsEnabled, showConversations]);
+  }, [conversationsEnabled, showConversations, setShowConversations]);
 
   const hasBanner = brand?.banner !== "no-banner";
   const viewerHeaderStyle: DataroomViewerHeaderStyle =

@@ -13,6 +13,7 @@ import { useAnalytics } from "@/lib/analytics";
 import { usePlan } from "@/lib/swr/use-billing";
 import { capitalize } from "@/lib/utils";
 
+import { BillingUnavailableNotice } from "@/components/billing/billing-unavailable";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -140,7 +141,14 @@ export default function UpgradeHolidayOfferPage() {
   const [period, setPeriod] = useState<"yearly" | "monthly">("yearly");
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const teamInfo = useTeam();
-  const { plan: teamPlan, trial, isCustomer, isOldAccount } = usePlan();
+  const {
+    plan: teamPlan,
+    trial,
+    isCustomer,
+    isOldAccount,
+    billingActionsAvailable,
+    billingActionsReason,
+  } = usePlan();
   const analytics = useAnalytics();
 
   // Determine initial view based on query params or default to datarooms
@@ -164,6 +172,14 @@ export default function UpgradeHolidayOfferPage() {
     }
   }, [router.query.view]);
 
+  if (!billingActionsAvailable)
+    return (
+      <main className="mx-auto max-w-3xl space-y-6 p-6">
+        <h1 className="text-2xl font-semibold">Workspace billing</h1>
+        <BillingUnavailableNotice reason={billingActionsReason} />
+      </main>
+    );
+
   // Document sharing plans (first 3)
   const documentSharingPlans = [
     PlanEnum.Pro,
@@ -177,7 +193,8 @@ export default function UpgradeHolidayOfferPage() {
         Select best plan for your business.
       </h1>
       <p className="mb-8 text-center text-sm text-gray-500 dark:text-gray-400">
-        Additional 30% off on annual plans. New Year&apos;s offer. Ends Jan 15 2026
+        Additional 30% off on annual plans. New Year&apos;s offer. Ends Jan 15
+        2026
       </p>
 
       <div className="mb-8 flex items-center justify-center">

@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-11-17T02:47:04.696Z",
+  "mode": "real NextAuth owner session, PostgreSQL/Redis and initial signed-page APIs; no auth/permission mocks",
+  "checks": [
+    {
+      "name": "Active owner can obtain real preview tokens for room and document links",
+      "status": "passed"
+    },
+    {
+      "name": "Active owner initial room and document previews return actual PNG page bytes",
+      "status": "passed"
+    },
+    {
+      "name": "A signed-in outsider cannot obtain a preview token for a foreign workspace",
+      "status": "passed"
+    },
+    {
+      "name": "A caller-supplied userId cannot replace token verification on either initial-view route",
+      "status": "passed"
+    },
+    {
+      "name": "Blocked membership denies new preview-token issuance",
+      "status": "passed"
+    },
+    {
+      "name": "Removing membership invalidates previously issued room, document and page previews",
+      "status": "passed"
+    },
+    {
+      "name": "Scoped room assignment permits preview, then its removal revokes existing tokens",
+      "status": "passed"
+    },
+    {
+      "name": "Original owner membership is restored and a fresh owner preview succeeds",
+      "status": "passed"
+    }
+  ],
+  "limitations": [
+    "Test-only links and one foreign room are seeded in the isolated database; this replay does not retest room/link creation UX.",
+    "Previously issued storage URLs retain their TTL; this verifies authorization for issuing new URLs."
+  ],
+  "membershipRestored": true
+}

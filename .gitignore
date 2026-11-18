@@ -60,6 +60,9 @@ scripts/*
 !scripts/check-mcp-schema-dialect.ts
 !scripts/extend-trial.ts
 !scripts/local/
+!scripts/design/
+!scripts/runtime/
+!scripts/deploy/
 scripts/local/.tinybird-page-views.json
 !.github/scripts/
 
@@ -82,3 +85,4 @@ _public/
 
 .opencode
 plans/
+/.roomline-marketing-output*/

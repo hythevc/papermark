@@ -1,0 +1,38 @@
+name: Application verification
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NODE_OPTIONS: --max-old-space-size=4096
+      ROOMLINE_LOCAL_INTEGRATION: '0'
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      # Next generates next-env.d.ts (including static image/SVG types).
+      # It is intentionally gitignored, so prepare it before standalone tsc.
+      - name: Build the production application
+        run: npm run build
+      - name: Check the complete strict TypeScript project
+        run: npm run typecheck
+      - name: Run runtime and UI contract regressions
+        run: npm run test:runtime
+      - name: Check evidence tooling
+        run: npm run design:test
+      - name: Build the public marketing export
+        run: npm run build:marketing

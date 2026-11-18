@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-11-17T03:37:36.270Z",
+  "phase": "red",
+  "mode": "real owner NextAuth session, genuine public guest sessions, PostgreSQL/S3 and actual MuPDF redaction; no auth or route mocks",
+  "checks": [
+    {
+      "name": "Real PDF upload renders a primary source version containing the synthetic private text",
+      "status": "passed"
+    },
+    {
+      "name": "Actual guest sessions can view the source while it is the current primary",
+      "status": "passed"
+    },
+    {
+      "name": "Real redaction publishes a flattened current primary and retains owner history",
+      "status": "passed"
+    },
+    {
+      "name": "RED proves historical initial page/file requests mint fresh unredacted capabilities",
+      "status": "passed"
+    },
+    {
+      "name": "RED proves established guest page refresh can still mint the historical source",
+      "status": "passed"
+    },
+    {
+      "name": "Current-primary initial views, file requests and established page refresh return the actual derivative",
+      "status": "passed"
+    },
+    {
+      "name": "Original-download issuance selects only the current derivative even with a historical versionId field",
+      "status": "passed"
+    },
+    {
+      "name": "Freshly authorized owner preview can inspect retained historical file/page bytes",
+      "status": "passed"
+    }
+  ],
+  "observedStatuses": {
+    "document-historical-pages": 200,
+    "room-historical-pages": 200,
+    "document-historical-file": 200,
+    "room-historical-file": 200,
+    "document-historical-refresh": 200,
+    "room-historical-refresh": 200
+  },
+  "limitations": [
+    "Only disposable synthetic content is used. Test room/link scaffolding is seeded in the isolated database; upload, redaction and sharing requests are real HTTP calls.",
+    "Previously issued storage capabilities remain valid until expiry. The tested getFile path defaults to two minutes and caps requests at one hour; this proof concerns new issuance after primary publication."
+  ],
+  "status": "vulnerability-reproduced-before-activation; not a release pass"
+}

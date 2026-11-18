@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-11-17T03:50:12.816679+00:00",
+  "sourceDigest": "c08f061269bcf11b74eb26e1296860aacb4be23bf6a051d71a28218a9453d11c",
+  "sourceScope": "Application sources, public assets, Prisma and configuration/dependency lock; excludes reports, docs and tooling.",
+  "sourceFiles": 1750,
+  "typecheck": {
+    "checkedAt": "2026-11-17T03:49:01.143170+00:00",
+    "command": "node --max-old-space-size=6144 node_modules/typescript/bin/tsc --noEmit --pretty false --incremental --tsBuildInfoFile .next/cache/.tsbuildinfo",
+    "exitCode": 0,
+    "diagnostics": 0,
+    "strict": true,
+    "bypassesAdded": false,
+    "sourceDigest": "c08f061269bcf11b74eb26e1296860aacb4be23bf6a051d71a28218a9453d11c",
+    "sourceScope": "Application sources, public assets, Prisma and configuration/dependency lock; excludes reports, docs and tooling.",
+    "sourceFiles": 1750,
+    "log": "artifacts/runtime/typecheck-final.log",
+    "note": "Uses the compiler cache from the full production check; the standalone compiler still checks the complete strict project. Earlier nonincremental checkpoints also passed."
+  },
+  "runtimeUnitTests": {
+    "command": "npm run test:runtime",
+    "total": 165,
+    "passed": 164,
+    "failed": 0,
+    "skipped": 1,
+    "skipReason": "Optional live branding database test is opt-in; separate real-service proofs are recorded.",
+    "exitCode": 0,
+    "log": "artifacts/runtime/unit-tests.log"
+  },
+  "evidenceToolTests": {
+    "command": "npm run design:test",
+    "passed": 21,
+    "failed": 0,
+    "exitCode": 0,
+    "log": "artifacts/runtime/design-tests.log"
+  },
+  "productionBuild": {
+    "command": "ROOMLINE_LOCAL_INTEGRATION=0 ROOMLINE_PROCESSING_MODE=inline NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=--max-old-space-size=4096 npm run build",
+    "exitCode": 0,
+    "staticPages": 111,
+    "log": "artifacts/runtime/production-build.log",
+    "warningsRemain": true,
+    "errorSuppressionAdded": false,
+    "buildId": "Fmo26OV53AAGKGw3Dp2Na",
+    "logNormalization": "Terminal control sequences and trailing whitespace normalized; command results and messages preserved."
+  },
+  "marketingBuild": {
+    "exitCode": 0,
+    "htmlRoutes": 10,
+    "exportedFiles": 47,
+    "sharedInitialJavaScript": "87.1 kB",
+    "metadata": "artifacts/runtime/marketing-build.json"
+  },
+  "deployment": {
+    "applied": false,
+    "status": "Blocked awaiting explicit approval; empty project records and pending infrastructure only.",
+    "selectedApplicationCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be",
+    "sourceConnected": false
+  },
+  "limits": [
+    "Local production build and isolated real services; no hosted deployment verified.",
+    "All 95 templates indexed; only recorded browser route/state pairs visually verified.",
+    "Owned mail sender binding and paid billing/provider routes remain launch requirements.",
+    "No native app or measured competitor-superiority claim."
+  ],
+  "productionUI": {
+    "report": "artifacts/runtime/authenticated/report.json",
+    "acceptedCaptures": 4,
+    "templates": 2,
+    "automatedAxeViolations": 0,
+    "pageErrors": 0,
+    "overflows": 0,
+    "mode": "Actual next start, production; real retained owner session and isolated services.",
+    "cachePublicAssetEntries": 6,
+    "aliasChecks": 2
+  },
+  "versionPrivacy": {
+    "report": "artifacts/runtime/version-privacy.json",
+    "retainedReplayPassed": 5,
+    "freshVerifyPassed": 8,
+    "currentGuestHistoricalRequests": 403,
+    "ownerHistory": "Authorized previews retained; no fresh historical guest URLs.",
+    "previouslyIssuedCapabilities": "Not retroactively invalidated; tested signing path2min default/1h cap."
+  },
+  "reviewEvidence": {
+    "normalValidationExitCode": 0,
+    "renderedViewportStateRecords": 86,
+    "sourceOnlyRecords": 81,
+    "namedReferenceDecisions": 34,
+    "strictReleaseExitCode": 1,
+    "strictReleaseIncomplete": true,
+    "reason": "Remaining screen states are source-only;21st authenticated tooling awaits rotated credentials. This is not release certification.",
+    "strictLog": "artifacts/runtime/strict-release-check.log"
+  },
+  "applicationSourceCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be"
+}

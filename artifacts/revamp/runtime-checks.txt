@@ -1,0 +1,1 @@
+Passed brand URL hydration parity, metadata, exact host routing, public/auth/custom-domain isolation, registration/login redirects, unsafe next normalization, and optional passkey smoke checks.

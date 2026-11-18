@@ -13,6 +13,7 @@ import {
   copyToClipboard,
   uploadImage,
 } from "@/lib/utils";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 
 import { DEFAULT_LINK_TYPE } from "@/components/links/link-sheet";
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,11 @@ export function LinkOptionContainer({
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+
+    if (!currentLinkId) {
+      toast.error("Create a sharing link before continuing.");
+      return;
+    }
 
     setIsLoading(true);
 
@@ -81,13 +87,13 @@ export function LinkOptionContainer({
 
     if (currentDataroomId) {
       copyToClipboard(
-        `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`,
+        constructLinkUrl({ id: currentLinkId }),
         `Link copied to clipboard. Redirecting to dataroom page...`,
       );
       router.push(`/datarooms/${currentDataroomId}/documents`);
     } else {
       copyToClipboard(
-        `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`,
+        constructLinkUrl({ id: currentLinkId }),
         `Link copied to clipboard. Redirecting to document page...`,
       );
       router.push(`/documents/${currentDocId}`);
@@ -173,7 +179,7 @@ export function LinkOptionContainer({
                   <div className="flex py-8">
                     <div className="flex w-fit focus-within:z-10">
                       <p className="block rounded-md border-0 bg-secondary px-4 py-1.5 text-left leading-6 text-secondary-foreground md:min-w-[500px]">
-                        {`${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`}
+                        {constructLinkUrl({ id: currentLinkId })}
                       </p>
                     </div>
                   </div>

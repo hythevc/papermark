@@ -47,7 +47,7 @@ function TrialBannerComponent({
   trialEndsAt,
 }: {
   setShowTrialBanner: Dispatch<SetStateAction<boolean | null>>;
-  trialEndsAt: Date | null | undefined;
+  trialEndsAt: string | null | undefined;
 }) {
   const teamInfo = useTeam();
 

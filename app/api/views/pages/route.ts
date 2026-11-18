@@ -3,8 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
 
+import { canIssuePageUrls } from "@/lib/api/views/page-access";
 import { authOptions } from "@/lib/auth/auth-options";
 import { verifyDataroomSession } from "@/lib/auth/dataroom-auth";
+import { verifyLinkSession } from "@/lib/auth/link-session";
 import { verifyPreviewSession } from "@/lib/auth/preview-auth";
 import { getFile } from "@/lib/files/get-file";
 import { signPageLinks } from "@/lib/files/sign-page-links";
@@ -58,10 +60,7 @@ export async function POST(request: NextRequest) {
 
       const session = await getServerSession(authOptions);
       if (!session) {
-        return NextResponse.json(
-          { message: "Unauthorized." },
-          { status: 401 },
-        );
+        return NextResponse.json({ message: "Unauthorized." }, { status: 401 });
       }
       const userId = (session.user as CustomUser).id;
 
@@ -87,60 +86,32 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const [link, documentVersion] = await Promise.all([
-        prisma.link.findUnique({
-          where: { id: linkId },
-          select: { documentId: true, dataroomId: true },
-        }),
-        prisma.documentVersion.findUnique({
-          where: { id: documentVersionId },
-          select: { documentId: true },
-        }),
-      ]);
-
-      if (!link) {
-        return NextResponse.json(
-          { message: "Link not found." },
-          { status: 404 },
-        );
-      }
-
+      const documentVersion = await prisma.documentVersion.findUnique({
+        where: { id: documentVersionId },
+        select: { documentId: true, document: { select: { teamId: true } } },
+      });
       if (!documentVersion) {
         return NextResponse.json(
           { message: "Document version not found." },
           { status: 404 },
         );
       }
-
-      if (link.documentId) {
-        if (documentVersion.documentId !== link.documentId) {
-          return NextResponse.json(
-            { message: "Unauthorized access." },
-            { status: 403 },
-          );
-        }
-      } else if (link.dataroomId) {
-        const dataroomDoc = await prisma.dataroomDocument.findFirst({
-          where: {
-            dataroomId: link.dataroomId,
-            documentId: documentVersion.documentId,
-          },
-          select: { id: true },
-        });
-        if (!dataroomDoc) {
-          return NextResponse.json(
-            { message: "Unauthorized access." },
-            { status: 403 },
-          );
-        }
-      } else {
+      if (
+        !(await canIssuePageUrls({
+          linkId,
+          documentId: documentVersion.documentId,
+          documentTeamId: documentVersion.document.teamId,
+          dataroomId: null,
+          previewUserId: userId,
+        }))
+      ) {
         return NextResponse.json(
           { message: "Unauthorized access." },
           { status: 403 },
         );
       }
 
-      return await fetchAndReturnPages(documentVersionId, pageNumbers);
+      return await fetchAndReturnPages(documentVersionId, pageNumbers, true);
     }
 
     // Standard view-based auth path
@@ -158,11 +129,14 @@ export async function POST(request: NextRequest) {
           linkId: true,
           viewedAt: true,
           viewerId: true,
+          viewerEmail: true,
+          verified: true,
+          isArchived: true,
         },
       }),
       prisma.documentVersion.findUnique({
-        where: { id: documentVersionId },
-        select: { documentId: true },
+        where: { id: documentVersionId, isPrimary: true },
+        select: { documentId: true, document: { select: { teamId: true } } },
       }),
     ]);
 
@@ -174,13 +148,13 @@ export async function POST(request: NextRequest) {
     }
 
     if (!view) {
-      return NextResponse.json(
-        { message: "View not found." },
-        { status: 404 },
-      );
+      return NextResponse.json({ message: "View not found." }, { status: 404 });
     }
 
-    if (Date.now() - view.viewedAt.getTime() > VIEW_MAX_AGE_MS) {
+    if (
+      view.isArchived ||
+      Date.now() - view.viewedAt.getTime() > VIEW_MAX_AGE_MS
+    ) {
       return NextResponse.json(
         { message: "View session expired." },
         { status: 401 },
@@ -194,7 +168,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (view.dataroomId && view.linkId) {
+    if (!view.linkId) {
+      return NextResponse.json(
+        { message: "Unauthorized access." },
+        { status: 403 },
+      );
+    }
+    let verified = false;
+    if (view.dataroomId) {
       const session = await verifyDataroomSession(
         request,
         view.linkId,
@@ -206,6 +187,8 @@ export async function POST(request: NextRequest) {
           { status: 401 },
         );
       }
+
+      verified = session.verified && view.verified;
 
       // A DOCUMENT_VIEW's `dataroomViewId` points to the session's
       // DATAROOM_VIEW (`session.viewId`); viewer-id match is a legacy fallback.
@@ -222,8 +205,37 @@ export async function POST(request: NextRequest) {
           { status: 403 },
         );
       }
+    } else {
+      const session = await verifyLinkSession(request, view.linkId);
+      if (
+        !session ||
+        session.viewId !== view.id ||
+        session.documentId !== view.documentId
+      ) {
+        return NextResponse.json(
+          { message: "Invalid or expired session." },
+          { status: 401 },
+        );
+      }
+      verified = session.verified && view.verified;
     }
 
+    if (
+      !(await canIssuePageUrls({
+        linkId: view.linkId,
+        documentId: documentVersion.documentId,
+        documentTeamId: documentVersion.document.teamId,
+        dataroomId: view.dataroomId,
+        viewerId: view.viewerId,
+        viewerEmail: view.viewerEmail,
+        verified,
+      }))
+    ) {
+      return NextResponse.json(
+        { message: "Unauthorized access." },
+        { status: 403 },
+      );
+    }
     return await fetchAndReturnPages(documentVersionId, pageNumbers);
   } catch (error) {
     log({
@@ -231,7 +243,7 @@ export async function POST(request: NextRequest) {
       type: "error",
     });
     return NextResponse.json(
-      { message: (error as Error).message },
+      { message: "Unable to load document pages." },
       { status: 500 },
     );
   }
@@ -240,10 +252,12 @@ export async function POST(request: NextRequest) {
 async function fetchAndReturnPages(
   documentVersionId: string,
   pageNumbers: number[],
+  verifiedOwnerPreview = false,
 ) {
   const documentPages = await prisma.documentPage.findMany({
     where: {
       versionId: documentVersionId,
+      ...(!verifiedOwnerPreview && { version: { isPrimary: true } }),
       pageNumber: { in: pageNumbers },
     },
     select: {
@@ -269,5 +283,8 @@ async function fetchAndReturnPages(
     }),
   );
 
-  return NextResponse.json({ pages: pagesWithUrls });
+  return NextResponse.json(
+    { pages: pagesWithUrls },
+    { headers: { "Cache-Control": "private, no-store, max-age=0" } },
+  );
 }

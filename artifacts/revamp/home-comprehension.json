@@ -1,0 +1,12 @@
+{
+  "kind": "Derived copy heuristic; not a user study",
+  "result": {
+    "verdict": "pass",
+    "findingCount": 0,
+    "findings": [],
+    "words": 24,
+    "estimatedExplainSeconds": 11,
+    "notChecked": "It read text only. Not checked: the rendered screen, text inside images, behaviour, accessibility, production readiness.",
+    "nextStep": "Before you finish this review, call `find-design-system` with the product's description and list its top matches in your report, so the person can pick a style. Restyle the screen only with the one they pick."
+  }
+}

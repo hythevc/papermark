@@ -1,0 +1,398 @@
+{
+  "generatedAt": "2026-11-14T19:00:18.415Z",
+  "origin": "http://localhost:3000",
+  "captures": [
+    {
+      "route": "/",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/home-1440.png",
+      "result": "passed",
+      "verifiedAt": "2026-11-14T19:05:54.882Z"
+    },
+    {
+      "route": "/product",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/product",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/product-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/security",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/security",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/security-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/fundraising",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/solutions/fundraising",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/solutions-fundraising-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/due-diligence",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/solutions/due-diligence",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/solutions-due-diligence-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/guides",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/guides",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/guides-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/guides/fundraising-checklist",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/guides/fundraising-checklist",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/guides-fundraising-checklist-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/guides/sharing-checklist",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/guides/sharing-checklist",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/guides-sharing-checklist-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/login",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/login",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/login-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/register",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/register",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/register-1440.png",
+      "result": "passed",
+      "verifiedAt": "2026-11-14T19:06:02.715Z"
+    },
+    {
+      "route": "/auth/email",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/auth/email",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/auth-email-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/404",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 404,
+      "finalPath": "/404",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/404-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/design-system",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/design-system",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/design-system-1440.png",
+      "result": "passed"
+    },
+    {
+      "route": "/",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/home-390.png",
+      "result": "passed",
+      "verifiedAt": "2026-11-14T19:06:05.235Z"
+    },
+    {
+      "route": "/product",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/product",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/product-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/security",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/security",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/security-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/fundraising",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/solutions/fundraising",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/solutions-fundraising-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/solutions/due-diligence",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/solutions/due-diligence",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/solutions-due-diligence-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/guides",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/guides",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/guides-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/guides/fundraising-checklist",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/guides/fundraising-checklist",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/guides-fundraising-checklist-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/guides/sharing-checklist",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/guides/sharing-checklist",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/guides-sharing-checklist-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/login",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/login",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/login-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/register",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/register",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/register-390.png",
+      "result": "passed",
+      "verifiedAt": "2026-11-14T19:06:08.052Z"
+    },
+    {
+      "route": "/auth/email",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/auth/email",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/auth-email-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/404",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 404,
+      "finalPath": "/404",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/404-390.png",
+      "result": "passed"
+    },
+    {
+      "route": "/design-system",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": 200,
+      "finalPath": "/design-system",
+      "accessibility": [],
+      "screenshot": "artifacts/revamp/after/design-system-390.png",
+      "result": "passed"
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Preview navigation, search, empty recovery and FAQ keyboard",
+      "status": "passed"
+    },
+    {
+      "name": "Responsive reflow at320,768,1024,1728 and mobile menu keyboard",
+      "status": "passed"
+    },
+    {
+      "name": "Reduced motion preserves content and controls",
+      "status": "passed"
+    },
+    {
+      "name": "Registration failure recovery and code entry with mocked NextAuth",
+      "status": "passed"
+    }
+  ],
+  "limitations": [
+    "Headless Chromium is not a physical mobile-device test.",
+    "Sample preview and mocked registration checks do not verify server access, email delivery, or credential exchange.",
+    "Authenticated room routes remain blocked by inherited missing source and unconfigured services."
+  ],
+  "lastUpdatedAt": "2026-11-14T19:06:08.052Z"
+}

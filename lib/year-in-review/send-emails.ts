@@ -1,6 +1,8 @@
-import { render, toPlainText } from "react-email";
 import { nanoid } from "nanoid";
+import { render, toPlainText } from "react-email";
 
+import { BRAND } from "@/lib/brand";
+import { resolveEmailIdentity } from "@/lib/emails/config";
 import prisma from "@/lib/prisma";
 import { resend } from "@/lib/resend";
 import { log } from "@/lib/utils";
@@ -33,6 +35,7 @@ type YearReviewStats = {
 type EmailWithMetadata = {
   email: {
     from: string;
+    replyTo?: string;
     to: string;
     subject: string;
     react: React.ReactElement;
@@ -73,6 +76,12 @@ export async function processEmailQueue() {
     console.log("ℹ️ No jobs to process");
     return;
   }
+
+  const identity = resolveEmailIdentity(
+    { system: true },
+    process.env,
+    BRAND.supportEmail,
+  );
 
   console.log(
     `📬 Processing ${jobs.length} jobs:`,
@@ -146,7 +155,8 @@ export async function processEmailQueue() {
 
                   return {
                     email: {
-                      from: "Papermark <system@papermark.com>",
+                      from: identity.from,
+                      replyTo: identity.replyTo,
                       to: userTeam.user.email || "delivered@resend.dev",
                       subject: "2024 in Review: Your Year with Papermark",
                       react,

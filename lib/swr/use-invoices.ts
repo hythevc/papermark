@@ -3,6 +3,8 @@ import useSWR from "swr";
 
 import { fetcher } from "@/lib/utils";
 
+import { usePlan } from "./use-billing";
+
 export interface Invoice {
   id: string;
   number: string | null;
@@ -20,9 +22,12 @@ export interface Invoice {
 export function useInvoices() {
   const teamInfo = useTeam();
   const teamId = teamInfo?.currentTeam?.id;
+  const { billingActionsAvailable, billingActionsReason } = usePlan();
 
   const { data, error, isLoading } = useSWR<{ invoices: Invoice[] }>(
-    teamId ? `/api/teams/${teamId}/billing/invoices` : null,
+    teamId && billingActionsAvailable
+      ? `/api/teams/${teamId}/billing/invoices`
+      : null,
     fetcher,
     {
       dedupingInterval: 60000,
@@ -34,6 +39,7 @@ export function useInvoices() {
     invoices: data?.invoices || [],
     loading: isLoading,
     error,
+    available: billingActionsAvailable,
+    unavailableReason: billingActionsReason,
   };
 }
-

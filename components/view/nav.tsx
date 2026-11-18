@@ -139,7 +139,11 @@ export default function Nav({
   } = navData;
 
   const { t } = useTranslation("viewer");
-  const [showConversations, setShowConversations] = useState(false);
+  const [localShowConversations, setLocalShowConversations] = useState(false);
+  const showConversations =
+    conversationSidebar?.isOpen ?? localShowConversations;
+  const setShowConversations =
+    conversationSidebar?.setIsOpen ?? setLocalShowConversations;
   const brandColor = brand?.brandColor || "black";
   const navColorPalette = createAdaptiveSurfacePalette(brandColor);
   const resolvedBrandLogo = resolveBrandLogo(brand);
@@ -261,20 +265,24 @@ export default function Nav({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isDataroom, conversationsEnabled, showConversations]);
+  }, [
+    isDataroom,
+    conversationsEnabled,
+    showConversations,
+    setShowConversations,
+  ]);
 
   return (
     <nav
       data-viewer-top-bar
-      className="transition-[margin] duration-300 ease-in-out"
+      className={cn(
+        "transition-[margin] duration-200 motion-reduce:transition-none",
+        isConversationSidebarOpen && "lg:-mr-[400px]",
+      )}
       style={{
         backgroundColor: brandColor,
-        // The chat / Q&A panel shifts the content by padding the parent
-        // (transition-all duration-300). We cancel that padding with a
-        // matching-easing negative margin so the navbar stays full-width and
-        // visually static instead of jumping while the transition runs.
-        marginRight:
-          isChatOpen || isConversationSidebarOpen ? "-400px" : undefined,
+        // Q&A uses responsive classes; retain the existing AI panel behavior.
+        marginRight: isChatOpen ? "-400px" : undefined,
       }}
     >
       <div

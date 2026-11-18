@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-11-17T02:45:22.922Z",
+  "mode": "actual isolated PostgreSQL transactions and S3/PDF renderer; no API or auth mocks",
+  "checks": [
+    {
+      "name": "Concurrent candidate allocation produces unique ordered versions without changing the primary",
+      "status": "passed"
+    },
+    {
+      "name": "Concurrent publication admits one winner and rejects a stale source instead of overwriting it",
+      "status": "passed"
+    },
+    {
+      "name": "Actual inline renderer failure leaves the usable primary and document fields unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Wrong-team candidate creation and publication cannot mutate another workspace",
+      "status": "passed"
+    }
+  ],
+  "limitations": [
+    "Publication helpers and renderer are exercised directly; this proof does not issue the versions HTTP request."
+  ],
+  "cleanup": "verified"
+}

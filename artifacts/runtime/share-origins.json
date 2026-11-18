@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-11-17T03:03:15.080262+00:00",
+  "status": "focused_source_regression_passed; integrated_build_and_browser_owned_by_parent",
+  "testCommand": "node --import tsx --test lib/utils/link-url.test.ts",
+  "tests": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "cases": [
+    "Default links use configured app rather than separate marketing",
+    "Custom-domain links preserve host and slug",
+    "Preview tokens remain on app origin and are query-encoded",
+    "Application paths reject external-origin escape",
+    "Domain picker display keeps existing API default sentinel contract",
+    "Source guard finds no marketing-origin viewer/account path builders"
+  ],
+  "lint": {
+    "errors": 0,
+    "warnings": 2,
+    "warningScope": "Existing unchanged exhaustive-deps callbacks in link-sheet/index.tsx and domain-section.tsx;10 server modules had zero warnings/errors."
+  },
+  "scope": [
+    "Canonical shared app/viewer/preview URL helper",
+    "13 client/display/email consumers",
+    "10 server builders",
+    "Visible default-domain hostname; legacy wire/API normalization unchanged"
+  ],
+  "preserved": [
+    "Custom-domain viewer URLs",
+    "Legitimate marketing/help/privacy URLs",
+    "Default-domain backend normalization",
+    "Customer branding/access/payment behavior"
+  ],
+  "limitations": [
+    "No compiler, browser, deployment or hosted check run by this agent.",
+    "Pure URL and static source guards do not establish every caller runtime state.",
+    "Parent owns final integrated compiler/build/browser and source inventory refresh."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "baseline_diagnostics": 203,
+  "current_diagnostics": 201,
+  "added": [],
+  "removed": [
+    {
+      "file": "components/layouts/mobile-header.tsx",
+      "diagnostic": "TS2307: Cannot find module '@/ee/features/partners/lib/referrals' or its corresponding type declarations.",
+      "count": 1
+    },
+    {
+      "file": "components/sidebar/nav-user.tsx",
+      "diagnostic": "TS2307: Cannot find module '@/ee/features/partners/lib/referrals' or its corresponding type declarations.",
+      "count": 1
+    }
+  ]
+}

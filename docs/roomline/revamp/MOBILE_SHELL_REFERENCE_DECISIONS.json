@@ -1,0 +1,176 @@
+{
+  "reviewedOn": "2026-11-14",
+  "scope": "Mobile app shell source corrections; not a rendered audit",
+  "toolReviews": [
+    {
+      "id": "taste",
+      "status": "applied",
+      "reason": "Read pinned skill direction and reconciliation notes. Kept one established Roomline system; no generation, finish hook, static export, or choreography used for this navigation repair."
+    },
+    {
+      "id": "web-guidelines",
+      "status": "applied",
+      "reason": "Refreshed actual command.md on 2026-11-14 and reviewed source naming, native semantics, focus, safe areas, current-link state and touch targets. Fresh source copy is artifacts/revamp/mobile-web-interface-guidelines.md; no claim of complete rendered compliance."
+    },
+    {
+      "id": "image-to-code",
+      "status": "not_applicable",
+      "reason": "No approved image or screenshot is the target of these confirmed source-level navigation/safe-area repairs; image conversion would not resolve the defects."
+    },
+    {
+      "id": "awesome-design-md",
+      "status": "applied",
+      "reason": "Read catalog purpose and reviewB; followed local DESIGN.md token/state and documentation separation. Did not copy another product DESIGN.md or run an installer."
+    },
+    {
+      "id": "playwright",
+      "status": "applied",
+      "reason": "Read CLI/browser verification instructions and reviewB. No fresh authenticated shell render is claimed because inherited source/services block it; root performs public captures separately."
+    },
+    {
+      "id": "refero",
+      "status": "not_applicable",
+      "reason": "Reference lock was read. Existing navigation semantics and dimensions supply this repair target; no new Refero search or reference generation needed."
+    },
+    {
+      "id": "mobbin",
+      "status": "not_applicable",
+      "reason": "Reference lock Dropbox sharing principles were considered, but this pass repairs shell selection/focus and does not redesign a sharing workflow or require another mobile reference."
+    },
+    {
+      "id": "better-design",
+      "status": "not_applicable",
+      "reason": "Existing semantic tokens and root reference lock govern these repairs; no kit generation or external team-rule mutation needed."
+    },
+    {
+      "id": "uxpilot",
+      "status": "not_applicable",
+      "reason": "Existing paths and permissions are preserved; no new user-flow generation or external artifact write needed for navigation correctness."
+    },
+    {
+      "id": "shadcn",
+      "status": "applied",
+      "reason": "Read components.json and local Button/Dialog/Sheet/Dropdown APIs. Used installed Radix Dialog primitives and asChild; no registry overwrite or React19/Tailwind4 recipe."
+    },
+    {
+      "id": "21st",
+      "status": "unavailable",
+      "reason": "Authenticated component search is not established; no supplied credential was used. Existing Radix primitives cover the repair without registry generation."
+    },
+    {
+      "id": "uxcritique",
+      "status": "unavailable",
+      "reason": "No verified callable service identified in registry. Independent source review is labeled as source review, not execution of UXCritique."
+    },
+    {
+      "id": "intuitive-software-design",
+      "status": "unavailable",
+      "reason": "No authoritative endpoint/tool is connected; no tool output invented."
+    },
+    {
+      "id": "design-system",
+      "status": "applied",
+      "reason": "Read DESIGN.md and reference lock; consumed shared semantic tokens and mobile height variables with safe defaults."
+    },
+    {
+      "id": "imperial-cv",
+      "status": "unavailable",
+      "reason": "No supplied local document or authenticated source available; no personal details inferred."
+    },
+    {
+      "id": "hallmark",
+      "status": "not_applicable",
+      "reason": "Source-reviewA considered; no visual redesign engine or portable replacement system needed for existing shell corrections."
+    },
+    {
+      "id": "astryx",
+      "status": "not_applicable",
+      "reason": "React19/StyleX architecture is not compatible with a scoped React18 Radix shell repair; no framework migration."
+    },
+    {
+      "id": "rune",
+      "status": "not_applicable",
+      "reason": "No native project exists. Rust renderer is unrelated to this responsive-web correction."
+    },
+    {
+      "id": "unslop",
+      "status": "not_applicable",
+      "reason": "Reference review considered; no proprietary style/craft engine needed for the existing safe-area and route-selection contract."
+    },
+    {
+      "id": "logiaweb",
+      "status": "not_applicable",
+      "reason": "Section/reference discovery is owned by broader revamp work; these defects have exact source targets and do not need additional inspiration browsing."
+    },
+    {
+      "id": "jaimedhenriques-ui",
+      "status": "not_applicable",
+      "reason": "Moved source fork assessed via registry; local Radix components remain authoritative rather than newer React19 registry APIs."
+    },
+    {
+      "id": "screenshot-to-code",
+      "status": "not_applicable",
+      "reason": "No screenshot conversion target and no separate Python/Vite conversion application needed."
+    },
+    {
+      "id": "website-cloner",
+      "status": "not_applicable",
+      "reason": "No external site is being cloned; existing application route/data contracts are retained."
+    },
+    {
+      "id": "anti-slop",
+      "status": "applied",
+      "reason": "Read reviewed mobile/accessibility guidance; separated loading/unknown membership, disabled frozen sharing and active route states; no foreign code or remote script executed."
+    },
+    {
+      "id": "skillui",
+      "status": "not_applicable",
+      "reason": "Source inventory already generated from actual routes with traceable evidence; no inferred external design extraction or CLI needed."
+    },
+    {
+      "id": "elaya",
+      "status": "not_applicable",
+      "reason": "Marketing/Figma generation is outside this shell repair; local semantic system and existing web stack retained."
+    },
+    {
+      "id": "emil-apple",
+      "status": "applied",
+      "reason": "Read reviewed mobile-web/interaction principles: safe-area-aware geometry, existing overlay focus/dismissal, restrained feedback; no SwiftUI/native rewrite or asset reuse."
+    },
+    {
+      "id": "ux-ui-agent-skills",
+      "status": "not_applicable",
+      "reason": "State/evidence notes considered via registry; no incompatible Next15/React19 adapter or toolkit accuracy score used."
+    },
+    {
+      "id": "impeccable",
+      "status": "applied",
+      "reason": "Read Operate-mode reconciliation: task clarity and semantic controls before decorative changes; no detector/engine executed."
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "status": "not_applicable",
+      "reason": "No style database query or new system needed for a focused navigation repair; accessibility precedes decorative recipes."
+    },
+    {
+      "id": "tasteskill-site",
+      "status": "not_applicable",
+      "reason": "Pinned repository guidance and local lock already govern this pass; no further website marketing overview needed."
+    },
+    {
+      "id": "12ui",
+      "status": "not_applicable",
+      "reason": "Routine access/focus/navigation and dimension corrections do not need a new image-led UI concept. No 12ui design run claimed."
+    },
+    {
+      "id": "product-design",
+      "status": "applied",
+      "reason": "Applied source-inventory discipline and explicitly retained visual blockers. No completed screenshot-based authenticated audit claimed."
+    },
+    {
+      "id": "frontend-design",
+      "status": "not_applicable",
+      "reason": "Existing controls and explicit source defects determine this pass; no free-form new frontend composition or scaffold required."
+    }
+  ]
+}

@@ -161,7 +161,12 @@ export default function DataroomVisitorsTable({
           Export visits
         </Button>
       </div>
-      <div className="overflow-x-auto rounded-md border">
+      <div
+        role="region"
+        aria-label="Visitor activity"
+        tabIndex={0}
+        className="overflow-x-auto rounded-md border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+      >
         <Table className="min-w-[600px] table-fixed">
           <TableHeader>
             <TableRow className="*:whitespace-nowrap *:font-medium hover:bg-transparent">
@@ -281,11 +286,11 @@ export default function DataroomVisitorsTable({
                                 )}
                               </p>
                               {view.viewerName && view.viewerEmail && (
-                                <p className="text-xs text-muted-foreground/60">
+                                <p className="text-xs text-muted-foreground">
                                   {view.viewerEmail}
                                 </p>
                               )}
-                              <p className="text-xs text-muted-foreground/60 sm:text-sm">
+                              <p className="text-xs text-muted-foreground sm:text-sm">
                                 {view.link.name ? view.link.name : view.linkId}
                               </p>
                             </div>
@@ -312,9 +317,16 @@ export default function DataroomVisitorsTable({
                       {/* Actions */}
                       <TableCell className="cursor-pointer p-0 text-center sm:text-right">
                         <CollapsibleTrigger asChild>
-                          <div className="flex justify-end space-x-1 p-5 [&[data-state=open]>svg.chevron]:rotate-180">
-                            <ChevronDown className="chevron h-4 w-4 shrink-0 transition-transform duration-200" />
-                          </div>
+                          <button
+                            type="button"
+                            aria-label={`${expandedViewIds.has(view.id) ? "Collapse" : "Expand"} activity for ${view.viewerName || view.viewerEmail || "anonymous visitor"}`}
+                            className="flex w-full justify-end space-x-1 rounded-md p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring [&[data-state=open]>svg.chevron]:rotate-180"
+                          >
+                            <ChevronDown
+                              aria-hidden="true"
+                              className="chevron h-4 w-4 shrink-0 transition-transform duration-200 motion-reduce:transition-none"
+                            />
+                          </button>
                         </CollapsibleTrigger>
                       </TableCell>
                     </TableRow>
@@ -428,10 +440,12 @@ export default function DataroomVisitorsTable({
                               {view.agreementResponse.signedAt ||
                               view.agreementResponse.completedAt ? (
                                 <TimestampTooltip
-                                  timestamp={new Date(
-                                    view.agreementResponse.signedAt ||
-                                      view.agreementResponse.completedAt,
-                                  )}
+                                  timestamp={
+                                    new Date(
+                                      view.agreementResponse.signedAt ||
+                                        view.agreementResponse.completedAt,
+                                    )
+                                  }
                                   side="right"
                                   rows={["local", "utc", "unix"]}
                                 >
@@ -518,7 +532,7 @@ const VisitorBlurred = () => {
               <p className="flex items-center gap-x-2 overflow-visible text-sm font-medium text-gray-800 dark:text-gray-200">
                 Anonymous
               </p>
-              <p className="text-xs text-muted-foreground/60 sm:text-sm">
+              <p className="text-xs text-muted-foreground sm:text-sm">
                 Demo link
               </p>
             </div>

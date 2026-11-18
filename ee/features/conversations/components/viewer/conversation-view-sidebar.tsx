@@ -10,13 +10,18 @@ import { ArrowLeftIcon, BellIcon, BellOffIcon, Plus } from "lucide-react";
 import { toast } from "sonner";
 import useSWR, { mutate } from "swr";
 
+import { MAX_MESSAGE_LENGTH } from "@/lib/constants";
 import { fetcher } from "@/lib/utils";
-import { MAX_MESSAGE_LENGTH } from "@/lib/utils/sanitize-html";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 // Type definitions
 interface Message {
@@ -56,7 +61,9 @@ export type ConversationSidebarProps = {
   linkId: string;
   viewId: string;
   dataroomId?: string;
+  dataroomName?: string;
   documentId?: string;
+  documentName?: string;
   pageNumber?: number;
   viewerId?: string;
   isEnabled?: boolean;
@@ -66,7 +73,9 @@ export type ConversationSidebarProps = {
 
 export function ConversationViewSidebar({
   dataroomId,
+  dataroomName,
   documentId,
+  documentName,
   pageNumber,
   viewId,
   viewerId,
@@ -206,7 +215,16 @@ export function ConversationViewSidebar({
 
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="p-0 sm:max-w-md">
+      <SheetContent side="right" className="p-0 sm:max-w-[400px]">
+        <SheetTitle className="sr-only">
+          Questions
+          {documentName || dataroomName
+            ? ` for ${documentName || dataroomName}`
+            : ""}
+        </SheetTitle>
+        <SheetDescription className="sr-only">
+          Ask a question, read replies, or browse published answers.
+        </SheetDescription>
         <div className="flex h-full flex-col">
           {/* Header */}
           {/* <div className="flex items-center justify-between border-b px-4 py-3">

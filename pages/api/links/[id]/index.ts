@@ -687,7 +687,7 @@ export default async function handle(
         },
       });
 
-      res.status(204).end(); // 204 No Content response for successful deletes
+      return res.status(204).end(); // 204 No Content response for successful deletes
     } catch (error) {
       return res.status(500).json({
         message: "Internal Server Error",

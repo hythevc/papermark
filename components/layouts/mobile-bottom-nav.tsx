@@ -13,8 +13,14 @@ import {
   ShieldCheckIcon,
 } from "lucide-react";
 
+import { hasAllPermissions } from "@/lib/api/rbac/permissions";
 import { useSelfMembership } from "@/lib/hooks/use-self-membership";
+import {
+  roomMobileSection,
+  workspaceMobileSection,
+} from "@/lib/navigation/mobile-navigation";
 import { usePlan } from "@/lib/swr/use-billing";
+import { useDataroom } from "@/lib/swr/use-dataroom";
 import { cn } from "@/lib/utils";
 
 import { UpgradePlanModal } from "@/components/billing/upgrade-plan-modal";
@@ -23,105 +29,124 @@ import { MobileDataroomMoreMenu } from "./mobile-dataroom-more-menu";
 import { MobileMoreMenu } from "./mobile-more-menu";
 import { MobileShareFab } from "./mobile-share-fab";
 
+const navClass =
+  "fixed inset-x-0 bottom-0 z-50 touch-manipulation border-t border-border bg-background pb-[env(safe-area-inset-bottom,0px)] [-webkit-tap-highlight-color:transparent] md:hidden";
+const rowClass =
+  "flex min-h-[var(--app-mobile-nav-height,4.5rem)] items-center justify-between gap-0.5 px-0.5";
+
 export function MobileBottomNav() {
   const router = useRouter();
   const [moreOpen, setMoreOpen] = useState(false);
   const { isBusiness, isDatarooms, isDataroomsPlus, isTrial } = usePlan();
-  // Dataroom-scoped members only ever see their assigned data rooms.
-  const { isDataroomMember } = useSelfMembership();
-
+  const { role, isDataroomMember, allowedDataroomIds, loading } =
+    useSelfMembership();
+  const { dataroom } = useDataroom();
   const dataroomsEnabled =
     isBusiness || isDatarooms || isDataroomsPlus || isTrial;
-
-  const dataroomId = router.query.id as string | undefined;
+  const dataroomId =
+    typeof router.query.id === "string" ? router.query.id : undefined;
   const inDataroomDetail =
     router.pathname.startsWith("/datarooms/[id]") && !!dataroomId;
-
-  const isActive = (match: string) => {
-    if (match === "documents") {
-      return (
-        router.pathname.includes("documents") &&
-        !router.pathname.includes("datarooms")
-      );
-    }
-    return router.pathname.includes(match);
-  };
-
-  const moreIsActive = !["dashboard", "documents", "datarooms"].some((m) =>
-    isActive(m),
-  );
-
+  const workspaceSection = workspaceMobileSection(router.pathname);
+  const roomSection = roomMobileSection(router.pathname);
   const tabClass = (active: boolean) =>
     cn(
-      "flex min-w-0 flex-1 flex-col items-center justify-center gap-1 py-2 text-[11px] font-medium transition-colors",
-      active
-        ? "text-foreground"
-        : "text-muted-foreground hover:text-foreground",
+      "flex min-h-11 min-w-11 flex-1 flex-col items-center justify-center gap-1 rounded-md px-1 py-2 text-[11px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
+      active ? "text-primary" : "text-muted-foreground hover:text-foreground",
     );
 
-  const documentsTabActive =
-    inDataroomDetail &&
-    (router.pathname === "/datarooms/[id]" ||
-      router.pathname.startsWith("/datarooms/[id]/documents"));
-
-  const permissionsTabActive =
-    inDataroomDetail &&
-    ((router.pathname.includes("permissions") &&
-      !router.pathname.includes("settings")) ||
-      router.pathname.includes("/groups"));
-
-  const analyticsTabActive =
-    inDataroomDetail &&
-    router.pathname.includes("analytics") &&
-    !router.pathname.includes("/groups");
-
-  const dataroomMoreTabActive =
-    inDataroomDetail &&
-    !documentsTabActive &&
-    !permissionsTabActive &&
-    !analyticsTabActive;
+  // Until membership resolves, do not flash team-wide destinations or actions.
+  if (loading || !role) {
+    return (
+      <nav
+        aria-label="Workspace navigation"
+        aria-busy={loading}
+        className={navClass}
+      >
+        <div className={`${rowClass} justify-center`}>
+          <p role="status" className="text-xs text-muted-foreground">
+            {loading
+              ? "Loading navigation…"
+              : "Workspace navigation unavailable"}
+          </p>
+        </div>
+      </nav>
+    );
+  }
 
   if (inDataroomDetail && dataroomId) {
+    if (
+      !hasAllPermissions(role, ["datarooms.read"]) ||
+      (isDataroomMember && !allowedDataroomIds.includes(dataroomId))
+    )
+      return null;
     const base = `/datarooms/${dataroomId}`;
+    const canShare =
+      hasAllPermissions(role, ["links.write"]) &&
+      dataroom?.id === dataroomId &&
+      !dataroom.isFrozen;
     return (
       <>
-        <nav className="fixed inset-x-0 bottom-0 z-50 touch-manipulation border-t border-border bg-background pb-[env(safe-area-inset-bottom,0px)] [-webkit-tap-highlight-color:transparent] md:hidden">
-          <div className="flex min-h-[4.5rem] items-end justify-between gap-0.5 px-0.5">
+        <nav aria-label="Data room navigation" className={navClass}>
+          <div className={rowClass}>
             <Link
               href={`${base}/documents`}
-              className={tabClass(!!documentsTabActive)}
+              aria-current={roomSection === "documents" ? "page" : undefined}
+              className={tabClass(roomSection === "documents")}
             >
-              <FolderIcon className="h-6 w-6" />
+              <FolderIcon className="h-6 w-6" aria-hidden="true" />
               <span>Documents</span>
             </Link>
             <Link
               href={`${base}/permissions`}
-              className={tabClass(!!permissionsTabActive)}
+              aria-current={roomSection === "permissions" ? "page" : undefined}
+              className={tabClass(roomSection === "permissions")}
             >
-              <ShieldCheckIcon className="h-6 w-6" />
-              <span>Permissions</span>
+              <ShieldCheckIcon className="h-6 w-6" aria-hidden="true" />
+              <span>Sharing</span>
             </Link>
-            <div className="flex w-12 shrink-0 items-center justify-center self-center">
-              <MobileShareFab mode="dataroom" dataroomId={dataroomId} />
+            <div className="flex w-12 shrink-0 items-center justify-center">
+              {canShare ? (
+                <MobileShareFab mode="dataroom" dataroomId={dataroomId} />
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  aria-label={
+                    dataroom?.isFrozen
+                      ? "Sharing is paused for this frozen room"
+                      : "Sharing is unavailable"
+                  }
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-muted text-muted-foreground"
+                >
+                  <ShieldCheckIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
+              )}
             </div>
             <Link
               href={`${base}/analytics`}
-              className={tabClass(!!analyticsTabActive)}
+              aria-current={roomSection === "analytics" ? "page" : undefined}
+              className={tabClass(roomSection === "analytics")}
             >
-              <BarChart3Icon className="h-6 w-6" />
+              <BarChart3Icon className="h-6 w-6" aria-hidden="true" />
               <span>Analytics</span>
             </Link>
             <button
               type="button"
+              aria-label="Open data room menu"
+              aria-haspopup="dialog"
+              aria-expanded={moreOpen}
+              aria-controls="room-mobile-menu"
               onClick={() => setMoreOpen(true)}
-              className={tabClass(!!dataroomMoreTabActive)}
+              className={tabClass(
+                roomSection === "more" || roomSection === "overview",
+              )}
             >
-              <MoreHorizontalIcon className="h-6 w-6" />
+              <MoreHorizontalIcon className="h-6 w-6" aria-hidden="true" />
               <span>More</span>
             </button>
           </div>
         </nav>
-
         <MobileDataroomMoreMenu
           open={moreOpen}
           onClose={() => setMoreOpen(false)}
@@ -131,29 +156,35 @@ export function MobileBottomNav() {
     );
   }
 
-  // Scoped members get a minimal nav: only their data rooms plus the More
-  // sheet (for team switching). Everything else is hidden, mirroring the
-  // desktop sidebar.
   if (isDataroomMember) {
     return (
       <>
-        <nav className="fixed inset-x-0 bottom-0 z-50 touch-manipulation border-t border-border bg-background pb-[env(safe-area-inset-bottom,0px)] [-webkit-tap-highlight-color:transparent] md:hidden">
-          <div className="flex min-h-[4.5rem] items-end justify-around gap-0.5 px-0.5">
-            <Link href="/datarooms" className={tabClass(isActive("datarooms"))}>
-              <ServerIcon className="h-6 w-6" />
-              <span>Data Rooms</span>
+        <nav aria-label="Workspace navigation" className={navClass}>
+          <div className={rowClass}>
+            <Link
+              href="/datarooms"
+              aria-current={
+                workspaceSection === "datarooms" ? "page" : undefined
+              }
+              className={tabClass(workspaceSection === "datarooms")}
+            >
+              <ServerIcon className="h-6 w-6" aria-hidden="true" />
+              <span>Data rooms</span>
             </Link>
             <button
               type="button"
+              aria-label="Open workspace menu"
+              aria-haspopup="dialog"
+              aria-expanded={moreOpen}
+              aria-controls="workspace-mobile-menu"
               onClick={() => setMoreOpen(true)}
-              className={tabClass(!isActive("datarooms"))}
+              className={tabClass(workspaceSection !== "datarooms")}
             >
-              <MoreHorizontalIcon className="h-6 w-6" />
+              <MoreHorizontalIcon className="h-6 w-6" aria-hidden="true" />
               <span>More</span>
             </button>
           </div>
         </nav>
-
         <MobileMoreMenu open={moreOpen} onClose={() => setMoreOpen(false)} />
       </>
     );
@@ -161,23 +192,39 @@ export function MobileBottomNav() {
 
   return (
     <>
-      <nav className="fixed inset-x-0 bottom-0 z-50 touch-manipulation border-t border-border bg-background pb-[env(safe-area-inset-bottom,0px)] [-webkit-tap-highlight-color:transparent] md:hidden">
-        <div className="flex min-h-[4.5rem] items-end justify-between gap-0.5 px-0.5">
-          <Link href="/dashboard" className={tabClass(isActive("dashboard"))}>
-            <HouseIcon className="h-6 w-6" />
+      <nav aria-label="Workspace navigation" className={navClass}>
+        <div className={rowClass}>
+          <Link
+            href="/dashboard"
+            aria-current={workspaceSection === "dashboard" ? "page" : undefined}
+            className={tabClass(workspaceSection === "dashboard")}
+          >
+            <HouseIcon className="h-6 w-6" aria-hidden="true" />
             <span>Dashboard</span>
           </Link>
-          <Link href="/documents" className={tabClass(isActive("documents"))}>
-            <FolderIcon className="h-6 w-6" />
+          <Link
+            href="/documents"
+            aria-current={workspaceSection === "documents" ? "page" : undefined}
+            className={tabClass(workspaceSection === "documents")}
+          >
+            <FolderIcon className="h-6 w-6" aria-hidden="true" />
             <span>Documents</span>
           </Link>
-          <div className="flex w-12 shrink-0 items-center justify-center self-center">
-            <MobileShareFab mode="global" />
+          <div className="flex w-12 shrink-0 items-center justify-center">
+            {hasAllPermissions(role, ["links.write"]) && (
+              <MobileShareFab mode="global" />
+            )}
           </div>
           {dataroomsEnabled ? (
-            <Link href="/datarooms" className={tabClass(isActive("datarooms"))}>
-              <ServerIcon className="h-6 w-6" />
-              <span>Datarooms</span>
+            <Link
+              href="/datarooms"
+              aria-current={
+                workspaceSection === "datarooms" ? "page" : undefined
+              }
+              className={tabClass(workspaceSection === "datarooms")}
+            >
+              <ServerIcon className="h-6 w-6" aria-hidden="true" />
+              <span>Data rooms</span>
             </Link>
           ) : (
             <UpgradePlanModal
@@ -185,23 +232,30 @@ export function MobileBottomNav() {
               trigger="mobile_nav_datarooms"
               highlightItem={["datarooms"]}
             >
-              <button type="button" className={tabClass(false)}>
-                <ServerIcon className="h-6 w-6" />
-                <span>Datarooms</span>
+              <button
+                type="button"
+                className={tabClass(false)}
+                aria-label="Upgrade to use data rooms"
+              >
+                <ServerIcon className="h-6 w-6" aria-hidden="true" />
+                <span>Data rooms</span>
               </button>
             </UpgradePlanModal>
           )}
           <button
             type="button"
+            aria-label="Open workspace menu"
+            aria-haspopup="dialog"
+            aria-expanded={moreOpen}
+            aria-controls="workspace-mobile-menu"
             onClick={() => setMoreOpen(true)}
-            className={tabClass(moreIsActive)}
+            className={tabClass(workspaceSection === "more")}
           >
-            <MoreHorizontalIcon className="h-6 w-6" />
+            <MoreHorizontalIcon className="h-6 w-6" aria-hidden="true" />
             <span>More</span>
           </button>
         </div>
       </nav>
-
       <MobileMoreMenu open={moreOpen} onClose={() => setMoreOpen(false)} />
     </>
   );

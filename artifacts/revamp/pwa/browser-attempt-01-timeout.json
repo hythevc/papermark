@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-11-17T01:13:17.688Z",
+  "origin": "http://localhost:3000",
+  "method": "Actual local app in headless Chromium with a fresh browser context and real service worker; no network route mocks or synthetic install events.",
+  "checks": [
+    {
+      "status": "failed",
+      "error": "apiRequestContext.get: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - → GET http://localhost:3000/sw.js\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n"
+    }
+  ],
+  "screenshots": [],
+  "limitations": [
+    "Headless Chromium and viewport emulation do not verify OS-level installation, iOS Safari, native apps, or a physical mobile device.",
+    "Tests use an unauthenticated browser and public/local probe requests; authenticated authorization and tenant isolation are outside this check.",
+    "CDP installability diagnostics describe this tested origin and browser session only."
+  ]
+}

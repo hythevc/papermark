@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SessionProvider>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <main>
+        <main className="roomline-marketing min-h-dvh bg-background text-foreground">
           <Toaster closeButton richColors theme="system" />
           <div>{children}</div>
         </main>

@@ -1,0 +1,597 @@
+{
+  "generatedAt": "2026-11-14T19:07:45.703Z",
+  "origin": "http://localhost:3000",
+  "captureMethod": "Actual local design-system route in headless Chromium; page controls used to select each state.",
+  "limitations": [
+    "Viewport emulation is not a physical mobile-device test.",
+    "All content is the component reference's sample data; no live workspace or backend behavior is verified.",
+    "Screenshot status remains captured-unreviewed until a saved image is inspected."
+  ],
+  "captures": [
+    {
+      "route": "/design-system",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-default-light-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "full-page",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "ef010d669fb737f945271bb97d2abd87758b8870e94a4bf4ddc41b3df4de5e55"
+    },
+    {
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-dialog-open-light-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "a266e0f7356d1b1486276b12f4c62740c9b5d1eab63233cbf97be5434b9060c3"
+    },
+    {
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-sheet-open-light-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "7d9a59df0cd49babac7f187417d139be280dec8a00945af27203f8d464bfe51a"
+    },
+    {
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-loading-light-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "4aa1d244af87f56cae93264f2a614e989de56267665c5d93c416558fdb10d4ac"
+    },
+    {
+      "route": "/design-system",
+      "state": "error",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-error-light-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "7eba7a139bbce9b8eac1dd0562574e08b3df4b030b42b50618eb3b406eb44f8b"
+    },
+    {
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-empty-light-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "48003981eda3664a02f0fd07ccca9dca27fd82dbbc957f9db59a3ecf137420a4"
+    },
+    {
+      "route": "/design-system",
+      "state": "default",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-default-dark-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "full-page",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "9baff8ca7aac53535d080af2a4bff0709029d985d411a3b3832ecd9c4fb2bacc"
+    },
+    {
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-dialog-open-dark-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "ba4bb8d17de99f228ba5129feb3def194288047047ce28dcebfdad00f8d568bf"
+    },
+    {
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-sheet-open-dark-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "db623f714a9c83441afb6aedb9674824e1de638cad53ba942e546c42076467f9"
+    },
+    {
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-loading-dark-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "0cf51a805fcc960745f7c3eb86735fbc253ef345d153a42e5374066950ba7c08"
+    },
+    {
+      "route": "/design-system",
+      "state": "error",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-error-dark-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "b0e42b757b7a633ad2c5e4163a758f72368cdef1d576cfab04d103a70f1baa02"
+    },
+    {
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-empty-dark-1440.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "1563878da93d28aaa1b1abe3310ba0f517dba972c426661fcd2d66d4896fdbed"
+    },
+    {
+      "route": "/design-system",
+      "state": "default",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-default-light-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "full-page",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "0659017bd43945e7ab277fdbc90ec9cba192074de575f0a91cc011fee61d618e"
+    },
+    {
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-dialog-open-light-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "b5aa3d9420ebb22242e75d8af861d043942a041401718c68441aa2f4fea2fdf5"
+    },
+    {
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-sheet-open-light-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "cb9fe3b007a30391045fbc2d42162934ccd634b3413d20ccc7d4a03697242bf4"
+    },
+    {
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-loading-light-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "80fee1321638bdb70da4d86d517267c92ac8ce21b0818328f1d6c59cf7d9249e"
+    },
+    {
+      "route": "/design-system",
+      "state": "error",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-error-light-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "f07ca96b6b042129bc340125c9368eb92bedf3cd3165bc24493521c7a33384bf"
+    },
+    {
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-empty-light-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "1d4917a71231db69e36a3463cb9aa2a61cc01c64856e5570afb58fc1d58e88ab"
+    },
+    {
+      "route": "/design-system",
+      "state": "default",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-default-dark-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "full-page",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "ea36a4a53c7431ebed699f62df79626e735540a4183f8707d252cce667a22442"
+    },
+    {
+      "route": "/design-system",
+      "state": "dialog-open",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-dialog-open-dark-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "27b661a65bdc3c0ff9661c0957a88cf67e7c6edd7f3ce43a39fbe340ef3e2ecb"
+    },
+    {
+      "route": "/design-system",
+      "state": "sheet-open",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-sheet-open-dark-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "5a68620ebfc764e37fdd7be390dc1007035c87d5c3cf4cb61e4972fa6f1f78ac"
+    },
+    {
+      "route": "/design-system",
+      "state": "loading",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-loading-dark-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "9059e3c4b008034733e6fe8e627a8b23a7e89cf42ec18d4d16f681b60167c37e"
+    },
+    {
+      "route": "/design-system",
+      "state": "error",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-error-dark-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "71942775cf3463609f27e8f7c4c1ec6352f67251b6095e61ac6681ef66f1ba55"
+    },
+    {
+      "route": "/design-system",
+      "state": "empty",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "artifacts/revamp/after/component-empty-dark-390.png",
+      "status": "accepted",
+      "a11y": {
+        "checked": true,
+        "status": "passed",
+        "violations": []
+      },
+      "pageErrors": [],
+      "nonReadRequests": [],
+      "captureArea": "viewport",
+      "visualReview": {
+        "status": "accepted",
+        "method": "Opened and inspected this exact saved PNG after capture. Correct state and theme; content and complete overlay, when applicable, visible. No blank/loading/error page."
+      },
+      "sha256": "f69bf1c2ad817206838930c34cf96d0fe83d5728c3b1f275dd89afb00e9680a3"
+    }
+  ],
+  "reviewedAt": "2026-11-14T19:09:11.438751+00:00",
+  "summary": {
+    "captures": 24,
+    "visuallyAccepted": 24,
+    "a11yChecks": 24,
+    "a11yViolations": 0,
+    "uncaughtPageErrors": 0,
+    "apiWritesObserved": 0
+  }
+}

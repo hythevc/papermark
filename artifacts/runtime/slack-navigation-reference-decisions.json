@@ -1,0 +1,280 @@
+{
+  "checkedAt": "2026-11-17T03:02:22.967103+00:00",
+  "scope": "Optional Slack availability, desktop room overview selection and breadcrumb; no new visual design",
+  "guidelinesSource": "https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md",
+  "guidelinesSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
+  "decisions": [
+    {
+      "id": "taste",
+      "name": "Taste Skill",
+      "source": "https://github.com/Leonxlnx/taste-skill",
+      "registryAvailability": "source_reviewed",
+      "decision": "applied",
+      "reason": "Read the pinned skill scope/house rules; kept the repository operational-UI exceptions and existing product style rather than introducing marketing effects."
+    },
+    {
+      "id": "web-guidelines",
+      "name": "Web Design Guidelines",
+      "source": "https://github.com/vercel-labs/agent-skills",
+      "registryAvailability": "source_reviewed",
+      "decision": "applied",
+      "reason": "Refreshed the linked command.md; applied explicit unavailable/error states, native retry button semantics and current-page navigation semantics."
+    },
+    {
+      "id": "image-to-code",
+      "name": "Image-to-code",
+      "source": "https://github.com/Leonxlnx/imagegen-skills/tree/main/skills/image-to-code",
+      "registryAvailability": "moved_source_reviewed",
+      "decision": "not_applicable",
+      "reason": "No screenshot-to-code reconstruction is requested; the captured image identifies a route-selection defect, while the correction uses existing navigation semantics."
+    },
+    {
+      "id": "awesome-design-md",
+      "name": "Awesome DESIGN.md",
+      "source": "https://github.com/VoltAgent/awesome-design-md",
+      "registryAvailability": "source_reviewed",
+      "decision": "applied",
+      "reason": "Used the existing DESIGN/reference-lock notes for the prior Linear structural study; no new design or brand reference was generated."
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright CLI / browser testing",
+      "source": "https://github.com/microsoft/playwright-cli",
+      "registryAvailability": "source_reviewed",
+      "decision": "applied",
+      "reason": "Used installed Playwright APIRequest with the real session and database for five checks. Protected viewport recapture is separate evidence; no CLI-plugin execution is claimed."
+    },
+    {
+      "id": "refero",
+      "name": "Refero",
+      "source": "https://refero.design/",
+      "registryAvailability": "connected_reference_used",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "mobbin",
+      "name": "Mobbin",
+      "source": "https://mobbin.com/",
+      "registryAvailability": "connected_reference_used",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "better-design",
+      "name": "Better Design",
+      "source": "Connected Better Design MCP (service URL not independently established)",
+      "registryAvailability": "connected_reference_used",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "uxpilot",
+      "name": "UXPilot",
+      "source": "https://uxpilot.ai/",
+      "registryAvailability": "connected_reference_used",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn/ui",
+      "source": "https://github.com/shadcn-ui/ui",
+      "registryAvailability": "source_reviewed",
+      "decision": "applied",
+      "reason": "Inspected components.json and the local Card/Button/Breadcrumb/sidebar APIs; reused the installed React18/Tailwind3 components with no registry install."
+    },
+    {
+      "id": "21st",
+      "name": "21st CLI / component registry / MCP",
+      "source": "https://21st.dev/api/mcp",
+      "registryAvailability": "configured_unverified",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "uxcritique",
+      "name": "UXCritique",
+      "source": "User-named UXCritique (no verified endpoint supplied)",
+      "registryAvailability": "unavailable",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "intuitive-software-design",
+      "name": "Intuitive Software Design",
+      "source": "User-named Intuitive Software Design (no verified endpoint supplied)",
+      "registryAvailability": "unavailable",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "design-system",
+      "name": "Design System",
+      "source": "DESIGN.md",
+      "registryAvailability": "local_policy",
+      "decision": "applied",
+      "reason": "Applied the existing Roomline DESIGN.md and semantic component tokens; this is local policy, not a named external plugin call."
+    },
+    {
+      "id": "imperial-cv",
+      "name": "imperial_masters_cv",
+      "source": "User-provided name imperial_masters_cv (document not available locally)",
+      "registryAvailability": "unavailable",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "hallmark",
+      "name": "Hallmark",
+      "source": "https://github.com/Nutlope/hallmark",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "astryx",
+      "name": "Astryx",
+      "source": "https://github.com/meta/astryx",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "rune",
+      "name": "Rune",
+      "source": "https://github.com/anomalyco/rune",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "unslop",
+      "name": "Unslop",
+      "source": "https://github.com/heydamir/unslop",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "logiaweb",
+      "name": "Logiaweb Design Inspo Stack",
+      "source": "https://www.logiaweb.net/hub/library/guides/design-inspo-stack",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "jaimedhenriques-ui",
+      "name": "Requested jaimedhenriques/ui",
+      "source": "https://github.com/hythevc/ui",
+      "registryAvailability": "redirected_source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "screenshot-to-code",
+      "name": "Screenshot to Code",
+      "source": "https://github.com/abi/screenshot-to-code",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "website-cloner",
+      "name": "AI Website Cloner Template",
+      "source": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "anti-slop",
+      "name": "Anti-slop",
+      "source": "https://github.com/miqdadbadjuber/anti-slop",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "skillui",
+      "name": "SkillUI",
+      "source": "https://github.com/amaancoderx/npxskillui",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "elaya",
+      "name": "Elaya AI Design Skills",
+      "source": "https://github.com/elayadesign/ai-design-skills",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "emil-apple",
+      "name": "Emil Kowalski Skills / Apple Design",
+      "source": "https://github.com/emilkowalski/skills",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "ux-ui-agent-skills",
+      "name": "UX/UI Agent Skills / XIAS",
+      "source": "https://github.com/plugin87/ux-ui-agent-skills",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "impeccable",
+      "name": "Impeccable",
+      "source": "https://github.com/pbakaus/impeccable",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "name": "UI/UX Pro Max",
+      "source": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "tasteskill-site",
+      "name": "Taste Skill website",
+      "source": "https://tasteskill.dev/",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "12ui",
+      "name": "12ui Design",
+      "source": "https://www.npmjs.com/package/@12ui/design",
+      "registryAvailability": "unavailable",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "product-design",
+      "name": "Product Design",
+      "source": "Product Design connected skill package",
+      "registryAvailability": "source_reviewed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    },
+    {
+      "id": "frontend-design",
+      "name": "Installed frontend-design skill",
+      "source": ".agents/skills/frontend-design/SKILL.md",
+      "registryAvailability": "installed",
+      "decision": "not_applicable",
+      "reason": "This bounded availability/route-selection repair uses existing contracts and locked components; no new visual reference, generated layout, registry package, native migration or external design write is needed. Existing registry availability remains documented; no fresh tool execution is claimed."
+    }
+  ]
+}

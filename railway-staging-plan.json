@@ -1,0 +1,821 @@
+{
+  "schemaVersion": 1,
+  "status": "USER_APPROVED; APPLY_BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; 109 changes staged, no Railway deployment",
+  "preparedAt": "2026-11-17",
+  "account": {
+    "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+    "workspaceId": "583803ef-4c0e-4a91-be6e-0b55d4cdc2f1",
+    "username": "jaimedhenriques"
+  },
+  "target": {
+    "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+    "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+    "projectName": "Roomline",
+    "environmentName": "staging"
+  },
+  "providerPlanObserved": null,
+  "source": {
+    "repo": "hythevc/papermark",
+    "branch": "codex/roomline-saas",
+    "deploymentMustPinReviewedCommit": true,
+    "sourceNotConnected": true,
+    "selectedCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be",
+    "selectionStatus": "Exact reviewed application commit source connection staged; not applied or live connected.",
+    "sourceConnectionStaged": true
+  },
+  "secrets": {
+    "algorithm": "32 independent CSPRNG bytes encoded as 64 lowercase hex characters per name",
+    "sharedNames": [
+      "ROOMLINE_POSTGRES_PASSWORD",
+      "ROOMLINE_REDIS_PASSWORD",
+      "ROOMLINE_REDIS_HTTP_TOKEN",
+      "ROOMLINE_NEXTAUTH_SECRET",
+      "ROOMLINE_DOCUMENT_PASSWORD_KEY",
+      "ROOMLINE_VERIFICATION_SECRET",
+      "ROOMLINE_INTERNAL_API_KEY",
+      "ROOMLINE_REVALIDATE_TOKEN"
+    ],
+    "printValues": false,
+    "readUnrelatedProjects": false
+  },
+  "services": {
+    "Postgres": {
+      "image": "postgres@sha256:81e77a4833487b8132fe4b00bedd39dc3f74b8641e387f19312a48f7de218c2e",
+      "sourceTagTested": "postgres:16-alpine",
+      "variables": {
+        "POSTGRES_DB": "roomline_staging",
+        "POSTGRES_USER": "roomline",
+        "POSTGRES_PASSWORD": "${{shared.ROOMLINE_POSTGRES_PASSWORD}}",
+        "PGDATA": "/var/lib/postgresql/data/pgdata",
+        "DATABASE_URL": "postgresql://roomline:${{shared.ROOMLINE_POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/roomline_staging"
+      },
+      "limits": {
+        "memoryGB": 0.5,
+        "vCPUs": 0.5
+      },
+      "volume": {
+        "mountPath": "/var/lib/postgresql/data",
+        "sizeMB": 1024
+      },
+      "id": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722"
+    },
+    "Redis": {
+      "image": "redis@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe",
+      "sourceTagTested": "redis:7-alpine",
+      "variables": {
+        "REDIS_PASSWORD": "${{shared.ROOMLINE_REDIS_PASSWORD}}",
+        "REDIS_URL": "redis://default:${{shared.ROOMLINE_REDIS_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:6379"
+      },
+      "limits": {
+        "memoryGB": 0.25,
+        "vCPUs": 0.5
+      },
+      "startCommand": "sh -c 'exec redis-server --bind 0.0.0.0 :: --protected-mode yes --requirepass \"$REDIS_PASSWORD\" --appendonly yes --dir /data --maxmemory 160mb --maxmemory-policy noeviction'",
+      "volume": {
+        "mountPath": "/data",
+        "sizeMB": 1024
+      },
+      "id": "b1267dd2-3b39-4b99-8ac1-44f886e2d158"
+    },
+    "RedisREST": {
+      "image": "hiett/serverless-redis-http@sha256:5b0bb9239fce53abf87b2018a7a0deb9ec7bd900c5360738fe5fbeeb426f9150",
+      "sourceTagTested": "hiett/serverless-redis-http:latest (digest pinned)",
+      "variables": {
+        "SRH_MODE": "env",
+        "SRH_TOKEN": "${{shared.ROOMLINE_REDIS_HTTP_TOKEN}}",
+        "SRH_CONNECTION_STRING": "${{Redis.REDIS_URL}}",
+        "SRH_PORT": "8080",
+        "SRH_IPV6": "true",
+        "SRH_MAX_CONNECTIONS": "3",
+        "PORT": "8080"
+      },
+      "limits": {
+        "memoryGB": 0.125,
+        "vCPUs": 0.25
+      },
+      "id": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4"
+    },
+    "Roomline": {
+      "variables": {
+        "NODE_ENV": "production",
+        "PORT": "3000",
+        "NEXTAUTH_URL": "https://roomline-staging-3157af3e.up.railway.app",
+        "NEXT_PUBLIC_BASE_URL": "https://roomline-staging-3157af3e.up.railway.app",
+        "NEXT_PUBLIC_APP_BASE_HOST": "roomline-staging-3157af3e.up.railway.app",
+        "NEXT_PUBLIC_MARKETING_URL": "https://roomline-marketing-hythevc.vercel.app",
+        "NEXTAUTH_SECRET": "${{shared.ROOMLINE_NEXTAUTH_SECRET}}",
+        "POSTGRES_PRISMA_URL": "${{Postgres.DATABASE_URL}}",
+        "POSTGRES_PRISMA_URL_NON_POOLING": "${{Postgres.DATABASE_URL}}",
+        "POSTGRES_PRISMA_SHADOW_URL": "postgresql://roomline:${{shared.ROOMLINE_POSTGRES_PASSWORD}}@${{Postgres.RAILWAY_PRIVATE_DOMAIN}}:5432/roomline_staging_shadow",
+        "UPSTASH_REDIS_REST_URL": "http://${{RedisREST.RAILWAY_PRIVATE_DOMAIN}}:8080",
+        "UPSTASH_REDIS_REST_LOCKER_URL": "http://${{RedisREST.RAILWAY_PRIVATE_DOMAIN}}:8080",
+        "UPSTASH_REDIS_REST_TOKEN": "${{shared.ROOMLINE_REDIS_HTTP_TOKEN}}",
+        "UPSTASH_REDIS_REST_LOCKER_TOKEN": "${{shared.ROOMLINE_REDIS_HTTP_TOKEN}}",
+        "NEXT_PUBLIC_UPLOAD_TRANSPORT": "s3",
+        "NEXT_PRIVATE_UPLOAD_BUCKET": "${{Files.BUCKET}}",
+        "NEXT_PRIVATE_ARCHIVE_BUCKET": "${{Files.BUCKET}}",
+        "NEXT_PRIVATE_UPLOAD_ENDPOINT": "${{Files.ENDPOINT}}",
+        "NEXT_PRIVATE_UPLOAD_REGION": "${{Files.REGION}}",
+        "NEXT_PRIVATE_UPLOAD_ACCESS_KEY_ID": "${{Files.ACCESS_KEY_ID}}",
+        "NEXT_PRIVATE_UPLOAD_SECRET_ACCESS_KEY": "${{Files.SECRET_ACCESS_KEY}}",
+        "NEXT_PRIVATE_DOCUMENT_PASSWORD_KEY": "${{shared.ROOMLINE_DOCUMENT_PASSWORD_KEY}}",
+        "NEXT_PRIVATE_VERIFICATION_SECRET": "${{shared.ROOMLINE_VERIFICATION_SECRET}}",
+        "INTERNAL_API_KEY": "${{shared.ROOMLINE_INTERNAL_API_KEY}}",
+        "REVALIDATE_TOKEN": "${{shared.ROOMLINE_REVALIDATE_TOKEN}}",
+        "ROOMLINE_CONFIGURE_BUCKET_CORS": "1",
+        "ROOMLINE_MANAGED_PROJECT_ID": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "ROOMLINE_MANAGED_BUCKET_NAME": "${{Files.BUCKET}}",
+        "ROOMLINE_PROCESSING_MODE": "inline"
+      },
+      "limits": {
+        "memoryGB": 2,
+        "vCPUs": 2
+      },
+      "buildCommand": "npm run build",
+      "startCommand": "npm run start -- --hostname 0.0.0.0 --port $PORT",
+      "preDeployCommand": [
+        "npx prisma migrate deploy && node scripts/deploy/configure-storage-cors.mjs"
+      ],
+      "preDeployTimeoutSeconds": 300,
+      "healthcheckPath": "/api/health",
+      "healthcheckTimeout": 300,
+      "builder": "RAILPACK",
+      "nodeVersion": "24 via package.json engines",
+      "sleepApplication": false,
+      "id": "c765d930-419c-4e64-8369-c7184ee789e1"
+    }
+  },
+  "bucket": {
+    "displayName": "Files",
+    "region": "sjc",
+    "nativePrivate": true,
+    "actualNameReference": "${{Files.BUCKET}}",
+    "cors": {
+      "AllowedMethods": [
+        "GET",
+        "HEAD"
+      ],
+      "AllowedOrigins": [
+        "*"
+      ],
+      "AllowedHeaders": [
+        "*"
+      ],
+      "ExposeHeaders": [
+        "ETag",
+        "Content-Length",
+        "Content-Range",
+        "Accept-Ranges"
+      ],
+      "MaxAgeSeconds": 300
+    }
+  },
+  "requiredOwnerBinding": {
+    "RESEND_API_KEY": "New business-owned verified HTTPS provider key; not supplied",
+    "EMAIL_FROM": "New business-owned verified sender; not supplied"
+  },
+  "optionalIntegrationsNotValidated": [
+    "Stripe owned prices/accounts/webhooks",
+    "Trigger.dev workers and freeze archive paths",
+    "OAuth providers/SSO",
+    "Tinybird/analytics",
+    "AI providers",
+    "Slack",
+    "marketing mail"
+  ],
+  "predeployCaveats": [
+    "Private network and environment variables available; no service volumes mounted",
+    "Migrations use deploy, never dev",
+    "CORS helper never run against an unrelated bucket",
+    "SRH must remain private and authenticated",
+    "Real local TUS transfer/storage authentication passed; native hosted Railway S3/CORS remains unverified until approved deployment."
+  ],
+  "costs": {
+    "accountPlanAndBalanceExposed": false,
+    "hobbyMinimumUSD": 5,
+    "proMinimumUSD": 20,
+    "ramUSDPerGBMonth": 10,
+    "cpuUSDPerVCPUmonth": 20,
+    "serviceEgressUSDPerGB": 0.05,
+    "volumeUSDPerGBMonth": 0.15,
+    "bucketUSDPerGBMonth": 0.015,
+    "buildChargesUSD": 0,
+    "note": "Public documented prices; not an account-specific estimate or a promise to fit minimum credit"
+  },
+  "operations": [
+    {
+      "phase": "create-empty-records",
+      "tool": "mcp__codex_apps__railway_create_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "name": "Postgres"
+      },
+      "capture": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
+      "effect": "Creates only an empty service record; no image/source attached yet.",
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "create-empty-records",
+      "tool": "mcp__codex_apps__railway_create_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "name": "Redis"
+      },
+      "capture": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
+      "effect": "Creates only an empty service record; no image/source attached yet.",
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "create-empty-records",
+      "tool": "mcp__codex_apps__railway_create_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "name": "RedisREST"
+      },
+      "capture": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4",
+      "effect": "Creates only an empty service record; no image/source attached yet.",
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "create-empty-records",
+      "tool": "mcp__codex_apps__railway_create_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "name": "Roomline"
+      },
+      "capture": "c765d930-419c-4e64-8369-c7184ee789e1",
+      "effect": "Creates only an empty service record; no image/source attached yet.",
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "secrets",
+      "tool": "mcp__codex_apps__railway_set_variables",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "staged": true
+      },
+      "note": "Generate distinct values in a private tool pipeline; placeholders must never be submitted. Ordinary set_variables secret() evaluation is not assumed.",
+      "executionStatus": "completed privately by root; secret input deliberately absent and not replayable",
+      "redactedInputKeys": [
+        "ROOMLINE_POSTGRES_PASSWORD",
+        "ROOMLINE_REDIS_PASSWORD",
+        "ROOMLINE_REDIS_HTTP_TOKEN",
+        "ROOMLINE_NEXTAUTH_SECRET",
+        "ROOMLINE_DOCUMENT_PASSWORD_KEY",
+        "ROOMLINE_VERIFICATION_SECRET",
+        "ROOMLINE_INTERNAL_API_KEY",
+        "ROOMLINE_REVALIDATE_TOKEN"
+      ]
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_connect_service_source",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
+        "image": "postgres@sha256:81e77a4833487b8132fe4b00bedd39dc3f74b8641e387f19312a48f7de218c2e",
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_set_variables",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
+        "variables": {
+          "POSTGRES_DB": "roomline_staging",
+          "POSTGRES_USER": "roomline",
+          "POSTGRES_PASSWORD": "${{shared.ROOMLINE_POSTGRES_PASSWORD}}",
+          "PGDATA": "/var/lib/postgresql/data/pgdata",
+          "DATABASE_URL": "postgresql://roomline:${{shared.ROOMLINE_POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/roomline_staging"
+        },
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_update_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
+        "limits": {
+          "memoryGB": 0.5,
+          "vCPUs": 0.5
+        },
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3,
+        "sleepApplication": false,
+        "regions": {
+          "us-west2": {
+            "numReplicas": 1
+          }
+        },
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_create_volume",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
+        "name": "postgres-staging-data",
+        "mountPath": "/var/lib/postgresql/data",
+        "sizeMB": 1024,
+        "region": "us-west2",
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_connect_service_source",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
+        "image": "redis@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe",
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_set_variables",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
+        "variables": {
+          "REDIS_PASSWORD": "${{shared.ROOMLINE_REDIS_PASSWORD}}",
+          "REDIS_URL": "redis://default:${{shared.ROOMLINE_REDIS_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:6379"
+        },
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_update_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
+        "limits": {
+          "memoryGB": 0.25,
+          "vCPUs": 0.5
+        },
+        "startCommand": "sh -c 'exec redis-server --bind 0.0.0.0 :: --protected-mode yes --requirepass \"$REDIS_PASSWORD\" --appendonly yes --dir /data --maxmemory 160mb --maxmemory-policy noeviction'",
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3,
+        "sleepApplication": false,
+        "regions": {
+          "us-west2": {
+            "numReplicas": 1
+          }
+        },
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_create_volume",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
+        "name": "redis-staging-data",
+        "mountPath": "/data",
+        "sizeMB": 1024,
+        "region": "us-west2",
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_connect_service_source",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4",
+        "image": "hiett/serverless-redis-http@sha256:5b0bb9239fce53abf87b2018a7a0deb9ec7bd900c5360738fe5fbeeb426f9150",
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_set_variables",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4",
+        "variables": {
+          "SRH_MODE": "env",
+          "SRH_TOKEN": "${{shared.ROOMLINE_REDIS_HTTP_TOKEN}}",
+          "SRH_CONNECTION_STRING": "${{Redis.REDIS_URL}}",
+          "SRH_PORT": "8080",
+          "SRH_IPV6": "true",
+          "SRH_MAX_CONNECTIONS": "3",
+          "PORT": "8080"
+        },
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_update_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4",
+        "limits": {
+          "memoryGB": 0.125,
+          "vCPUs": 0.25
+        },
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3,
+        "sleepApplication": false,
+        "regions": {
+          "us-west2": {
+            "numReplicas": 1
+          }
+        },
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "stage-infrastructure",
+      "tool": "mcp__codex_apps__railway_create_bucket",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "name": "Files",
+        "region": "sjc",
+        "staged": true
+      },
+      "executionStatus": "completed; infrastructure still staged"
+    },
+    {
+      "phase": "review-infrastructure",
+      "tool": "mcp__codex_apps__railway_get_staged_changes",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc"
+      },
+      "require": "Only new project/environment resources; no deletions; secret values redacted.",
+      "executionStatus": "completed: STAGED, destructive=false"
+    },
+    {
+      "phase": "deploy-infrastructure",
+      "tool": "mcp__codex_apps__railway_accept_deploy",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "commitMessage": "Provision dedicated Roomline staging infrastructure"
+      },
+      "require": "Root must review this concrete plan and execute within the user's authorized staging deployment.",
+      "executionStatus": "not executed by this agent"
+    },
+    {
+      "phase": "app-domain",
+      "tool": "mcp__codex_apps__railway_generate_domain",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c765d930-419c-4e64-8369-c7184ee789e1",
+        "targetPort": 3000
+      },
+      "note": "No public domain or TCP proxy for Postgres, Redis or RedisREST.",
+      "executionStatus": "not executed by this agent"
+    },
+    {
+      "phase": "stage-app",
+      "tool": "mcp__codex_apps__railway_set_variables",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c765d930-419c-4e64-8369-c7184ee789e1",
+        "variables": {
+          "NODE_ENV": "production",
+          "PORT": "3000",
+          "NEXTAUTH_URL": "https://roomline-staging-3157af3e.up.railway.app",
+          "NEXT_PUBLIC_BASE_URL": "https://roomline-staging-3157af3e.up.railway.app",
+          "NEXT_PUBLIC_APP_BASE_HOST": "roomline-staging-3157af3e.up.railway.app",
+          "NEXT_PUBLIC_MARKETING_URL": "https://roomline-marketing-hythevc.vercel.app",
+          "NEXTAUTH_SECRET": "${{shared.ROOMLINE_NEXTAUTH_SECRET}}",
+          "POSTGRES_PRISMA_URL": "${{Postgres.DATABASE_URL}}",
+          "POSTGRES_PRISMA_URL_NON_POOLING": "${{Postgres.DATABASE_URL}}",
+          "POSTGRES_PRISMA_SHADOW_URL": "postgresql://roomline:${{shared.ROOMLINE_POSTGRES_PASSWORD}}@${{Postgres.RAILWAY_PRIVATE_DOMAIN}}:5432/roomline_staging_shadow",
+          "UPSTASH_REDIS_REST_URL": "http://${{RedisREST.RAILWAY_PRIVATE_DOMAIN}}:8080",
+          "UPSTASH_REDIS_REST_LOCKER_URL": "http://${{RedisREST.RAILWAY_PRIVATE_DOMAIN}}:8080",
+          "UPSTASH_REDIS_REST_TOKEN": "${{shared.ROOMLINE_REDIS_HTTP_TOKEN}}",
+          "UPSTASH_REDIS_REST_LOCKER_TOKEN": "${{shared.ROOMLINE_REDIS_HTTP_TOKEN}}",
+          "NEXT_PUBLIC_UPLOAD_TRANSPORT": "s3",
+          "NEXT_PRIVATE_UPLOAD_BUCKET": "${{Files.BUCKET}}",
+          "NEXT_PRIVATE_ARCHIVE_BUCKET": "${{Files.BUCKET}}",
+          "NEXT_PRIVATE_UPLOAD_ENDPOINT": "${{Files.ENDPOINT}}",
+          "NEXT_PRIVATE_UPLOAD_REGION": "${{Files.REGION}}",
+          "NEXT_PRIVATE_UPLOAD_ACCESS_KEY_ID": "${{Files.ACCESS_KEY_ID}}",
+          "NEXT_PRIVATE_UPLOAD_SECRET_ACCESS_KEY": "${{Files.SECRET_ACCESS_KEY}}",
+          "NEXT_PRIVATE_DOCUMENT_PASSWORD_KEY": "${{shared.ROOMLINE_DOCUMENT_PASSWORD_KEY}}",
+          "NEXT_PRIVATE_VERIFICATION_SECRET": "${{shared.ROOMLINE_VERIFICATION_SECRET}}",
+          "INTERNAL_API_KEY": "${{shared.ROOMLINE_INTERNAL_API_KEY}}",
+          "REVALIDATE_TOKEN": "${{shared.ROOMLINE_REVALIDATE_TOKEN}}",
+          "ROOMLINE_CONFIGURE_BUCKET_CORS": "1",
+          "ROOMLINE_MANAGED_PROJECT_ID": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+          "ROOMLINE_MANAGED_BUCKET_NAME": "${{Files.BUCKET}}",
+          "ROOMLINE_PROCESSING_MODE": "inline"
+        },
+        "staged": true
+      },
+      "require": "Resolve actual marketing origin or use https://${{RAILWAY_PUBLIC_DOMAIN}}; never submit marker strings.",
+      "executionStatus": "staged; actual public-origin literals and inline processing confirmed by root"
+    },
+    {
+      "phase": "stage-app",
+      "tool": "mcp__codex_apps__railway_update_service",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c765d930-419c-4e64-8369-c7184ee789e1",
+        "builder": "RAILPACK",
+        "buildCommand": "npm run build",
+        "startCommand": "npm run start -- --hostname 0.0.0.0 --port $PORT",
+        "preDeployCommand": [
+          "npx prisma migrate deploy && node scripts/deploy/configure-storage-cors.mjs"
+        ],
+        "preDeployTimeoutSeconds": 300,
+        "healthcheckPath": "/api/health",
+        "healthcheckTimeout": 300,
+        "limits": {
+          "memoryGB": 2,
+          "vCPUs": 2
+        },
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3,
+        "sleepApplication": false,
+        "regions": {
+          "us-west2": {
+            "numReplicas": 1
+          }
+        },
+        "staged": true
+      },
+      "executionStatus": "configuration staged"
+    },
+    {
+      "phase": "stage-app-source",
+      "tool": "mcp__codex_apps__railway_connect_service_source",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "serviceId": "c765d930-419c-4e64-8369-c7184ee789e1",
+        "repo": "hythevc/papermark",
+        "commitSha": "b59108e0b3fa020916af28bb4133ccee7ec824be",
+        "staged": true,
+        "branch": "codex/roomline-saas"
+      },
+      "require": "Pin the reviewed commit with staged:true in this exact staging environment; user approved on 2026-11-18.",
+      "executionStatus": "Exact source connection successfully staged; not applied."
+    },
+    {
+      "phase": "review-app",
+      "tool": "mcp__codex_apps__railway_get_staged_changes",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc"
+      },
+      "executionStatus": "Root reviewed all 109 scoped changes after source staging; no destructive resource changes."
+    },
+    {
+      "phase": "deploy-app",
+      "tool": "mcp__codex_apps__railway_accept_deploy",
+      "args": {
+        "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
+        "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+        "commitMessage": "Deploy reviewed Roomline staging application"
+      },
+      "executionStatus": "Attempted after explicit user approval; automatic approval review rejected the apply action. No deployment committed."
+    }
+  ],
+  "verification": [
+    "Hosted production build/deploy and /api/health",
+    "No public DB/Redis/SRH endpoint",
+    "Real Redis REST token denial, PING, single-use and locks",
+    "Owned bucket anonymous denial and signed GET with Origin returns CORS",
+    "Real hosted owner/guest upload, processing, permissions and revocation",
+    "Email code flow only after verified sender/key binding",
+    "No real charge or Stripe success claim without separate payment verification"
+  ],
+  "officialSources": [
+    "https://docs.railway.com/variables/reference.md",
+    "https://docs.railway.com/templates/create.md",
+    "https://docs.railway.com/storage-buckets.md",
+    "https://docs.railway.com/storage-buckets/uploading-serving.md",
+    "https://docs.railway.com/storage-buckets/billing.md",
+    "https://docs.railway.com/pricing/plans.md",
+    "https://docs.railway.com/networking/outbound-networking.md",
+    "https://docs.railway.com/deployments/pre-deploy-command.md",
+    "https://github.com/hiett/serverless-redis-http#environment-variables"
+  ],
+  "observedStaging": {
+    "status": "STAGED_NOT_APPLIED",
+    "project": {
+      "id": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+      "name": "Roomline",
+      "workspaceName": "jaimedhenriques's Projects"
+    },
+    "environment": {
+      "id": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+      "name": "staging",
+      "isEphemeral": false
+    },
+    "patchId": "fa27cd5a-5822-41b3-b0e9-e9c7ede4f401",
+    "changeCount": 109,
+    "destructive": false,
+    "services": [
+      {
+        "id": "c765d930-419c-4e64-8369-c7184ee789e1",
+        "name": "Roomline",
+        "latestDeployment": null,
+        "sourceAttached": true,
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false,
+        "stagedCommitSha": "b59108e0b3fa020916af28bb4133ccee7ec824be"
+      },
+      {
+        "id": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4",
+        "name": "RedisREST",
+        "latestDeployment": null,
+        "sourceAttached": true,
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false
+      },
+      {
+        "id": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
+        "name": "Redis",
+        "latestDeployment": null,
+        "sourceAttached": true,
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false
+      },
+      {
+        "id": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
+        "name": "Postgres",
+        "latestDeployment": null,
+        "sourceAttached": true,
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false
+      }
+    ],
+    "volumes": [
+      {
+        "id": "43dc4e38-dda9-4e97-86a0-87af2197c484",
+        "name": "redis-staging-data",
+        "state": "staged-create",
+        "sizeMB": 1024,
+        "mountPath": "/data"
+      },
+      {
+        "id": "5ac86e45-a522-43a3-95f5-b5c0687febe8",
+        "name": "postgres-staging-data",
+        "state": "staged-create",
+        "sizeMB": 1024,
+        "mountPath": "/var/lib/postgresql/data"
+      }
+    ],
+    "bucket": {
+      "id": "fee26cb6-2596-4426-9515-ddd60515c6cc",
+      "name": "Files",
+      "state": "staged-create",
+      "region": "sjc",
+      "stagedChangeCount": 2
+    },
+    "sharedSecretNamesOnly": [
+      "ROOMLINE_DOCUMENT_PASSWORD_KEY",
+      "ROOMLINE_INTERNAL_API_KEY",
+      "ROOMLINE_NEXTAUTH_SECRET",
+      "ROOMLINE_POSTGRES_PASSWORD",
+      "ROOMLINE_REDIS_HTTP_TOKEN",
+      "ROOMLINE_REDIS_PASSWORD",
+      "ROOMLINE_REVALIDATE_TOKEN",
+      "ROOMLINE_VERIFICATION_SECRET"
+    ],
+    "rootConfirmedSubsequentBindings": {
+      "NEXTAUTH_URL": "https://roomline-staging-3157af3e.up.railway.app",
+      "NEXT_PUBLIC_BASE_URL": "https://roomline-staging-3157af3e.up.railway.app",
+      "NEXT_PUBLIC_APP_BASE_HOST": "roomline-staging-3157af3e.up.railway.app",
+      "NEXT_PUBLIC_MARKETING_URL": "https://roomline-marketing-hythevc.vercel.app",
+      "ROOMLINE_PROCESSING_MODE": "inline"
+    },
+    "unstagedAtEarlier100ChangeSnapshot": [
+      "NEXTAUTH_URL",
+      "NEXT_PUBLIC_BASE_URL",
+      "NEXT_PUBLIC_APP_BASE_HOST",
+      "NEXT_PUBLIC_MARKETING_URL",
+      "application source"
+    ],
+    "remainingUnstagedAccordingToRoot": [],
+    "checkedAt": "2026-11-18"
+  },
+  "actualServiceIds": {
+    "Postgres": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
+    "Redis": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
+    "RedisREST": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4",
+    "Roomline": "c765d930-419c-4e64-8369-c7184ee789e1"
+  },
+  "actualVolumeIds": {
+    "redis-staging-data": "43dc4e38-dda9-4e97-86a0-87af2197c484",
+    "postgres-staging-data": "5ac86e45-a522-43a3-95f5-b5c0687febe8"
+  },
+  "actualBucketId": "fee26cb6-2596-4426-9515-ddd60515c6cc",
+  "deploymentApproval": {
+    "state": "user-approved-but-automatic-approval-review-rejected",
+    "action": "railway_accept_deploy",
+    "message": "Cancelled — the user did not approve this action. No changes were made.",
+    "changesMade": false,
+    "stagedChangeCountReportedByRoot": 109,
+    "noBypass": true,
+    "userApproved": true,
+    "approvedAt": "2026-11-18",
+    "deploymentCommitted": false
+  },
+  "publicOrigins": {
+    "application": "https://roomline-staging-3157af3e.up.railway.app",
+    "marketing": "https://roomline-marketing-hythevc.vercel.app"
+  },
+  "marketingArtifact": {
+    "buildResult": "passed locally",
+    "published": true,
+    "builtAt": "2026-11-17T02:37:33.115Z",
+    "sourceDigest": "c3f451b1b1aa26d6b1ec7702b9048a0da9baf1b492950ad95813e00794e7b187",
+    "htmlPages": 10,
+    "exportedFiles": 47,
+    "browserVerification": {
+      "result": "passed",
+      "generatedAt": "2026-11-17T02:38:54.647Z",
+      "captures": 20,
+      "captureFailures": 0,
+      "interactions": 3,
+      "interactionFailures": 0,
+      "foreignRequests": 0,
+      "privateRequests": 0,
+      "axeViolations": 0,
+      "contrastFixStatus": "verified on rebuilt artifact at1440/390",
+      "report": "artifacts/runtime/marketing/report.json"
+    },
+    "url": "https://roomline-marketing-hythevc.vercel.app",
+    "deploymentId": "dpl_EaLxmeV1ykTFsmkxdfyokLQ4FEjg",
+    "readyState": "READY",
+    "publishedAt": "2026-11-18T22:31:05.452Z",
+    "hostedVerificationReport": "artifacts/deployment/vercel.json"
+  },
+  "updatedAt": "2026-11-18",
+  "emailBindingConfigured": false,
+  "currentStatusReport": "artifacts/deployment/railway.json"
+}

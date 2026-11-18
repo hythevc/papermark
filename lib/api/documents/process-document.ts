@@ -5,6 +5,7 @@ import type {
 import { tasks } from "@trigger.dev/sdk";
 
 import { validateExternalDocumentUrl } from "@/lib/api/documents/validate-external-url";
+import { usesInlineDocumentProcessing } from "@/lib/document-processing";
 import { DocumentData } from "@/lib/documents/create-document";
 import { getFeatureFlags } from "@/lib/featureFlags";
 import prisma from "@/lib/prisma";
@@ -142,13 +143,28 @@ export const processDocument = async ({
     },
   });
 
-  // Trigger appropriate conversion tasks based on document type
-  // Check if it's a Keynote file (slides type with Keynote content type)
-  if (
+  const keynoteConversion =
     type === "slides" &&
     (contentType === "application/vnd.apple.keynote" ||
-      contentType === "application/x-iwork-keynote-sffkey")
-  ) {
+      contentType === "application/x-iwork-keynote-sffkey");
+  const officeConversion =
+    (type === "docs" || type === "slides") &&
+    !isDownloadOnlyByExtension &&
+    !isMarkdown;
+  const inlineProcessing = usesInlineDocumentProcessing();
+
+  if (inlineProcessing && (keynoteConversion || officeConversion)) {
+    const { convertDocumentVersion } =
+      await import("@/ee/features/conversions/lib/trigger/convert-files");
+    await convertDocumentVersion(
+      {
+        documentId: document.id,
+        documentVersionId: document.versions[0].id,
+        teamId,
+      },
+      keynoteConversion ? "keynote" : "office",
+    );
+  } else if (keynoteConversion) {
     await tasks.trigger<typeof convertKeynoteToPdfTask>(
       "convert-keynote-to-pdf",
       {
@@ -167,11 +183,7 @@ export const processDocument = async ({
         concurrencyKey: teamId,
       },
     );
-  } else if (
-    (type === "docs" || type === "slides") &&
-    !isDownloadOnlyByExtension &&
-    !isMarkdown
-  ) {
+  } else if (officeConversion) {
     await tasks.trigger<typeof convertFilesToPdfTask>(
       "convert-files-to-pdf",
       {
@@ -214,13 +226,16 @@ export const processDocument = async ({
 
   // skip triggering convert-pdf-to-image job for "notion" / "excel" documents
   if (type === "pdf") {
-    await convertPdfToImageRoute.trigger(
-      {
-        documentId: document.id,
-        documentVersionId: document.versions[0].id,
-        teamId,
-      },
-      {
+    const payload = {
+      documentId: document.id,
+      documentVersionId: document.versions[0].id,
+      teamId,
+    };
+    if (inlineProcessing) {
+      const { renderPdfVersion } = await import("@/lib/documents/render-pdf");
+      await renderPdfVersion(payload);
+    } else
+      await convertPdfToImageRoute.trigger(payload, {
         idempotencyKey: `${teamId}-${document.versions[0].id}`,
         tags: [
           `team_${teamId}`,
@@ -229,8 +244,7 @@ export const processDocument = async ({
         ],
         queue: conversionQueueName(teamPlan),
         concurrencyKey: teamId,
-      },
-    );
+      });
   }
 
   if (type === "sheet" && enableExcelAdvancedMode) {
@@ -268,5 +282,14 @@ export const processDocument = async ({
       }),
   ]);
 
+  if (
+    inlineProcessing &&
+    (type === "pdf" || keynoteConversion || officeConversion)
+  ) {
+    return prisma.document.findUniqueOrThrow({
+      where: { id: document.id, teamId },
+      include: { links: true, versions: true },
+    });
+  }
   return document;
 };

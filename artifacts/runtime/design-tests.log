@@ -1,0 +1,33 @@
+
+> roomline@0.1.0 design:test
+> node --test scripts/design/check.test.mjs scripts/design/21st-mcp.test.mjs
+
+✔ missing environment key fails before any network request (36.623889ms)
+✔ help works without credentials and credential flags are rejected (1.246162ms)
+✔ MCP initializes and carries negotiated protocol/session without exposing authentication (2125.609153ms)
+✔ SSE returns after its matching response and cancels a stream that remains open (3.904557ms)
+✔ transport and HTTP failures never return raw errors or response bodies (1.548148ms)
+✔ a stalled request is bounded even when a mock transport ignores AbortSignal (1365.362722ms)
+✔ malformed JSON, wrong RPC IDs and raw RPC errors fail with safe messages (4.686661ms)
+✔ all tool-list pages are read and repeated cursors fail rather than loop (5.027546ms)
+✔ optional search only calls a compatible discovered metadata tool and redacts results (5.139614ms)
+✔ search does not guess missing required arguments or call unrelated generation tools (0.662565ms)
+✔ official get_inspiration metadata tool is supported without uploading repository context (1.509352ms)
+✔ tool errors are not printed and oversized responses are rejected (7.288456ms)
+✔ redaction covers exact credentials, standard key names and key-like strings (0.853763ms)
+✔ repository MCP config uses only the official endpoint and an environment placeholder (138.103244ms)
+✔ honest blocked record validates but strict release mode rejects it (64.288094ms)
+✔ stale source digest and unscoped UI changes fail (8.584187ms)
+✔ sensitive, traversal, and outside-symlink paths are rejected (13.694494ms)
+✔ rendered claim without screenshot and missing tool decisions fail (30.185098ms)
+✔ fake screenshot, duplicate IDs and unknown evidence references fail (7.661541ms)
+✔ applied reference and passed check need evidence; malformed rows do not crash (36.065141ms)
+✔ valid PNGs support paired rendered evidence and mismatched dimensions fail (1631.249983ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4378.842987

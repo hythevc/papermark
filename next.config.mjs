@@ -147,17 +147,6 @@ const nextConfig = {
   async redirects() {
     const redirects = [
       {
-        source: "/",
-        destination: "/dashboard",
-        permanent: false,
-        has: [
-          {
-            type: "host",
-            value: process.env.NEXT_PUBLIC_APP_BASE_HOST,
-          },
-        ],
-      },
-      {
         source: "/settings",
         destination: "/settings/general",
         permanent: false,
@@ -283,21 +272,20 @@ const nextConfig = {
           },
         ],
       },
-      {
-        source: "/services/:path*",
-        has: [
-          {
-            type: "host",
-            value: process.env.NEXT_PUBLIC_WEBHOOK_BASE_HOST,
-          },
-        ],
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex",
-          },
-        ],
-      },
+      ...(process.env.NEXT_PUBLIC_WEBHOOK_BASE_HOST
+        ? [
+            {
+              source: "/services/:path*",
+              has: [
+                {
+                  type: "host",
+                  value: process.env.NEXT_PUBLIC_WEBHOOK_BASE_HOST,
+                },
+              ],
+              headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+            },
+          ]
+        : []),
       {
         source: "/api/webhooks/services/:path*",
         headers: [
@@ -319,6 +307,9 @@ const nextConfig = {
     ];
   },
   experimental: {
+    // Keep build workers within the memory available on shared CI runners.
+    // This does not limit request concurrency in the deployed application.
+    cpus: 2,
     // Rewrite barrel imports (e.g. `import { Icon } from "lucide-react"`) to
     // direct submodule imports at build time. Cuts dev boot, cold starts and
     // HMR for these large re-export packages without losing ergonomic imports.

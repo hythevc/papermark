@@ -1,0 +1,388 @@
+{
+  "name": "papermark-pricing",
+  "url": "https://www.papermark.com/pricing",
+  "viewportCaptures": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "documentWidth": 1440,
+      "file": "papermark-pricing-1440.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390,
+      "file": "papermark-pricing-390.png"
+    }
+  ],
+  "capturedAt": "2026-11-14T18:41:31.172Z",
+  "status": 200,
+  "finalUrl": "https://www.papermark.com/pricing",
+  "title": "Pricing | Papermark",
+  "headings": [
+    "Find the plan that works for you",
+    "Free",
+    "Pro",
+    "Business",
+    "Data Rooms",
+    "Papermark pricing calculator. Calculate right price for your team and understand how pricing is formed.",
+    "Free",
+    "Pro",
+    "Business",
+    "Data Rooms",
+    "Team MembersSelected: 3 members",
+    "Contract Term",
+    "Data Rooms",
+    "Your total",
+    "Looking for enterprise plan or self-hosted version?",
+    "Compare features",
+    "Document Analytics and Tracking",
+    "Link Settings",
+    "Data Rooms and Documents",
+    "File Types",
+    "Custom Branding",
+    "Other Features",
+    "Support",
+    "Footer",
+    "Product",
+    "About",
+    "Use cases",
+    "Alternatives",
+    "Resources"
+  ],
+  "links": [
+    {
+      "text": "Data Room",
+      "href": "https://www.papermark.com/data-room"
+    },
+    {
+      "text": "P",
+      "href": "https://www.papermark.com/"
+    },
+    {
+      "text": "9.4K",
+      "href": "https://git.new/papermark"
+    },
+    {
+      "text": "All Systems Operational",
+      "href": "https://papermark.openstatus.dev/"
+    },
+    {
+      "text": "Papermark",
+      "href": "https://www.papermark.com/"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.papermark.com/pricing"
+    },
+    {
+      "text": "Data Room",
+      "href": "https://www.papermark.com/data-room"
+    },
+    {
+      "text": "API",
+      "href": "https://www.papermark.com/dev"
+    },
+    {
+      "text": "MCP",
+      "href": "https://www.papermark.com/agents"
+    },
+    {
+      "text": "Enterprise",
+      "href": "https://www.papermark.com/enterprise"
+    },
+    {
+      "text": "Security",
+      "href": "https://www.papermark.com/security"
+    },
+    {
+      "text": "GitHub",
+      "href": "https://github.com/papermark"
+    },
+    {
+      "text": "Page by Page  Analytics",
+      "href": "https://www.papermark.com/document-analytics"
+    },
+    {
+      "text": "AI Redaction",
+      "href": "https://www.papermark.com/ai-redaction"
+    },
+    {
+      "text": "Data room request list",
+      "href": "https://www.papermark.com/data-room-request-list"
+    },
+    {
+      "text": "Dynamic Watermarking",
+      "href": "https://www.papermark.com/dynamic-watermarking"
+    },
+    {
+      "text": "Screenshot Protection",
+      "href": "https://www.papermark.com/screenshot-protection"
+    },
+    {
+      "text": "Password Protection",
+      "href": "https://www.papermark.com/password-protection"
+    },
+    {
+      "text": "One-Click NDA",
+      "href": "https://www.papermark.com/one-click-nda"
+    },
+    {
+      "text": "AI Data Room Copilot",
+      "href": "https://www.papermark.com/ai"
+    },
+    {
+      "text": "Notion Sharing",
+      "href": "https://www.papermark.com/share-notion-page"
+    },
+    {
+      "text": "Secure File Sharing",
+      "href": "https://www.papermark.com/secure-file-sharing"
+    },
+    {
+      "text": "Workflows",
+      "href": "https://www.papermark.com/workflows"
+    },
+    {
+      "text": "Link Permissions",
+      "href": "https://www.papermark.com/granular-permissions"
+    },
+    {
+      "text": "Custom Domain",
+      "href": "https://www.papermark.com/help/article/how-to-add-custom-domain-to-link"
+    },
+    {
+      "text": "Document Versions",
+      "href": "https://www.papermark.com/help/article/document-versions"
+    },
+    {
+      "text": "Data Room Questions and Answers",
+      "href": "https://www.papermark.com/data-room-questions-and-answers"
+    },
+    {
+      "text": "AI Agents for Data Rooms",
+      "href": "https://www.papermark.com/ai-agents"
+    },
+    {
+      "text": "AI Data Rooms",
+      "href": "https://www.papermark.com/blog/ai-data-rooms"
+    },
+    {
+      "text": "Company",
+      "href": "https://www.papermark.com/about"
+    },
+    {
+      "text": "Platform",
+      "href": "https://www.papermark.com/platform"
+    },
+    {
+      "text": "Changelog",
+      "href": "https://www.papermark.com/changelog"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.papermark.com/privacy"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.papermark.com/terms"
+    },
+    {
+      "text": "Subprocessors",
+      "href": "https://www.papermark.com/subprocessors"
+    },
+    {
+      "text": "Customers",
+      "href": "https://www.papermark.com/customers"
+    },
+    {
+      "text": "Become a partner",
+      "href": "https://www.papermark.com/partners"
+    },
+    {
+      "text": "Data Room Use Cases",
+      "href": "https://www.papermark.com/virtual-data-room-use-cases"
+    },
+    {
+      "text": "M&A Data Room",
+      "href": "https://www.papermark.com/ma-data-room"
+    },
+    {
+      "text": "Real Estate Data Room",
+      "href": "https://www.papermark.com/real-estate-data-room"
+    },
+    {
+      "text": "Due Diligence",
+      "href": "https://www.papermark.com/data-room-due-diligence"
+    },
+    {
+      "text": "Investment Banking",
+      "href": "https://www.papermark.com/vdr-investment-banking"
+    },
+    {
+      "text": "Startups Fundraising",
+      "href": "https://www.papermark.com/startups"
+    },
+    {
+      "text": "Pitch Deck Sharing",
+      "href": "https://www.papermark.com/pitch-deck-sharing-software"
+    },
+    {
+      "text": "Investor Update Software",
+      "href": "https://www.papermark.com/solutions/investor-update-software"
+    },
+    {
+      "text": "Data Room for Startups",
+      "href": "https://www.papermark.com/data-room-for-startups"
+    },
+    {
+      "text": "Biotech Pharma Data Room",
+      "href": "https://www.papermark.com/biotech-pharma-data-room"
+    },
+    {
+      "text": "Virtual Sales Data Room",
+      "href": "https://www.papermark.com/vdr-sales"
+    },
+    {
+      "text": "Fundraising Data Room",
+      "href": "https://www.papermark.com/fundraising-data-room"
+    },
+    {
+      "text": "DocSend",
+      "href": "https://www.papermark.com/alternatives/docsend"
+    },
+    {
+      "text": "Ideals VDR",
+      "href": "https://www.papermark.com/alternatives/ideals"
+    },
+    {
+      "text": "Intralinks",
+      "href": "https://www.papermark.com/alternatives/intralinks"
+    },
+    {
+      "text": "Datasite",
+      "href": "https://www.papermark.com/alternatives/datasite"
+    },
+    {
+      "text": "Firmex",
+      "href": "https://www.papermark.com/blog/firmex-alternatives"
+    },
+    {
+      "text": "Ansarada",
+      "href": "https://www.papermark.com/alternatives/ansarada"
+    },
+    {
+      "text": "All Alternatives",
+      "href": "https://www.papermark.com/alternatives"
+    },
+    {
+      "text": "DocSend Alternatives",
+      "href": "https://www.papermark.com/docsend-alternatives"
+    },
+    {
+      "text": "Ideals VDR Alternatives",
+      "href": "https://www.papermark.com/ideals-vdr-alternatives"
+    },
+    {
+      "text": "Intralinks Alternatives",
+      "href": "https://www.papermark.com/blog/intralinks-alternatives"
+    },
+    {
+      "text": "Datasite Alternatives",
+      "href": "https://www.papermark.com/blog/datasite-alternatives"
+    },
+    {
+      "text": "Digify",
+      "href": "https://www.papermark.com/alternatives/digify"
+    },
+    {
+      "text": "Digify Alternatives",
+      "href": "https://www.papermark.com/digify-alternatives"
+    },
+    {
+      "text": "Sharepoint",
+      "href": "https://www.papermark.com/alternatives/sharepoint"
+    },
+    {
+      "text": "Sharepoint Alternatives",
+      "href": "https://www.papermark.com/blog/sharepoint-alternatives-for-data-rooms"
+    },
+    {
+      "text": "Blog",
+      "href": "https://www.papermark.com/blog"
+    },
+    {
+      "text": "Help Center",
+      "href": "https://www.papermark.com/help"
+    },
+    {
+      "text": "Fundraising Report 2026",
+      "href": "https://www.papermark.com/fundraising-report"
+    },
+    {
+      "text": "Pitch Deck Competition",
+      "href": "https://www.papermark.com/pitch-deck-competition"
+    },
+    {
+      "text": "What is a Virtual Data Room",
+      "href": "https://www.papermark.com/blog/what-is-virtual-data-room"
+    },
+    {
+      "text": "Best Virtual Data Rooms",
+      "href": "https://www.papermark.com/blog/best-virtual-data-rooms"
+    },
+    {
+      "text": "Data Room Price Comparison",
+      "href": "https://www.papermark.com/data-room-price"
+    },
+    {
+      "text": "Data Room Examples",
+      "href": "https://www.papermark.com/data-room-examples"
+    },
+    {
+      "text": "M&A Data Room Guide",
+      "href": "https://www.papermark.com/blog/virtual-data-room-for-mergers-and-acquisitions"
+    },
+    {
+      "text": "Best CRE Data Rooms",
+      "href": "https://www.papermark.com/blog/best-data-rooms-for-commercial-real-estate"
+    },
+    {
+      "text": "M&A Process Guide",
+      "href": "https://www.papermark.com/blog/ma-process"
+    },
+    {
+      "text": "Top Startup Data Rooms",
+      "href": "https://www.papermark.com/blog/data-room-for-startups"
+    },
+    {
+      "text": "Investor Database (7k+)",
+      "href": "https://www.papermark.com/investors"
+    },
+    {
+      "text": "M&A Advisors Database",
+      "href": "https://www.papermark.com/ma-advisors"
+    },
+    {
+      "text": "Startup Due Diligence",
+      "href": "https://www.papermark.com/blog/startup-due-diligence"
+    },
+    {
+      "text": "Due Diligence Data Room Guide",
+      "href": "https://www.papermark.com/blog/best-virtual-data-rooms-for-due-diligence"
+    },
+    {
+      "text": "Virtual Data Room Cost",
+      "href": "https://www.papermark.com/blog/virtual-data-room-cost"
+    },
+    {
+      "text": "Document Tracking Tool",
+      "href": "https://www.papermark.com/blog/document-tracking-software"
+    },
+    {
+      "text": "Open Source Data Room",
+      "href": "https://www.papermark.com/blog/open-source-free-data-room-software"
+    }
+  ],
+  "visibleTextSnippet": "Why Papermark?\nData Room\nPricing\nSecurity\nDevelopers\nBlog\nCustomers\nNews\nLog in\nStart now\ntrusted by 80,000+ companies to secure their deal flow\nFind the plan that works for you\n\nEvery plan includes unlimited visitors, page by page analytics, and unlimited data rooms.\nCancel or pause any time.\n\nDocument Sharing\nData Rooms\nSave up to 35%\nMonthly\nAnnually\nUSD\nEUR\nFree\nNo credit card required\n\n€0\n/month\n\nWhat's included:\n1 team member included\n50 links\n50 documents\nUnlimited visitors\nPage-by-page analytics\nDocument sharing controls\nStart for free\nPro\n\n€24\n/month\n\nEverything in Free, plus:\n1 team member included\nUnlimited links\n100 documents\nLarge file uploads\nCustom branding\nPapermark branding removed\nVideos and more file types\nCreating folders\nChoose Pro\nBusiness\nMost popular\n\n€59\n/month\n\n€20/m per additional team member\n\nEverything in Pro, plus:\n3 team members included\n1000 documents\nCustom domain for documents\nMulti-file sharing\nUnlimited folder levels\nRequire email verification\nAllow/Block list\nScreenshot protection\nWebhooks\nMCP, API, CLI\nChoose Business\nData Rooms\nBase\nPlus\n\n€99\n/month\n\n€33/m per additional team member\n\nEverything in Business, plus:\n3 team members included\nUnlimited data room visitors\nUnlimited data rooms\nUnlimited encrypted storage\nNo file size limit\nMCP, API, CLI\nCustom domain for data rooms\nData Room branding\nData Room analytics\nNDA agreements\nDynamic watermark\nGranular file level permissions\nData Room groups\n24/7 Email support\nStart 7-day free trial\nPapermark pricing calculator. Calculate right price for your team and understand how pricing is formed.\nFree\n\n€0\n\nPro\n\n€24\n\nBusiness\n\n€59\n\nData Rooms\n\n€99\n\nTeam Members\nSelected: 3 members\n3\n15\n25\n40\n50\nUnlimited\nContract Term\n1 month\n6 months\n1 year\nData Rooms\nNo Data Rooms\nMulti file sharing\nUnlimite"
+}

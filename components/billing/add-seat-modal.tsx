@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 import { useEffect, useState } from "react";
 
-import { UnlimitedPlanModal } from "@/components/billing/unlimited-plan-modal";
 import { useTeam } from "@/context/team-context";
 import { getPriceIdFromPlan } from "@/ee/stripe/functions/get-price-id-from-plan";
 import { getQuantityFromPriceId } from "@/ee/stripe/functions/get-quantity-from-plan";
@@ -13,6 +12,7 @@ import { useAnalytics } from "@/lib/analytics";
 import { usePlan } from "@/lib/swr/use-billing";
 import useLimits from "@/lib/swr/use-limits";
 
+import { UnlimitedPlanModal } from "@/components/billing/unlimited-plan-modal";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -25,6 +25,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+
+import { BillingUnavailableDialog } from "./billing-unavailable";
 
 export function AddSeatModal({
   open,
@@ -39,19 +41,28 @@ export function AddSeatModal({
   const teamInfo = useTeam();
   const teamId = teamInfo?.currentTeam?.id;
   const analytics = useAnalytics();
-  const { plan: userPlan, planName, isAnnualPlan, isOldAccount } = usePlan();
+  const {
+    plan: userPlan,
+    planName,
+    isAnnualPlan,
+    isOldAccount,
+    billingActionsAvailable,
+    billingActionsReason,
+  } = usePlan();
   const { limits } = useLimits();
 
   const [quantity, setQuantity] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
 
   // Get the minimum quantity for the current plan
-  const priceId = getPriceIdFromPlan({
-    planSlug: userPlan,
-    isOld: isOldAccount,
-    period: isAnnualPlan ? "yearly" : "monthly",
-  });
-  const minQuantity = getQuantityFromPriceId(priceId);
+  const priceId = billingActionsAvailable
+    ? getPriceIdFromPlan({
+        planSlug: userPlan,
+        isOld: isOldAccount,
+        period: isAnnualPlan ? "yearly" : "monthly",
+      })
+    : null;
+  const minQuantity = priceId ? getQuantityFromPriceId(priceId) : 1;
 
   // Set initial quantity to 1 (adding one seat)
   useEffect(() => {
@@ -61,9 +72,10 @@ export function AddSeatModal({
   }, [open]);
 
   // Calculate the total number of seats after the update
-  const totalSeatsAfterUpdate = limits?.users && limits.users !== Infinity
-    ? limits.users + quantity
-    : quantity;
+  const totalSeatsAfterUpdate =
+    limits?.users && limits.users !== Infinity
+      ? limits.users + quantity
+      : quantity;
 
   const handleDecrement = () => {
     if (quantity > 1) {
@@ -76,6 +88,7 @@ export function AddSeatModal({
   };
 
   const handleSubmit = async () => {
+    if (!billingActionsAvailable || !priceId) return;
     setLoading(true);
 
     try {
@@ -114,6 +127,17 @@ export function AddSeatModal({
       setLoading(false);
     }
   };
+
+  if (!billingActionsAvailable)
+    return (
+      <BillingUnavailableDialog
+        open={open}
+        setOpen={setOpen}
+        reason={billingActionsReason}
+      >
+        {children}
+      </BillingUnavailableDialog>
+    );
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

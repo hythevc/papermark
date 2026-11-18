@@ -22,12 +22,11 @@ export const sendDataroomInfoEmail = async (
 
   const emailTemplate = DataRoomsInformationEmail();
 
-  const subject = USECASE_SUBJECTS[useCase as keyof typeof USECASE_SUBJECTS];
+  const subject = USECASE_SUBJECTS[useCase as keyof typeof USECASE_SUBJECTS] ?? USECASE_SUBJECTS.other;
 
   try {
     await sendEmail({
       to: email as string,
-      from: "Marc Seitz <marc@papermark.com>",
       subject,
       react: emailTemplate,
       test: process.env.NODE_ENV === "development",

@@ -1,0 +1,373 @@
+{
+  "name": "papermark-home",
+  "url": "https://www.papermark.com/",
+  "viewportCaptures": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "documentWidth": 1440,
+      "file": "papermark-home-1440.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 422,
+      "file": "papermark-home-390.png"
+    }
+  ],
+  "capturedAt": "2026-11-14T18:41:31.148Z",
+  "status": 200,
+  "finalUrl": "https://www.papermark.com/",
+  "title": "Papermark | Secure data rooms for modern dealmakers",
+  "headings": [
+    "Close Deals Faster.",
+    "Series B Data Room",
+    "Fund II Data Room",
+    "80,000+ dealmakers worldwide trust Papermark",
+    "Real impact for real teams",
+    "Enterprise-grade security and controls",
+    "See exactly which document pages closed the deal, and which lost the room.",
+    "Run your next deal on Papermark.",
+    "Footer",
+    "Product",
+    "About",
+    "Use cases",
+    "Alternatives",
+    "Resources"
+  ],
+  "links": [
+    {
+      "text": "Data Room",
+      "href": "https://www.papermark.com/data-room"
+    },
+    {
+      "text": "P",
+      "href": "https://www.papermark.com/"
+    },
+    {
+      "text": "9.4K",
+      "href": "https://git.new/papermark"
+    },
+    {
+      "text": "All Systems Operational",
+      "href": "https://papermark.openstatus.dev/"
+    },
+    {
+      "text": "Papermark",
+      "href": "https://www.papermark.com/"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.papermark.com/pricing"
+    },
+    {
+      "text": "Data Room",
+      "href": "https://www.papermark.com/data-room"
+    },
+    {
+      "text": "API",
+      "href": "https://www.papermark.com/dev"
+    },
+    {
+      "text": "MCP",
+      "href": "https://www.papermark.com/agents"
+    },
+    {
+      "text": "Enterprise",
+      "href": "https://www.papermark.com/enterprise"
+    },
+    {
+      "text": "Security",
+      "href": "https://www.papermark.com/security"
+    },
+    {
+      "text": "GitHub",
+      "href": "https://github.com/papermark"
+    },
+    {
+      "text": "Page by Page  Analytics",
+      "href": "https://www.papermark.com/document-analytics"
+    },
+    {
+      "text": "AI Redaction",
+      "href": "https://www.papermark.com/ai-redaction"
+    },
+    {
+      "text": "Data room request list",
+      "href": "https://www.papermark.com/data-room-request-list"
+    },
+    {
+      "text": "Dynamic Watermarking",
+      "href": "https://www.papermark.com/dynamic-watermarking"
+    },
+    {
+      "text": "Screenshot Protection",
+      "href": "https://www.papermark.com/screenshot-protection"
+    },
+    {
+      "text": "Password Protection",
+      "href": "https://www.papermark.com/password-protection"
+    },
+    {
+      "text": "One-Click NDA",
+      "href": "https://www.papermark.com/one-click-nda"
+    },
+    {
+      "text": "AI Data Room Copilot",
+      "href": "https://www.papermark.com/ai"
+    },
+    {
+      "text": "Notion Sharing",
+      "href": "https://www.papermark.com/share-notion-page"
+    },
+    {
+      "text": "Secure File Sharing",
+      "href": "https://www.papermark.com/secure-file-sharing"
+    },
+    {
+      "text": "Workflows",
+      "href": "https://www.papermark.com/workflows"
+    },
+    {
+      "text": "Link Permissions",
+      "href": "https://www.papermark.com/granular-permissions"
+    },
+    {
+      "text": "Custom Domain",
+      "href": "https://www.papermark.com/help/article/how-to-add-custom-domain-to-link"
+    },
+    {
+      "text": "Document Versions",
+      "href": "https://www.papermark.com/help/article/document-versions"
+    },
+    {
+      "text": "Data Room Questions and Answers",
+      "href": "https://www.papermark.com/data-room-questions-and-answers"
+    },
+    {
+      "text": "AI Agents for Data Rooms",
+      "href": "https://www.papermark.com/ai-agents"
+    },
+    {
+      "text": "AI Data Rooms",
+      "href": "https://www.papermark.com/blog/ai-data-rooms"
+    },
+    {
+      "text": "Company",
+      "href": "https://www.papermark.com/about"
+    },
+    {
+      "text": "Platform",
+      "href": "https://www.papermark.com/platform"
+    },
+    {
+      "text": "Changelog",
+      "href": "https://www.papermark.com/changelog"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.papermark.com/privacy"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.papermark.com/terms"
+    },
+    {
+      "text": "Subprocessors",
+      "href": "https://www.papermark.com/subprocessors"
+    },
+    {
+      "text": "Customers",
+      "href": "https://www.papermark.com/customers"
+    },
+    {
+      "text": "Become a partner",
+      "href": "https://www.papermark.com/partners"
+    },
+    {
+      "text": "Data Room Use Cases",
+      "href": "https://www.papermark.com/virtual-data-room-use-cases"
+    },
+    {
+      "text": "M&A Data Room",
+      "href": "https://www.papermark.com/ma-data-room"
+    },
+    {
+      "text": "Real Estate Data Room",
+      "href": "https://www.papermark.com/real-estate-data-room"
+    },
+    {
+      "text": "Due Diligence",
+      "href": "https://www.papermark.com/data-room-due-diligence"
+    },
+    {
+      "text": "Investment Banking",
+      "href": "https://www.papermark.com/vdr-investment-banking"
+    },
+    {
+      "text": "Startups Fundraising",
+      "href": "https://www.papermark.com/startups"
+    },
+    {
+      "text": "Pitch Deck Sharing",
+      "href": "https://www.papermark.com/pitch-deck-sharing-software"
+    },
+    {
+      "text": "Investor Update Software",
+      "href": "https://www.papermark.com/solutions/investor-update-software"
+    },
+    {
+      "text": "Data Room for Startups",
+      "href": "https://www.papermark.com/data-room-for-startups"
+    },
+    {
+      "text": "Biotech Pharma Data Room",
+      "href": "https://www.papermark.com/biotech-pharma-data-room"
+    },
+    {
+      "text": "Virtual Sales Data Room",
+      "href": "https://www.papermark.com/vdr-sales"
+    },
+    {
+      "text": "Fundraising Data Room",
+      "href": "https://www.papermark.com/fundraising-data-room"
+    },
+    {
+      "text": "DocSend",
+      "href": "https://www.papermark.com/alternatives/docsend"
+    },
+    {
+      "text": "Ideals VDR",
+      "href": "https://www.papermark.com/alternatives/ideals"
+    },
+    {
+      "text": "Intralinks",
+      "href": "https://www.papermark.com/alternatives/intralinks"
+    },
+    {
+      "text": "Datasite",
+      "href": "https://www.papermark.com/alternatives/datasite"
+    },
+    {
+      "text": "Firmex",
+      "href": "https://www.papermark.com/blog/firmex-alternatives"
+    },
+    {
+      "text": "Ansarada",
+      "href": "https://www.papermark.com/alternatives/ansarada"
+    },
+    {
+      "text": "All Alternatives",
+      "href": "https://www.papermark.com/alternatives"
+    },
+    {
+      "text": "DocSend Alternatives",
+      "href": "https://www.papermark.com/docsend-alternatives"
+    },
+    {
+      "text": "Ideals VDR Alternatives",
+      "href": "https://www.papermark.com/ideals-vdr-alternatives"
+    },
+    {
+      "text": "Intralinks Alternatives",
+      "href": "https://www.papermark.com/blog/intralinks-alternatives"
+    },
+    {
+      "text": "Datasite Alternatives",
+      "href": "https://www.papermark.com/blog/datasite-alternatives"
+    },
+    {
+      "text": "Digify",
+      "href": "https://www.papermark.com/alternatives/digify"
+    },
+    {
+      "text": "Digify Alternatives",
+      "href": "https://www.papermark.com/digify-alternatives"
+    },
+    {
+      "text": "Sharepoint",
+      "href": "https://www.papermark.com/alternatives/sharepoint"
+    },
+    {
+      "text": "Sharepoint Alternatives",
+      "href": "https://www.papermark.com/blog/sharepoint-alternatives-for-data-rooms"
+    },
+    {
+      "text": "Blog",
+      "href": "https://www.papermark.com/blog"
+    },
+    {
+      "text": "Help Center",
+      "href": "https://www.papermark.com/help"
+    },
+    {
+      "text": "Fundraising Report 2026",
+      "href": "https://www.papermark.com/fundraising-report"
+    },
+    {
+      "text": "Pitch Deck Competition",
+      "href": "https://www.papermark.com/pitch-deck-competition"
+    },
+    {
+      "text": "What is a Virtual Data Room",
+      "href": "https://www.papermark.com/blog/what-is-virtual-data-room"
+    },
+    {
+      "text": "Best Virtual Data Rooms",
+      "href": "https://www.papermark.com/blog/best-virtual-data-rooms"
+    },
+    {
+      "text": "Data Room Price Comparison",
+      "href": "https://www.papermark.com/data-room-price"
+    },
+    {
+      "text": "Data Room Examples",
+      "href": "https://www.papermark.com/data-room-examples"
+    },
+    {
+      "text": "M&A Data Room Guide",
+      "href": "https://www.papermark.com/blog/virtual-data-room-for-mergers-and-acquisitions"
+    },
+    {
+      "text": "Best CRE Data Rooms",
+      "href": "https://www.papermark.com/blog/best-data-rooms-for-commercial-real-estate"
+    },
+    {
+      "text": "M&A Process Guide",
+      "href": "https://www.papermark.com/blog/ma-process"
+    },
+    {
+      "text": "Top Startup Data Rooms",
+      "href": "https://www.papermark.com/blog/data-room-for-startups"
+    },
+    {
+      "text": "Investor Database (7k+)",
+      "href": "https://www.papermark.com/investors"
+    },
+    {
+      "text": "M&A Advisors Database",
+      "href": "https://www.papermark.com/ma-advisors"
+    },
+    {
+      "text": "Startup Due Diligence",
+      "href": "https://www.papermark.com/blog/startup-due-diligence"
+    },
+    {
+      "text": "Due Diligence Data Room Guide",
+      "href": "https://www.papermark.com/blog/best-virtual-data-rooms-for-due-diligence"
+    },
+    {
+      "text": "Virtual Data Room Cost",
+      "href": "https://www.papermark.com/blog/virtual-data-room-cost"
+    },
+    {
+      "text": "Document Tracking Tool",
+      "href": "https://www.papermark.com/blog/document-tracking-software"
+    },
+    {
+      "text": "Open Source Data Room",
+      "href": "https://www.papermark.com/blog/open-source-free-data-room-software"
+    }
+  ],
+  "visibleTextSnippet": "Papermark is now a verified connector in Claude\nCreate a data room with MCP\nWhy Papermark?\nData Room\nPricing\nSecurity\nDevelopers\nBlog\nCustomers\nNews\nLog in\nStart now\nISO 27001 certified · SOC 2 Type II\nClose Deals Faster.\n\nThe world's most ambitious dealmakers, founders and finance teams trust Papermark to host their data rooms and share confidential documents.\n\nStart for free\nNo credit card required\nTRUSTED BY 80,000+ GLOBAL COMPANIES\n4.9 / 5.0\nOur Customers\n\nPapermark is the secure data room built for modern dealmakers. Share confidential documents on a platform that gives you control, visibility, and trust.\n\nPapermark\nWORKSPACE\nDocuments\nData Rooms\nVisitors\nAnalytics\nDATA ROOMS\nSeries B 2026\nFund II Data Room\nProject Northline\nAcquisition Kestrel\nHarbor Point Offices\nTender Meridian Health\nSeries B Data Room\nLast updated 2 hours ago\nShare\nData Room\nPermissions\nAnalytics\nAudit Log\nBranding\nName\tView duration\tView completion\tLast viewed\n\nS\nSarah Chen\nsarah@sequoia.com\n\t4:32\t\n0\n\t2m ago\n\nM\nMichael Torres\nm.torres@a16z.com\n\t12:15\t\n0\n\t18m ago\n\nE\nElena Kovacs\nelena@indexventures.com\n\t7:48\t\n0\n\t1h ago\n\nJ\nJames Wright\njwright@accel.com\n\t2:05\t\n0\n\t3h ago\n\nP\nPriya Sharma\npriya@lightspeed.com\n\t9:22\t\n0\n\t5h ago\n\nD\nDavid Kim\ndavid@greylock.com\n\t6:41\t\n0\n\t8h ago\nFund II Data Room\nDocument analytics · Last 30 days\nShare\nData Room\nPermissions\nAnalytics\nAudit Log\nBranding\nNumber of visits\n128\nAverage view duration\n6:42\nAverage completion\n81%\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\nVersion 2\nVersion 1\nTime spent per page\nTotal deal value running through Papermark.\n$\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n,\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n,\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n,\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n80,000+ DEALMA"
+}

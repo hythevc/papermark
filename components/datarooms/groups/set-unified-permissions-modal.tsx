@@ -25,6 +25,7 @@ import {
 import useDataroomGroups from "@/lib/swr/use-dataroom-groups";
 import useDataroomPermissionGroups from "@/lib/swr/use-dataroom-permission-groups";
 import { cn } from "@/lib/utils";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 
 import CloudDownloadOff from "@/components/shared/icons/cloud-download-off";
 import { Button } from "@/components/ui/button";
@@ -845,10 +846,10 @@ export function SetUnifiedPermissionsModal({
                             };
                             const primary =
                               link.name || `Link #${link.id.slice(-5)}`;
-                            const secondary =
-                              link.domainId && link.slug
-                                ? `${link.domainSlug}/${link.slug}`
-                                : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
+                            const secondary = constructLinkUrl(link).replace(
+                              /^https?:\/\//,
+                              "",
+                            );
                             return (
                               <PermissionRow
                                 key={link.id}

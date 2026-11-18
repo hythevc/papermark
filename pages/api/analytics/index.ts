@@ -14,6 +14,7 @@ import {
 } from "@/lib/tinybird/pipes";
 import { CustomUser } from "@/lib/types";
 import { durationFormat } from "@/lib/utils";
+import { constructLinkUrl } from "@/lib/utils/link-url";
 
 import { authOptions } from "../auth/[...nextauth]";
 
@@ -355,7 +356,7 @@ export default async function handler(
               name: link.name || `Link #${link.id.slice(-5)}`,
               url: link.domainId
                 ? `https://${link.domainSlug}/${link.slug}`
-                : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`,
+                : constructLinkUrl({ id: link.id }),
               documentName: link.document?.name || "Unknown",
               documentId: link.documentId,
               views: link._count.views,

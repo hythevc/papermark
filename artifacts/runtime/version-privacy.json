@@ -1,0 +1,182 @@
+{
+  "checkedAt": "2026-11-17T03:54:11.368782+00:00",
+  "status": "historical-guest-issuance denied on the patched production build; retained replay and independent fresh fixture both verified",
+  "scope": [
+    "POST /api/views: historical initial page/file denial and current-primary positive",
+    "POST /api/views-dataroom: historical initial page/file denial and current-primary positive",
+    "POST /api/views/pages: historical refresh denial for actual document and room sessions",
+    "Original-download APIs: current-primary derivative bytes despite an injected historical documentVersionId",
+    "Fresh authorized owner preview: retained historical page/file access; guest use of its preview token denied"
+  ],
+  "serverBuildId": "Fmo26OV53AAGKGw3Dp2Na",
+  "buildIdEvidence": "HTTP / __NEXT_DATA__.buildId matched the local production .next/BUILD_ID.",
+  "red": {
+    "checkedAt": "2026-11-17T03:37:36.270Z",
+    "phase": "red",
+    "mode": "real owner NextAuth session, genuine public guest sessions, PostgreSQL/S3 and actual MuPDF redaction; no auth or route mocks",
+    "checks": [
+      {
+        "name": "Real PDF upload renders a primary source version containing the synthetic private text",
+        "status": "passed"
+      },
+      {
+        "name": "Actual guest sessions can view the source while it is the current primary",
+        "status": "passed"
+      },
+      {
+        "name": "Real redaction publishes a flattened current primary and retains owner history",
+        "status": "passed"
+      },
+      {
+        "name": "RED proves historical initial page/file requests mint fresh unredacted capabilities",
+        "status": "passed"
+      },
+      {
+        "name": "RED proves established guest page refresh can still mint the historical source",
+        "status": "passed"
+      },
+      {
+        "name": "Current-primary initial views, file requests and established page refresh return the actual derivative",
+        "status": "passed"
+      },
+      {
+        "name": "Original-download issuance selects only the current derivative even with a historical versionId field",
+        "status": "passed"
+      },
+      {
+        "name": "Freshly authorized owner preview can inspect retained historical file/page bytes",
+        "status": "passed"
+      }
+    ],
+    "observedStatuses": {
+      "document-historical-pages": 200,
+      "room-historical-pages": 200,
+      "document-historical-file": 200,
+      "room-historical-file": 200,
+      "document-historical-refresh": 200,
+      "room-historical-refresh": 200
+    },
+    "limitations": [
+      "Only disposable synthetic content is used. Test room/link scaffolding is seeded in the isolated database; upload, redaction and sharing requests are real HTTP calls.",
+      "Previously issued storage capabilities remain valid until expiry. The tested getFile path defaults to two minutes and caps requests at one hour; this proof concerns new issuance after primary publication."
+    ],
+    "status": "vulnerability-reproduced-before-activation; not a release pass",
+    "expectedMeaning": "Historical vulnerability reproduction, not a release pass.",
+    "serverBuildIdObservation": "Not captured before the prior immutable production server was stopped; no build ID is inferred from source hashes."
+  },
+  "green": {
+    "checkedAt": "2026-11-17T03:50:44.725Z",
+    "phase": "green",
+    "mode": "real owner NextAuth session, genuine public guest sessions, PostgreSQL/S3 and actual MuPDF redaction; no auth or route mocks",
+    "checks": [
+      {
+        "name": "GREEN denies historical initial page/file requests on both guest sharing routes",
+        "status": "passed"
+      },
+      {
+        "name": "GREEN denies historical page refresh for established document and room sessions",
+        "status": "passed"
+      },
+      {
+        "name": "Current-primary initial views, file requests and established page refresh return the actual derivative",
+        "status": "passed"
+      },
+      {
+        "name": "Original-download issuance selects only the current derivative even with a historical versionId field",
+        "status": "passed"
+      },
+      {
+        "name": "Freshly authorized owner preview can inspect retained historical file/page bytes",
+        "status": "passed"
+      }
+    ],
+    "observedStatuses": {
+      "document-historical-pages": 403,
+      "room-historical-pages": 403,
+      "document-historical-file": 403,
+      "room-historical-file": 403,
+      "document-historical-refresh": 403,
+      "room-historical-refresh": 403
+    },
+    "limitations": [
+      "Only disposable synthetic content is used. Test room/link scaffolding is seeded in the isolated database; upload, redaction and sharing requests are real HTTP calls.",
+      "Previously issued storage capabilities remain valid until expiry. The tested getFile path defaults to two minutes and caps requests at one hour; this proof concerns new issuance after primary publication."
+    ],
+    "serverBuildId": "Fmo26OV53AAGKGw3Dp2Na",
+    "buildIdEvidence": "HTTP / __NEXT_DATA__.buildId matched the local production .next/BUILD_ID.",
+    "status": "current-primary privacy guard verified",
+    "cleanup": "Only this replay's synthetic fixture IDs and object keys were removed; retained core fixtures were untouched."
+  },
+  "verify": {
+    "checkedAt": "2026-11-17T03:51:42.218Z",
+    "phase": "verify",
+    "mode": "real owner NextAuth session, genuine public guest sessions, PostgreSQL/S3 and actual MuPDF redaction; no auth or route mocks",
+    "checks": [
+      {
+        "name": "Real PDF upload renders a primary source version containing the synthetic private text",
+        "status": "passed"
+      },
+      {
+        "name": "Actual guest sessions can view the source while it is the current primary",
+        "status": "passed"
+      },
+      {
+        "name": "Real redaction publishes a flattened current primary and retains owner history",
+        "status": "passed"
+      },
+      {
+        "name": "GREEN denies historical initial page/file requests on both guest sharing routes",
+        "status": "passed"
+      },
+      {
+        "name": "GREEN denies historical page refresh for established document and room sessions",
+        "status": "passed"
+      },
+      {
+        "name": "Current-primary initial views, file requests and established page refresh return the actual derivative",
+        "status": "passed"
+      },
+      {
+        "name": "Original-download issuance selects only the current derivative even with a historical versionId field",
+        "status": "passed"
+      },
+      {
+        "name": "Freshly authorized owner preview can inspect retained historical file/page bytes",
+        "status": "passed"
+      }
+    ],
+    "observedStatuses": {
+      "document-historical-pages": 403,
+      "room-historical-pages": 403,
+      "document-historical-file": 403,
+      "room-historical-file": 403,
+      "document-historical-refresh": 403,
+      "room-historical-refresh": 403
+    },
+    "limitations": [
+      "Only disposable synthetic content is used. Test room/link scaffolding is seeded in the isolated database; upload, redaction and sharing requests are real HTTP calls.",
+      "Previously issued storage capabilities remain valid until expiry. The tested getFile path defaults to two minutes and caps requests at one hour; this proof concerns new issuance after primary publication."
+    ],
+    "serverBuildId": "Fmo26OV53AAGKGw3Dp2Na",
+    "buildIdEvidence": "HTTP / __NEXT_DATA__.buildId matched the local production .next/BUILD_ID.",
+    "status": "current-primary privacy guard verified",
+    "cleanup": "Only this replay's synthetic fixture IDs and object keys were removed; retained core fixtures were untouched."
+  },
+  "currentChecks": {
+    "retainedFixtureReplay": {
+      "passed": 5,
+      "total": 5
+    },
+    "freshCurrentBuildVerification": {
+      "passed": 8,
+      "total": 8
+    }
+  },
+  "dataAndProviderLimits": [
+    "A synthetic one-page PDF and intentionally public guest links were used; owner authentication and both guest session types were real. No API, authentication, database or storage response was mocked.",
+    "The HTTP server ran the production bundle with local integration disabled; the fixture driver separately required development plus explicit local integration mode and loopback services.",
+    "The evidence covers current-primary publication and scoped sharing requests, not every file format, every role/state, production providers, deployment, or comprehensive security certification.",
+    "Previously issued page/original URLs retain their lifetime: two-minute default and one-hour cap on the tested getFile endpoint. Other signing paths have separate lifetimes; delivered bytes cannot be withdrawn."
+  ],
+  "cleanup": "Both the retained replay and fresh verification removed only their own fixture IDs/object keys and guest-state files. Original core owner membership, room and links were not mutated."
+}
