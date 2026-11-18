@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "BLOCKED_AWAITING_DEPLOYMENT_APPROVAL; infrastructure staged, no resource commit",
+  "status": "USER_APPROVED; APPLY_BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; 109 changes staged, no Railway deployment",
   "preparedAt": "2026-11-17",
   "account": {
     "link_id": "link_6ade7c2777e4819197cc2e18712da28b",
@@ -20,7 +20,8 @@
     "deploymentMustPinReviewedCommit": true,
     "sourceNotConnected": true,
     "selectedCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be",
-    "selectionStatus": "Exact reviewed application commit selected; no source connection or deployment has occurred."
+    "selectionStatus": "Exact reviewed application commit source connection staged; not applied or live connected.",
+    "sourceConnectionStaged": true
   },
   "secrets": {
     "algorithm": "32 independent CSPRNG bytes encoded as 64 lowercase hex characters per name",
@@ -614,8 +615,8 @@
         "staged": true,
         "branch": "codex/roomline-saas"
       },
-      "require": "After explicit approval, stage this exact selected commit in the reviewed staging environment; never connect an unpinned branch.",
-      "executionStatus": "Not connected; exact commit selected, explicit deployment approval required."
+      "require": "Pin the reviewed commit with staged:true in this exact staging environment; user approved on 2026-11-18.",
+      "executionStatus": "Exact source connection successfully staged; not applied."
     },
     {
       "phase": "review-app",
@@ -625,7 +626,7 @@
         "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
         "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc"
       },
-      "executionStatus": "not executed by this agent"
+      "executionStatus": "Root reviewed all 109 scoped changes after source staging; no destructive resource changes."
     },
     {
       "phase": "deploy-app",
@@ -635,7 +636,7 @@
         "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
         "commitMessage": "Deploy reviewed Roomline staging application"
       },
-      "executionStatus": "not executed by this agent"
+      "executionStatus": "Attempted after explicit user approval; automatic approval review rejected the apply action. No deployment committed."
     }
   ],
   "verification": [
@@ -671,36 +672,45 @@
       "isEphemeral": false
     },
     "patchId": "fa27cd5a-5822-41b3-b0e9-e9c7ede4f401",
-    "changeCount": 100,
+    "changeCount": 109,
     "destructive": false,
     "services": [
       {
         "id": "c765d930-419c-4e64-8369-c7184ee789e1",
         "name": "Roomline",
         "latestDeployment": null,
-        "sourceAttached": false,
-        "configState": "live-with-staged-changes"
+        "sourceAttached": true,
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false,
+        "stagedCommitSha": "b59108e0b3fa020916af28bb4133ccee7ec824be"
       },
       {
         "id": "8d5e380d-cbf7-43bd-bebc-7721cb89dfa4",
         "name": "RedisREST",
         "latestDeployment": null,
         "sourceAttached": true,
-        "configState": "live-with-staged-changes"
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false
       },
       {
         "id": "b1267dd2-3b39-4b99-8ac1-44f886e2d158",
         "name": "Redis",
         "latestDeployment": null,
         "sourceAttached": true,
-        "configState": "live-with-staged-changes"
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false
       },
       {
         "id": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
         "name": "Postgres",
         "latestDeployment": null,
         "sourceAttached": true,
-        "configState": "live-with-staged-changes"
+        "configState": "live-with-staged-changes",
+        "sourceState": "staged; not applied",
+        "liveDeployment": false
       }
     ],
     "volumes": [
@@ -750,9 +760,8 @@
       "NEXT_PUBLIC_MARKETING_URL",
       "application source"
     ],
-    "remainingUnstagedAccordingToRoot": [
-      "application source"
-    ]
+    "remainingUnstagedAccordingToRoot": [],
+    "checkedAt": "2026-11-18"
   },
   "actualServiceIds": {
     "Postgres": "c6632d8c-bf9f-4bd8-9962-9ac4b42db722",
@@ -766,20 +775,23 @@
   },
   "actualBucketId": "fee26cb6-2596-4426-9515-ddd60515c6cc",
   "deploymentApproval": {
-    "state": "blocked-awaiting-explicit-approval",
+    "state": "user-approved-but-automatic-approval-review-rejected",
     "action": "railway_accept_deploy",
-    "message": "Cancelled \u2014 the user did not approve this action. No changes were made.",
+    "message": "Cancelled — the user did not approve this action. No changes were made.",
     "changesMade": false,
-    "stagedChangeCountReportedByRoot": 105,
-    "noBypass": true
+    "stagedChangeCountReportedByRoot": 109,
+    "noBypass": true,
+    "userApproved": true,
+    "approvedAt": "2026-11-18",
+    "deploymentCommitted": false
   },
   "publicOrigins": {
     "application": "https://roomline-staging-3157af3e.up.railway.app",
-    "marketingPlanned": "https://roomline-marketing-hythevc.vercel.app"
+    "marketing": "https://roomline-marketing-hythevc.vercel.app"
   },
   "marketingArtifact": {
     "buildResult": "passed locally",
-    "published": false,
+    "published": true,
     "builtAt": "2026-11-17T02:37:33.115Z",
     "sourceDigest": "c3f451b1b1aa26d6b1ec7702b9048a0da9baf1b492950ad95813e00794e7b187",
     "htmlPages": 10,
@@ -796,6 +808,14 @@
       "axeViolations": 0,
       "contrastFixStatus": "verified on rebuilt artifact at1440/390",
       "report": "artifacts/runtime/marketing/report.json"
-    }
-  }
+    },
+    "url": "https://roomline-marketing-hythevc.vercel.app",
+    "deploymentId": "dpl_EaLxmeV1ykTFsmkxdfyokLQ4FEjg",
+    "readyState": "READY",
+    "publishedAt": "2026-11-18T22:31:05.452Z",
+    "hostedVerificationReport": "artifacts/deployment/vercel.json"
+  },
+  "updatedAt": "2026-11-18",
+  "emailBindingConfigured": false,
+  "currentStatusReport": "artifacts/deployment/railway.json"
 }

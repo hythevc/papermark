@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-18T22:39:45.611Z",
+  "status": "PUBLISHED_AND_HOSTED_VERIFIED",
+  "authorization": "User explicitly approved the reviewed Vercel marketing deployment on 2026-11-18.",
+  "teamId": "team_pe74HMcqhmeKmVMl8AGbuX2F",
+  "projectId": "prj_mgNOiawu88be97jPdsPDXRcqYnFM",
+  "projectName": "roomline-marketing-hythevc",
+  "url": "https://roomline-marketing-hythevc.vercel.app",
+  "deploymentUrl": "https://roomline-marketing-hythevc-rjd7evwon-jaime-henriques-projects.vercel.app",
+  "deploymentId": "dpl_EaLxmeV1ykTFsmkxdfyokLQ4FEjg",
+  "target": "production",
+  "readyState": "READY",
+  "createdAt": "2026-11-18T22:31:03.094Z",
+  "readyAt": "2026-11-18T22:31:05.452Z",
+  "providerBuildDurationMs": 1565,
+  "reviewedApplicationCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be",
+  "publicSourceComparedAtHead": "b32645260991add2b5cc214436e83e201f2f75ef",
+  "publicSourceDiffFromReviewedCommit": 0,
+  "marketingSourceDigest": "c3f451b1b1aa26d6b1ec7702b9048a0da9baf1b492950ad95813e00794e7b187",
+  "localExportArtifactDigest": "e6478067197f3d70ca1fbe0bd7c86bdf083cd712a1de26ff12fdc4f234d0e3f8",
+  "artifactBuiltAt": "2026-11-17T02:37:33.115Z",
+  "publicationMethod": "Uploaded 47 previously tested public export files plus one Vercel static routing configuration by SHA1, then created a production static-file deployment. No SaaS repository source, API handlers, environment files, credentials, manifest or service worker were uploaded.",
+  "fileIntegrity": {
+    "uploadedFiles": 48,
+    "remoteFiles": 48,
+    "complete": true,
+    "sha1Mismatches": []
+  },
+  "projectSettings": {
+    "framework": null,
+    "nodeVersion": "24.x",
+    "buildCommand": "",
+    "installCommand": "",
+    "outputDirectory": null,
+    "ssoProtection": null,
+    "directoryListing": false,
+    "publicSource": false
+  },
+  "routing": {
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "publicContentPages": 9,
+    "requiredContentAndErrorPages": 10,
+    "framework404AliasIncluded": true,
+    "direct404DemoStatus": 200,
+    "missingOrPrivateDocumentStatus": 404,
+    "apiNamespace": "Vercel platform404; no API files uploaded"
+  },
+  "applicationOrigin": "https://roomline-staging-3157af3e.up.railway.app",
+  "verification": {
+    "http": {
+      "passed": true,
+      "checks": 21,
+      "public200": 10,
+      "privateOrMissing404": 11,
+      "anonymous": true
+    },
+    "browser": {
+      "result": "passed",
+      "captures": 20,
+      "captureFailures": 0,
+      "interactions": 3,
+      "interactionFailures": 0,
+      "foreignRequests": 0,
+      "privateRequests": 0,
+      "axeViolations": 0,
+      "pageExceptions": 0,
+      "unexpectedConsole": 0,
+      "manifestLinks": 0,
+      "serviceWorkerAttempts": 0,
+      "serviceWorkerRegistrations": 0,
+      "cookies": 0
+    },
+    "screenshots": [
+      "artifacts/deployment/vercel-browser/home-1440-first-viewport.png",
+      "artifacts/deployment/vercel-browser/home-390-first-viewport.png",
+      "artifacts/deployment/vercel-browser/mobile-390-first-viewport.png"
+    ]
+  },
+  "buildEvents": {
+    "checked": 12,
+    "errorLines": 0,
+    "completed": true
+  },
+  "evidence": {
+    "http": "artifacts/deployment/vercel-http.json",
+    "browserJson": "artifacts/deployment/vercel-browser/report.json",
+    "browserMarkdown": "artifacts/deployment/vercel-browser/REPORT.md",
+    "screenshots": "artifacts/deployment/vercel-browser/"
+  },
+  "visualReview": {
+    "result": "passed",
+    "reviewedBy": "agent visual inspection",
+    "screenshots": [
+      "artifacts/deployment/vercel-browser/home-1440-first-viewport.png",
+      "artifacts/deployment/vercel-browser/home-390-first-viewport.png",
+      "artifacts/deployment/vercel-browser/mobile-390-first-viewport.png"
+    ],
+    "observations": [
+      "Desktop homepage hierarchy, forest CTAs, restrained borders and the clearly labeled sample preview match the reviewed export.",
+      "390px homepage has readable wrapping, full-width account/product actions and a contained sample preview.",
+      "390px mobile-install guide has a legible primary link and readable instructions, with installation correctly directed to the application origin."
+    ]
+  },
+  "limitations": [
+    "Railway application/authentication/email/storage/billing functionality is not exercised by marketing publication; account CTAs were checked as links and not followed.",
+    "Axe automated WCAG A/AA checks and headless desktop/mobile viewport evidence do not establish complete accessibility conformance or physical-device compatibility.",
+    "This publication does not connect the Git repository for automatic future Vercel deployments.",
+    "No production error drain or ongoing monitoring integration was created; the observed build events and browser/HTTP checks cover this publication only."
+  ],
+  "noRailwayMutations": true,
+  "applicationCodeChanged": false,
+  "gitCommitOrPushPerformed": false
+}

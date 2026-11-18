@@ -1,6 +1,6 @@
 # Roomline runtime restoration · 17 November 2026
 
-This is local verification of the Roomline branch. The marketing site and SaaS app have **not been deployed**. The hosting target is Vercel for the isolated public export and Railway for the full application. The new staging infrastructure is prepared but its deployment was rejected by the approval gate.
+This report records local verification of the Roomline branch. Marketing was subsequently [published and hosted-verified on Vercel](../deployment/vercel.md) at https://roomline-marketing-hythevc.vercel.app on 18 November 2026. The full SaaS application remains offline on Railway: its reviewed 109 changes are staged, but automatic approval review rejected applying them even after the user's explicit approval. [Current Railway status](../deployment/railway.json).
 
 ## What changed
 
@@ -30,7 +30,7 @@ Paid mutation routes and owned Stripe/catalog bindings remain unavailable. The a
 
 ## Hosted release requirements
 
-See [DEPLOYMENT.md](../../DEPLOYMENT.md) and [the concrete Railway plan](../../railway-staging-plan.json). The operator must configure an owned Resend key and verified sender in Railway secret settings. Hosted authentication, storage CORS, migrations and health still require verification after approval and deployment. Optional Stripe prices/webhooks, OAuth/SSO, AI, external converters, Tinybird, Slack and background workers have not been verified with owned production providers.
+See [DEPLOYMENT.md](../../DEPLOYMENT.md) and [the concrete Railway plan](../../railway-staging-plan.json). The operator must configure an owned Resend key and verified sender in Railway secret settings and apply the existing reviewed changes from the staging dashboard. Hosted authentication, storage CORS, migrations and health still require verification after deployment. Optional Stripe prices/webhooks, OAuth/SSO, AI, external converters, Tinybird, Slack and background workers have not been verified with owned production providers.
 
 No native app is required under the chosen web-first scope. Browser evidence does not establish physical iOS/Android installation, all assistive technology behavior, or all 95 screen states. Competitor public references inform the design; no measured competitor-superiority or “100x” outcome is claimed.
 

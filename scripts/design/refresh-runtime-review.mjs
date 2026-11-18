@@ -43,6 +43,16 @@ const reportPaths = {
 const ids = Object.fromEntries(
   Object.entries(reportPaths).map(([key, value]) => [key, addEvidence(value)]),
 );
+const hostedMarketingPath = "artifacts/deployment/vercel.json";
+const hostedMarketing = fs.existsSync(path.join(root, hostedMarketingPath))
+  ? read(hostedMarketingPath)
+  : null;
+if (hostedMarketing?.status === "PUBLISHED_AND_HOSTED_VERIFIED") {
+  ids.hostedMarketing = addEvidence(hostedMarketingPath);
+  ids.hostedBrowser = addEvidence("artifacts/deployment/vercel-browser/report.json");
+}
+if (fs.existsSync(path.join(root, "artifacts/deployment/railway.json")))
+  ids.railway = addEvidence("artifacts/deployment/railway.json");
 const retained = manifest.surfaces.filter(
   (surface) =>
     surface.status === "rendered" && !surface.id.startsWith("runtime-"),
@@ -150,7 +160,7 @@ for (const check of manifest.checks) {
     Object.assign(check, {
       status: "passed",
       reason:
-        "Fresh whole-repository strict TypeScript and full production build pass with no bypass. Real local authentication, tenant/access, upload, redaction and revocation flows are evidenced. Hosted deployment, all optional providers and every protected screen/state remain outside this pass.",
+        "Fresh whole-repository strict TypeScript and full production build pass with no bypass. Real local authentication, tenant/access, upload, redaction and revocation flows are evidenced. Hosted SaaS deployment, all optional providers and every protected screen/state remain outside this pass.",
       evidence: [ids.verification, ids.core, ids.extended, ids.runtime],
     });
   if (check.id === "native_mobile")
@@ -163,6 +173,8 @@ for (const check of manifest.checks) {
   if (check.id === "responsive" || check.id === "accessibility") {
     if (!check.evidence.includes(ids.marketing))
       check.evidence.push(ids.marketing, ids.pwa);
+    if (ids.hostedMarketing && !check.evidence.includes(ids.hostedMarketing))
+      check.evidence.push(ids.hostedMarketing, ids.hostedBrowser);
     if (!check.reason.includes("Fresh isolated"))
       check.reason +=
         " Fresh isolated marketing route/viewport checks and generic offline screenshots are recorded separately; no whole-product or physical-device certification.";
@@ -171,11 +183,13 @@ for (const check of manifest.checks) {
 manifest.limitations = [
   "95 filesystem route templates are inventoried; only recorded browser route/state/viewport pairs are visually verified. Source review and API tests are distinct.",
   "The historical 201-diagnostic report is preserved. Current whole-project compiler/build results are in final-verification.json; no type/build suppression was introduced.",
-  "Live local tests use real isolated PostgreSQL, Redis, S3, SMTP and synthetic fixtures. Hosted deployment and owned payment/email/provider configuration remain unverified.",
+  "Live local tests use real isolated PostgreSQL, Redis, S3, SMTP and synthetic fixtures. Hosted SaaS deployment and owned payment/email/provider configuration remain unverified.",
   "Native apps are outside the selected installable-web scope. Headless Chromium installability/offline results do not verify an OS installation prompt, iOS Safari, physical keyboards or every assistive technology.",
   "Competitor public references and catalog screens do not establish a full authenticated competitor audit or measured design/task superiority.",
   "21st authenticated component search awaits rotated credentials; UXCritique, Intuitive Software Design, 12ui generation and imperial CV context were unavailable. Every named reference has an explicit decision.",
-  "Deployment approval was rejected; new Vercel/Railway project records and reviewed pending infrastructure are not a live staging service. Inherited AGPL/enterprise licenses remain unchanged.",
+  ids.hostedMarketing
+    ? "Marketing is published on Vercel with 21 HTTP checks, 20 desktop/mobile captures and 3 interaction groups passed. The user approved Railway deployment, but automatic approval review rejected applying its 109 staged changes; the SaaS service remains offline. Inherited AGPL/enterprise licenses remain unchanged."
+    : "Deployment approval was rejected; new Vercel/Railway project records and reviewed pending infrastructure are not a live staging service. Inherited AGPL/enterprise licenses remain unchanged.",
   "Normal CI checks evidence integrity, not release readiness. Strict release validation remains incomplete for source-only surfaces and unconfigured services.",
 ];
 const git = (args) =>

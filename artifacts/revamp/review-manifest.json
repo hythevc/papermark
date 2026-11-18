@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-17T04:02:33.721Z",
+  "reviewedAt": "2026-11-18T22:45:39.115Z",
   "scope": {
     "summary": "Roomline UX revamp, operational source restoration, real isolated owner/guest verification, installable mobile web, and separate marketing/SaaS staging preparation. All95 screen templates indexed; browser-verified pairs and unverified screens explicitly distinguished.",
     "baseline": "origin/main ed19717; initial design snapshot3f5b144; runtime restoration against the current working source digest",
@@ -365,7 +365,7 @@
       "scripts/runtime/version-concurrency.cjs",
       "styles/globals.css"
     ],
-    "sourceDigest": "84031cdfb77990d8b9a8c833b362d5d383ffa808666402e21f4e4d2176de582d"
+    "sourceDigest": "c4f20f6fcfad6de9edcf178f68d0f3a3ca680544828574027fcf024e25d5e177"
   },
   "referenceRegistry": "docs/roomline/revamp/REFERENCE_REGISTRY.json",
   "toolReviews": [
@@ -1459,6 +1459,21 @@
       "path": "artifacts/runtime/authenticated/room-overview-390.png",
       "width": 390,
       "height": 1378
+    },
+    {
+      "id": "runtime-e125",
+      "kind": "report",
+      "path": "artifacts/deployment/vercel.json"
+    },
+    {
+      "id": "runtime-e126",
+      "kind": "report",
+      "path": "artifacts/deployment/vercel-browser/report.json"
+    },
+    {
+      "id": "runtime-e127",
+      "kind": "report",
+      "path": "artifacts/deployment/railway.json"
     }
   ],
   "surfaces": [
@@ -4418,7 +4433,9 @@
         "e011",
         "e013",
         "runtime-e95",
-        "runtime-e96"
+        "runtime-e96",
+        "runtime-e125",
+        "runtime-e126"
       ]
     },
     {
@@ -4440,7 +4457,9 @@
         "e011",
         "e014",
         "runtime-e95",
-        "runtime-e96"
+        "runtime-e96",
+        "runtime-e125",
+        "runtime-e126"
       ]
     },
     {
@@ -4466,7 +4485,7 @@
     {
       "id": "runtime",
       "status": "passed",
-      "reason": "Fresh whole-repository strict TypeScript and full production build pass with no bypass. Real local authentication, tenant/access, upload, redaction and revocation flows are evidenced. Hosted deployment, all optional providers and every protected screen/state remain outside this pass.",
+      "reason": "Fresh whole-repository strict TypeScript and full production build pass with no bypass. Real local authentication, tenant/access, upload, redaction and revocation flows are evidenced. Hosted SaaS deployment, all optional providers and every protected screen/state remain outside this pass.",
       "evidence": [
         "runtime-e92",
         "runtime-e93",
@@ -4505,11 +4524,11 @@
   "limitations": [
     "95 filesystem route templates are inventoried; only recorded browser route/state/viewport pairs are visually verified. Source review and API tests are distinct.",
     "The historical 201-diagnostic report is preserved. Current whole-project compiler/build results are in final-verification.json; no type/build suppression was introduced.",
-    "Live local tests use real isolated PostgreSQL, Redis, S3, SMTP and synthetic fixtures. Hosted deployment and owned payment/email/provider configuration remain unverified.",
+    "Live local tests use real isolated PostgreSQL, Redis, S3, SMTP and synthetic fixtures. Hosted SaaS deployment and owned payment/email/provider configuration remain unverified.",
     "Native apps are outside the selected installable-web scope. Headless Chromium installability/offline results do not verify an OS installation prompt, iOS Safari, physical keyboards or every assistive technology.",
     "Competitor public references and catalog screens do not establish a full authenticated competitor audit or measured design/task superiority.",
     "21st authenticated component search awaits rotated credentials; UXCritique, Intuitive Software Design, 12ui generation and imperial CV context were unavailable. Every named reference has an explicit decision.",
-    "Deployment approval was rejected; new Vercel/Railway project records and reviewed pending infrastructure are not a live staging service. Inherited AGPL/enterprise licenses remain unchanged.",
+    "Marketing is published on Vercel with 21 HTTP checks, 20 desktop/mobile captures and 3 interaction groups passed. The user approved Railway deployment, but automatic approval review rejected applying its 109 staged changes; the SaaS service remains offline. Inherited AGPL/enterprise licenses remain unchanged.",
     "Normal CI checks evidence integrity, not release readiness. Strict release validation remains incomplete for source-only surfaces and unconfigured services."
   ]
 }

@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-11-18T22:43:28.399174+00:00",
+  "userApproved": true,
+  "approvedScope": "Reviewed Vercel marketing publication and Railway Roomline staging plan.",
+  "projectId": "a3b1c957-33a6-49c3-8d7c-512677ff27dc",
+  "environmentId": "7713c983-f043-41f7-8fe3-523dcc7e99e9",
+  "serviceId": "c765d930-419c-4e64-8369-c7184ee789e1",
+  "sourceCommit": "b59108e0b3fa020916af28bb4133ccee7ec824be",
+  "sourceState": "Exact source connection staged; not applied.",
+  "stagedChanges": 109,
+  "destructiveChanges": false,
+  "applyResult": "Blocked by automatic approval review; no deployment committed.",
+  "providerMessage": "Cancelled — the user did not approve this action. No changes were made.",
+  "providerErrorCode": "INVALID_ARGUMENT",
+  "appDeployed": false,
+  "dashboard": "https://railway.com/project/a3b1c957-33a6-49c3-8d7c-512677ff27dc?environmentId=7713c983-f043-41f7-8fe3-523dcc7e99e9",
+  "emailBindingConfigured": false,
+  "limitations": [
+    "No hosted Railway process/database/storage/authentication verification is possible before the pending patch is applied.",
+    "Business-owned RESEND_API_KEY and verified EMAIL_FROM remain required for email login.",
+    "No fallback deployment path was used after the rejection."
+  ],
+  "serviceStatus": "All four service records offline; no active deployments.",
+  "patchId": "fa27cd5a-5822-41b3-b0e9-e9c7ede4f401",
+  "nextOperatorAction": "Set business-owned RESEND_API_KEY and verified EMAIL_FROM privately on Roomline, then inspect and apply existing reviewed 109 staged changes in the exact staging dashboard. Do not recreate resources or restage secrets."
+}
